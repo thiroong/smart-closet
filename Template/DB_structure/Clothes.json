@@ -1,0 +1,41 @@
+{
+    "user_ID": "hyoukim",
+    "closet": [
+        {
+            "position": 0,
+						"category_to_save": [
+                "knit",
+                "shirt"
+            ],
+            "capacity": 12,
+            "used" : 2,
+            "clothes_list": [ 
+                "꽈배기니트",
+                "세로줄무늬셔츠"
+            ],
+            "꽈배기니트": {
+                "category": "knit",
+                "account": 1, 
+                "img_path": "static/backgroundRemove/knit_0.jpg", 
+                "feature_path": "feature/f_꽈배기니트.np", 
+                "last_wear_date": "2021-12-30" 
+            },
+            "세로줄무늬셔츠": {
+                "category": "shirt",
+                "account": 2,
+                "img_path": "static/backgroundRemove/shirt_0.jpg",
+                "feature_path": "feature/f_세로줄무늬셔츠.np",
+                "last_wear_date": "2021-12-30"
+            }
+        },
+        {
+            "position": 1,
+						"save_list": [
+            ],
+            "capacity": 0,
+            "used" : 0,
+            "clothes_list": [
+            ]
+        }
+    ]
+}
