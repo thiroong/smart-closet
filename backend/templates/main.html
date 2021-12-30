@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/stylesheet.css') }}">
+    <!--<link rel="stylesheet" href="assets/stylesheet.css">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <title>CloseToCloset</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href={{url_for('mainpage')}}>홈</a>
+            <a href={{url_for('closetpage')}}>옷장정리</a>
+            <a href={{url_for('ootdpage')}}>OOTD</a>
+            <a href={{url_for('codipage')}}>코디추천(보류)</a>
+            <!--<a href="main.html">홈</a>
+            <a href="closet.html">옷장정리</a>
+            <a href="ootd.html">OOTD</a>
+            <a href="">코디추천(보류)</a>-->
+           
+        </div>
+    </header>
+    <div class="main">
+        <div class="img-box">
+            <img src="{{url_for('static', filename = 'img/closet_main.jpg')}}">
+            <!--<img src="img/closet_main.jpg">-->
+        </div>
+        <div class="text-box">
+            <h1>Close To Closet</h1>
+        </div>
+    </div>
+</body>
+</html>
