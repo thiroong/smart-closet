@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/stylesheet.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+
+    <title>CloseToCloset</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/">홈</a>
+            <a href="/closet">옷장정리</a>
+            <a href="/ootd">OOTD</a>
+            <a href="/setting">설정</a>
+        </div>
+    </header>
+   <div class="main-box">
+       <div class="alert">
+           <h2>옷을 몇 번 옷장으로 정리할지 설정해주세요.</h2>
+       </div>
+       
+        <div class="closet-box-1">
+            <div class="closet1">
+                <p><a href="/closet_1">1</a></p>
+                <select name="select1" >
+                    <option value="none">=== 옷 선택 ===</option>
+                    <option value="coat">coat</option>
+                    <option value="padding">padding</option>
+                    <option value="shortsleeve">shortsleeve</option>
+                    <option value="longsleeve">longsleeve</option>
+                    <option value="shirt">shirt</option>
+                    <option value="pants">pants</option>
+                    <option value="dress">dress</option>
+                </select>
+            </div>
+            
+            <div class="closet2">
+                <p><a href="">2</a></p>
+                <select name="select2" >
+                    <option value="none">=== 옷 선택 ===</option>
+                    <option value="coat">coat</option>
+                    <option value="padding">padding</option>
+                    <option value="shortsleeve">shortsleeve</option>
+                    <option value="longsleeve">longsleeve</option>
+                    <option value="shirt">shirt</option>
+                    <option value="pants">pants</option>
+                    <option value="dress">dress</option>
+                </select>
+            </div>
+            
+            <div class="closet3">
+                <p><a href="">3</a></p>
+                <select name="select3" >
+                    <option value="none">=== 옷 선택 ===</option>
+                    <option value="coat">coat</option>
+                    <option value="padding">padding</option>
+                    <option value="shortsleeve">shortsleeve</option>
+                    <option value="longsleeve">longsleeve</option>
+                    <option value="shirt">shirt</option>
+                    <option value="pants">pants</option>
+                    <option value="dress">dress</option>
+                </select>
+            </div>
+            
+            <div class="closet4">
+                <p><a href="">4</a></p>
+                <select name="select4" >
+                    <option value="none">=== 옷 선택 ===</option>
+                    <option value="coat">coat</option>
+                    <option value="padding">padding</option>
+                    <option value="shortsleeve">shortsleeve</option>
+                    <option value="longsleeve">longsleeve</option>
+                    <option value="shirt">shirt</option>
+                    <option value="pants">pants</option>
+                    <option value="dress">dress</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="closet-box-2">
+            <div class="closet5">
+                <p><a href="">5</a></p>
+                <select name="select5" >
+                    <option value="none">=== 옷 선택 ===</option>
+                    <option value="coat">coat</option>
+                    <option value="padding">padding</option>
+                    <option value="shortsleeve">shortsleeve</option>
+                    <option value="longsleeve">longsleeve</option>
+                    <option value="shirt">shirt</option>
+                    <option value="pants">pants</option>
+                    <option value="dress">dress</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="closet-box-3">
+            <div class="closet6">
+                <p><a href="">6</a></p>
+                 <select name="select6" >
+                    <option value="none">=== 옷 선택 ===</option>
+                    <option value="coat">coat</option>
+                    <option value="padding">padding</option>
+                    <option value="shortsleeve">shortsleeve</option>
+                    <option value="longsleeve">longsleeve</option>
+                    <option value="shirt">shirt</option>
+                    <option value="pants">pants</option>
+                    <option value="dress">dress</option>
+                </select>
+            </div>
+            
+            <div class="closet7">
+                <p><a href="">7</a></p>
+                 <select name="select7" >
+                    <option value="none">=== 옷 선택 ===</option>
+                    <option value="coat">coat</option>
+                    <option value="padding">padding</option>
+                    <option value="shortsleeve">shortsleeve</option>
+                    <option value="longsleeve">longsleeve</option>
+                    <option value="shirt">shirt</option>
+                    <option value="pants">pants</option>
+                    <option value="dress">dress</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+</body>
+    
+    
+<!--여기서는 alert 해주는 용도로 일단 작성했지만, 나중에 백부분에서 선택된 옷 value 값 가지고 옷 종류 분류 되면 옷장으로 보내는 부분 연결해주셔야합니다 ! !-->    
+<script>
+var alert_select_value = function (select_obj){
+    // 우선 selectbox에서 선택된 index를 찾고 
+    var selected_index = select_obj.selectedIndex;
+    // 선택된 index의 value를 찾고 
+    var selected_value = select_obj.options[selected_index].value;
+    // 원하는 동작을 수행한다. 여기서는 그냥 alert해주는 식으로만 처리함. 
+    alert(selected_value);
+};
+</script>
+    
+</html>
+
