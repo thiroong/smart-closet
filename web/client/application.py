@@ -24,6 +24,11 @@ def closet_1():
     filenames = os.listdir('static/images/c1')
     return render_template("closet_1.html", items = filenames )
 
+@application.route("/closet_detail")
+def closet_detail():
+    filenames = os.listdir('static/images/c1')
+    return render_template("closet_detail.html", items = filenames )
+
 
 
 # @application.route("/closet_detail")
