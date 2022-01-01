@@ -63,23 +63,15 @@
 	    <div class="row">
 			<div class="col-lg-8  offset-lg-2">
                 <h2>입고 나가는 옷을 촬영해 주세요</h2>
-				<form method="post" action="{{ url_for('tasks') }}">
-				<input type="submit" value="Stop/Start" name="stop" />
+				<form method="post" action="{{ url_for('tasks', isOOTD=True) }}">
 				<input type="submit" value="Capture" name="click"/>
 				</form>
 				<img src="{{ url_for('video_feed') }}">
 			</div>
 		</div>
         
-        <div class="add-photo">
-            <h2 class="mt-5">OR</h2>
-            <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_done')}}">
-            <input type="file" name="file"/>
-                
-            <input type="submit"/>
-        </div>
-        
-            
+		<br>
+
         <h3>빈도수 그래프</h3>
         {% for d in data %}
             {{d.데이터이름}},
