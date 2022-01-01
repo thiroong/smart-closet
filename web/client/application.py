@@ -1,9 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request, Response
 
 import json
-import sys
-import os
 import cv2
+import datetime
 
 import camera
 
@@ -71,28 +70,23 @@ def photo():
 @application.route("/upload_done", methods=["POST"])
 def upload_done():
     uploaded_files = request.files["file"]
-    uploaded_files.save("static/images/{}.jpeg".format(1))
+    now = datetime.datetime.now()
+    uploaded_files.save("static/images/c1/{}.jpg".format(str(now).replace(":", '')))
     
     return redirect(url_for("index"))
 
-@application.route('/',methods=['POST','GET'])
+@application.route('/video_feed')
+def video_feed(isAdd = True):
+    return Response(camera.gen_frames(True), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@application.route('/requests',methods=['POST'])
 def tasks():
     if request.method == 'POST':
+        nickname = request.form.get('nickname')
+        print(nickname)
         if request.form.get('click') == 'Capture':
             camera.setCapture(1) 
-        elif  request.form.get('stop') == 'Stop/Start':
-            if(camera.getSwitch() == 1):
-                camera.setSwitch(0)
-                camera.getCam().release()
-                cv2.destroyAllWindows()    
-            else:
-                camera.getCam().cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-                camera.setSwitch(0)
-    elif request.method=='GET':
-        camera.getCam().release()
-        cv2.destroyAllWindows()     
-        return render_template('index.html')
-    return render_template('index.html') 
+    return redirect(url_for("closet"))
 
 
 # 빈도수 알려주는 그래프 데이터 가져오셔야 합니다

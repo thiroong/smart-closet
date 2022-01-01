@@ -9,7 +9,7 @@ global capture, switch, cam, saved
 capture = 0
 switch = 1
 cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-saved = load_model("model/save_ckp_frozen.h5")
+saved = load_model("models/save_ckp_frozen.h5")
 
 def setCapture(val):
     global capture
@@ -52,21 +52,21 @@ class fashion_tools(object):
     def get_patch(self):
         return None
 
-def gen_frames():  # generate frame by frame from camera
-    global capture, cam
-    print("gen_frames")
+def gen_frames(isAdd = True):  # generate frame by frame from camera
+    global capture
     while True:
         success, frame = cam.read()
-        cam.imshow("img", frame)
         if success:
             if(capture):
                 capture = 0
                 now = datetime.datetime.now()
                 p = "static/images/c1/{}.png".format(str(now).replace(":", ''))
                 cv2.imwrite(p, frame)
-                api = fashion_tools(p, saved)
-                image_ = api.get_dress()
-                cv2.imwrite("static/images/c1/{}.png".format(str(now).replace(":", '')), image_)
+                print("Get Photo")
+                if (isAdd != True):
+                    api = fashion_tools(p, saved)
+                    image_ = api.get_dress()
+                    cv2.imwrite("static/images/c2/{}.png".format(str(now).replace(":", '')), image_)
                 break
             try:
                 ret, buffer = cv2.imencode('.jpg', cv2.flip(frame,1))
@@ -74,6 +74,6 @@ def gen_frames():  # generate frame by frame from camera
                 yield (b'--frame\r\n'
                        b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
             except Exception as e:
-                pass      
+                pass    
         else:
             pass
