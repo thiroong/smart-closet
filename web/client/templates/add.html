@@ -60,24 +60,28 @@
 			</div>
 		</div>
 
-        <div class="nickname-box">
-            <input placeholder="별명을 입력하세요" required name ="nickname">
-        </div>
-        
         <div class="row">
 			<div class="col-lg-8  offset-lg-2">
-				<h2 class="mt-5">Camera</h2>
+				<h2 class="mt-5">캡쳐해서 올리기</h2>
 				<form method="post" action="{{ url_for('tasks') }}">
-				<input type="submit" value="Stop/Start" name="stop" />
-				<input type="submit" value="Capture" name="click"/>
+					<input placeholder="별명을 입력하세요" required name ="nickname">
+					<input type="submit" value="Capture" name="click"/>
 				</form>
-				<img src="{{ url_for('video_feed') }}">
+				<img src="{{ url_for('video_feed', isAdd = True) }}">
 			</div>
 		</div>
-       
+
+		<br>
+
+		<h1> OR </h1>
+		<h2> 사진으로 올리기 </h2>
+
         <div class="add-photo">
-            <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_done')}}"/>
-            <input type="file" name="file"/>  
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_done')}}">
+            	<input placeholder="별명을 입력하세요" required name ="nickname">
+				<input type="file" required name="file"/>
+				<input type="submit" onclick="javascript:page_link('/closet');"/>
+			</form> 
         </div>
         
         <div>
