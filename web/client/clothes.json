@@ -1,0 +1,74 @@
+{
+    "user_ID": "hyoukim",
+    "closet": [
+        {
+            "position": 1,
+            "category_to_save": ["coat","pants"],
+            "capacity": 10,
+            "used": 2,
+            "clothes_list": [
+                {
+                    "name" : "twisted_knit",
+                    "category": "knit",
+                    "account": 1,
+                    "img_path": "images/c1/twisted_knit.jpg",
+                    "feature_path": "feature/f_twisted_knit.np",
+                    "last_wear_date": "2021-12-30"
+                 },
+                {
+                    "name" : "striped_shirt",
+                    "category": "shirt",
+                    "account": 2,
+                    "img_path": "images/c1/striped_shirt.jpg",
+                    "feature_path": "feature/f_striped_shirt.np",
+                    "last_wear_date": "2021-12-31"
+                 }
+            ]
+
+        },
+        {
+            "position": 2,
+            "category_to_save": [],
+            "capacity": 0,
+            "used": 0,
+            "clothes_list": []
+        },
+        {
+            "position": 3,
+            "category_to_save": [
+            ],
+            "capacity": 0,
+            "used": 1,
+            "clothes_list": [
+            ]
+        },
+        {
+            "position": 4,
+            "category_to_save": [],
+            "capacity": 0,
+            "used": 0,
+            "clothes_list": []
+        },
+        {
+            "position": 5,
+            "category_to_save": [],
+            "capacity": 0,
+            "used": 0,
+            "clothes_list": []
+        },
+        {
+            "position": 6,
+            "category_to_save": [],
+            "capacity": 0,
+            "used": 0,
+            "clothes_list": []
+        },
+        {
+            "position": 7,
+            "category_to_save": [],
+            "capacity": 0,
+            "used": 0,
+            "clothes_list": []
+        }
+    ]
+}
