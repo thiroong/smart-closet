@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request, Response
 import json
 import cv2
 import datetime
-
+import clothOps
 import camera
 
 application = Flask(__name__, static_folder='static')
@@ -32,29 +32,31 @@ def setting():
     return render_template("setting.html")
 
 #옷 추가
+@application.route("/<box_num>", methods=['GET']) #각 closet_num에 해당하는 번호의 수납함으로 이동
+def box(box_num):
+    with open('clothes.json') as cloth_json:
+        json_data = json.load(cloth_json) #cloth_json 불러옴
+        box_data = json_data["closet"][int(box_num)-1]  #closet_num번 수납함 데이터 불러옴
+        box_data['box_num']=box_num
+    return render_template("box.html",result=box_data)
+
+@application.route("/<box_num>/<cloth_name>", methods=['GET'])
+def cloth_detail(box_num,cloth_name):
+    with open('clothes.json') as cloth_json:
+        json_data = json.load(cloth_json)
+        box_data_clothes = json_data["closet"][int(box_num)-1]["clothes_list"]
+        current_cloth={}
+        for cloth in box_data_clothes:
+            if cloth["name"]==cloth_name:
+                current_cloth=cloth
+                break
+        current_cloth['box_num']=box_num
+    return render_template("cloth_detail.html", result=current_cloth)
+
 @application.route("/add")
 def add():
     return render_template("add.html")
 
-@application.route("/closet_1")
-def closet_1():
-    #filenames = os.listdir('static/images/c1')
-    with open('clothes.json') as cloth_json:
-        json_data = json.load(cloth_json)
-        box1_data = json_data["closet"][0]
-    return render_template("closet_1.html",result=box1_data)
-
-@application.route("/<cloth_name>", methods=['GET'])
-def closet_1_detail(cloth_name):
-    with open('clothes.json') as cloth_json:
-        json_data = json.load(cloth_json)
-        box1_data_clothes = json_data["closet"][0]["clothes_list"]
-        current_cloth={}
-        for cloth in box1_data_clothes:
-            if cloth["name"]==cloth_name:
-                current_cloth=cloth
-                break
-    return render_template("cloth_detail.html", result=current_cloth)
 
 @application.route("/photoadd")
 def photoadd():
@@ -69,9 +71,12 @@ def photo():
 
 @application.route("/upload_done", methods=["POST"])
 def upload_done():
+    if request.method == 'POST': #추가함
+        nickname = request.form.get('nickname') #추가함
     uploaded_files = request.files["file"]
-    now = datetime.datetime.now()
-    uploaded_files.save("static/images/c1/{}.jpg".format(str(now).replace(":", '')))
+    now = datetime.datetime.now() 
+    uploaded_files.save("static/images/c1/{name}.jpg".format(name=nickname)) #아래거 대신 추가함
+    #uploaded_files.save("static/images/c1/{}.jpg".format(str(now).replace(":", '')))
     
     return redirect(url_for("index"))
 
@@ -86,18 +91,22 @@ def tasks():
         isClick = request.form.get('click')
         ret, frame = camera.getCam().read()
         if ret:
-            now = datetime.datetime.now()
-            p = "static/images/c1/{}.png".format(str(now).replace(":", ''))
+            now = datetime.datetime.now() #이거 필요한 지 물어보기!
+            boxnum_str = '1'#임의로 1으로 해놓았고, 카테고리 판단 후 수납함 번호 받아오는 함수로 수정
+            p = "static/images/c{num}/{name}.jpg".format(num=boxnum_str, name=nickname)
+            #now 사용 시 아래 코드로 수정
+            #p = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
             cv2.imwrite(p, frame)
             if isClick == 'OOTD':
                 api = camera.fashion_tools(p, camera.saved)
                 image_ = api.get_dress()
                 cv2.imwrite("static/images/c2/{}.png".format(str(now).replace(":", '')), image_)
-    return render_template("setting.html", nickname = nickname, p_path = p)
+            clothOps.append_cloth('1',"undefined",nickname)
+    return redirect(url_for('box', box_num=boxnum_str))
 
-
-@application.route('/setting.html')
-def setting(nickname, p_path):
+#append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json')
+""""@application.route('/setting.html')
+def setting(nickname, p_path):"""
     
     
 # 빈도수 알려주는 그래프 데이터 가져오셔야 합니다
