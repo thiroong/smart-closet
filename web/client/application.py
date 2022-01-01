@@ -77,18 +77,29 @@ def upload_done():
 
 @application.route('/video_feed')
 def video_feed(isAdd = True):
-    return Response(camera.gen_frames(True), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@application.route('/requests',methods=['POST'])
+@application.route('/requests', methods=['POST'])
 def tasks():
     if request.method == 'POST':
         nickname = request.form.get('nickname')
-        print(nickname)
-        if request.form.get('click') == 'Capture':
-            camera.setCapture(1) 
-    return redirect(url_for("closet"))
+        isClick = request.form.get('click')
+        ret, frame = camera.getCam().read()
+        if ret:
+            now = datetime.datetime.now()
+            p = "static/images/c1/{}.png".format(str(now).replace(":", ''))
+            cv2.imwrite(p, frame)
+            if isClick == 'OOTD':
+                api = camera.fashion_tools(p, camera.saved)
+                image_ = api.get_dress()
+                cv2.imwrite("static/images/c2/{}.png".format(str(now).replace(":", '')), image_)
+    return render_template("setting.html", nickname = nickname, p_path = p)
 
 
+@application.route('/setting.html')
+def setting(nickname, p_path):
+    
+    
 # 빈도수 알려주는 그래프 데이터 가져오셔야 합니다
 # @application.route("/ootd")
 # def graph():
