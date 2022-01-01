@@ -40,7 +40,7 @@ boxClass = {"position": 0,
 clothClass={
     "name": "",
     "category": "",
-    "account": 0,
+    "count": 0,
     "img_path": "",
     "feature_path": "",
     "last_wear_date": "0000-00-00"
