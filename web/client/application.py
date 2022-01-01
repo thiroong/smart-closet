@@ -106,13 +106,29 @@ def add_clothes():
                                                   "img_path":img_path})
 
 
+@application.route('/ootd_whichone', methods=['POST'])
+def ootd_whichone():
+    # 빈도 수 체크
+    ret, frame = camera.getCam().read()
+    now = datetime.datetime.now()
+    # img_path = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
+    img_path = "static/images/c1/test.jpg" # 테스트용 코드
+    cv2.imwrite(img_path, frame)
 
-# @application.route('/requests/<isOOTD>', methods=['POST'])
-# def add_clothes():
-#     # 오늘 입은 옷이 무엇인지?
-#     pass
+    api = camera.fashion_tools(img_path, camera.saved)
+    image_ = api.get_dress()
+    # img_path_segmen = "static/images/c2/{}.jpg".format(str(now).replace(":", ''))
+    img_path_segmen = "static/images/c2/test.jpg" # 테스트용 코드
+    cv2.imwrite(img_path_segmen, image_)
 
+    pred, label = cc.classifier(img_path_segmen, isOotd=True)
+    print(pred, label)
 
+    return render_template('ootd_whichone.html',
+                           results={"pred": pred,
+                                    "label": label,
+                                    "img_path": img_path,
+                                    "img_path_segmen": img_path_segmen})
 
 
 

@@ -64,5 +64,6 @@ def classifier(path, isOotd=False):
     # 이미지 분류
     if isOotd:
         similarity_measures(img)
+        return "임시확률", "임시라벨"
     else:
         return get_prediction(img)
