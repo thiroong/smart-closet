@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, Response
 
+import os
 import json
 import cv2
 import datetime
@@ -105,7 +106,9 @@ def tasks(isOOTD=False):
                 api = camera.fashion_tools(p, camera.saved)
                 image_ = api.get_dress()
                 cv2.imwrite("static/images/c2/{}.png".format(str(now).replace(":", '')), image_)
+                os.remove(p)
             clothOps.append_cloth('1',"undefined",nickname)
+    if camera.getCam().isOpened():
         camera.getCam().release()
     return redirect(url_for('box', box_num=boxnum_str))
 
@@ -121,4 +124,6 @@ def setting(nickname, p_path):"""
 # return render_template('ootd.html', data = data)
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0')
+    application.run(host='0.0.0.0', debug=True)
+    
+cv2.destroyAllWindows()
