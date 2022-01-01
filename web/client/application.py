@@ -84,6 +84,7 @@ def upload_done():
 
 @application.route('/video_feed')
 def video_feed():
+    camera.openCam()
     return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @application.route('/requests/<isOOTD>', methods=['POST'])
@@ -105,6 +106,7 @@ def tasks(isOOTD=False):
                 image_ = api.get_dress()
                 cv2.imwrite("static/images/c2/{}.png".format(str(now).replace(":", '')), image_)
             clothOps.append_cloth('1',"undefined",nickname)
+        camera.getCam().release()
     return redirect(url_for('box', box_num=boxnum_str))
 
 #append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json')

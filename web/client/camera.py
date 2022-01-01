@@ -6,11 +6,16 @@ import tensorflow as tf
 global cam, saved
 switch = 1
 cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+cam.release()
 saved = load_model("models/fashion_segmentation.h5")
 
 def getCam():
     global cam
     return cam
+
+def openCam():
+    global cam
+    cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 class fashion_tools(object):
     def __init__(self, imageid, model, version=1.1):

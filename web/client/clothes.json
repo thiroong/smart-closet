@@ -8,7 +8,7 @@
                 "shirt"
             ],
             "capacity": 10,
-            "used": 8,
+            "used": 9,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -32,6 +32,14 @@
                     "account": 0,
                     "img_path": "images/c1/testing.jpg",
                     "feature_path": "feature/f_testing.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sadasd",
+                    "category": "undefined",
+                    "account": 0,
+                    "img_path": "images/c1/sadasd.jpg",
+                    "feature_path": "feature/f_sadasd.np",
                     "last_wear_date": "0000-00-00"
                 }
             ]
