@@ -79,7 +79,7 @@ def upload_done():
 def video_feed():
     return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@application.route('/requests', methods=['POST'])
+@application.route('/requests/<isOOTD>', methods=['POST'])
 def tasks(isOOTD=False):
     if request.method == 'POST':
         nickname = request.form.get('nickname')
@@ -88,7 +88,6 @@ def tasks(isOOTD=False):
             now = datetime.datetime.now()
             p = "static/images/c1/{}.png".format(str(now).replace(":", ''))
             cv2.imwrite(p, frame)
-            print(isOOTD)
             if isOOTD:
                 api = camera.fashion_tools(p, camera.saved)
                 image_ = api.get_dress()
