@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
 import tensorflow as tf
-import sys
 import datetime
 
 global capture, switch, cam, saved
