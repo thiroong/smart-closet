@@ -57,17 +57,19 @@ def cloth_detail(box_num,cloth_name):
 def add():
     return render_template("add.html")
 
-
+"""
 @application.route("/photoadd")
 def photoadd():
     return render_template("photoadd.html")
-
+"""
+"""
 #사진 올리고, 별명 짓기 
 @application.route("/photo")
 def photo():
     nickname = request.args.get("nickname")
      # database.save()
     return render_template("photo.html")
+"""
 
 @application.route("/upload_done", methods=["POST"])
 def upload_done():
@@ -89,9 +91,11 @@ def tasks(isOOTD=False):
     if request.method == 'POST':
         nickname = request.form.get('nickname')
         ret, frame = camera.getCam().read()
+        # 임의로 1으로 해놓았고, 카테고리 판단 후 수납함 번호 받아오는 함수로 수정
+        # return 부분 에러나서 임시로 올렸습니다.
+        boxnum_str = '1'
         if ret:
             now = datetime.datetime.now() #이거 필요한 지 물어보기!
-            boxnum_str = '1'#임의로 1으로 해놓았고, 카테고리 판단 후 수납함 번호 받아오는 함수로 수정
             p = "static/images/c{num}/{name}.jpg".format(num=boxnum_str, name=nickname)
             #now 사용 시 아래 코드로 수정
             #p = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
