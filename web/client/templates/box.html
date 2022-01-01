@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!-- 각 수납함별 페이지-->
+
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
@@ -14,7 +16,10 @@
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
         
-  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+      
 	<!-- Animate.css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
 	<!-- Icomoon Icon Fonts-->
@@ -37,8 +42,8 @@
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/closet">Closet</a></li>
-					<li><a href="/ootd">OOTD</a></li>
-                    <li><a href="/setting">Setting</a></li>
+                    
+					<li><a href="product.html">OOTD</a></li>
 				</ul>
 		
 			</div>
@@ -58,10 +63,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box text-center">
-						<h2 class="intro-heading">1번 수납장</h2>
-						<p><span> 총 용량 : {{result.get("capacity")}} </span>
-						<span> 사용 용량 : {{result.get("used")}} </span>
-						<span> 남은 용량 : {{result.get("capacity")-result.get("used")}} </span>
+						<h2 class="intro-heading" style="font-family: 'IBM Plex Sans KR', sans-serif;">{{result.get('box_num')}}번 수납장</h2>
+						<p><span style="font-family: 'IBM Plex Sans KR', sans-serif;"> 총 용량 : {{result.get("capacity")}} </span>
+						<span style="font-family: 'IBM Plex Sans KR', sans-serif;"> 사용 용량 : {{result.get("used")}} </span>
+						<span style="font-family: 'IBM Plex Sans KR', sans-serif;"> 남은 용량 : {{result.get("capacity")-result.get("used")}} </span>
 						<br><br>
 						<!--<span> 보유 옷 정보 :
 							{% for cloth in result.get("clothes_list") %}
@@ -76,7 +81,7 @@
            <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
 			   {% for cloth in result.get("clothes_list") %}
 			   <div class="text-center animate-box">
-				   <a href="/{{cloth.get('name')}}">
+				   <a href="/{{result.get('box_num')}}/{{cloth.get('name')}}">
 					   <img src="{{ url_for('static', filename=''+cloth.img_path ) }}" style="width:280px; height:280px; padding:5px;"/>
 				   </a>
 			   </div>
