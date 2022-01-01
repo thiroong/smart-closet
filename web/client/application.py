@@ -5,6 +5,7 @@ import cv2
 import datetime
 import clothOps
 import camera
+import classification as cc
 
 application = Flask(__name__, static_folder='static')
 # @application.route("/")
@@ -14,8 +15,8 @@ application = Flask(__name__, static_folder='static')
 # @application.route("/")
 # def hello():
 #     return render_template("closet.html")
-
 @application.route("/")
+@application.route("/index")
 def index():
     return render_template("index.html")
 
@@ -30,6 +31,7 @@ def ootd():
 @application.route("/setting")
 def setting():
     return render_template("setting.html")
+
 
 #옷 추가
 @application.route("/<box_num>", methods=['GET']) #각 closet_num에 해당하는 번호의 수납함으로 이동
@@ -82,36 +84,66 @@ def upload_done():
     
     return redirect(url_for("index"))
 
+
 @application.route('/video_feed')
 def video_feed():
     return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@application.route('/requests/<isOOTD>', methods=['POST'])
-def tasks(isOOTD=False):
-    if request.method == 'POST':
-        nickname = request.form.get('nickname')
-        ret, frame = camera.getCam().read()
-        # 임의로 1으로 해놓았고, 카테고리 판단 후 수납함 번호 받아오는 함수로 수정
-        # return 부분 에러나서 임시로 올렸습니다.
-        boxnum_str = '1'
-        if ret:
-            now = datetime.datetime.now() #이거 필요한 지 물어보기!
-            p = "static/images/c{num}/{name}.jpg".format(num=boxnum_str, name=nickname)
-            #now 사용 시 아래 코드로 수정
-            #p = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
-            cv2.imwrite(p, frame)
-            if isOOTD:
-                api = camera.fashion_tools(p, camera.saved)
-                image_ = api.get_dress()
-                cv2.imwrite("static/images/c2/{}.png".format(str(now).replace(":", '')), image_)
-            clothOps.append_cloth('1',"undefined",nickname)
-    return redirect(url_for('box', box_num=boxnum_str))
+
+@application.route('/add_clothes', methods=['POST'])
+def add_clothes():
+    # 옷 등록
+    nickname = request.form.get('nickname')
+    ret, frame = camera.getCam().read()
+    img_path = "static/images/c1/{name}.jpg".format(name=nickname)
+    cv2.imwrite(img_path, frame)
+
+    pred, label = cc.classifier(img_path)
+    print(pred, label)
+
+    return render_template('add_clothes.html', results={"pred": pred,
+                                                  "label": label,
+                                                  "img_path":img_path})
+
+
+
+# @application.route('/requests/<isOOTD>', methods=['POST'])
+# def add_clothes():
+#     # 오늘 입은 옷이 무엇인지?
+#     pass
+
+
+
+
+
+# @application.route('/requests/<isOOTD>', methods=['POST'])
+# def tasks(isOOTD=False):
+#     if request.method == 'POST':
+#         nickname = request.form.get('nickname')
+#         ret, frame = camera.getCam().read()
+#         # 임의로 1으로 해놓았고, 카테고리 판단 후 수납함 번호 받아오는 함수로 수정
+#         # return 부분 에러나서 임시로 올렸습니다.
+#         boxnum_str = '1'
+#         if ret:
+#             now = datetime.datetime.now() #이거 필요한 지 물어보기!
+#             p = "static/images/c{num}/{name}.jpg".format(num=boxnum_str, name=nickname)
+#             #now 사용 시 아래 코드로 수정
+#             #p = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
+#             cv2.imwrite(p, frame)
+#             if isOOTD:
+#                 api = camera.fashion_tools(p, camera.saved)
+#                 image_ = api.get_dress()
+#                 cv2.imwrite("static/images/c2/{}.png".format(str(now).replace(":", '')), image_)
+#             clothOps.append_cloth('1',"undefined",nickname)
+#     return redirect(url_for('box', box_num=boxnum_str))
 
 #append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json')
 """"@application.route('/setting.html')
 def setting(nickname, p_path):"""
-    
-    
+
+
+
+
 # 빈도수 알려주는 그래프 데이터 가져오셔야 합니다
 # @application.route("/ootd")
 # def graph():
