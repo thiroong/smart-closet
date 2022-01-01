@@ -8,7 +8,7 @@
                 "shirt"
             ],
             "capacity": 10,
-            "used": 8,
+            "used": 2,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -25,14 +25,6 @@
                     "img_path": "images/c1/striped_shirt.jpg",
                     "feature_path": "feature/f_striped_shirt.np",
                     "last_wear_date": "2021-12-31"
-                },
-                {
-                    "name": "testing",
-                    "category": "undefined",
-                    "account": 0,
-                    "img_path": "images/c1/testing.jpg",
-                    "feature_path": "feature/f_testing.np",
-                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
