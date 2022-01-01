@@ -75,10 +75,6 @@ def upload_done():
     
     return redirect(url_for("index"))
 
-@application.route('/video_feed')
-def video_feed():
-    return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
 @application.route('/',methods=['POST','GET'])
 def tasks():
     if request.method == 'POST':
