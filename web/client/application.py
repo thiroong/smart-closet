@@ -1,9 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request, Response
 
 import json
-import sys
-import os
 import cv2
+import datetime
 
 import camera
 
@@ -71,30 +70,36 @@ def photo():
 @application.route("/upload_done", methods=["POST"])
 def upload_done():
     uploaded_files = request.files["file"]
-    uploaded_files.save("static/images/{}.jpeg".format(1))
+    now = datetime.datetime.now()
+    uploaded_files.save("static/images/c1/{}.jpg".format(str(now).replace(":", '')))
     
     return redirect(url_for("index"))
 
-@application.route('/',methods=['POST','GET'])
+@application.route('/video_feed')
+def video_feed(isAdd = True):
+    return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@application.route('/requests', methods=['POST'])
 def tasks():
     if request.method == 'POST':
-        if request.form.get('click') == 'Capture':
-            camera.setCapture(1) 
-        elif  request.form.get('stop') == 'Stop/Start':
-            if(camera.getSwitch() == 1):
-                camera.setSwitch(0)
-                camera.getCam().release()
-                cv2.destroyAllWindows()    
-            else:
-                camera.getCam().cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-                camera.setSwitch(0)
-    elif request.method=='GET':
-        camera.getCam().release()
-        cv2.destroyAllWindows()     
-        return render_template('index.html')
-    return render_template('index.html') 
+        nickname = request.form.get('nickname')
+        isClick = request.form.get('click')
+        ret, frame = camera.getCam().read()
+        if ret:
+            now = datetime.datetime.now()
+            p = "static/images/c1/{}.png".format(str(now).replace(":", ''))
+            cv2.imwrite(p, frame)
+            if isClick == 'OOTD':
+                api = camera.fashion_tools(p, camera.saved)
+                image_ = api.get_dress()
+                cv2.imwrite("static/images/c2/{}.png".format(str(now).replace(":", '')), image_)
+    return render_template("setting.html", nickname = nickname, p_path = p)
 
 
+@application.route('/setting.html')
+def setting(nickname, p_path):
+    
+    
 # 빈도수 알려주는 그래프 데이터 가져오셔야 합니다
 # @application.route("/ootd")
 # def graph():
