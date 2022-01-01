@@ -1,3 +1,4 @@
+import requests
 from flask import Flask, render_template, redirect, url_for, request, Response
 
 import json
@@ -73,16 +74,16 @@ def photo():
     return render_template("photo.html")
 """
 
-@application.route("/upload_done", methods=["POST"])
-def upload_done():
-    if request.method == 'POST': #추가함
-        nickname = request.form.get('nickname') #추가함
-    uploaded_files = request.files["file"]
-    now = datetime.datetime.now() 
-    uploaded_files.save("static/images/c1/{name}.jpg".format(name=nickname)) #아래거 대신 추가함
-    #uploaded_files.save("static/images/c1/{}.jpg".format(str(now).replace(":", '')))
-    
-    return redirect(url_for("index"))
+# @application.route("/upload_done", methods=["POST"])
+# def upload_done():
+#     if request.method == 'POST': #추가함
+#         nickname = request.form.get('nickname') #추가함
+#     uploaded_files = request.files["file"]
+#     now = datetime.datetime.now()
+#     uploaded_files.save("static/images/c1/{name}.jpg".format(name=nickname)) #아래거 대신 추가함
+#     #uploaded_files.save("static/images/c1/{}.jpg".format(str(now).replace(":", '')))
+#
+#     return redirect(url_for("index"))
 
 
 @application.route('/video_feed')
@@ -90,20 +91,26 @@ def video_feed():
     return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-@application.route('/add_clothes', methods=['POST'])
-def add_clothes():
+@application.route('/add_clothes', methods=['POST', 'GET'])
+def add_clothes(isUpload=False):
     # 옷 등록
-    nickname = request.form.get('nickname')
     ret, frame = camera.getCam().read()
+    nickname = request.form.get('nickname')
     img_path = "static/images/c1/{name}.jpg".format(name=nickname)
-    cv2.imwrite(img_path, frame)
+    print(isUpload)
+    if isUpload:
+        file = request.files["file"]
+        print("파일인데?")
+        cv2.imwrite(img_path, file)
+    else:
+        cv2.imwrite(img_path, frame)
 
     pred, label = cc.classifier(img_path)
     print(pred, label)
 
     return render_template('add_clothes.html', results={"pred": pred,
-                                                  "label": label,
-                                                  "img_path":img_path})
+                                                        "label": label,
+                                                        "img_path": img_path})
 
 
 @application.route('/ootd_whichone', methods=['POST'])

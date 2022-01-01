@@ -77,7 +77,7 @@
 		<h2> 사진으로 올리기 </h2>
 
         <div class="add-photo">
-            <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_done')}}">
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('add_clothes', isUpload=True)}}">
             	<input placeholder="별명을 입력하세요" required name ="nickname">
 				<input type="file" required name="file"/>
 				<input type="submit">
