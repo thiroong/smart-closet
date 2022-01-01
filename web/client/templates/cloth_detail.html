@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!--옷장에 들어있는 각 옷들별 정보 보여주는 페이지-->
+
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
@@ -37,9 +39,10 @@
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/closet">Closet</a></li>
-					<li><a href="/ootd">OOTD</a></li>
-                    <li><a href="/setting">Setting</a></li>
+
+					<li><a href="product.html">OOTD</a></li>
 				</ul>
+
 			</div>
 		</div>
 	</nav>
@@ -53,39 +56,37 @@
 				</div>
 			</div>
 		</header>
- <!-- 제목파트        -->
 		<div id="fh5co-intro-section">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box text-center">
 						<h2 class="intro-heading">{{result.get("name")}}</h2>
                         <!-- 옷 이름 받아와주세요 -->
-						<p><span> n번 수납합 </span></p>
+						<p><span> {{result.get("box_num")}}번 수납합 </span></p>
                         <!-- 수납함 -->
 					</div>
 				</div>
 			</div>
 		</div>
 
-<!-- 메인파트 -->
-		<div class="container" style="display: flex; flex-wrap: wrap; padding:5%">
-			<div class="container text-center animate-box" style="background-image: url({{url_for('static', filename=''+result.img_path)}}); width: 400px; height: 500px;">
+		<div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+			<div class="text-center animate-box">
+				<div class="product" style="background-image: url({{url_for('static', filename=''+result.img_path)}}); width: 400px; height: 500px; justify-content:flex-start;">
 					</div>
-				<div class="container" style="width: 400px; height: 500px;">
-					<div class="container"><span>옷 별명 : {{result.get("name")}}</span></div>
+					</div>
+				<div class="product" style="background-image: url(static/images/img-11.jpg); width: 400px; height: 500px; justify-content:flex-end;">
 					<div class="container">
                         <!-- 옷 디테일 -->
-						<span>
+						<h1>옷 별명 : {{result.get("name")}}</h1>
 						<li>옷 정보</li>
 						<li>세탁 정보</li>
 						<li>보관 정보</li>
 						<li>입은 횟수 : {{result.get("count")}}</li>
 						<li>최근 착용일 : {{result.get("last_wear_date")}}</li>
-						</span>
 					</div>
-				</div>
+					</div>
 			</div>
-        </div>
+    </div>
 	<!-- jQuery -->
 	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
 
