@@ -1,16 +1,17 @@
 import matplotlib.pyplot as plt
-import tensorflow as tf
 import numpy as np
+from keras.preprocessing.image import load_img
+from keras.preprocessing.image import img_to_array
+from keras.models import load_model
 
 clothes_info = {
     0: '0_coat', 1: '1_padding', 2: '2_shortsleeve',
     3: '3_longsleeve', 4: '4_shirt', 5: '5_pants', 6: '6_dress'
 }
 
-c2c_model = tf.keras.models.load_model('checkpoints/c2c_model.h5')
 
-
-def rgba2rgb(rgba, background=(255,255,255)):
+def rgba2rgb(rgba, background=(255, 255, 255)):
+    rgba = img_to_array(rgba)
     row, col, ch = rgba.shape
 
     if ch == 3:
@@ -18,27 +19,56 @@ def rgba2rgb(rgba, background=(255,255,255)):
     assert ch == 4, 'RGBA image has 4 channels.'
 
     rgb = np.zeros((row, col, 3), dtype='float32')
-    r, g, b, a = rgba[:,:,0], rgba[:,:,1], rgba[:,:,2], rgba[:,:,3]
-    a = np.asarray( a, dtype='float32' ) / 255.0
+    r, g, b, a = rgba[:, :, 0], rgba[:, :, 1], rgba[:, :, 2], rgba[:, :, 3]
+    a = np.asarray(a, dtype='float32') / 255.0
 
     R, G, B = background
-    rgb[:,:,0] = r * a + (1.0 - a) * R
-    rgb[:,:,1] = g * a + (1.0 - a) * G
-    rgb[:,:,2] = b * a + (1.0 - a) * B
+    rgb[:, :, 0] = r * a + (1.0 - a) * R
+    rgb[:, :, 1] = g * a + (1.0 - a) * G
+    rgb[:, :, 2] = b * a + (1.0 - a) * B
 
-    return np.asarray( rgb, dtype='uint8' )
+    return np.asarray(rgb, dtype='uint8')
 
 
-def get_test_image(path):
-  image = tf.keras.load_img(path, color_mode='rgba', target_size=(299, 299))
-  image = tf.keras.img_to_array(image)
-  image = rgba2rgb(image)
-  # image = image[80:-80, 80:-80]
+def image_preprocessing(path, isOotd):
+    if isOotd:
+        img = load_img(path, color_mode='rgba', target_size=(299, 299))
+        img = rgba2rgb(img)
+    else:
+        img = load_img(path, color_mode='rgb', target_size=(299, 299))
+        img = img_to_array(img)
 
-  plt.imshow(image, interpolation='nearest')
-  plt.show()
+    plt.imshow(img, interpolation='nearest')
+    plt.show()
 
-  image = np.expand_dims(image, axis=0)
-  image = image.astype('float32')
-  image = image / 255.0
-  return image
+    img = np.expand_dims(img, axis=0)
+    img = img.astype('float32')
+    img = img / 255.0
+    return img
+
+
+def similarity_measures(img):
+    pass
+
+
+def get_prediction(test_image):
+    c2c_model = load_model('models/c2c_model.h5')
+    prediction = c2c_model.predict(test_image)
+    pred = prediction[0]
+    label = clothes_info[np.argmax(prediction)]
+
+    plt.barh(list(clothes_info.values()), pred)
+    plt.show()
+
+    return pred, label
+
+
+def classifier(path, isOotd=False):
+    # 이미지 전처리
+    img = image_preprocessing(path, isOotd)
+
+    # 이미지 분류
+    if isOotd:
+        similarity_measures(img)
+    else:
+        return get_prediction(img)
