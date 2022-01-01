@@ -70,12 +70,14 @@
 	<div class="row">
 			<div class="col-lg-8  offset-lg-2">
 				<h2 class="mt-5">업로드된 사진</h2>
-				<img src="{{ result.img_path }}">
+				<img src="{{ results.img_path }}">
 			</div>
 			<div>
+       			<h3>분류된 옷{{results.label}}</h3>
+       			<h3>{{results.pred}}</h3>
        			<h3>빈도수 그래프</h3>
-       			<h3>result.label</h3>
-       			<h3>result.pred</h3>
+			</div>
+			<div>
 
         		<canvas id="myChart" width="400" height="400"></canvas>
 				<script>
