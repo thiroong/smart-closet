@@ -9,7 +9,7 @@ global capture, switch, cam, saved
 capture = 0
 switch = 1
 cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-saved = load_model("model/save_ckp_frozen.h5")
+saved = load_model("client/models/fashion_segmentation.h5")
 
 def setCapture(val):
     global capture

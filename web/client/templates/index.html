@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+ <html class="no-js">
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,6 +23,10 @@
 
 	<script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+
 	</head>
 	<body>
 
@@ -47,7 +48,6 @@
 		<header>
 			<div class="container">
 				<div class="fh5co-navbar-brand">
-					<h1 class="text-center"><a class="fh5co-logo" href="/index">Close To Closet</a></h1>
 					<a href="/" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 				</div>
 			</div>
@@ -56,40 +56,19 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box text-center">
-						<h2 class="intro-heading"> Smartest Closet EVER ! </h2>
-						<p><span> 당신의 일상을 더욱 스마트하게 ! <i class="icon-heart3"></i></span></p>
-					</div>
+						<p><span style="font-family: 'IBM Plex Sans KR', sans-serif;">당신의 일상에
+						<br>AI를 더욱 가깝게</span></p>
+						 </div>
+						<header>
+							<div class="container">
+								<div class="fh5co-navbar-brand">
+									<h1 class="text-center"><a class="fh5co-logo" href="/">Close To Closet</a></h1>
+								</div>
+						    </div>
+						</header>
 				</div>
 			</div>
 		</div>
-		<aside id="fh5co-hero" class="js-fullheight">
-			<div class="flexslider js-fullheight">
-				<ul class="slides">
-			   	<li style="background-image: url(images/slide_1.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container">
-			   			<div class="col-md-8 col-md-offset-2 col-md-push-4 js-fullheight slider-text">
-			   				<div class="slider-text-inner">
-			   					<h2>Check Out your Closet</h2>
-			   					<span>closet</span>
-			   				</div>
-			   			</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(images/slide_2.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container">
-			   			<div class="col-md-8 col-md-offset-2 col-md-push-4 js-fullheight slider-text">
-			   				<div class="slider-text-inner">
-			   					<h2>What shoul I wear?</h2>
-			   					<span>OOTD</span>
-			   				</div>
-			   			</div>
-			   		</div>
-			   	</li>
-			  	</ul>
-		  	</div>
-		</aside>
 
 		<div id="fh5co-services-section">
 			<div class="container">
@@ -97,7 +76,6 @@
 					<div class="col-md-6 col-md-offset-3 text-center animate-box ">
 						<div class="heading-section">
 							<h2>Our Services</h2>
-							<p> 바쁜 현대인의 일상 속 여유를 드리는 서비스</p>
 						</div>
 					</div>
 				</div>
@@ -105,19 +83,36 @@
 					<div class="col-md-4 text-center animate-box">
 						<div class="services">
 							<div class="icon">
-								<span><i class="icon-toolbox"></i></span>
+								<span><i class="icon-box"></i></span>
+
 							</div>
-							<h3>옷장 정리</h3>
-							<p>당신의 옷장, 옷에 따라 정리 방법을 추천하고 수납위치를 기억해드립니다.</p>
+							<h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">옷장 정리</h3>
+							<p> 옷을 촬영하며 옷장을 정리해보세요
+							<br>보관방법을 추천해드리고
+							<br>수납 공간을 기억해드립니다.</p>
 						</div>
 					</div>
 					<div class="col-md-4 text-center animate-box">
 						<div class="services">
 							<div class="icon">
-								<span><i class="icon-browser"></i></span>
+								<span><i class="icon-camera"></i></span>
 							</div>
-							<h3>OOTD</h3>
-							<p> 데일리룩 탐지...</p>
+							<h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">OOTD</h3>
+							<p> 오늘 입은 옷을 촬영해보세요
+							<br> 빈도 수를 측정하여
+							<br> 세탁관리를 도와드립니다.</p>
+
+						</div>
+					</div>
+					<div class="col-md-4 text-center animate-box">
+						<div class="services">
+							<div class="icon">
+								<span><i class="icon-gift"></i></span>
+							</div>
+							<h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">기부활동</h3>
+
+							<p>손이 잘 가지않은 옷으로 기부에 동참하세요
+							<br>무슨 말을 쓰지..기능</p>
 						</div>
 					</div>
 				</div>
