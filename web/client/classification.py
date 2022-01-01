@@ -37,13 +37,10 @@ def image_preprocessing(path, isOotd):
     else:
         img = load_img(path, color_mode='rgb', target_size=(299, 299))
         img = img_to_array(img)
-
-    plt.imshow(img, interpolation='nearest')
-    plt.show()
-
     img = np.expand_dims(img, axis=0)
     img = img.astype('float32')
     img = img / 255.0
+
     return img
 
 
@@ -56,9 +53,6 @@ def get_prediction(test_image):
     prediction = c2c_model.predict(test_image)
     pred = prediction[0]
     label = clothes_info[np.argmax(prediction)]
-
-    plt.barh(list(clothes_info.values()), pred)
-    plt.show()
 
     return pred, label
 
