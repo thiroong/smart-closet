@@ -181,6 +181,19 @@ def cloth_detail(box_num, cloth_name):
 """"@application.route('/setting.html')
 def setting(nickname, p_path):"""
 
+##################검색 기능 테스트######################
+@application.route(('/temp_for_test'))
+def temp_for_test():
+    return render_template("temp_for_test.html")
+
+@application.route('/result', methods=['POST'])
+def result():
+    keyword=request.form['search']
+    img_path_list=clothOps.find_image_by_keyword(keyword)
+    return render_template("result.html", result=img_path_list)
+##################검색 기능 테스트######################
+
+    
 # 빈도수 알려주는 그래프 데이터 가져오셔야 합니다
 # @application.route("/ootd")
 # def graph():
