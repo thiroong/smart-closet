@@ -1,3 +1,4 @@
+
 {
     "user_ID": "hyoukim",
     "closet": [
@@ -5,7 +6,8 @@
             "position": 1,
             "category_to_save": [
                 "knit",
-                "shirt"
+                "shirt",
+                "pants"
             ],
             "capacity": 10,
             "used": 4,
@@ -70,7 +72,10 @@
         },
         {
             "position": 2,
-            "category_to_save": [],
+            "category_to_save": [
+                "padding",
+                "dress"
+            ],
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -94,7 +99,10 @@
         },
         {
             "position": 3,
-            "category_to_save": [],
+            "category_to_save": [
+                "coat",
+                "short_sleeve"
+            ],
             "capacity": 0,
             "used": 1,
             "clothes_list": [
@@ -118,7 +126,10 @@
         },
         {
             "position": 4,
-            "category_to_save": [],
+            "category_to_save": [
+                "knit",
+                "shirt"
+            ],
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -142,7 +153,10 @@
         },
         {
             "position": 5,
-            "category_to_save": [],
+            "category_to_save": [
+                "knit",
+                "shirt"
+            ],
             "capacity": 0,
             "used": 1,
             "clothes_list": [
@@ -174,7 +188,10 @@
         },
         {
             "position": 6,
-            "category_to_save": [],
+            "category_to_save": [
+                "knit",
+                "shirt"
+            ],
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -198,7 +215,10 @@
         },
         {
             "position": 7,
-            "category_to_save": [],
+            "category_to_save": [
+                "knit",
+                "shirt"
+            ],
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -251,4 +271,5 @@
             "socks" : "짝을 맞춰 말아서 보관해주세요"
         }
     ]
+
 }

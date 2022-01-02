@@ -4,11 +4,7 @@ from keras.preprocessing.image import load_img
 from keras.preprocessing.image import img_to_array
 from keras.models import load_model
 
-clothes_info = {
-    0: '0_coat', 1: '1_padding', 2: '2_shortsleeve',
-    3: '3_longsleeve', 4: '4_shirt', 5: '5_pants', 6: '6_dress'
-}
-
+import clothOps
 
 def rgba2rgb(rgba, background=(255, 255, 255)):
     rgba = img_to_array(rgba)
@@ -52,7 +48,7 @@ def get_prediction(test_image):
     c2c_model = load_model('models/c2c_model.h5')
     prediction = c2c_model.predict(test_image)
     pred = prediction[0]
-    label = clothes_info[np.argmax(prediction)]
+    label = np.argmax(prediction)
 
     return pred, label
 

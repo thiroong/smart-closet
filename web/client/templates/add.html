@@ -63,7 +63,7 @@
         <div class="row">
 			<div class="col-lg-8  offset-lg-2">
 				<h2 class="mt-5">캡쳐해서 올리기</h2>
-				<form method="post" action="{{ url_for('add_clothes') }}">
+				<form method="post" action="{{ url_for('add_clothes', isUpload=False) }}">
 					<input placeholder="별명을 입력하세요" required name ="nickname">
 					<input type="submit" value="Capture" name="click"/>
 				</form>
