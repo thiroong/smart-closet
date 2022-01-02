@@ -22,7 +22,7 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
     newCloth = dict(**clothClass)
     newCloth["name"]=clothName_str
     newCloth["category"]=category_str
-    newCloth["img_path"]='images/c'+boxnum_str+'/'+clothName_str+'.jpg'
+    newCloth["img_path"]='images/box/box'+boxnum_str+'/'+clothName_str+'.jpg'
     newCloth["feature_path"]='feature/f_'+clothName_str+'.np'
 
     with open(filename, 'r+', encoding='UTF8') as file:
@@ -133,11 +133,12 @@ clothClass={ # 수납함 번호 추가하는 거 고려해보기, add.html에서
 
 
 clothes_info = {
-    0: '0_coat', 1: '1_padding', 2: '2_shortsleeve',
-    3: '3_longsleeve', 4: '4_shirt', 5: '5_pants', 6: '6_dress'
+    0: 'coat', 1: 'padding', 2: 'shortsleeve',
+    3: 'longsleeve', 4: 'shirt', 5: 'pants', 6: 'dress'
 }
 
-
-def get_clothes_info(label):
+# 옷의 카테고리 분류를 알려주는 함수
+# ex) 0 -> coat
+def get_category(label):
     return clothes_info[label]
 

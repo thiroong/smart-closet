@@ -1032,3 +1032,130 @@ input[type="text"] {
     display: block !important;
 }
 }
+
+#fh5co-page .main-box{
+    display: flex !important;
+    margin: 100px;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    margin-bottom: 100px;
+   }
+
+#fh5co-page .main-box .closet-box{
+    width: 60% !important;
+    height: 100% !important;
+    margin-left: 200px !important;
+    display: flex !important;
+}
+
+#fh5co-page .main-box .closet-box .closet-box-1,
+#fh5co-page .main-box .closet-box .closet-box-2,
+#fh5co-page .main-box .closet-box .closet-box-3{
+    height: 100% !important;
+    float: left !important;
+    text-align: center !important;
+    width: 20% !important;
+}
+
+#fh5co-page .main-box .closet-box .closet-box-1 .closet1,
+#fh5co-page .main-box .closet-box .closet-box-1 .closet2,
+#fh5co-page .main-box .closet-box .closet-box-1 .closet3,
+#fh5co-page .main-box .closet-box .closet-box-1 .closet4,
+#fh5co-page .main-box .closet-box .closet-box-2 .closet5,
+#fh5co-page .main-box .closet-box .closet-box-3 .closet6,
+#fh5co-page .main-box .closet-box .closet-box-3 .closet7{
+    background-color: beige !important;
+    text-align: center;
+    margin: 0;
+    display: flex !important;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    padding: 0;
+
+}
+
+#fh5co-page .main-box .closet-box .closet-box-1 .closet1 p,
+#fh5co-page .main-box .closet-box .closet-box-1 .closet2 p,
+#fh5co-page .main-box .closet-box .closet-box-1 .closet3 p,
+#fh5co-page .main-box .closet-box .closet-box-1 .closet4 p,
+#fh5co-page .main-box .closet-box .closet-box-2 .closet5 p,
+#fh5co-page .main-box .closet-box .closet-box-3 .closet6 p,
+#fh5co-page .main-box .closet-box .closet-box-3 .closet7 p{
+  font-size: 15px;
+  margin: 0;
+  display: block;
+  width: 100%;
+
+}
+
+#fh5co-page .main-box .closet-box .closet-box-1 .closet1{
+    height: 55% !important;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+#fh5co-page .main-box .closet-box .closet-box-1 .closet2,
+#fh5co-page .main-box .closet-box .closet-box-1 .closet3,
+#fh5co-page .main-box .closet-box .closet-box-1 .closet4{
+    height: 15% !important;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#fh5co-page .main-box .closet-box .closet-box-1 .closet4{
+    border-bottom: 1px solid black !important;
+}
+
+#fh5co-page .main-box .closet-box .closet-box-2 .closet5{
+    height: 100% !important;
+    border-top:1px solid black;
+    border-bottom: 1px solid black;
+    padding-bottom: 3px;
+}
+
+#fh5co-page .main-box .closet-box .closet-box-3 .closet6,
+#fh5co-page .main-box .closet-box .closet-box-3 .closet7{
+    height: 50% !important;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#fh5co-page .main-box .closet-box .closet-box-3 .closet7{
+    border-bottom: 1px solid black !important;
+    padding-bottom: 2px;
+}
+
+#fh5co-page .main-box .select-box{
+    width: 40% !important;
+    height: 100%;
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    align-items: center;
+    justify-content: center;}
+
+
+
+#fh5co-page .main-box .select-box .table1_1,
+#fh5co-page .main-box .select-box .table1_1 th,
+#fh5co-page .main-box .select-box .table1_1 td
+{
+	font-size: 18px;
+	text-align:center;
+	padding:px;
+	border:1px solid #dddddd;
+	border-collapse:collapse
+}
+
+#fh5co-page .main-box .select-box .table1_1 tr:first-child{
+	background-color:#c4c4c4;
+}
+
+#fh5co-page .main-box .select-box input{
+  margin-top: 20px;
+}
