@@ -70,15 +70,15 @@
 	<div class="row">
 			<div class="col-lg-8  offset-lg-2">
 				<h2 class="mt-5">업로드된 사진</h2>
+                <h3> 옷의 닉네임: {{ results.nickname }}</h3>
 				<img src="{{ results.img_path }}">
 			</div>
             <div>
                 <h3>카테고리 인덱스: {{results.label}}</h3>
-                <h3>추천 수납합 위치: {{results.recommand_pos}}</h3>
                 <h3>옷의 분류: {{results.category}}</h3>
-
                 <h3>확률: {{results.pred}}</h3>
 
+                <h3>추천 수납합 위치: {{results.position}}</h3>
 
                 <div class="add-box" style="
                         width: 20%;
@@ -88,7 +88,7 @@
                         padding: 50px;
                         border: 2px solid black;
                         margin-right: 300px;">
-                    <a href="{{ url_for('box', box_num=results.label)}}" style="color: black; font-size: 15px;">옷 추가하기</a>
+                    <a href="{{ url_for('box', box_num=results.position)}}" style="color: black; font-size: 15px;">옷 추가하기</a>
                 </div>
                 <div class="add-box" style="
                         width: 20%;
