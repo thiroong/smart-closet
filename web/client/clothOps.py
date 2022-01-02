@@ -111,5 +111,15 @@ clothClass={ # 수납함 번호 추가하는 거 고려해보기, add.html에서
 # Test code
 ############################################
 #append_cloth(5,"knit","twisted_knit")
-#wear_info("twisted_knit")
-#print(is_box_full(7))
+
+
+
+clothes_info = {
+    0: '0_coat', 1: '1_padding', 2: '2_shortsleeve',
+    3: '3_longsleeve', 4: '4_shirt', 5: '5_pants', 6: '6_dress'
+}
+
+
+def get_clothes_info(label):
+    return clothes_info[label]
+

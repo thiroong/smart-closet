@@ -74,6 +74,7 @@
 			</div>
             <div>
                 <h3>옷의 분류: {{results.label}}</h3>
+                <h3>옷의 분류: {{results.clothes_class}}</h3>
                 <h3>확률: {{results.pred}}</h3>
 
 
@@ -85,7 +86,7 @@
                         padding: 50px;
                         border: 2px solid black;
                         margin-right: 300px;">
-                    <a href="/box" style="color: black; font-size: 15px;">옷 추가하기</a>
+                    <a href="{{ url_for('box', box_num=results.label)}}" style="color: black; font-size: 15px;">옷 추가하기</a>
                 </div>
                 <div class="add-box" style="
                         width: 20%;
