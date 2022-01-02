@@ -1016,3 +1016,19 @@ input[type="text"] {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+#fh5co-page .ootd-main{
+    display: flex !important;
+}
+
+#fh5co-page .ootd-main .ootd-photo-box,
+#fh5co-page .ootd-main .ootd-graph-box,
+{
+    text-align: center;
+    width: 33%;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-page .ootd-main{
+    display: block !important;
+}
+}
