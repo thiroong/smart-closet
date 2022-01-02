@@ -17,6 +17,7 @@ application = Flask(__name__, static_folder='static')
 # @application.route("/")
 # def hello():
 #     return render_template("closet.html")
+
 @application.route("/")
 @application.route("/index")
 def index():
@@ -97,7 +98,8 @@ def photo():
 
 @application.route('/video_feed')
 def video_feed():
-    camera.openCam()
+    if camera.getCam().isOpened() == False:
+        camera.openCam()
     return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @application.route('/add_clothes', methods=['POST', 'GET'])
@@ -117,6 +119,7 @@ def add_clothes(isUpload=False):
     pred, label = cc.classifier(img_path)
     print(pred, label)
 
+    camera.closeCam()
     return render_template('add_clothes.html', results={"pred": pred,
                                                         "label": label,
                                                         "img_path": img_path})
@@ -140,6 +143,7 @@ def ootd_whichone():
     pred, label = cc.classifier(img_path_segmen, isOotd=True)
     print(pred, label)
 
+    camera.closeCam()
     return render_template('ootd_whichone.html',
                            results={"pred": pred,
                                     "label": label,
@@ -172,9 +176,6 @@ def ootd_whichone():
 #append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json')
 """"@application.route('/setting.html')
 def setting(nickname, p_path):"""
-
-
-
 
 # 빈도수 알려주는 그래프 데이터 가져오셔야 합니다
 # @application.route("/ootd")

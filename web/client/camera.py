@@ -4,6 +4,8 @@ from tensorflow.keras.models import load_model
 import tensorflow as tf
 
 global cam, saved
+cam = cv2.VideoCapture(0)
+cam.release()
 switch = 1
 saved = load_model("models/fashion_segmentation.h5")
 
@@ -14,6 +16,10 @@ def getCam():
 def openCam():
     global cam
     cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    
+def closeCam():
+    global cam
+    cam.release()
 
 class fashion_tools(object):
     def __init__(self, imageid, model, version=1.1):
