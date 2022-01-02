@@ -27,6 +27,11 @@
      <link rel="stylesheet" href="{{ url_for('static', filename='css/flexslider.css') }}">
      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+
 	<script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
 
 	</head>
@@ -38,20 +43,20 @@
 			<div class="fh5co-table-cell js-fullheight">
 				<ul>
 					<li><a href="/">Home</a></li>
-					<li><a href="/closet">Closet</a></li>
-
-					<li><a href="product.html">OOTD</a></li>
+                    <li><a href="/closet">Closet</a></li>
+                    <li><a href="/ootd">OOTD</a></li>
+                    <li><a href="/setting">Setting</a></li>
 				</ul>
 
 			</div>
 		</div>
 	</nav>
 
-	<div id="fh5co-page">
+	<div id="fh5co-page" style="height: 1000px">
 		<header>
 			<div class="container">
 				<div class="fh5co-navbar-brand">
-					<h1 class="text-center"><a class="fh5co-logo" href="index.html">Close To Closet</a></h1>
+					<h1 class="text-center"><a class="fh5co-logo" href="/">Close To Closet</a></h1>
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 				</div>
 			</div>
@@ -62,7 +67,7 @@
 					<div class="col-md-8 col-md-offset-2 animate-box text-center">
 						<h2 class="intro-heading">{{result.get("name")}}</h2>
                         <!-- 옷 이름 받아와주세요 -->
-						<p><span> {{result.get("box_num")}}번 수납합 </span></p>
+						<p style="font-family: 'IBM Plex Sans KR', sans-serif;"><span> {{result.get("box_num")}}번 수납합 </span></p>
                         <!-- 수납함 -->
 					</div>
 				</div>
@@ -75,12 +80,12 @@
 					</div>
 					</div>
 				<div class="product" style="background-image: url(static/images/img-11.jpg); width: 400px; height: 500px; justify-content:flex-end;">
-					<div class="container">
+					<div class="container" style="width: 480px; height: 500px;">
                         <!-- 옷 디테일 -->
-						<h1>옷 별명 : {{result.get("name")}}</h1>
-						<li>옷 정보 : {{result.get("category")}}</li>
-						<li>세탁 정보 : {{result.get("laundry_info")}}</li>
-						<li>보관 정보 : {{result.get("management_info")}}</li>
+<!--						<h1 style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 별명 : </h1><h1>{{result.get("name")}}</h1>-->
+						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 정보 : {{result.get("category")}}</li>
+						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">세탁 정보 : <br> &nbsp {{result.get("laundry_info")}}</li>
+						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">보관 정보 : <br> &nbsp {{result.get("management_info")}}</li>
 						<!--<li>
 							<script type="text/javascript">
 								document.write("입은 횟수 : "+ result.count)
@@ -88,8 +93,8 @@
 						</li>-->
 						<!--위 자바스크립트 코드 동작 안해서 application.py에서 count를 str로 바꿔버림..
 						자바스크립트 동작하면 아래 코드 수정하기-->
-						<li>보관 정보 : &nbsp {{result.get("count")}} &nbsp 회</li>
-						<li>최근 착용일 : {{result.get("last_wear_date")}}</li>
+						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">입은 횟수 : &nbsp {{result.get("count")}} &nbsp 회</li>
+						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">최근 착용일 : {{result.get("last_wear_date")}}</li>
 					</div>
 					</div>
 			</div>
