@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+import datetime
 
 ############################################
 # 상수 정의
@@ -92,7 +92,7 @@ def is_box_full(boxnum_int, filename='clothes.json'):
 
 
 
-
+# 라벨(카테고리)로 해당 수납함 위치를 반환하는 함수
 def search_pos_by_label(label):
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
@@ -105,6 +105,58 @@ def search_pos_by_label(label):
                 return (closet_box['position'])
 
     return (-1)
+
+# 각 카테고리 별 착용 빈도
+def count_by_category():
+    with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
+        closet_info = json.load(file)
+    
+    cnt_categories = { 
+        'coat':0, 'padding':0, 'shortsleeve':0,
+        'longsleeve':0, 'shirt':0, 'pants':0,
+        'dress':0, 'undefined':0
+    }
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_list = closet_box["clothes_list"]
+        for cloth in cloth_list:
+            if cloth['count'] > 0:
+                cnt_categories[cloth['category']] += 1
+            
+    return (cnt_categories)
+
+# 이번주 입은 카테고리 별 횟수
+def AddDays(sourceDate, count):
+    targetDate = sourceDate + datetime.timedelta(days = count)
+    return (targetDate)
+
+def count_by_category_to_date():
+    with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
+        closet_info = json.load(file)
+    
+    cnt_categories = { 
+        'coat':0, 'padding':0, 'shortsleeve':0,
+        'longsleeve':0, 'shirt':0, 'pants':0,
+        'dress':0, 'undefined':0
+    }
+    
+    now = datetime.datetime.now()
+    weekDayCount = now.weekday()
+    startDate = AddDays(now, -weekDayCount)
+    endDate = AddDays(startDate, 7)
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_list = closet_box["clothes_list"]
+        for cloth in cloth_list:
+            if str(startDate) < cloth['last_wear_date'] \
+                and str(endDate) > cloth['last_wear_date'] \
+                and cloth['count'] > 0:
+                cnt_categories[cloth['category']] += 1
+            
+    return (cnt_categories)
+    
 
 ############################################
 # Dict Class 정의
