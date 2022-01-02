@@ -23,48 +23,21 @@ application = Flask(__name__, static_folder='static')
 def index():
     return render_template("index.html")
 
+
 @application.route("/closet")
 def closet():
     return render_template("closet.html")
+
 
 @application.route("/ootd")
 def ootd():
     return render_template("ootd.html")
 
+
 @application.route("/setting")
 def setting():
     return render_template("setting.html")
 
-
-#옷 추가
-@application.route("/<int:box_num>", methods=['GET']) #각 closet_num에 해당하는 번호의 수납함으로 이동
-def box(box_num):
-    with open('clothes.json', encoding='UTF8') as cloth_json:
-        json_data = json.load(cloth_json) #cloth_json 불러옴
-        box_data = json_data["closet"][box_num-1]  #closet_num번 수납함 데이터 불러옴
-        box_data['box_num']=str(box_num)
-    return render_template("box.html",result=box_data)
-
-@application.route("/<int:box_num>/<cloth_name>", methods=['GET'])
-def cloth_detail(box_num,cloth_name):
-    #clothes.json의 closet에서 옷의 이름, 카테고리, 착용횟수, 이미지 경로, feature 경로, 최근 착용일 정보 받아옴
-    with open('clothes.json', encoding='UTF8') as cloth_json:
-        json_data = json.load(cloth_json)
-        box_data_clothes = json_data["closet"][box_num-1]["clothes_list"]
-        current_cloth={}
-        for cloth in box_data_clothes:
-            if cloth["name"]==cloth_name:
-                current_cloth=cloth
-                break
-        current_cloth['box_num']=str(box_num)
-        #cloth_detail.html보면 자바스크립트 동작 안해서 count를 str로 바꿔놓음
-        current_cloth['count']=str(current_cloth['count'])
-        current_category = current_cloth["category"]
-        # clothes.json의 clothes_laundry에서 해당하는 카테고리의 세탁정보 받아옴
-        current_cloth['laundry_info'] = json_data["clothes_laundry"][0][current_category]
-        # clothes.json의 clothes_management에서 해당하는 카테고리의 세탁정보 받아옴
-        current_cloth['management_info'] = json_data["clothes_management"][0][current_category]
-    return render_template("cloth_detail.html", result=current_cloth)
 
 @application.route("/add")
 def add():
@@ -102,33 +75,36 @@ def video_feed():
         camera.openCam()
     return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@application.route('/add_clothes', methods=['POST', 'GET'])
-def add_clothes(isUpload=False):
+
+@application.route('/add_clothes?<isUpload>', methods=['POST'])
+def add_clothes(isUpload):
     # 옷 등록
     ret, frame = camera.getCam().read()
     camera.closeCam()
     nickname = request.form.get('nickname')
     img_path = "static/images/c1/{name}.jpg".format(name=nickname)
-    print(isUpload)
-    if isUpload:
-        file = request.files["file"]
-        print("파일인데?")
+    print(isUpload, type(isUpload))
+    if isUpload == 'True':
+        file = request.files['file']
+        print(file)
         cv2.imwrite(img_path, file)
     else:
         cv2.imwrite(img_path, frame)
 
     pred, label = cc.classifier(img_path)
+    category = clothOps.get_clothes_info(label)
     print(pred, label)
     
-    category = label[2:]
+    category = cagetory[2:]
     position = clothOps.search_pos_by_label(category)
     if position == -1:
         position = "지정 카테고리가 없습니다!"
     print(category, position)
 
     return render_template('add_clothes.html', results={"pred": pred,
-                                                        "label": category,
                                                         "recommand_pos": position,
+                                                        "label": label,
+                                                        "clothes_class": category,
                                                         "img_path": img_path})
 
 
@@ -138,13 +114,15 @@ def ootd_whichone():
     ret, frame = camera.getCam().read()
     now = datetime.datetime.now()
     # img_path = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
-    img_path = "static/images/c1/test.jpg" # 테스트용 코드
+    img_path = "static/images/c1/test.png" # 테스트용 코드
     cv2.imwrite(img_path, frame)
     camera.closeCam()
 
     api = camera.fashion_tools(img_path, camera.saved)
     image_ = api.get_dress()
+
     # img_path_segmen = "static/images/c2/{}.jpg".format(str(now).replace(":", ''))
+
     img_path_segmen = "static/images/c2/test.png" # 테스트용 코드
     cv2.imwrite(img_path_segmen, image_)
 
@@ -157,7 +135,35 @@ def ootd_whichone():
                                     "img_path": img_path,
                                     "img_path_segmen": img_path_segmen})
 
+#옷 추가
+@application.route("/box/<int:box_num>", methods=['GET']) #각 closet_num에 해당하는 번호의 수납함으로 이동
+def box(box_num):
+    with open('clothes.json', encoding='UTF8') as cloth_json:
+        json_data = json.load(cloth_json) #cloth_json 불러옴
+        box_data = json_data["closet"][box_num-1]  #closet_num번 수납함 데이터 불러옴
+        box_data['box_num']=str(box_num)
+    return render_template("box.html",result=box_data)
 
+@application.route("/<int:box_num>/<cloth_name>", methods=['GET'])
+def cloth_detail(box_num, cloth_name):
+    #clothes.json의 closet에서 옷의 이름, 카테고리, 착용횟수, 이미지 경로, feature 경로, 최근 착용일 정보 받아옴
+    with open('clothes.json', encoding='UTF8') as cloth_json:
+        json_data = json.load(cloth_json)
+        box_data_clothes = json_data["closet"][box_num-1]["clothes_list"]
+        current_cloth={}
+        for cloth in box_data_clothes:
+            if cloth["name"]==cloth_name:
+                current_cloth=cloth
+                break
+        current_cloth['box_num']=str(box_num)
+        #cloth_detail.html보면 자바스크립트 동작 안해서 count를 str로 바꿔놓음
+        current_cloth['count']=str(current_cloth['count'])
+        current_category = current_cloth["category"]
+        # clothes.json의 clothes_laundry에서 해당하는 카테고리의 세탁정보 받아옴
+        current_cloth['laundry_info'] = json_data["clothes_laundry"][0][current_category]
+        # clothes.json의 clothes_management에서 해당하는 카테고리의 세탁정보 받아옴
+        current_cloth['management_info'] = json_data["clothes_management"][0][current_category]
+    return render_template("cloth_detail.html", result=current_cloth)
 
 # @application.route('/requests/<isOOTD>', methods=['POST'])
 # def tasks(isOOTD=False):
@@ -184,6 +190,19 @@ def ootd_whichone():
 """"@application.route('/setting.html')
 def setting(nickname, p_path):"""
 
+##################검색 기능 테스트######################
+@application.route(('/temp_for_test'))
+def temp_for_test():
+    return render_template("temp_for_test.html")
+
+@application.route('/result', methods=['POST'])
+def result():
+    keyword=request.form['search']
+    img_path_list=clothOps.find_image_by_keyword(keyword)
+    return render_template("result.html", result=img_path_list)
+##################검색 기능 테스트######################
+
+    
 # 빈도수 알려주는 그래프 데이터 가져오셔야 합니다
 # @application.route("/ootd")
 # def graph():
