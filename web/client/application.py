@@ -1,5 +1,5 @@
-import requests
 from flask import Flask, render_template, redirect, url_for, request, Response
+import numpy as np
 
 import os
 import json
@@ -83,13 +83,17 @@ def add_clothes(isUpload):
     camera.closeCam()
     nickname = request.form.get('nickname')
     img_path = "static/images/c1/{name}.jpg".format(name=nickname)
+    
+    print(img_path)
     print(isUpload, type(isUpload))
     if isUpload == 'True':
         file = request.files['file']
         print(file)
-        cv2.imwrite(img_path, file)
+        # cv2.imwrite(img_path, file)
+        camera.my_imwrite('.jpg', frame, img_path)
     else:
-        cv2.imwrite(img_path, frame)
+        # cv2.imwrite(img_path, frame)
+        camera.my_imwrite('.jpg', frame, img_path)
 
     pred, label = cc.classifier(img_path)
     category = clothOps.get_clothes_info(label)
@@ -104,7 +108,7 @@ def add_clothes(isUpload):
     return render_template('add_clothes.html', results={"pred": pred,
                                                         "recommand_pos": position,
                                                         "label": label,
-                                                        "clothes_class": category,
+                                                        "category": category,
                                                         "img_path": img_path})
 
 

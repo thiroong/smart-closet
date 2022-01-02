@@ -60,3 +60,11 @@ def gen_frames():  # generate frame by frame from camera
                 pass    
         else:
             pass
+
+def my_imwrite(ext, frame, img_path):
+    np.array(frame, dtype='uint8')
+    ret, img_arr = cv2.imencode(ext, frame)
+        
+    if ret:
+        with open(img_path, mode='w+b') as f:
+            img_arr.tofile(f)
