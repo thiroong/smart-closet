@@ -84,8 +84,8 @@ def add_clothes(isUpload):
     img_path = "static/images/c1/{name}.jpg".format(name=nickname)
     print(isUpload, type(isUpload))
     if isUpload == 'True':
-        file = request.form.get('file')
-        print("파일인데?")
+        file = request.files['file']
+        print(file)
         cv2.imwrite(img_path, file)
     else:
         cv2.imwrite(img_path, frame)

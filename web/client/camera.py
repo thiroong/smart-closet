@@ -30,7 +30,7 @@ class fashion_tools(object):
     def get_dress(self):
         name =  self.imageid
         file = cv2.imread(name)
-        file = tf.image.resize_with_pad(file, target_height=480, target_width=480)
+        file = tf.image.resize_with_pad(file, target_height=480, target_width=640)
         rgb  = file.numpy()
         file = np.expand_dims(file,axis=0) / 255.
         seq = self.model.predict(file)
@@ -40,7 +40,9 @@ class fashion_tools(object):
         c2x = rgb * (1-seq)
         cfx = c1x + c2x
         rgbs = np.concatenate((cfx, seq * 255.), axis=-1)
-        return rgbs
+        print(rgbs.shape)
+
+        return rgbs[:, 80:-80, :]
         
     def get_patch(self):
         return None
