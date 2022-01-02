@@ -106,6 +106,7 @@ def video_feed():
 def add_clothes(isUpload=False):
     # 옷 등록
     ret, frame = camera.getCam().read()
+    camera.closeCam()
     nickname = request.form.get('nickname')
     img_path = "static/images/c1/{name}.jpg".format(name=nickname)
     print(isUpload)
@@ -118,10 +119,16 @@ def add_clothes(isUpload=False):
 
     pred, label = cc.classifier(img_path)
     print(pred, label)
+    
+    category = label[2:]
+    position = clothOps.search_pos_by_label(category)
+    if position == -1:
+        position = "지정 카테고리가 없습니다!"
+    print(category, position)
 
-    camera.closeCam()
     return render_template('add_clothes.html', results={"pred": pred,
-                                                        "label": label,
+                                                        "label": category,
+                                                        "recommand_pos": position,
                                                         "img_path": img_path})
 
 
@@ -133,17 +140,17 @@ def ootd_whichone():
     # img_path = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
     img_path = "static/images/c1/test.jpg" # 테스트용 코드
     cv2.imwrite(img_path, frame)
+    camera.closeCam()
 
     api = camera.fashion_tools(img_path, camera.saved)
     image_ = api.get_dress()
     # img_path_segmen = "static/images/c2/{}.jpg".format(str(now).replace(":", ''))
-    img_path_segmen = "static/images/c2/test.jpg" # 테스트용 코드
+    img_path_segmen = "static/images/c2/test.png" # 테스트용 코드
     cv2.imwrite(img_path_segmen, image_)
 
     pred, label = cc.classifier(img_path_segmen, isOotd=True)
     print(pred, label)
 
-    camera.closeCam()
     return render_template('ootd_whichone.html',
                            results={"pred": pred,
                                     "label": label,

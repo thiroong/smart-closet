@@ -1,6 +1,11 @@
 import json
 
 ############################################
+# 상수 정의
+############################################
+DATABASE_PATH = 'clothes.json'
+
+############################################
 # 함수들 정의
 ############################################
 
@@ -26,6 +31,19 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
         file_data["closet"][int(boxnum_str) - 1]["used"]+=1
         file.seek(0)
         json.dump(file_data,file,indent=4)
+
+def search_pos_by_label(label):
+    with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
+        closet_info = json.load(file)
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_category = closet_box["category_to_save"]
+        for category in cloth_category:
+            if category == label:
+                return (closet_box['position'])
+
+    return (-1)
 
 ############################################
 # Dict Class 정의
