@@ -34,7 +34,28 @@ def closet():
 
 @application.route("/ootd")
 def ootd():
-    return render_template("ootd.html")
+    circle_dict = clothOps.count_by_category()
+    c_count = []
+    c_labels = []
+    
+    for key, val in circle_dict.items():
+        if (val > 0):
+            c_labels.append(key)
+            c_count.append(val)
+    
+    stick_dict = clothOps.count_by_category_to_date()
+    s_count = []
+    s_labels = []
+    
+    for key, val in circle_dict.items():
+        if (val > 0):
+            s_labels.append(key)
+            s_count.append(val)
+            
+    return render_template("ootd.html", 
+                           circle_key = c_labels, circle_val = c_count,
+                           stick_key = s_labels, stick_val = s_count
+                           )
 
 
 @application.route("/setting")

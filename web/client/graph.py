@@ -40,5 +40,5 @@ def stick_graph():
     plt.xticks(x, labels)
     plt.show()
 
-
+# stick_graph()
     
