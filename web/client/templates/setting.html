@@ -80,6 +80,7 @@
             justify-content: center;
 
             margin-bottom: 100px;">
+            
         <div class="closet-box-1" style="height: 100%; float: left; text-align: center; width: 20%;">
             <div class="closet1"
                 style="
@@ -96,7 +97,7 @@
                     border-left: 1px solid black;
                     border-right: 1px solid black;">
                 <p style="margin: 0;"><a href="/closet_1">1</a></p>
-                <select name="select1" >
+                <select name="select1" onchange="alert_category(this);">
                     <option value="none"> 옷 선택 </option>
                     <option value="coat">coat</option>
                     <option value="padding">padding</option>
@@ -106,6 +107,16 @@
                     <option value="pants">pants</option>
                     <option value="dress">dress</option>
                 </select>
+                <script>
+                    var alert_category = function (select_obj) {
+                        var target = select_obj.selectedIndex;
+
+                        // alert('선택된 옵션 text 값=' + target.options[target.selectedIndex].text);     // 옵션 text 값
+                        alert('선택된 옵션 text 값=' + select_obj.options[target].text);     // 옵션 text 값
+                        // alert('선택된 옵션 value 값=' + target.options[target.selectedIndex].value);
+                        alert('선택된 옵션 value 값=' + select_obj.options[target].value);
+                    }    // 옵션 value 값
+                </script>
             </div>
 
             <div class="closet2"

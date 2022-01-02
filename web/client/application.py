@@ -95,7 +95,7 @@ def add_clothes(isUpload):
     category = clothOps.get_clothes_info(label)
     print(pred, label)
     
-    category = cagetory[2:]
+    category = category[2:]
     position = clothOps.search_pos_by_label(category)
     if position == -1:
         position = "지정 카테고리가 없습니다!"
