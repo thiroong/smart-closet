@@ -4,7 +4,6 @@
         {
             "position": 1,
             "category_to_save": [
-                "knit",
                 "shirt",
                 "pants"
             ],
@@ -13,7 +12,7 @@
             "clothes_list": [
                 {
                     "name": "twisted_knit",
-                    "category": "knit",
+                    "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box1/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
@@ -26,6 +25,46 @@
                     "img_path": "images/box/box1/striped_shirt.jpg",
                     "feature_path": "feature/f_striped_shirt.np",
                     "last_wear_date": "2021-12-31"
+                },
+                {
+                    "name": "test",
+                    "category": "undefined",
+                    "count": 0,
+                    "img_path": "images/c1/test.jpg",
+                    "feature_path": "feature/f_test.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sadasd",
+                    "category": "undefined",
+                    "count": 0,
+                    "img_path": "images/c1/sadasd.jpg",
+                    "feature_path": "feature/f_sadasd.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "asdasd",
+                    "category": "undefined",
+                    "count": 0,
+                    "img_path": "images/c1/asdasd.jpg",
+                    "feature_path": "feature/f_asdasd.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sada",
+                    "category": "undefined",
+                    "count": 0,
+                    "img_path": "images/c1/sada.jpg",
+                    "feature_path": "feature/f_sada.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sadasd",
+                    "category": "undefined",
+                    "count": 0,
+                    "img_path": "images/c1/sadasd.jpg",
+                    "feature_path": "feature/f_sadasd.np",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
@@ -36,7 +75,7 @@
                 "dress"
             ],
             "capacity": 0,
-            "used": 3,
+            "used": 4,
             "clothes_list": [
                 {
                     "name": "brown_padding",
@@ -61,6 +100,14 @@
                     "img_path": "images/box/box2/민지님원피스.jpg",
                     "feature_path": "feature/f_민지님원피스.np",
                     "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "테스트",
+                    "category": "dress",
+                    "count": 0,
+                    "img_path": "images/box/box2/테스트.jpg",
+                    "feature_path": "feature/f_테스트.np",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
@@ -68,7 +115,7 @@
             "position": 3,
             "category_to_save": [
                 "coat",
-                "short_sleeve"
+                "shortsleeve"
             ],
             "capacity": 0,
             "used": 1,
@@ -83,7 +130,7 @@
                 },
                 {
                     "name": "blue_short_sleeve",
-                    "category": "short_sleeve",
+                    "category": "shortsleeve",
                     "count": 2,
                     "img_path": "images/box/box3/blue_short_sleeve.jpg",
                     "feature_path": "feature/f_blue_short_sleeve.np",
@@ -94,7 +141,6 @@
         {
             "position": 4,
             "category_to_save": [
-                "knit",
                 "shirt"
             ],
             "capacity": 0,
@@ -102,7 +148,7 @@
             "clothes_list": [
                 {
                     "name": "twisted_knit",
-                    "category": "knit",
+                    "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box4/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
@@ -121,7 +167,6 @@
         {
             "position": 5,
             "category_to_save": [
-                "knit",
                 "shirt"
             ],
             "capacity": 0,
@@ -129,7 +174,7 @@
             "clothes_list": [
                 {
                     "name": "twisted_knit",
-                    "category": "knit",
+                    "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box5/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
@@ -145,7 +190,7 @@
                 },
                 {
                     "name": "twisted_knit",
-                    "category": "knit",
+                    "category": "shirt",
                     "count": 0,
                     "img_path": "images/box/box5/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
@@ -156,7 +201,6 @@
         {
             "position": 6,
             "category_to_save": [
-                "knit",
                 "shirt"
             ],
             "capacity": 0,
@@ -164,7 +208,7 @@
             "clothes_list": [
                 {
                     "name": "twisted_knit",
-                    "category": "knit",
+                    "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box6/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
@@ -183,7 +227,6 @@
         {
             "position": 7,
             "category_to_save": [
-                "knit",
                 "shirt"
             ],
             "capacity": 0,
@@ -191,7 +234,7 @@
             "clothes_list": [
                 {
                     "name": "twisted_knit",
-                    "category": "knit",
+                    "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box7/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
