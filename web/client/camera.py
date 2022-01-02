@@ -4,13 +4,22 @@ from tensorflow.keras.models import load_model
 import tensorflow as tf
 
 global cam, saved
+cam = cv2.VideoCapture(0)
+cam.release()
 switch = 1
-cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 saved = load_model("models/fashion_segmentation.h5")
 
 def getCam():
     global cam
     return cam
+
+def openCam():
+    global cam
+    cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    
+def closeCam():
+    global cam
+    cam.release()
 
 class fashion_tools(object):
     def __init__(self, imageid, model, version=1.1):
@@ -21,7 +30,7 @@ class fashion_tools(object):
     def get_dress(self):
         name =  self.imageid
         file = cv2.imread(name)
-        file = tf.image.resize_with_pad(file, target_height=480, target_width=640)
+        file = tf.image.resize_with_pad(file, target_height=480, target_width=480)
         rgb  = file.numpy()
         file = np.expand_dims(file,axis=0) / 255.
         seq = self.model.predict(file)

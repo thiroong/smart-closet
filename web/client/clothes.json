@@ -25,6 +25,48 @@
                     "img_path": "images/c1/striped_shirt.jpg",
                     "feature_path": "feature/f_striped_shirt.np",
                     "last_wear_date": "2021-12-31"
+
+                },
+                {
+                    "name": "test",
+                    "category": "undefined",
+                    "count": 0,
+                    "img_path": "images/c1/test.jpg",
+                    "feature_path": "feature/f_test.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sadasd",
+                    "category": "undefined",
+                    "account": 0,
+                    "img_path": "images/c1/sadasd.jpg",
+                    "feature_path": "feature/f_sadasd.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "asdasd",
+                    "category": "undefined",
+                    "account": 0,
+                    "img_path": "images/c1/asdasd.jpg",
+                    "feature_path": "feature/f_asdasd.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sada",
+                    "category": "undefined",
+                    "account": 0,
+                    "img_path": "images/c1/sada.jpg",
+                    "feature_path": "feature/f_sada.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sadasd",
+                    "category": "undefined",
+                    "account": 0,
+                    "img_path": "images/c1/sadasd.jpg",
+                    "feature_path": "feature/f_sadasd.np",
+                    "last_wear_date": "0000-00-00"
+
                 }
             ]
         },

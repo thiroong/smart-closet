@@ -10,7 +10,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
 	<!-- Icomoon Icon Fonts-->
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<div id="fh5co-page">
 		<header>
 			<div class="container">
@@ -63,16 +63,41 @@
 	    <div class="row">
 			<div class="col-lg-8  offset-lg-2">
                 <h2>입고 나가는 옷을 촬영해 주세요</h2>
-				<form method="post" action="{{ url_for('ootd_whichone') }}">
-				<input type="submit" value="Capture" name="click"/>
-				</form>
-				<img src="{{ url_for('video_feed') }}">
+				<img src="{{ results.img_path }}">
+				<img src="{{ results.img_path_segmen }}">
+<!--				디비에 등록되어 있는 옷 사진-->
+<!--				현재 임시 이미지-->
+				<img src="/static/images/c2/brown_padding.jpg">
+				<div>
+					<h3>옷의 분류: {{results.label}}</h3>
+					<h3>확률: {{results.pred}}</h3>
+					<h3>N번 옷장에 있는 "닉네임" 옷</h3>
+					<div class="add-box" style="
+							width: 20%;
+							float: left;
+							margin: 0;
+							text-align: center;
+							padding: 50px;
+							border: 2px solid black;
+							margin-right: 300px;">
+						<a href="" style="color: black; font-size: 15px;">맞으면 확인</a>
+					</div>
+					<div class="add-box" style="
+							width: 20%;
+							float: left;
+							margin: 0;
+							text-align: center;
+							padding: 50px;
+							border: 2px solid black;
+							margin-right: 300px;">
+						<a href="/ootd" style="color: black; font-size: 15px;">아니면 다시 찍기</a>
+					</div>
+				</div>
+
 			</div>
 		</div>
-        
+
 		<br>
-
-
 
         <h3>빈도수 그래프</h3>
         {% for d in data %}
@@ -120,27 +145,26 @@ const myChart = new Chart(ctx, {
 </script>
 	</div>
 
-    
-        
-        
-        
-        
-        
 	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
 	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
+
 	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
 	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="{{ url_for('static', filename='js/jquery.waypoints.min.js') }}"></script>
+
 	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
+	<script src="{{ url_for('static', filename='js/jquery.countTo.js') }}"></script>
+
 	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
+	<script src="{{ url_for('static', filename='js/jquery.flexslider-min.js') }}"></script>
 
 	<!-- Main JS -->
-	<script src="js/main.js"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 	</body>
 </html>
