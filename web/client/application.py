@@ -80,6 +80,7 @@ def video_feed():
 def add_clothes(isUpload):
     # 옷 등록
     ret, frame = camera.getCam().read()
+    camera.closeCam()
     nickname = request.form.get('nickname')
     img_path = "static/images/c1/{name}.jpg".format(name=nickname)
     print(isUpload, type(isUpload))
@@ -91,13 +92,19 @@ def add_clothes(isUpload):
         cv2.imwrite(img_path, frame)
 
     pred, label = cc.classifier(img_path)
-    clothes_class = clothOps.get_clothes_info(label)
+    category = clothOps.get_clothes_info(label)
     print(pred, label)
+    
+    category = cagetory[2:]
+    position = clothOps.search_pos_by_label(category)
+    if position == -1:
+        position = "지정 카테고리가 없습니다!"
+    print(category, position)
 
-    camera.closeCam()
     return render_template('add_clothes.html', results={"pred": pred,
+                                                        "recommand_pos": position,
                                                         "label": label,
-                                                        "clothes_class": clothes_class,
+                                                        "clothes_class": category,
                                                         "img_path": img_path})
 
 
@@ -109,17 +116,19 @@ def ootd_whichone():
     # img_path = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
     img_path = "static/images/c1/test.png" # 테스트용 코드
     cv2.imwrite(img_path, frame)
+    camera.closeCam()
 
     api = camera.fashion_tools(img_path, camera.saved)
     image_ = api.get_dress()
-    # img_path_segmen = "static/images/c2/{}.png".format(str(now).replace(":", ''))
+
+    # img_path_segmen = "static/images/c2/{}.jpg".format(str(now).replace(":", ''))
+
     img_path_segmen = "static/images/c2/test.png" # 테스트용 코드
     cv2.imwrite(img_path_segmen, image_)
 
     pred, label = cc.classifier(img_path_segmen, isOotd=True)
     print(pred, label)
 
-    camera.closeCam()
     return render_template('ootd_whichone.html',
                            results={"pred": pred,
                                     "label": label,

@@ -1,3 +1,4 @@
+
 {
     "user_ID": "hyoukim",
     "closet": [
@@ -5,18 +6,19 @@
             "position": 1,
             "category_to_save": [
                 "knit",
-                "shirt"
+                "shirt",
+                "pants"
             ],
             "capacity": 10,
-            "used": 3,
+            "used": 4,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "knit",
-                    "count": 4,
+                    "count": 1,
                     "img_path": "images/c1/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2022-01-02"
+                    "last_wear_date": "2021-12-30"
                 },
                 {
                     "name": "striped_shirt",
@@ -25,7 +27,6 @@
                     "img_path": "images/c1/striped_shirt.jpg",
                     "feature_path": "feature/f_striped_shirt.np",
                     "last_wear_date": "2021-12-31"
-
                 },
                 {
                     "name": "test",
@@ -66,13 +67,15 @@
                     "img_path": "images/c1/sadasd.jpg",
                     "feature_path": "feature/f_sadasd.np",
                     "last_wear_date": "0000-00-00"
-
                 }
             ]
         },
         {
             "position": 2,
-            "category_to_save": [],
+            "category_to_save": [
+                "padding",
+                "dress"
+            ],
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -96,7 +99,10 @@
         },
         {
             "position": 3,
-            "category_to_save": [],
+            "category_to_save": [
+                "coat",
+                "short_sleeve"
+            ],
             "capacity": 0,
             "used": 1,
             "clothes_list": [
@@ -120,17 +126,20 @@
         },
         {
             "position": 4,
-            "category_to_save": [],
+            "category_to_save": [
+                "knit",
+                "shirt"
+            ],
             "capacity": 0,
             "used": 0,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "knit",
-                    "count": 4,
+                    "count": 1,
                     "img_path": "images/c4/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2022-01-02"
+                    "last_wear_date": "2021-12-30"
                 },
                 {
                     "name": "striped_shirt",
@@ -144,17 +153,20 @@
         },
         {
             "position": 5,
-            "category_to_save": [],
+            "category_to_save": [
+                "knit",
+                "shirt"
+            ],
             "capacity": 0,
             "used": 1,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "knit",
-                    "count": 4,
+                    "count": 1,
                     "img_path": "images/c5/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2022-01-02"
+                    "last_wear_date": "2021-12-30"
                 },
                 {
                     "name": "striped_shirt",
@@ -167,26 +179,29 @@
                 {
                     "name": "twisted_knit",
                     "category": "knit",
-                    "count": 1,
+                    "count": 0,
                     "img_path": "images/c5/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2022-01-02"
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
         {
             "position": 6,
-            "category_to_save": [],
+            "category_to_save": [
+                "knit",
+                "shirt"
+            ],
             "capacity": 0,
             "used": 0,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "knit",
-                    "count": 4,
+                    "count": 1,
                     "img_path": "images/c6/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2022-01-02"
+                    "last_wear_date": "2021-12-30"
                 },
                 {
                     "name": "striped_shirt",
@@ -200,17 +215,20 @@
         },
         {
             "position": 7,
-            "category_to_save": [],
-            "capacity": 10,
-            "used": 10,
+            "category_to_save": [
+                "knit",
+                "shirt"
+            ],
+            "capacity": 0,
+            "used": 0,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "knit",
-                    "count": 4,
+                    "count": 1,
                     "img_path": "images/c7/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2022-01-02"
+                    "last_wear_date": "2021-12-30"
                 },
                 {
                     "name": "striped_shirt",
@@ -223,34 +241,35 @@
             ]
         }
     ],
-    "clothes_laundry": [
+    "clothes_laundry" : [
         {
-            "jean": "첫세탁이후 세탁을 권장하지 않습니다. 물빠짐 현상이 있을 수 있습니다. 중성세제를 이용하여 단독세탁을 추천드리며, 반드시 뒤집어서 세탁해주세요.",
-            "coat": "드라이클리닝을 진행해주세요. 의류용 브러시로 코트의 뭍은 이물질을 간단히 제거한 후 울세제로 손세탁을 진행하실때에는 수건으로 물기를 제거하고 코트를 펼처 말려주세요, 혹은 드라이클리닝을 진행해주세요.",
-            "knit": "손세탁을 진행해주세요. 찬물 또는 미지근한 물에 울세제를 풀어 부드럽게 세탁해주세요. 거품이 안 날때까지 헹궈주신 다음 가볍게 물기를 제거하고, 건조대에 눕혀서 말려주세요.",
-            "longpants": "세탁기를 사용해주세요. 중성세제를 이용하여 단독세탁을 진행해주세요. 건조시에는 옷걸이에 걸어 건조를 진행해주세요.",
-            "longsleeve": "세탁기를 사용해주세요. 30도 정도의 온도로 세탁기를 사용하여 세탁해주세요. 그늘에 옷걸이에 걸어 건조를 진행해주세요.",
-            "padding": "세탁기를 사용해주세요. 미온수에 중성세제를 이용하여 애벌빨래를 진행하시고, 울세제를 이용하여 세탁기에 넣어주세요. 세탁이 완료되면 물기를 털고, 옷걸이에 걸어 그늘에서 건조하세요.",
-            "shirt": "드라이클리닝을 권장합니다. 세탁기 사용도 가능해요. 냉수에 급속코스로 빠르게 물세탁을 진행해주세요. 혹은 드라이 클리닝을 진행해주세요.",
-            "shortpants": "세탁기를 사용해주세요. 중성세제를 이용하여 단독세탁을 진행해주세요. 세탁기에 넣을때는 반드시 '세탁망'을 사용해주세요.",
-            "shortsleeve": "세탁기를 사용해주세요. 중성세제를 이용하여 단독세탁을 진행해주세요. 세탁기에 넣을때는 반드시 '세탁망'을 사용해주세요.",
-            "skirt": "세탁기를 사용해주세요. 세탁 시에는 동일한 색 위주로 세탁을 진행해 주시고, 세탁기에 넣을때 '세탁망'을 사용해 주세요.",
-            "socks": "세탁기를 사용해주세요. 세탁 시에는 동일한 색 위주로 세탁을 진행해 주시고, 세탁기에 넣을때 '세탁망'을 사용해 주세요."
+            "jean" : "첫세탁이후 세탁을 권장하지 않습니다. 물빠짐 현상이 있을 수 있습니다. 중성세제를 이용하여 단독세탁을 추천드리며, 반드시 뒤집어서 세탁해주세요.",
+            "coat" : "드라이클리닝을 진행해주세요. 의류용 브러시로 코트의 뭍은 이물질을 간단히 제거한 후 울세제로 손세탁을 진행하실때에는 수건으로 물기를 제거하고 코트를 펼처 말려주세요, 혹은 드라이클리닝을 진행해주세요.",
+            "knit" : "손세탁을 진행해주세요. 찬물 또는 미지근한 물에 울세제를 풀어 부드럽게 세탁해주세요. 거품이 안 날때까지 헹궈주신 다음 가볍게 물기를 제거하고, 건조대에 눕혀서 말려주세요.",
+            "longpants" : "세탁기를 사용해주세요. 중성세제를 이용하여 단독세탁을 진행해주세요. 건조시에는 옷걸이에 걸어 건조를 진행해주세요.",
+            "longsleeve" : "세탁기를 사용해주세요. 30도 정도의 온도로 세탁기를 사용하여 세탁해주세요. 그늘에 옷걸이에 걸어 건조를 진행해주세요.",
+            "padding" : "세탁기를 사용해주세요. 미온수에 중성세제를 이용하여 애벌빨래를 진행하시고, 울세제를 이용하여 세탁기에 넣어주세요. 세탁이 완료되면 물기를 털고, 옷걸이에 걸어 그늘에서 건조하세요.",
+            "shirt" : "드라이클리닝을 권장합니다. 세탁기 사용도 가능해요. 냉수에 급속코스로 빠르게 물세탁을 진행해주세요. 혹은 드라이 클리닝을 진행해주세요.",
+            "shortpants" : "세탁기를 사용해주세요. 중성세제를 이용하여 단독세탁을 진행해주세요. 세탁기에 넣을때는 반드시 '세탁망'을 사용해주세요.",
+            "shortsleeve" : "세탁기를 사용해주세요. 중성세제를 이용하여 단독세탁을 진행해주세요. 세탁기에 넣을때는 반드시 '세탁망'을 사용해주세요.",
+            "skirt" : "세탁기를 사용해주세요. 세탁 시에는 동일한 색 위주로 세탁을 진행해 주시고, 세탁기에 넣을때 '세탁망'을 사용해 주세요.",
+            "socks" : "세탁기를 사용해주세요. 세탁 시에는 동일한 색 위주로 세탁을 진행해 주시고, 세탁기에 넣을때 '세탁망'을 사용해 주세요."
         }
     ],
-    "clothes_management": [
+    "clothes_management" : [
         {
-            "jean": "세로로 길게 접어 말아서 보관해주세요",
-            "coat": "단추를 잠그고 옷걸이에 걸어서 보관해주세요",
-            "knit": "가지런히 개어서 보관해주시고, 보풀이 일어나지 않도록 단독보관해주세요",
-            "longpants": "바지용 옷걸이에 걸거나 서랍에 보관해주세요",
-            "longsleeve": "가지런히 개어서 서랍에 보관해주세요",
-            "padding": "옷걸이에 걸어 보관해주세요. 장시간 미사용시 서랍에 보관해주세요",
-            "shirt": "옷걸이에 걸어 보관해주세요",
-            "shortpants": "서랍에 보관해주세요",
-            "shortsleeve": "가지런히 개어서 서랍에 보관해주세요",
-            "skirt": "서랍에 보관해주세요",
-            "socks": "짝을 맞춰 말아서 보관해주세요"
+            "jean" : "세로로 길게 접어 말아서 보관해주세요",
+            "coat" : "단추를 잠그고 옷걸이에 걸어서 보관해주세요",
+            "knit" : "가지런히 개어서 보관해주시고, 보풀이 일어나지 않도록 단독보관해주세요",
+            "longpants" : "바지용 옷걸이에 걸거나 서랍에 보관해주세요",
+            "longsleeve" : "가지런히 개어서 서랍에 보관해주세요",
+            "padding" : "옷걸이에 걸어 보관해주세요. 장시간 미사용시 서랍에 보관해주세요",
+            "shirt" : "옷걸이에 걸어 보관해주세요",
+            "shortpants" : "서랍에 보관해주세요",
+            "shortsleeve" : "가지런히 개어서 서랍에 보관해주세요",
+            "skirt" : "서랍에 보관해주세요",
+            "socks" : "짝을 맞춰 말아서 보관해주세요"
         }
     ]
+
 }

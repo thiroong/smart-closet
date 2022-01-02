@@ -2,6 +2,11 @@ import json
 from datetime import datetime
 
 ############################################
+# 상수 정의
+############################################
+DATABASE_PATH = 'clothes.json'
+
+############################################
 # 함수들 정의
 ############################################
 
@@ -87,6 +92,19 @@ def is_box_full(boxnum_int, filename='clothes.json'):
 
 
 
+
+def search_pos_by_label(label):
+    with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
+        closet_info = json.load(file)
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_category = closet_box["category_to_save"]
+        for category in cloth_category:
+            if category == label:
+                return (closet_box['position'])
+
+    return (-1)
 
 ############################################
 # Dict Class 정의
