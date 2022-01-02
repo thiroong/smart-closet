@@ -32,25 +32,33 @@ def setting():
     return render_template("setting.html")
 
 #옷 추가
-@application.route("/<box_num>", methods=['GET']) #각 closet_num에 해당하는 번호의 수납함으로 이동
+@application.route("/<int:box_num>", methods=['GET']) #각 closet_num에 해당하는 번호의 수납함으로 이동
 def box(box_num):
-    with open('clothes.json') as cloth_json:
+    with open('clothes.json', encoding='UTF8') as cloth_json:
         json_data = json.load(cloth_json) #cloth_json 불러옴
-        box_data = json_data["closet"][int(box_num)-1]  #closet_num번 수납함 데이터 불러옴
-        box_data['box_num']=box_num
+        box_data = json_data["closet"][box_num-1]  #closet_num번 수납함 데이터 불러옴
+        box_data['box_num']=str(box_num)
     return render_template("box.html",result=box_data)
 
-@application.route("/<box_num>/<cloth_name>", methods=['GET'])
+@application.route("/<int:box_num>/<cloth_name>", methods=['GET'])
 def cloth_detail(box_num,cloth_name):
-    with open('clothes.json') as cloth_json:
+    #clothes.json의 closet에서 옷의 이름, 카테고리, 착용횟수, 이미지 경로, feature 경로, 최근 착용일 정보 받아옴
+    with open('clothes.json', encoding='UTF8') as cloth_json:
         json_data = json.load(cloth_json)
-        box_data_clothes = json_data["closet"][int(box_num)-1]["clothes_list"]
+        box_data_clothes = json_data["closet"][box_num-1]["clothes_list"]
         current_cloth={}
         for cloth in box_data_clothes:
             if cloth["name"]==cloth_name:
                 current_cloth=cloth
                 break
-        current_cloth['box_num']=box_num
+        current_cloth['box_num']=str(box_num)
+        #cloth_detail.html보면 자바스크립트 동작 안해서 count를 str로 바꿔놓음
+        current_cloth['count']=str(current_cloth['count'])
+        current_category = current_cloth["category"]
+        # clothes.json의 clothes_laundry에서 해당하는 카테고리의 세탁정보 받아옴
+        current_cloth['laundry_info'] = json_data["clothes_laundry"][0][current_category]
+        # clothes.json의 clothes_management에서 해당하는 카테고리의 세탁정보 받아옴
+        current_cloth['management_info'] = json_data["clothes_management"][0][current_category]
     return render_template("cloth_detail.html", result=current_cloth)
 
 @application.route("/add")
