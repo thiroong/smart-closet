@@ -2,3 +2,6 @@ models/checkpoints/
 web/client/__pycache__/
 web/client/models/
 web/.idea/
+web/client/static/datasets/
+web/client/static/checkpoints/
+
