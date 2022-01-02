@@ -130,16 +130,27 @@ body {
 	}
 }	
 a {
-	color: $brand-primary;
-	@include transition(.5s);
-	&:hover{
-		text-decoration: underline;
-		color: $brand-primary;
+		color: rgba(0,0,0,0.4);
+		font-weight: 700;
+		text-shadow: none;
+		margin: 0 20px;
+		&::before {
+			color: #797878;
+			content: attr(data-hover);
+			position: absolute;
+			-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+			-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+			transition: transform 0.3s, opacity 0.3s;
+		}
+		&:hover{
+			&::before {
+				-webkit-transform: scale(0.9);
+				-moz-transform: scale(0.9);
+				transform: scale(0.9);
+				opacity: 0;
+			}
+		}
 	}
-	&:focus, &:active {
-		outline: none;
-	}
-}
 p, span {
 	margin-bottom: 1.5em;
 	font-size: 18px;
@@ -478,7 +489,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // Header START
 header{
-	padding: 3em 0;
+	padding: 4em 0;
 	@media screen and (max-width: $screen-sm) {
 		padding: 2em 0;
 	}
