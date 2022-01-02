@@ -50,3 +50,13 @@ clothClass={
 # Test code
 ############################################
 #append_cloth(5,"knit","twisted_knit")
+
+
+clothes_info = {
+    0: '0_coat', 1: '1_padding', 2: '2_shortsleeve',
+    3: '3_longsleeve', 4: '4_shirt', 5: '5_pants', 6: '6_dress'
+}
+
+
+def get_clothes_info(label):
+    return clothes_info[label]
