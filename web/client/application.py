@@ -1,6 +1,7 @@
 import requests
 from flask import Flask, render_template, redirect, url_for, request, Response
 
+import os
 import json
 import cv2
 import datetime
@@ -16,6 +17,7 @@ application = Flask(__name__, static_folder='static')
 # @application.route("/")
 # def hello():
 #     return render_template("closet.html")
+
 @application.route("/")
 @application.route("/index")
 def index():
@@ -96,8 +98,9 @@ def photo():
 
 @application.route('/video_feed')
 def video_feed():
+    if camera.getCam().isOpened() == False:
+        camera.openCam()
     return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
 
 @application.route('/add_clothes', methods=['POST', 'GET'])
 def add_clothes(isUpload=False):
@@ -116,6 +119,7 @@ def add_clothes(isUpload=False):
     pred, label = cc.classifier(img_path)
     print(pred, label)
 
+    camera.closeCam()
     return render_template('add_clothes.html', results={"pred": pred,
                                                         "label": label,
                                                         "img_path": img_path})
@@ -139,6 +143,7 @@ def ootd_whichone():
     pred, label = cc.classifier(img_path_segmen, isOotd=True)
     print(pred, label)
 
+    camera.closeCam()
     return render_template('ootd_whichone.html',
                            results={"pred": pred,
                                     "label": label,
@@ -172,9 +177,6 @@ def ootd_whichone():
 """"@application.route('/setting.html')
 def setting(nickname, p_path):"""
 
-
-
-
 # 빈도수 알려주는 그래프 데이터 가져오셔야 합니다
 # @application.route("/ootd")
 # def graph():
@@ -182,4 +184,6 @@ def setting(nickname, p_path):"""
 # return render_template('ootd.html', data = data)
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0')
+    application.run(host='0.0.0.0', debug=True)
+    
+cv2.destroyAllWindows()
