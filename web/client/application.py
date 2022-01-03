@@ -147,18 +147,13 @@ def add_clothes(isUpload):
     camera.my_imwrite('.png', img_segmentation, box_path)
     clothOps.append_cloth(str(position), str(category), nickname)
 
-    value = pred.tolist()
-    graph_val = [['coat', 'padding', 'shortsleeve', 'longsleeve', 'shirt', 'pants', 'dress'], value]
-    value = list(map(int, value))
-    print(type(value), type(value[0]))
     return render_template('add_clothes.html', results={"nickname": nickname,
                                                         "label": label,
                                                         "category": category,
                                                         "pred": pred,
                                                         "position": position,
                                                         "path_original": path_original,
-                                                        "path_segmen": path_segmen},
-                                                        graph_val = graph_val)
+                                                        "path_segmen": path_segmen})
 
 
 # 옷 추가
@@ -219,7 +214,8 @@ def ootd_whichone():
     return render_template('ootd_whichone.html', results={"pred": pred,
                                                           "label": label,
                                                           "img_path": img_path,
-                                                          "img_path_segmen": img_path_segmen})
+                                                          "img_path_segmen": img_path_segmen},
+                            circle=circle, stick=stick)
     # circle = circle, stick = stick)
 
 
