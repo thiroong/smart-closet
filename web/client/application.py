@@ -8,6 +8,7 @@ import numpy as np
 import clothOps
 import camera
 import classification as cc
+import plots
 
 application = Flask(__name__, static_folder='static')
 
@@ -39,12 +40,13 @@ def ootd():
 ##################### 카테고리 세팅 ###########################
 @application.route("/setting", methods=['GET'])
 def setting():
-    category_list = []
+
+    tool_tip_list=[]
     with open('clothes.json', encoding='UTF8') as cloth_json:
         json_data = json.load(cloth_json)  # cloth_json 불러옴
         for i in range(7):
-            category_list.append(json_data["closet"][i]["category_to_save"])
-    return render_template("setting.html", result=category_list)
+            tool_tip_list.append(json_data["closet"][i]["tool_tip"])
+    return render_template("setting.html", tool_tip_list_result=tool_tip_list)
 
 
 @application.route('/show_setting', methods=['POST'])
@@ -127,11 +129,20 @@ def add_clothes(isUpload):
     cv2.imwrite(path_segmen, img_segmentation)
 
     pred, label = cc.classifier(path_segmen)
+
     prob = max(pred)
     print(prob)
     if prob < 0.6:
         #print("분류된 카테고리가 없습니다.")
         return redirect(url_for("underProb"))
+
+    clothes_info = list(clothOps.clothes_info.values())
+    graph = plots.prob_graph(clothes_info, pred)
+    print(max(pred))
+    if max(pred) < 0.6:
+        print("분류된 카테고리가 없습니다.")
+        return redirect(url_for("add"))
+
     category = clothOps.get_category(label)
     print(pred, label)
     #position = clothOps.search_pos_by_label(category)
@@ -158,7 +169,8 @@ def add_clothes(isUpload):
                                                         "pred": pred,
                                                         "position": position,
                                                         "path_original": path_original,
-                                                        "path_segmen": path_segmen})
+                                                        "path_segmen": path_segmen,
+                                                        "graph": graph})
 
 
 @application.route("/underProb")
@@ -195,8 +207,7 @@ def cloth_detail(box_num, cloth_name):
         # clothes.json의 clothes_management에서 해당하는 카테고리의 세탁정보 받아옴
         # current_cloth['management_info'] = json_data["clothes_management"][0][current_category]
     return render_template("cloth_detail.html", result=current_cloth)
-
-
+    
 @application.route('/ootd_whichone', methods=['POST'])
 def ootd_whichone():
     # 빈도 수 체크
@@ -218,13 +229,14 @@ def ootd_whichone():
     pred, label = cc.classifier(img_path_segmen)
     print(pred, label)
 
-    # circle = get_graph_key_value("circle")
-    # stick = get_graph_key_value("stick")
+    circle = clothOps.get_graph_key_value("circle")
+    stick = clothOps.get_graph_key_value("stick")
 
     return render_template('ootd_whichone.html', results={"pred": pred,
                                                           "label": label,
                                                           "img_path": img_path,
-                                                          "img_path_segmen": img_path_segmen})
+                                                          "img_path_segmen": img_path_segmen},
+                            circle=circle, stick=stick)
     # circle = circle, stick = stick)
 
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
@@ -72,14 +73,33 @@
 				<h2 class="mt-5">업로드된 사진</h2>
                 <h3> 옷의 닉네임: {{ results.nickname }}</h3>
 				<img src="{{ results.path_original }}">
+			</div>
+        </div>
+    </div>
+	<div class="row">
+			<div class="col-lg-8  offset-lg-2">
 				<img src="{{ results.path_segmen }}">
 			</div>
+        </div>
+    </div>
+	<div class="row">
             <div>
                 <h3>카테고리 인덱스: {{results.label}}</h3>
                 <h3>옷의 분류: {{results.category}}</h3>
                 <h3>확률: {{results.pred}}</h3>
 
                 <h3>추천 수납합 위치: {{results.position}}</h3>
+                <div class="row">
+                    <h3>확률 그래프</h3>
+                        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                        <div class="chart-area",  id="prob_graph", style="height: max-content;">
+                            <script type="text/javascript">
+                                var graphs = {{ results.graph | safe }}
+                                Plotly.plot('prob_graph', graphs, {});
+                            </script>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="add-box" style="
                         width: 20%;
@@ -102,54 +122,9 @@
                     <a href="/add" style="color: black; font-size: 15px;">다시 찍기</a>
                 </div>
             </div>
-
-            <h3>확률 그래프</h3>
-            {% for d in data %}
-                {{d.데이터이름}},
-            {% endfor %}
-
-            <hr>
-            <canvas id="myChart" width="400" height="400"></canvas>
-            <script>
-                const ctx = document.getElementById('myChart').getContext('2d');
-                const myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            </script>
         </div>
     </div>
-</div>
+
 	<!-- jQuery -->
 	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
 
