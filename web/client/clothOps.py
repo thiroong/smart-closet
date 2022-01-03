@@ -10,6 +10,12 @@ DATABASE_PATH = 'clothes.json'
 # 함수들 정의
 ############################################
 
+#json 데이터 읽어오는 함수
+def read_json(filename='clothes.json'):
+    with open(filename, 'r', encoding='UTF8') as file:
+        file_data = json.load(file)
+        return file_data
+    
 # append_cloth: 옷 추가 함수
     # 해당 수납함의 clothes_list에 cloth객체 추가
     # name: 입력받은 별명
@@ -25,24 +31,24 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
     newCloth["img_path"]='images/box/box'+boxnum_str+'/'+clothName_str+'.jpg'
     newCloth["feature_path"]='feature/f_'+clothName_str+'.np'
 
-    with open(filename, 'r+', encoding='UTF8') as file:
-        # First we load existing data into a dict.
-        file_data = json.load(file)
+    file_data=read_json(filename)
+    with open(filename, 'w', encoding='UTF8') as file:
         file_data["closet"][int(boxnum_str) - 1]["clothes_list"].append(newCloth)
         file_data["closet"][int(boxnum_str) - 1]["used"]=len(file_data["closet"][int(boxnum_str) - 1]["clothes_list"])
         file.seek(0)
         json.dump(file_data,file,indent=4, ensure_ascii=False)
 
 # 키워드 검색 시, 해당 키워드가 포함된 이미지들의 경로를 list형태로 return 해주는 함수 (옷 위치 검색 기능)
-def find_image_by_keyword(keyword_str, filename='clothes.json'):
-    img_path_list=[]
+# 별명 검색 시, 해당 옷이 있는 수납함 페이지로 redirect하기로 변경하여 find_image_by_keyword()는 사용 안 할 듯. 혹시 몰라 주석처리로 남겨둠.
+def find_cloth_by_keyword(keyword_str, filename='clothes.json'):
+    found_cloth_arr=[]
     with open(filename, 'r', encoding='UTF8') as file:
         file_data = json.load(file)
         for i in range(len(file_data["closet"])):
             for cloth in file_data["closet"][i]["clothes_list"]:
                 if keyword_str in cloth["name"]:
-                    img_path_list.append(cloth["img_path"])
-    return img_path_list
+                    found_cloth_arr.append((cloth["name"],cloth["img_path"],i+1))
+    return found_cloth_arr
 
 # 옷 삭제 기능
     # 각 box.html 페이지에 삭제 버튼 추가
@@ -90,7 +96,14 @@ def is_box_full(boxnum_int, filename='clothes.json'):
         else:
             return False
 
-
+# 수납함 별 category 지정하는 함수
+def set_category_to_box(category_str_list, filename='clothes.json'):
+    file_data=read_json(filename)
+    with open(filename, 'w', encoding='UTF8') as file:
+        for i in range(7):
+            file_data["closet"][i].update(category_to_save=category_str_list[i])
+        file.seek(0)
+        json.dump(file_data, file, indent=4, ensure_ascii=False)
 
 # 라벨(카테고리)로 해당 수납함 위치를 반환하는 함수
 def search_pos_by_label(label):
@@ -111,13 +124,12 @@ def count_by_category():
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
     
-    cnt_categories = { 
-        'coat':0, 'padding':0, 'shortsleeve':0,
-        'longsleeve':0, 'shirt':0, 'pants':0,
-        'dress':0, 'undefined':0
-    }
+    cnt_categories = {}
     
     closet = closet_info["closet"]
+    for closet_box in closet:
+        cnt_categories[closet_box['category_to_save']] = 0
+    
     for closet_box in closet:
         cloth_list = closet_box["clothes_list"]
         for cloth in cloth_list:
@@ -135,28 +147,26 @@ def count_by_category_to_date():
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
     
-    cnt_categories = { 
-        'coat':0, 'padding':0, 'shortsleeve':0,
-        'longsleeve':0, 'shirt':0, 'pants':0,
-        'dress':0, 'undefined':0
-    }
-    
     now = datetime.datetime.now()
     weekDayCount = now.weekday()
     startDate = AddDays(now, -weekDayCount)
     endDate = AddDays(startDate, 7)
     
+    cnt_categories = {}
+    
     closet = closet_info["closet"]
+    for closet_box in closet:
+        cnt_categories[closet_box['category_to_save']] = 0
+    
     for closet_box in closet:
         cloth_list = closet_box["clothes_list"]
         for cloth in cloth_list:
-            if str(startDate) < cloth['last_wear_date'] \
-                and str(endDate) > cloth['last_wear_date'] \
+            if str(startDate.date()) <= cloth['last_wear_date'] \
+                and str(endDate.date()) >= cloth['last_wear_date'] \
                 and cloth['count'] > 0:
                 cnt_categories[cloth['category']] += 1
-            
-    return (cnt_categories)
     
+    return (cnt_categories)
 
 ############################################
 # Dict Class 정의

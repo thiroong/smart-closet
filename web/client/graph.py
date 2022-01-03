@@ -41,4 +41,3 @@ def stick_graph():
     plt.show()
 
 # stick_graph()
-    
