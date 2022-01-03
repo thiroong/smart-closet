@@ -1,0 +1,206 @@
+{
+    "user_ID": "hyoukim",
+    "closet": [
+        {
+            "position": 1,
+            "category_to_save": [
+                "shirt",
+                "pants"
+            ],
+            "capacity": 10,
+            "used": 10,
+            "clothes_list": [
+                {
+                    "name": "twisted_knit",
+                    "category": "shirt",
+                    "count": 1,
+                    "img_path": "images/box/box1/twisted_knit.jpg",
+                    "feature_path": "feature/f_twisted_knit.np",
+                    "last_wear_date": "2021-12-30"
+                },
+                {
+                    "name": "striped_shirt",
+                    "category": "shirt",
+                    "count": 2,
+                    "img_path": "images/box/box1/striped_shirt.jpg",
+                    "feature_path": "feature/f_striped_shirt.np",
+                    "last_wear_date": "2021-12-31"
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "category_to_save": [
+                "padding",
+                "dress"
+            ],
+            "capacity": 0,
+            "used": 7,
+            "clothes_list": [
+                {
+                    "name": "brown_padding",
+                    "category": "padding",
+                    "count": 4,
+                    "img_path": "images/box/box2/brown_padding.jpg",
+                    "feature_path": "feature/f_brown_padding.np",
+                    "last_wear_date": "2021-12-30"
+                },
+                {
+                    "name": "red_dress",
+                    "category": "dress",
+                    "count": 2,
+                    "img_path": "images/box/box2/red_dress.jpg",
+                    "feature_path": "feature/f_red_dress.np",
+                    "last_wear_date": "2021-12-31"
+                },
+                {
+                    "name": "민지님원피스",
+                    "category": "dress",
+                    "count": 0,
+                    "img_path": "images/box/box2/민지님원피스.jpg",
+                    "feature_path": "feature/f_민지님원피스.np",
+                    "last_wear_date": "0000-00-00"
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "category_to_save": [
+                "coat",
+                "shortsleeve"
+            ],
+            "capacity": 0,
+            "used": 3,
+            "clothes_list": [
+                {
+                    "name": "green_coat",
+                    "category": "coat",
+                    "count": 1,
+                    "img_path": "images/box/box3/green_coat.jpg",
+                    "feature_path": "feature/f_green_coat.np",
+                    "last_wear_date": "2021-12-30"
+                },
+                {
+                    "name": "blue_short_sleeve",
+                    "category": "shortsleeve",
+                    "count": 2,
+                    "img_path": "images/box/box3/blue_short_sleeve.jpg",
+                    "feature_path": "feature/f_blue_short_sleeve.np",
+                    "last_wear_date": "2021-12-31"
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "category_to_save": [
+                "shirt"
+            ],
+            "capacity": 0,
+            "used": 0,
+            "clothes_list": [
+                {
+                    "name": "twisted_knit",
+                    "category": "shirt",
+                    "count": 1,
+                    "img_path": "images/box/box4/twisted_knit.jpg",
+                    "feature_path": "feature/f_twisted_knit.np",
+                    "last_wear_date": "2021-12-30"
+                },
+                {
+                    "name": "striped_shirt",
+                    "category": "shirt",
+                    "count": 2,
+                    "img_path": "images/box/box4/striped_shirt.jpg",
+                    "feature_path": "feature/f_striped_shirt.np",
+                    "last_wear_date": "2021-12-31"
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "category_to_save": [
+                "shirt"
+            ],
+            "capacity": 0,
+            "used": 1,
+            "clothes_list": [
+                {
+                    "name": "twisted_knit",
+                    "category": "shirt",
+                    "count": 1,
+                    "img_path": "images/box/box5/twisted_knit.jpg",
+                    "feature_path": "feature/f_twisted_knit.np",
+                    "last_wear_date": "2021-12-30"
+                },
+                {
+                    "name": "striped_shirt",
+                    "category": "shirt",
+                    "count": 2,
+                    "img_path": "images/box/box5/striped_shirt.jpg",
+                    "feature_path": "feature/f_striped_shirt.np",
+                    "last_wear_date": "2021-12-31"
+                },
+                {
+                    "name": "twisted_knit",
+                    "category": "shirt",
+                    "count": 0,
+                    "img_path": "images/box/box5/twisted_knit.jpg",
+                    "feature_path": "feature/f_twisted_knit.np",
+                    "last_wear_date": "0000-00-00"
+                }
+            ]
+        },
+        {
+            "position": 6,
+            "category_to_save": [
+                "shirt"
+            ],
+            "capacity": 0,
+            "used": 3,
+            "clothes_list": [
+                {
+                    "name": "twisted_knit",
+                    "category": "shirt",
+                    "count": 1,
+                    "img_path": "images/box/box6/twisted_knit.jpg",
+                    "feature_path": "feature/f_twisted_knit.np",
+                    "last_wear_date": "2021-12-30"
+                },
+                {
+                    "name": "striped_shirt",
+                    "category": "shirt",
+                    "count": 2,
+                    "img_path": "images/box/box6/striped_shirt.jpg",
+                    "feature_path": "feature/f_striped_shirt.np",
+                    "last_wear_date": "2021-12-31"
+                }
+            ]
+        },
+        {
+            "position": 7,
+            "category_to_save": [
+                "shirt"
+            ],
+            "capacity": 0,
+            "used": 0,
+            "clothes_list": [
+                {
+                    "name": "twisted_knit",
+                    "category": "shirt",
+                    "count": 1,
+                    "img_path": "images/box/box7/twisted_knit.jpg",
+                    "feature_path": "feature/f_twisted_knit.np",
+                    "last_wear_date": "2021-12-30"
+                },
+                {
+                    "name": "striped_shirt",
+                    "category": "shirt",
+                    "count": 2,
+                    "img_path": "images/box/box7/striped_shirt.jpg",
+                    "feature_path": "feature/f_striped_shirt.np",
+                    "last_wear_date": "2021-12-31"
+                }
+            ]
+        }
+    ]
+}
