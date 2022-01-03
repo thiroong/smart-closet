@@ -331,10 +331,6 @@
     <div class="container" style="display: flex; width: fit-content;">
         <div class="container" style="height: 50vh;align-items: center;justify-content: center; width: 500px">
           <div class="wardrobe">
-                    <div class="front" style="z-index: 4;">
-                        <div class="door"></div>
-                        <div class="second-door"></div>
-                    </div>
                     <div class="inside">
                         <div class="rail">
                         <p style="position: absolute; top: -50px; left:40px; z-index:3;"><a href="/box/1" style="font-size:16pt; color: black;">1</a>{{result[0]}}</p>
@@ -360,6 +356,7 @@
                     <div class="shadow"></div>
                  </div>
             </div>
+
         <div style="display: grid;flex-wrap: wrap;justify-items: start; margin-top: -25px">
             <div>
                 <form method="POST" action="{{ url_for('show_setting') }}">
