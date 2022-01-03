@@ -3,73 +3,84 @@
     "closet": [
         {
             "position": 1,
-            "category_to_save": "padding",
+            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
+            "category_to_save": "coat",
             "capacity": 10,
-            "used": 10,
+            "used": 2,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box1/twisted_knit.jpg",
-                    "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2021-12-30"
+                    "feature_path": "static/feature/f_twisted_knit.npy",
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
                     "category": "shirt",
                     "count": 2,
                     "img_path": "images/box/box1/striped_shirt.jpg",
-                    "feature_path": "feature/f_striped_shirt.np",
-                    "last_wear_date": "2021-12-31"
+                    "feature_path": "static/feature/f_striped_shirt.npy",
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         },
         {
             "position": 2,
-            "category_to_save": "padding",
+            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
+            "category_to_save": "coat",
             "capacity": 10,
-            "used": 9,
+            "used": 4,
             "clothes_list": [
                 {
-                    "name": "brown_padding",
+                    "name": "asdasd",
                     "category": "padding",
-                    "count": 4,
-                    "img_path": "images/box/box2/brown_padding.jpg",
-                    "feature_path": "feature/f_brown_padding.np",
-                    "last_wear_date": "2021-12-30"
-                },
-                {
-                    "name": "red_dress",
-                    "category": "dress",
-                    "count": 2,
-                    "img_path": "images/box/box2/red_dress.jpg",
-                    "feature_path": "feature/f_red_dress.np",
-                    "last_wear_date": "2021-12-31"
-                },
-                {
-                    "name": "민지님원피스",
-                    "category": "dress",
                     "count": 0,
-                    "img_path": "images/box/box2/민지님원피스.jpg",
-                    "feature_path": "feature/f_민지님원피스.np",
+                    "img_path": "images/box/box2/asdasd.jpg",
+                    "feature_path": "static/feature/f_asdasd.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sadsa",
+                    "category": "padding",
+                    "count": 0,
+                    "img_path": "images/box/box2/sadsa.jpg",
+                    "feature_path": "static/feature/f_sadsa.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "asdasdas",
+                    "category": "padding",
+                    "count": 0,
+                    "img_path": "images/box/box2/asdasdas.jpg",
+                    "feature_path": "static/feature/f_asdasdas.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "23534",
+                    "category": "coat",
+                    "count": 0,
+                    "img_path": "images/box/box2/23534.jpg",
+                    "feature_path": "static/feature/f_23534.npy",
                     "last_wear_date": "0000-00-00"
                 }
             ]
         },
         {
             "position": 3,
+            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "padding",
             "capacity": 10,
-            "used": 8,
+            "used": 3,
             "clothes_list": [
                 {
                     "name": "green_coat",
                     "category": "coat",
                     "count": 1,
                     "img_path": "images/box/box3/green_coat.jpg",
-                    "feature_path": "feature/f_green_coat.np",
-                    "last_wear_date": "2021-12-30"
+                    "feature_path": "static/feature/f_green_coat.npy",
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "blue_short_sleeve",
@@ -86,12 +97,14 @@
                     "img_path": "images/box/box3/testdata.png",
                     "feature_path": "feature/f_testdata.npy",
                     "last_wear_date": "0000-00-00"
+
                 }
             ]
         },
         {
             "position": 4,
-            "category_to_save": "padding",
+            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
+            "category_to_save": "shortsleeve",
             "capacity": 10,
             "used": 3,
             "clothes_list": [
@@ -100,8 +113,8 @@
                     "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box4/twisted_knit.jpg",
-                    "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2021-12-30"
+                    "feature_path": "static/feature/f_twisted_knit.npy",
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
@@ -123,81 +136,85 @@
         },
         {
             "position": 5,
-            "category_to_save": "padding",
+            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
+            "category_to_save": "shortsleeve",
             "capacity": 10,
-            "used": 6,
+            "used": 3,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box5/twisted_knit.jpg",
-                    "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2021-12-30"
+                    "feature_path": "static/feature/f_twisted_knit.npy",
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
                     "category": "shirt",
                     "count": 2,
                     "img_path": "images/box/box5/striped_shirt.jpg",
-                    "feature_path": "feature/f_striped_shirt.np",
-                    "last_wear_date": "2021-12-31"
+                    "feature_path": "static/feature/f_striped_shirt.npy",
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "twisted_knit",
                     "category": "shirt",
                     "count": 0,
                     "img_path": "images/box/box5/twisted_knit.jpg",
-                    "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "0000-00-00"
+                    "feature_path": "static/feature/f_twisted_knit.npy",
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         },
         {
             "position": 6,
+            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "padding",
             "capacity": 10,
-            "used": 5,
+            "used": 2,
+
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box6/twisted_knit.jpg",
-                    "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2021-12-30"
+                    "feature_path": "static/feature/f_twisted_knit.npy",
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
                     "category": "shirt",
                     "count": 2,
                     "img_path": "images/box/box6/striped_shirt.jpg",
-                    "feature_path": "feature/f_striped_shirt.np",
-                    "last_wear_date": "2021-12-31"
+                    "feature_path": "static/feature/f_striped_shirt.npy",
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         },
         {
             "position": 7,
-            "category_to_save": "padding",
+            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
+            "category_to_save": "pants",
             "capacity": 10,
-            "used": 4,
+            "used": 2,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box7/twisted_knit.jpg",
-                    "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2021-12-30"
+                    "feature_path": "static/feature/f_twisted_knit.npy",
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
                     "category": "shirt",
                     "count": 2,
                     "img_path": "images/box/box7/striped_shirt.jpg",
-                    "feature_path": "feature/f_striped_shirt.np",
-                    "last_wear_date": "2021-12-31"
+                    "feature_path": "static/feature/f_striped_shirt.npy",
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         }
