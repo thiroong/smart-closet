@@ -25,14 +25,24 @@ def rgba2rgb(rgba, background=(255, 255, 255)):
 
     return np.asarray(rgb, dtype='uint8')
 
+#
+# def image_preprocessing(path, isOotd):
+#     if isOotd:
+#         img = load_img(path, color_mode='rgba', target_size=(299, 299))
+#         img = rgba2rgb(img)
+#     else:
+#         img = load_img(path, color_mode='rgb', target_size=(299, 299))
+#         img = img_to_array(img)
+#     img = np.expand_dims(img, axis=0)
+#     img = img.astype('float32')
+#     img = img / 255.0
+#
+#     return img
 
-def image_preprocessing(path, isOotd):
-    if isOotd:
-        img = load_img(path, color_mode='rgba', target_size=(299, 299))
-        img = rgba2rgb(img)
-    else:
-        img = load_img(path, color_mode='rgb', target_size=(299, 299))
-        img = img_to_array(img)
+
+def image_preprocessing(path):
+    img = load_img(path, color_mode='rgba', target_size=(299, 299))
+    img = rgba2rgb(img)
     img = np.expand_dims(img, axis=0)
     img = img.astype('float32')
     img = img / 255.0
@@ -53,13 +63,20 @@ def get_prediction(test_image):
     return pred, label
 
 
-def classifier(path, isOotd=False):
+def classifier(path):
     # 이미지 전처리
-    img = image_preprocessing(path, isOotd)
+    img = image_preprocessing(path)
+    pred, label = get_prediction(img)
+    return pred, label
 
-    # 이미지 분류
-    if isOotd:
-        similarity_measures(img)
-        return "임시확률", "임시라벨"
-    else:
-        return get_prediction(img)
+
+# def classifier(path, isOotd=False):
+#     # 이미지 전처리
+#     img = image_preprocessing(path)
+#
+#     # 이미지 분류
+#     if isOotd:
+#         similarity_measures(img)
+#         return "임시확률", "임시라벨"
+#     else:
+#         return get_prediction(img)

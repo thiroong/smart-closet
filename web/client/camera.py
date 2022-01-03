@@ -68,3 +68,10 @@ def my_imwrite(ext, frame, img_path):
     if ret:
         with open(img_path, mode='w+b') as f:
             img_arr.tofile(f)
+
+
+def get_segmentation_image(path):
+    # fashion segmentation
+    api = fashion_tools(path, saved)
+    img = api.get_dress()
+    return img

@@ -62,42 +62,45 @@
 
 	    <div class="result-box">
 			<div class="show-photo-box">
-				<p> 유사도 측정</p>
+				<h3> 유사도 측정</h3>
 				<img class = "screenshot" src="{{ results.img_path }}">
-<!--				<img class = "clip" src="{{ results.img_path_segmen }}">-->
+				<img class = "clip" src="{{ results.img_path_segmen }}">
 <!--				디비에 등록되어 있는 옷 사진-->
 <!--				현재 임시 이미지-->
-				<img class = "ootd-result" src="/static/images/c2/brown_padding.jpg">
 			</div>
 			<div class = "info-box">
-					<h3>옷의 분류: {{results.label}}</h3>
-					<h3>확률: {{results.pred}}</h3>
-					<h3>N번 옷장에 있는 "닉네임" 옷</h3>
-					<div class="add-box">
-						<input type="submit" value="분류 확정" name="right"/>
-					</div>
-					<form method="click" action="{{ url_for('ootd') }}">
-						<input type="submit" value="다시찍기" name="click"/>
-					</form>
+				<h3>Information</h3>
+				<img class = "ootd-result" src="/static/images/box/box2/brown_padding.jpg">
+				<p>N번 옷장에 있는 "닉네임"</p>
+				<p>옷의 분류: {{results.label}}</p>
+				<p>확률: {{results.pred}}</p>
+				<div class="add-box">
+					<input type="submit" value="분류 확정" name="right"
+						   style="border: transparent; border-radius: 7px; background-color:lightgrey;"/>
 
+					<form method="click" action="{{ url_for('ootd') }}">
+						<input type="submit" value="다시찍기" name="click"
+							   style="border: transparent; border-radius: 7px; background-color:lightgrey;"/>
+					</form>
+				</div>
 			</div>
 		</div>
 
 
 		<div class="graph-box">
 			<div class="bar-box">
-				<h3>빈도수 그래프</h3>
+				<h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">빈도수 그래프</h3>
 				<canvas id="myChart" width="400px" height="400px"></canvas>
 				<script>
     				const ctx = document.getElementById('myChart').getContext('2d');
     				const myChart = new Chart(ctx, {
         			type: 'bar',
         			data: {
-            			labels: [{% for d in circle_key %} "{{d}}", {% endfor %}],
+            			labels: [{% for d in circle[0] %} "{{d}}", {% endfor %}],
            				datasets: [
                	 					{
                     					label: '# 카테고리 별 착용 빈도',
-                   						data: [{% for d in circle_val %} {{d}}, {% endfor %}],
+                   						data: [{% for d in circle[1] %} {{d}}, {% endfor %}],
 										backgroundColor: [
 											'rgba(255, 99, 132, 0.2)',
 											'rgba(54, 162, 235, 0.2)',
@@ -142,9 +145,9 @@
 					new Chart(document.getElementById("myChart2"),
 					{
 						"type":"doughnut",
-						"data":{"labels": [{% for d in stick_key %} "{{d}}", {% endfor %}],
+						"data":{"labels": [{% for d in stick[0] %} "{{d}}", {% endfor %}],
 						"datasets": [{
-								"label":"Example","data":[{% for d in stick_val %} {{d}}, {% endfor %}],
+								"label":"Example","data":[{% for d in stick[1] %} {{d}}, {% endfor %}],
 								"backgroundColor": [ 'rgba(255, 99, 132)',
 													'rgba(54, 162, 235)',
 													'rgba(255, 206, 86)',
@@ -161,7 +164,7 @@
 
 
 			<div class="recommend-box">
-			<p>버릴 옷 추천</p>
+			<h3>버릴 옷 추천</h3>
 			<!--빈도수 가장 낮은 옷보여질 수 있도록 연결 부탁드립니다 !-->
 			<!--				현재 임시 이미지-->
 			<img src="/static/images/c2/brown_padding.jpg">
