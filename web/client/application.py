@@ -12,15 +12,6 @@ import plots
 
 application = Flask(__name__, static_folder='static')
 
-
-# @application.route("/")
-# def hello():
-#     return render_template("home.html")
-
-# @application.route("/")
-# def hello():
-#     return render_template("closet.html")
-
 @application.route("/")
 @application.route("/index")
 def index():
@@ -67,33 +58,6 @@ def add():
     return render_template("add.html")
 
 
-"""
-@application.route("/photoadd")
-def photoadd():
-    return render_template("photoadd.html")
-"""
-"""
-#사진 올리고, 별명 짓기 
-@application.route("/photo")
-def photo():
-    nickname = request.args.get("nickname")
-     # database.save()
-    return render_template("photo.html")
-"""
-
-
-# @application.route("/upload_done", methods=["POST"])
-# def upload_done():
-#     if request.method == 'POST': #추가함
-#         nickname = request.form.get('nickname') #추가함
-#     uploaded_files = request.files["file"]
-#     now = datetime.datetime.now()
-#     uploaded_files.save("static/images/c1/{name}.jpg".format(name=nickname)) #아래거 대신 추가함
-#     #uploaded_files.save("static/images/c1/{}.jpg".format(str(now).replace(":", '')))
-#
-#     return redirect(url_for("index"))
-
-
 @application.route('/video_feed')
 def video_feed():
     if camera.getCam().isOpened() == False:
@@ -102,19 +66,25 @@ def video_feed():
 
 
 # 옷 등록
-@application.route('/add_clothes?<isUpload>', methods=['POST'])
-def add_clothes(isUpload):
-    nickname = request.form.get('nickname')
-    path_original = "static/images/c1/{name}.png".format(name=nickname)  # 원본 저장 경로
-    path_segmen = "static/images/c2/{name}.png".format(name=nickname)  # 세그멘테이션 이미지 저장 경로
+@application.route('/fashion?<isUpload>?<isAdd>', methods=['POST'])
+def fashion(isUpload, isAdd):
+    if isAdd == 'True':
+        nickname = request.form.get('nickname')
+        path_original = "static/images/c1/{name}.png".format(name=nickname)  # 원본 저장 경로
+        path_segmen = "static/images/c2/{name}.png".format(name=nickname)  # 세그멘테이션 이미지 저장 경로
+
+    else:
+        # now = datetime.datetime.now()
+        path_original = "static/images/c1/test.png"  # 테스트용 코드
+        # path_original = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
+        path_segmen = "static/images/c2/test.png"  # 테스트용 코드
+        # path_segmen = "static/images/c2/{}.jpg".format(str(now).replace(":", ''))
 
     # 이미지 가져오기
     if isUpload == 'True':
         # 파일 업로드일 경우
         file_str = request.files['file'].read()
         mimtype = request.files['file'].mimetype
-        print(mimtype)
-        print(type(mimtype))
         npimg = np.fromstring(file_str, np.uint8)
         img_upload = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
         camera.my_imwrite(mimtype, img_upload, path_original)
@@ -129,34 +99,40 @@ def add_clothes(isUpload):
     cv2.imwrite(path_segmen, img_segmentation)
 
     pred, label = cc.classifier(path_segmen)
+    category = clothOps.get_category(label)
+
     clothes_info = list(clothOps.clothes_info.values())
     graph = plots.prob_graph(clothes_info, pred)
+
     print(max(pred))
-    if max(pred) < 0.6:
+    if max(pred) < 0.6 and isAdd:
         print("분류된 카테고리가 없습니다.")
         return redirect(url_for("add"))
-    category = clothOps.get_category(label)
-    print(pred, label)
-    position = clothOps.search_pos_by_label(category)
 
-    # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
-    if position == -1:
-        position = "지정 카테고리가 없습니다!"
-        position = 2
+    if isAdd == 'True':
+        position = clothOps.search_pos_by_label(category)
+        # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
+        if position == -1:
+            position = "지정 카테고리가 없습니다!"
+            position = 2
 
-    # 서랍장 저장
-    box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname)  # 서랍장 위치
-    camera.my_imwrite('.png', img_segmentation, box_path)
-    clothOps.append_cloth(str(position), str(category), nickname)
+        # 서랍장 저장
+        box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname)  # 서랍장 위치
+        camera.my_imwrite('.png', img_segmentation, box_path)
+        clothOps.append_cloth(str(position), str(category), nickname)
 
-    return render_template('add_clothes.html', results={"nickname": nickname,
-                                                        "label": label,
-                                                        "category": category,
-                                                        "pred": pred,
-                                                        "position": position,
-                                                        "path_original": path_original,
-                                                        "path_segmen": path_segmen,
-                                                        "graph": graph})
+        results = {"nickname": nickname, "label": label, "category": category,
+                   "position": position, "path_original": path_original,
+                   "path_segmen": path_segmen, "graph": graph}
+        return render_template('add_clothes.html', results=results)
+    else:
+        circle = clothOps.get_graph_key_value("circle")
+        stick = clothOps.get_graph_key_value("stick")
+        results = {"label": label, "category": category,
+                   "path_original": path_original, "path_segmen": path_segmen,
+                   "graph": graph, "circle": circle, "stick": stick}
+        return render_template('ootd_whichone.html', results=results)
+
 
 
 # 옷 추가
@@ -189,40 +165,8 @@ def cloth_detail(box_num, cloth_name):
         # clothes.json의 clothes_management에서 해당하는 카테고리의 세탁정보 받아옴
         # current_cloth['management_info'] = json_data["clothes_management"][0][current_category]
     return render_template("cloth_detail.html", result=current_cloth)
-    
-@application.route('/ootd_whichone', methods=['POST'])
-def ootd_whichone():
-    # 빈도 수 체크
-    ret, frame = camera.getCam().read()
-    now = datetime.datetime.now()
-    # img_path = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
-    img_path = "static/images/c1/test.png"  # 테스트용 코드
-    cv2.imwrite(img_path, frame)
-    camera.closeCam()
-
-    api = camera.fashion_tools(img_path, camera.saved)
-    image_ = api.get_dress()
-
-    # img_path_segmen = "static/images/c2/{}.jpg".format(str(now).replace(":", ''))
-
-    img_path_segmen = "static/images/c2/test.png"  # 테스트용 코드
-    cv2.imwrite(img_path_segmen, image_)
-
-    pred, label = cc.classifier(img_path_segmen)
-    print(pred, label)
-
-    circle = clothOps.get_graph_key_value("circle")
-    stick = clothOps.get_graph_key_value("stick")
-
-    return render_template('ootd_whichone.html', results={"pred": pred,
-                                                          "label": label,
-                                                          "img_path": img_path,
-                                                          "img_path_segmen": img_path_segmen},
-                            circle=circle, stick=stick)
-    # circle = circle, stick = stick)
 
 
-# append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json')
 """"@application.route('/setting.html')
 def setting(nickname, p_path):"""
 
