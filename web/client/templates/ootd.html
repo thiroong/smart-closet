@@ -61,14 +61,23 @@
 			</div>
 		</div>
 
-		<div class="ootd-main">
-			<div class="ootd-photo-box">
+		<div class="add-main">
+			<div class="take-photo">
 				<p>입고 나가는 옷을 촬영해 주세요</p>
 				<form method="post" action="{{ url_for('ootd_whichone') }}">
-					<input class="button1 mdc-button mdc-button--unelevated" type="submit" value="Capture" name="click"/>
+            		<input  type="submit" value="촬영" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
 				</form>
 				<img src="{{ url_for('video_feed') }}">
 			</div>
+
+			<div class="add-photo">
+			<p> 사진으로 올리기 </p>
+
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('ootd_whichone') }}">
+            	<input type="submit" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click">
+				<input type="file" required name="file" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
+			</form>
+        </div>
 		</div>
 
 	</div>
