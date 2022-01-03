@@ -107,7 +107,24 @@ def fashion(isUpload, isAdd):
     print(max(pred))
     if max(pred) < 0.6 and isAdd:
         print("분류된 카테고리가 없습니다.")
-        return redirect(url_for("add"))
+        return redirect(url_for("underProb"))
+
+    clothes_info = list(clothOps.clothes_info.values())
+    graph = plots.prob_graph(clothes_info, pred)
+
+    #position = clothOps.search_pos_by_label(category)
+    position_arr = clothOps.is_category_in_setting(category)
+    if len(position_arr)==0:
+        position=clothOps.biggest_capicity([1,2,3,4,5,6,7])
+    else:
+        position=clothOps.biggest_capicity(position_arr)
+
+    # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
+    """if position == -1:
+        position = "지정 카테고리가 없습니다!"
+        position = 2"""
+
+>>>>>>> 16544bad557e05a3ab2a6df320dff8fc7d5a2d2d
 
     if isAdd == 'True':
         # position = clothOps.search_pos_by_label(category)
@@ -145,6 +162,10 @@ def fashion(isUpload, isAdd):
         return render_template('ootd_whichone.html', results=results)
 
 
+
+@application.route("/underProb")
+def underProb():
+    return render_template("underProb.html")
 
 # 옷 추가
 @application.route("/box/<int:box_num>", methods=['GET'])  # 각 closet_num에 해당하는 번호의 수납함으로 이동
