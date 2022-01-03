@@ -94,36 +94,43 @@ def video_feed():
         camera.openCam()
     return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+# 옷 등록
 @application.route('/add_clothes?<isUpload>', methods=['POST'])
 def add_clothes(isUpload):
-    # 옷 등록
-    ret, frame = camera.getCam().read()
-    camera.closeCam()
     nickname = request.form.get('nickname')
-    img_path = "static/images/c1/{name}.jpg".format(name=nickname)
+    path_original = "static/images/c1/{name}.png".format(name=nickname) # 원본 저장 경로
+    path_segmen = "static/images/c2/{name}.png".format(name=nickname) # 세그멘테이션 이미지 저장 경로
 
+    # 이미지 가져오기
     if isUpload == 'True':
+        # 파일 업로드일 경우
         file_str = request.files['file'].read()
         npimg = np.fromstring(file_str, np.uint8)
-        img = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
-        camera.my_imwrite('.jpg', img, img_path)
+        img_upload = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
+        camera.my_imwrite('.png', img_upload, path_original)
     else:
-        camera.my_imwrite('.jpg', frame, img_path)
+        # 카메라로 찍었을 경우
+        ret, frame = camera.getCam().read()
+        camera.closeCam()
+        camera.my_imwrite('.png', frame, path_original)
 
-    pred, label = cc.classifier(img_path)
+    # fashion segmentation
+    img_segmentation = camera.get_segmentation_image(path_original)
+    cv2.imwrite(path_segmen, img_segmentation)
+
+    pred, label = cc.classifier(path_segmen)
     category = clothOps.get_category(label)
     print(pred, label)
     position = clothOps.search_pos_by_label(category)
+
     # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
     if position == -1:
         position = "지정 카테고리가 없습니다!"
         position = 2
 
-    box_path = "static/images/box/box{pos}/{name}.jpg".format(pos=position, name=nickname)
-    if isUpload == 'True':
-        camera.my_imwrite('.jpg', img, box_path)
-    else:
-        camera.my_imwrite('.jpg', frame, box_path)
+    # 서랍장 저장
+    box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname) # 서랍장 위치
+    camera.my_imwrite('.png', img_segmentation, box_path)
     clothOps.append_cloth(str(position), str(category), nickname)
 
     graph_val = [['coat', 'padding', 'shortsleeve', 'longsleeve', 'shirt', 'pants', 'dress'], pred]
@@ -132,7 +139,8 @@ def add_clothes(isUpload):
                                                         "category": category,
                                                         "pred": pred,
                                                         "position": position,
-                                                        "img_path": img_path},
+                                                        "path_original": path_original,
+                                                        "path_segmen": path_segmen},
                                                         graph_val = graph_val)
 
 
@@ -202,7 +210,7 @@ def ootd_whichone():
     img_path_segmen = "static/images/c2/test.png"  # 테스트용 코드
     cv2.imwrite(img_path_segmen, image_)
 
-    pred, label = cc.classifier(img_path_segmen, isOotd=True)
+    pred, label = cc.classifier(img_path_segmen)
     print(pred, label)
     
     circle = get_graph_key_value("circle")
