@@ -28,8 +28,8 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
     newCloth = dict(**clothClass)
     newCloth["name"]=clothName_str
     newCloth["category"]=category_str
-    newCloth["img_path"]='images/box/box'+boxnum_str+'/'+clothName_str+'.jpg'
-    newCloth["feature_path"]='feature/f_'+clothName_str+'.np'
+    newCloth["img_path"]='images/box/box'+boxnum_str+'/'+clothName_str+'.png'
+    newCloth["feature_path"]='feature/f_'+clothName_str+'.npy'
 
     file_data=read_json(filename)
     with open(filename, 'w', encoding='UTF8') as file:
