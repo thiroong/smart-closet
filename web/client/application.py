@@ -129,12 +129,20 @@ def add_clothes(isUpload):
     cv2.imwrite(path_segmen, img_segmentation)
 
     pred, label = cc.classifier(path_segmen)
+
+    prob = max(pred)
+    print(prob)
+    if prob < 0.6:
+        #print("분류된 카테고리가 없습니다.")
+        return redirect(url_for("underProb"))
+
     clothes_info = list(clothOps.clothes_info.values())
     graph = plots.prob_graph(clothes_info, pred)
-    print(max(pred))
+    """print(max(pred))
     if max(pred) < 0.6:
         print("분류된 카테고리가 없습니다.")
-        return redirect(url_for("add"))
+        return redirect(url_for("add"))"""
+
     category = clothOps.get_category(label)
     print(pred, label)
     #position = clothOps.search_pos_by_label(category)
@@ -164,6 +172,10 @@ def add_clothes(isUpload):
                                                         "path_segmen": path_segmen,
                                                         "graph": graph})
 
+
+@application.route("/underProb")
+def underProb():
+    return render_template("underProb.html")
 
 # 옷 추가
 @application.route("/box/<int:box_num>", methods=['GET'])  # 각 closet_num에 해당하는 번호의 수납함으로 이동
