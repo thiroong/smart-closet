@@ -78,6 +78,22 @@
                     "img_path": "images/box/box2/brown_knit2.jpg",
                     "feature_path": "feature/f_brown_knit2.np",
                     "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "test",
+                    "category": "dress",
+                    "count": 0,
+                    "img_path": "images/box/box2/test.jpg",
+                    "feature_path": "feature/f_test.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "test",
+                    "category": "dress",
+                    "count": 0,
+                    "img_path": "images/box/box2/test.jpg",
+                    "feature_path": "feature/f_test.np",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
