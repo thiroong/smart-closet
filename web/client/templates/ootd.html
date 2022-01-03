@@ -65,15 +65,13 @@
 			<div class="ootd-photo-box">
 				<p>입고 나가는 옷을 촬영해 주세요</p>
 				<form method="post" action="{{ url_for('ootd_whichone') }}">
-					<input type="submit" value="Capture" name="click"/>
+					<input class="button1 mdc-button mdc-button--unelevated" type="submit" value="Capture" name="click"/>
 				</form>
 				<img src="{{ url_for('video_feed') }}">
 			</div>
 		</div>
 
 	</div>
-
-
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

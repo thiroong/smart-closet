@@ -84,67 +84,83 @@
 		</div>
 
 
-
 		<div class="graph-box">
 			<div class="bar-box">
 				<h3>빈도수 그래프</h3>
-
 				<canvas id="myChart" width="400px" height="400px"></canvas>
 				<script>
     				const ctx = document.getElementById('myChart').getContext('2d');
     				const myChart = new Chart(ctx, {
         			type: 'bar',
         			data: {
-            			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            			datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)',
-                    ],
-                    borderWidth: 1,
-                },
-            ],
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                },
-            },
-        },
-    });</script>
-			</div>
-			<div class="doughnut-box" >
+            			labels: [{% for d in circle_key %} "{{d}}", {% endfor %}],
+           				datasets: [
+               	 					{
+                    					label: '# 카테고리 별 착용 빈도',
+                   						data: [{% for d in circle_val %} {{d}}, {% endfor %}],
+										backgroundColor: [
+											'rgba(255, 99, 132, 0.2)',
+											'rgba(54, 162, 235, 0.2)',
+											'rgba(255, 206, 86, 0.2)',
+											'rgba(75, 192, 192, 0.2)',
+											'rgba(153, 102, 255, 0.2)',
+											'rgba(255, 159, 64, 0.2)',
+											'rgba(120, 100, 190, 0.2)'
+										],
+										borderColor: [
+											'rgba(255, 99, 132, 1)',
+											'rgba(54, 162, 235, 1)',
+											'rgba(255, 206, 86, 1)',
+											'rgba(75, 192, 192, 1)',
+											'rgba(153, 102, 255, 1)',
+											'rgba(255, 159, 64, 1)',
+											'rgba(120, 100, 190, 1)'
+										],
+										borderWidth: 1,
+									},
+								],
+							},
 
-				<canvas id="myChart2" width="50%" height="50%"></canvas>
-				<script>
-    new Chart(document.getElementById("myChart2"),
-    {"type":"doughnut","data":{"labels":
-    ["Red","Blue","Yellow"],"datasets":[{"label":"Example","data":[300,50,100],
-    "backgroundColor":["rgb(255,99,132)","rgb(54, 162, 235)","rgb(255,205,80)"]}]}})
+						options: {
+							scales: {
+								y: {
+									beginAtZero: true,
+								},
+							},
+						},
+					});
 
 
 
 				</script>
 			</div>
-		</div>
+			<div class="doughnut-box" style>
+
+				<canvas id="myChart2" width="50%" height="50%"
+						style="display: block; box-sizing: border-box; height: 529.6px; width: 530.4px;"></canvas>
+				<script>
+					new Chart(document.getElementById("myChart2"),
+					{
+						"type":"doughnut",
+						"data":{"labels": [{% for d in stick_key %} "{{d}}", {% endfor %}],
+						"datasets": [{
+								"label":"Example","data":[{% for d in stick_val %} {{d}}, {% endfor %}],
+								"backgroundColor": [ 'rgba(255, 99, 132)',
+													'rgba(54, 162, 235)',
+													'rgba(255, 206, 86)',
+													'rgba(75, 192, 192)',
+													'rgba(153, 102, 255)',
+													'rgba(255, 159, 64)',
+													'rgba(120, 100, 190)' ]
+							}]
+						}
+					})
+
+				</script>
+			</div>
 
 
-		<div class="recommend-box">
+			<div class="recommend-box">
 			<p>버릴 옷 추천</p>
 			<!--빈도수 가장 낮은 옷보여질 수 있도록 연결 부탁드립니다 !-->
 			<!--				현재 임시 이미지-->
