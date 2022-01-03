@@ -337,21 +337,21 @@
                     </div>
                     <div class="inside">
                         <div class="rail">
-                        <p style="position: absolute; top: -50px; left:40px; z-index:3;"><a href="/box/1" style="font-size:16pt; color: black;">1</a></p>
-                        <p style="position: absolute; top: 70px; left:40px; z-index: 3;"><a href="/box/2" style="font-size:16pt; color: black;">2</a></p>
-                        <p style="position: absolute; top:195px; left:40px;"><a href="/box/3" style="font-size:16pt; color: black;">3</a></p>
-                        <p style="position: absolute; top:265px; left:40px;"><a href="/box/4" style="font-size:16pt; color: black;">4</a></p></div>
+                        <p style="position: absolute; top: -50px; left:40px; z-index:3;"><a href="/box/1" style="font-size:16pt; color: black;">1</a>{{result[0]}}</p>
+                        <p style="position: absolute; top: 70px; left:40px; z-index: 3;"><a href="/box/2" style="font-size:16pt; color: black;">2</a>{{result[1]}} </p>
+                        <p style="position: absolute; top:195px; left:40px;"><a href="/box/3" style="font-size:16pt; color: black;">3</a>{{result[2]}}</p>
+                        <p style="position: absolute; top:265px; left:40px;"><a href="/box/4" style="font-size:16pt; color: black;">4</a>{{result[3]}}</p></div>
                         <div class="bar">
 
                         </div>
                         <div class="bar2">
-                           <p style="position: absolute; left:45px; top:80px;"><a href="/box/6" style="font-size:16pt; color: black;">6</a></p>
+                           <p style="position: absolute; left:45px; top:80px;"><a href="/box/6" style="font-size:16pt; color: black;">6</a>{{result[5]}}</p>
                         </div>
                         <div class="rail2">
-                            <p style="position: absolute; left:40px; top:110px;"><a href="/box/5" style="font-size:16pt; color: black;">5</a></p>
+                            <p style="position: absolute; left:40px; top:110px;"><a href="/box/5" style="font-size:16pt; color: black;">5</a>{{result[4]}}</p>
                         </div>
                         <div class="rail3">
-                            <p style="position: absolute; left: 38px; top: 270px;"><a href="/box/7"style="font-size:16pt; color: black;">7</a></p>
+                            <p style="position: absolute; left: 38px; top: 270px;"><a href="/box/7"style="font-size:16pt; color: black;">7</a>{{result[6]}}</p>
                         </div>
                         <div class="hangers"></div>
                         <div class="boots"></div>
@@ -362,6 +362,7 @@
             </div>
         <div style="display: grid;flex-wrap: wrap;justify-items: start; margin-top: -25px">
             <div>
+                <form method="POST" action="{{ url_for('show_setting') }}">
                 <div class="select-box" style="
                                             width: 270px;
                                             border-radius: 7px;
@@ -483,6 +484,7 @@
             <input type="submit" value="저장" style="border: transparent; border-radius: 7px; background-color:lightgrey;"/>
                         </div>
         </div>
+                </form>
             </div>
         </div>
     </div>

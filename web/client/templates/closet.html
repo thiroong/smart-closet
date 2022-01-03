@@ -357,7 +357,11 @@
                     </button>
 <!--                <button style="width: 150px;"><a href="/add" style="color: black; font-size: 15px;">옷 추가하기</a></button>-->
             </div>
-            <div style="margin-top: -40%">
+            <form method="post" action="{{ url_for('search_cloth_result') }}">
+                            <input placeholder="별명을 입력하세요" required name ="nickname">
+					<input type="submit" value="찾기"/>
+                            </form>
+            <!--<div style="margin-top: -40%">
                <div class="inline-text-field-container" style="
     color: lightgray;
 ">
@@ -371,7 +375,7 @@
                         <div class="mdc-notched-outline__notch" style="">
 
                     <label for="demo-mdc-text-field" class="mdc-floating-label" style="top: 30%;font-size: 11px; font-family: 'IBM Plex Sans KR', sans-serif;">옷 별명을 입력하세요</label>
-                              <button class="button1 mdc-button mdc-button--unelevated" onclick="alert('ㅁㅁ는 x번 수납장에 수납되어있습니다.')" style="font-family: 'IBM Plex Sans KR', sans-serif; background-color:lightgrey;height: 50px;margin-top: -64px;margin-left: 138px;font-size: 14px;color: black;">찾기</button>
+                              <button class="button1 mdc-button mdc-button--unelevated" onclick="alert('ㅁㅁ는 x번 수납장에 수납되어있습니다.')" style="font-family: 'IBM Plex Sans KR', sans-serif; background-color:lightgrey;height: 50px;margin-top: -64px;margin-left: 138px;font-size: 14px;color: black;">찾기</button>-->
 
         </div>
         <div class="mdc-notched-outline__trailing"></div>
