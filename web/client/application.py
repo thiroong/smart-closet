@@ -32,29 +32,8 @@ def closet():
 
 
 @application.route("/ootd")
-def ootd():
-    circle_dict = clothOps.count_by_category()
-    c_count = []
-    c_labels = []
-    
-    for key, val in circle_dict.items():
-        if (val > 0):
-            c_labels.append(key)
-            c_count.append(val)
-    
-    stick_dict = clothOps.count_by_category_to_date()
-    s_count = []
-    s_labels = []
-    
-    for key, val in circle_dict.items():
-        if (val > 0):
-            s_labels.append(key)
-            s_count.append(val)
-            
-    return render_template("ootd.html", 
-                           circle_key = c_labels, circle_val = c_count,
-                           stick_key = s_labels, stick_val = s_count
-                           )
+def ootd(): 
+    return render_template("ootd.html")
 
 
 @application.route("/setting")
@@ -173,6 +152,22 @@ def cloth_detail(box_num, cloth_name):
     return render_template("cloth_detail.html", result=current_cloth)
 
 
+def get_graph_key_value(shape):
+    if shape == "circle":
+        dict = clothOps.count_by_category()
+    else:
+        dict = clothOps.count_by_category_to_date()
+    count = []
+    labels = []
+    
+    for key, val in dict.items():
+        if (val > 0):
+            labels.append(key)
+            count.append(val)
+    
+    return ([labels, count])
+    
+
 @application.route('/ootd_whichone', methods=['POST'])
 def ootd_whichone():
     # 빈도 수 체크
@@ -193,12 +188,16 @@ def ootd_whichone():
 
     pred, label = cc.classifier(img_path_segmen, isOotd=True)
     print(pred, label)
+    
+    circle = get_graph_key_value("circle")
+    stick = get_graph_key_value("stick")
 
     return render_template('ootd_whichone.html',
                            results={"pred": pred,
                                     "label": label,
                                     "img_path": img_path,
-                                    "img_path_segmen": img_path_segmen})
+                                    "img_path_segmen": img_path_segmen},
+                           circle = circle, stick = stick)
 
 
 # append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json')

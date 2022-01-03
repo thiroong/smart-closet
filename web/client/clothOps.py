@@ -148,13 +148,12 @@ def count_by_category_to_date():
     for closet_box in closet:
         cloth_list = closet_box["clothes_list"]
         for cloth in cloth_list:
-            if str(startDate) < cloth['last_wear_date'] \
-                and str(endDate) > cloth['last_wear_date'] \
+            if str(startDate.date()) <= cloth['last_wear_date'] \
+                and str(endDate.date()) >= cloth['last_wear_date'] \
                 and cloth['count'] > 0:
                 cnt_categories[cloth['category']] += 1
-            
-    return (cnt_categories)
     
+    return (cnt_categories)
 
 ############################################
 # Dict Class 정의
