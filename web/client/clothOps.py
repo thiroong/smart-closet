@@ -16,6 +16,19 @@ def read_json(filename='clothes.json'):
         file_data = json.load(file)
         return file_data
     
+# json에 같은 nickname이 존재하면 True, 없으면 False
+def is_same_nickname_exist(nickname):
+    closet_info = read_json(DATABASE_PATH)
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_list = closet_box["clothes_list"]
+        for cloth in cloth_list:
+            if cloth['name'] == nickname:
+                return (True)
+    return (False)
+    
+    
 # append_cloth: 옷 추가 함수
     # 해당 수납함의 clothes_list에 cloth객체 추가
     # name: 입력받은 별명

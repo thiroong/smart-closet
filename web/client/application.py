@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, Response, send_from_directory
+from flask import Flask, render_template, redirect, url_for, request, Response, send_from_directory, flash
 import numpy as np
 import os
 import json
@@ -11,7 +11,7 @@ import classification as cc
 import plots
 
 application = Flask(__name__, static_folder='static')
-
+application.secret_key = 'secret_key'
 
 # @application.route("/")
 # def hello():
@@ -105,6 +105,9 @@ def video_feed():
 @application.route('/add_clothes?<isUpload>', methods=['POST'])
 def add_clothes(isUpload):
     nickname = request.form.get('nickname')
+    if (clothOps.is_same_nickname_exist(nickname)):
+        flash("중복된 nickname입니다!")
+        return render_template("add.html")
     path_original = "static/images/c1/{name}.png".format(name=nickname)  # 원본 저장 경로
     path_segmen = "static/images/c2/{name}.png".format(name=nickname)  # 세그멘테이션 이미지 저장 경로
 
