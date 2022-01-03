@@ -39,12 +39,13 @@ def ootd():
 ##################### 카테고리 세팅 ###########################
 @application.route("/setting", methods=['GET'])
 def setting():
-    category_list = []
+
+    tool_tip_list=[]
     with open('clothes.json', encoding='UTF8') as cloth_json:
         json_data = json.load(cloth_json)  # cloth_json 불러옴
         for i in range(7):
-            category_list.append(json_data["closet"][i]["category_to_save"])
-    return render_template("setting.html", result=category_list)
+            tool_tip_list.append(json_data["closet"][i]["tool_tip"])
+    return render_template("setting.html", tool_tip_list_result=tool_tip_list)
 
 
 @application.route('/show_setting', methods=['POST'])

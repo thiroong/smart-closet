@@ -126,6 +126,10 @@
 		for (const textField of textFields) {
 			mdc.textField.MDCTextField.attachTo(textField);
 		}
+		const tooltips = document.querySelectorAll(".mdc-tooltip");
+		for (const tooltip of tooltips) {
+		  mdc.tooltip.MDCTooltip.attachTo(tooltip);
+		  }
 	});
 
 
