@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, Response, send_from_directory
+from flask import Flask, render_template, redirect, url_for, request, Response, send_from_directory, flash
 import numpy as np
 import os
 import json
@@ -11,6 +11,7 @@ import classification as cc
 import plots
 
 application = Flask(__name__, static_folder='static')
+application.secret_key = 'secret_key'
 
 @application.route("/")
 @application.route("/index")
@@ -109,30 +110,14 @@ def fashion(isUpload, isAdd):
         print("분류된 카테고리가 없습니다.")
         return redirect(url_for("underProb"))
 
-    clothes_info = list(clothOps.clothes_info.values())
-    graph = plots.prob_graph(clothes_info, pred)
-
-    #position = clothOps.search_pos_by_label(category)
-    position_arr = clothOps.is_category_in_setting(category)
-    if len(position_arr)==0:
-        position=clothOps.biggest_capicity([1,2,3,4,5,6,7])
-    else:
-        position=clothOps.biggest_capicity(position_arr)
-
-    # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
-    """if position == -1:
-        position = "지정 카테고리가 없습니다!"
-        position = 2"""
-
->>>>>>> 16544bad557e05a3ab2a6df320dff8fc7d5a2d2d
-
     if isAdd == 'True':
         # position = clothOps.search_pos_by_label(category)
         position_arr = clothOps.is_category_in_setting(category)
         if len(position_arr) == 0:
-            position = clothOps.biggest_capicity([1, 2, 3, 4, 5, 6, 7])
+            position = clothOps.biggest_capacity([1, 2, 3, 4, 5, 6, 7])
         else:
-            position = clothOps.biggest_capicity(position_arr)
+            position = clothOps.biggest_capacity(position_arr)
+
 
         # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
         """if position == -1:
@@ -197,7 +182,6 @@ def cloth_detail(box_num, cloth_name):
         # clothes.json의 clothes_management에서 해당하는 카테고리의 세탁정보 받아옴
         # current_cloth['management_info'] = json_data["clothes_management"][0][current_category]
     return render_template("cloth_detail.html", result=current_cloth)
-
 
 """"@application.route('/setting.html')
 def setting(nickname, p_path):"""
