@@ -191,22 +191,6 @@ def cloth_detail(box_num, cloth_name):
     return render_template("cloth_detail.html", result=current_cloth)
 
 
-def get_graph_key_value(shape):
-    if shape == "circle":
-        dict = clothOps.count_by_category()
-    else:
-        dict = clothOps.count_by_category_to_date()
-    count = []
-    labels = []
-    
-    for key, val in dict.items():
-        if (val > 0):
-            labels.append(key)
-            count.append(val)
-    
-    return ([labels, count])
-    
-
 @application.route('/ootd_whichone', methods=['POST'])
 def ootd_whichone():
     # 빈도 수 체크
@@ -228,17 +212,16 @@ def ootd_whichone():
     name = cc.similarity_measures(img_path_segmen)
     pred, label = 0, 0
     print(pred, label)
-    
-    circle = get_graph_key_value("circle")
-    stick = get_graph_key_value("stick")
 
-    return render_template('ootd_whichone.html',
-                           results={"pred": pred,
-                                    "label": label,
-                                    "name": name,
-                                    "img_path": img_path,
-                                    "img_path_segmen": img_path_segmen},
-                           circle = circle, stick = stick)
+    # circle = get_graph_key_value("circle")
+    # stick = get_graph_key_value("stick")
+
+
+    return render_template('ootd_whichone.html', results={"pred": pred,
+                                                          "label": label,
+                                                          "img_path": img_path,
+                                                          "img_path_segmen": img_path_segmen})
+                           # circle = circle, stick = stick)
 
 
 # append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json')

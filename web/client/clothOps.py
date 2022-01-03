@@ -204,3 +204,18 @@ clothes_info = {
 def get_category(label):
     return clothes_info[label]
 
+
+def get_graph_key_value(shape):
+    if shape == "circle":
+        dict = count_by_category()
+    else:
+        dict = count_by_category_to_date()
+    count = []
+    labels = []
+
+    for key, val in dict.items():
+        if (val > 0):
+            labels.append(key)
+            count.append(val)
+
+    return ([labels, count])
