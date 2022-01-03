@@ -48,35 +48,35 @@
                     "last_wear_date": "2021-12-31"
                 },
                 {
-                    "name": "test",
-                    "category": "dress",
-                    "count": 0,
-                    "img_path": "images/box/box2/test.jpg",
-                    "feature_path": "feature/f_test.np",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "test",
-                    "category": "dress",
-                    "count": 0,
-                    "img_path": "images/box/box2/test.jpg",
-                    "feature_path": "feature/f_test.np",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "test",
-                    "category": "dress",
-                    "count": 0,
-                    "img_path": "images/box/box2/test.jpg",
-                    "feature_path": "feature/f_test.np",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
                     "name": "민지님원피스",
                     "category": "shirt",
                     "count": 0,
                     "img_path": "images/box/box2/민지님원피스.jpg",
                     "feature_path": "feature/f_민지님원피스.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "test_data",
+                    "category": "shirt",
+                    "count": 0,
+                    "img_path": "images/box/box2/test_data.jpg",
+                    "feature_path": "feature/f_test_data.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "brown_knit",
+                    "category": "shirt",
+                    "count": 0,
+                    "img_path": "images/box/box2/brown_knit.jpg",
+                    "feature_path": "feature/f_brown_knit.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "brown_knit2",
+                    "category": "shirt",
+                    "count": 0,
+                    "img_path": "images/box/box2/brown_knit2.jpg",
+                    "feature_path": "feature/f_brown_knit2.np",
                     "last_wear_date": "0000-00-00"
                 }
             ]

@@ -35,10 +35,25 @@ def closet():
 def ootd(): 
     return render_template("ootd.html")
 
-
-@application.route("/setting")
+##################### 카테고리 세팅 ###########################
+@application.route("/setting", methods=['GET'])
 def setting():
-    return render_template("setting.html")
+    category_list=[]
+    with open('clothes.json', encoding='UTF8') as cloth_json:
+        json_data = json.load(cloth_json)  # cloth_json 불러옴
+        for i in range(7):
+            category_list.append(json_data["closet"][i]["category_to_save"])
+    return render_template("setting.html",result=category_list)
+
+@application.route('/show_setting', methods=['POST'])
+def show_setting():
+    category_list=[]
+    for i in range(1,8):
+        box_category = (request.form.get('select{}'.format(i)))
+        category_list.append(box_category)
+    clothOps.set_category_to_box(category_list)
+    return render_template("show_setting.html", result=category_list)
+###################################################
 
 
 @application.route("/add")
@@ -146,9 +161,9 @@ def cloth_detail(box_num, cloth_name):
         current_cloth['count'] = str(current_cloth['count'])
         current_category = current_cloth["category"]
         # clothes.json의 clothes_laundry에서 해당하는 카테고리의 세탁정보 받아옴
-        current_cloth['laundry_info'] = json_data["clothes_laundry"][0][current_category]
+        #current_cloth['laundry_info'] = json_data["clothes_laundry"][0][current_category]
         # clothes.json의 clothes_management에서 해당하는 카테고리의 세탁정보 받아옴
-        current_cloth['management_info'] = json_data["clothes_management"][0][current_category]
+        #current_cloth['management_info'] = json_data["clothes_management"][0][current_category]
     return render_template("cloth_detail.html", result=current_cloth)
 
 
@@ -205,20 +220,13 @@ def ootd_whichone():
 def setting(nickname, p_path):"""
 
 
-##################검색 기능 테스트######################
-@application.route(('/temp_for_test'))
-def temp_for_test():
-    return render_template("temp_for_test.html")
-
-
-@application.route('/result', methods=['POST'])
-def result():
-    keyword = request.form['search']
-    img_path_list = clothOps.find_image_by_keyword(keyword)
-    return render_template("result.html", result=img_path_list)
-
-
-##################검색 기능 테스트######################
+##################검색 기능######################
+@application.route('/search_cloth_result', methods=['POST'])
+def search_cloth_result():
+    keyword = request.form['nickname']
+    found_cloth_arr = clothOps.find_cloth_by_keyword(keyword)
+    return render_template("search_cloth_result.html", result=found_cloth_arr)
+##################검색 기능######################
     
 @application.route('/favicon.ico')
 def favicon():
