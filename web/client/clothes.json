@@ -3,7 +3,7 @@
     "closet": [
         {
             "position": 1,
-            "category_to_save": "none",
+            "category_to_save": "coat",
             "capacity": 10,
             "used": 10,
             "clothes_list": [
@@ -27,9 +27,9 @@
         },
         {
             "position": 2,
-            "category_to_save": "none",
-            "capacity": 0,
-            "used": 10,
+            "category_to_save": "padding",
+            "capacity": 10,
+            "used": 9,
             "clothes_list": [
                 {
                     "name": "brown_padding",
@@ -83,9 +83,9 @@
         },
         {
             "position": 3,
-            "category_to_save": "none",
-            "capacity": 0,
-            "used": 1,
+            "category_to_save": "shortsleeve",
+            "capacity": 10,
+            "used": 8,
             "clothes_list": [
                 {
                     "name": "green_coat",
@@ -107,9 +107,9 @@
         },
         {
             "position": 4,
-            "category_to_save": "none",
-            "capacity": 0,
-            "used": 0,
+            "category_to_save": "longsleeve",
+            "capacity": 10,
+            "used": 7,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -131,9 +131,9 @@
         },
         {
             "position": 5,
-            "category_to_save": "none",
-            "capacity": 0,
-            "used": 1,
+            "category_to_save": "shirt",
+            "capacity": 10,
+            "used": 6,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -163,9 +163,9 @@
         },
         {
             "position": 6,
-            "category_to_save": "dress",
-            "capacity": 0,
-            "used": 3,
+            "category_to_save": "pants",
+            "capacity": 10,
+            "used": 2,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -187,9 +187,9 @@
         },
         {
             "position": 7,
-            "category_to_save": "none",
-            "capacity": 0,
-            "used": 0,
+            "category_to_save": "dress",
+            "capacity": 10,
+            "used": 4,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
