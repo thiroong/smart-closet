@@ -133,6 +133,15 @@ def add_clothes(isUpload):
     camera.my_imwrite('.png', img_segmentation, box_path)
     clothOps.append_cloth(str(position), str(category), nickname)
 
+    # image preprocessing
+    img = cc.image_preprocessing(path_segmen)
+
+    # feature extract
+    feature = cc.feature_extract(img=img)
+    feature_path = f'./static/features/f_{nickname}.npy'
+    np.save(feature_path, feature)
+    clothOps.append_cloth(str(position), str(category), nickname)
+
     return render_template('add_clothes.html', results={"nickname": nickname,
                                                         "label": label,
                                                         "category": category,
@@ -208,7 +217,8 @@ def ootd_whichone():
     img_path_segmen = "static/images/c2/test.png"  # 테스트용 코드
     cv2.imwrite(img_path_segmen, image_)
 
-    pred, label = cc.classifier(img_path_segmen)
+    name = cc.similarity_measures(img_path_segmen)
+    pred, label = 0, 0
     print(pred, label)
     
     circle = get_graph_key_value("circle")
@@ -217,6 +227,7 @@ def ootd_whichone():
     return render_template('ootd_whichone.html',
                            results={"pred": pred,
                                     "label": label,
+                                    "name": name,
                                     "img_path": img_path,
                                     "img_path_segmen": img_path_segmen},
                            circle = circle, stick = stick)
