@@ -186,8 +186,7 @@ def cloth_detail(box_num, cloth_name):
         # clothes.json의 clothes_management에서 해당하는 카테고리의 세탁정보 받아옴
         # current_cloth['management_info'] = json_data["clothes_management"][0][current_category]
     return render_template("cloth_detail.html", result=current_cloth)
-
-
+    
 @application.route('/ootd_whichone', methods=['POST'])
 def ootd_whichone():
     # 빈도 수 체크
@@ -209,13 +208,14 @@ def ootd_whichone():
     pred, label = cc.classifier(img_path_segmen)
     print(pred, label)
 
-    # circle = get_graph_key_value("circle")
-    # stick = get_graph_key_value("stick")
+    circle = clothOps.get_graph_key_value("circle")
+    stick = clothOps.get_graph_key_value("stick")
 
     return render_template('ootd_whichone.html', results={"pred": pred,
                                                           "label": label,
                                                           "img_path": img_path,
-                                                          "img_path_segmen": img_path_segmen})
+                                                          "img_path_segmen": img_path_segmen},
+                            circle=circle, stick=stick)
     # circle = circle, stick = stick)
 
 
