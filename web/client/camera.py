@@ -29,7 +29,8 @@ class fashion_tools(object):
         
     def get_dress(self):
         name =  self.imageid
-        file = cv2.imread(name)
+        img_array = np.fromfile(name, np.uint8)
+        file = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         file = tf.image.resize_with_pad(file, target_height=480, target_width=640)
         rgb  = file.numpy()
         file = np.expand_dims(file,axis=0) / 255.
