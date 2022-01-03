@@ -13,7 +13,7 @@
                     "count": 1,
                     "img_path": "images/box/box1/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2021-12-30"
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
@@ -29,7 +29,7 @@
             "position": 2,
             "category_to_save": "shirt",
             "capacity": 0,
-            "used": 6,
+            "used": 10,
             "clothes_list": [
                 {
                     "name": "brown_padding",
@@ -93,7 +93,7 @@
                     "count": 1,
                     "img_path": "images/box/box3/green_coat.jpg",
                     "feature_path": "feature/f_green_coat.np",
-                    "last_wear_date": "2021-12-30"
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "blue_short_sleeve",

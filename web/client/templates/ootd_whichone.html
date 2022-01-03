@@ -93,11 +93,11 @@
     				const myChart = new Chart(ctx, {
         			type: 'bar',
         			data: {
-            			labels: [{% for d in circle_key %} "{{d}}", {% endfor %}],
+            			labels: [{% for d in circle[0] %} "{{d}}", {% endfor %}],
            				datasets: [
                	 					{
                     					label: '# 카테고리 별 착용 빈도',
-                   						data: [{% for d in circle_val %} {{d}}, {% endfor %}],
+                   						data: [{% for d in circle[1] %} {{d}}, {% endfor %}],
 										backgroundColor: [
 											'rgba(255, 99, 132, 0.2)',
 											'rgba(54, 162, 235, 0.2)',
@@ -142,9 +142,9 @@
 					new Chart(document.getElementById("myChart2"),
 					{
 						"type":"doughnut",
-						"data":{"labels": [{% for d in stick_key %} "{{d}}", {% endfor %}],
+						"data":{"labels": [{% for d in stick[0] %} "{{d}}", {% endfor %}],
 						"datasets": [{
-								"label":"Example","data":[{% for d in stick_val %} {{d}}, {% endfor %}],
+								"label":"Example","data":[{% for d in stick[1] %} {{d}}, {% endfor %}],
 								"backgroundColor": [ 'rgba(255, 99, 132)',
 													'rgba(54, 162, 235)',
 													'rgba(255, 206, 86)',
