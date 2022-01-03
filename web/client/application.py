@@ -122,6 +122,7 @@ def add_clothes(isUpload):
     category = clothOps.get_category(label)
     print(pred, label)
     position = clothOps.search_pos_by_label(category)
+    # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
     if position == -1:
         position = "지정 카테고리가 없습니다!"
         position = 2

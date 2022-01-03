@@ -111,13 +111,12 @@ def count_by_category():
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
     
-    cnt_categories = { 
-        'coat':0, 'padding':0, 'shortsleeve':0,
-        'longsleeve':0, 'shirt':0, 'pants':0,
-        'dress':0, 'undefined':0
-    }
+    cnt_categories = {}
     
     closet = closet_info["closet"]
+    for closet_box in closet:
+        cnt_categories[closet_box['category_to_save']] = 0
+    
     for closet_box in closet:
         cloth_list = closet_box["clothes_list"]
         for cloth in cloth_list:
@@ -135,18 +134,17 @@ def count_by_category_to_date():
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
     
-    cnt_categories = { 
-        'coat':0, 'padding':0, 'shortsleeve':0,
-        'longsleeve':0, 'shirt':0, 'pants':0,
-        'dress':0, 'undefined':0
-    }
-    
     now = datetime.datetime.now()
     weekDayCount = now.weekday()
     startDate = AddDays(now, -weekDayCount)
     endDate = AddDays(startDate, 7)
     
+    cnt_categories = {}
+    
     closet = closet_info["closet"]
+    for closet_box in closet:
+        cnt_categories[closet_box['category_to_save']] = 0
+    
     for closet_box in closet:
         cloth_list = closet_box["clothes_list"]
         for cloth in cloth_list:
