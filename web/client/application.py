@@ -105,9 +105,12 @@ def add_clothes(isUpload):
     if isUpload == 'True':
         # 파일 업로드일 경우
         file_str = request.files['file'].read()
+        mimtype = request.files['file'].mimetype
+        print(mimtype)
+        print(type(mimtype))
         npimg = np.fromstring(file_str, np.uint8)
         img_upload = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
-        camera.my_imwrite('.png', img_upload, path_original)
+        camera.my_imwrite(mimtype, img_upload, path_original)
     else:
         # 카메라로 찍었을 경우
         ret, frame = camera.getCam().read()
@@ -119,6 +122,11 @@ def add_clothes(isUpload):
     cv2.imwrite(path_segmen, img_segmentation)
 
     pred, label = cc.classifier(path_segmen)
+    prob = max(pred)
+    print(prob)
+    if prob < 0.6:
+        print("분류된 카테고리가 없습니다.")
+        return redirect(url_for("add"))
     category = clothOps.get_category(label)
     print(pred, label)
     position = clothOps.search_pos_by_label(category)
