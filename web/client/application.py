@@ -138,10 +138,10 @@ def add_clothes(isUpload):
 
     clothes_info = list(clothOps.clothes_info.values())
     graph = plots.prob_graph(clothes_info, pred)
-    print(max(pred))
+    """print(max(pred))
     if max(pred) < 0.6:
         print("분류된 카테고리가 없습니다.")
-        return redirect(url_for("add"))
+        return redirect(url_for("add"))"""
 
     category = clothOps.get_category(label)
     print(pred, label)
