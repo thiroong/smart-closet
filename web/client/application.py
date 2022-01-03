@@ -94,7 +94,6 @@ def video_feed():
         camera.openCam()
     return Response(camera.gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
 @application.route('/add_clothes?<isUpload>', methods=['POST'])
 def add_clothes(isUpload):
     # 옷 등록
@@ -127,12 +126,14 @@ def add_clothes(isUpload):
         camera.my_imwrite('.jpg', frame, box_path)
     clothOps.append_cloth(str(position), str(category), nickname)
 
+    graph_val = [['coat', 'padding', 'shortsleeve', 'longsleeve', 'shirt', 'pants', 'dress'], pred]
     return render_template('add_clothes.html', results={"nickname": nickname,
                                                         "label": label,
                                                         "category": category,
                                                         "pred": pred,
                                                         "position": position,
-                                                        "img_path": img_path})
+                                                        "img_path": img_path},
+                                                        graph_val = graph_val)
 
 
 # 옷 추가

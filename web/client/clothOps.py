@@ -29,7 +29,7 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
     newCloth["name"]=clothName_str
     newCloth["category"]=category_str
     newCloth["img_path"]='images/box/box'+boxnum_str+'/'+clothName_str+'.jpg'
-    newCloth["feature_path"]='feature/f_'+clothName_str+'.np'
+    newCloth["feature_path"]='static/feature/f_'+clothName_str+'.npy'
 
     file_data=read_json(filename)
     with open(filename, 'w', encoding='UTF8') as file:
