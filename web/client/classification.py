@@ -3,6 +3,8 @@ import numpy as np
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
+from tensorflow.keras.models import Model
+import os
 
 import clothOps
 
@@ -49,9 +51,48 @@ def image_preprocessing(path):
 
     return img
 
+def feature_extract(img):
+    '''
+        [argument]
+            img     : [image] image to extract feature
 
-def similarity_measures(img):
-    pass
+        [return]
+            feature : [numpy] extracted feature from image
+    '''
+    c2c_model = load_model('models/c2c_model.h5')
+    base_inputs = c2c_model.layers[0].input
+    base_outputs = c2c_model.layers[-2].output
+    extract_model = Model(inputs=base_inputs, outputs=base_outputs)
+    feature = extract_model.predict(img)[0]
+    return feature / np.linalg.norm(feature)
+
+def similarity_measures(path, isOotd=True):
+    '''
+        [argument]
+            path    : segmentation된 착장된 사진의 path
+            isOotd  : image_preprocessing 호출을 위한 True default flag
+
+        [return]
+            closest_cloth   : [int] 옷장 DB 중 가장 비슷한 옷의 이름 출력
+    '''
+
+    # Extract features from numpy files
+    features = []
+    feature_list = sorted(os.listdir('./static/features'))
+    for file_name in feature_list:
+        feature = np.load(os.path.join('./static/features', file_name))
+        features.append(feature)
+
+    target_img = image_preprocessing(path)
+    target = feature_extract(img=target_img)
+    dist = np.linalg.norm(features - target, axis=1)
+
+    closest_cloth = feature_list[np.argmin(dist)]
+    idx = closest_cloth.find('.')
+    closest_cloth = closest_cloth[2:idx]
+
+
+    return closest_cloth
 
 
 def get_prediction(test_image):

@@ -62,6 +62,11 @@ def gen_frames():  # generate frame by frame from camera
             pass
 
 def my_imwrite(ext, frame, img_path):
+    if ext == "image/png":
+        ext = ext.replace("image/png", ".png")
+    elif ext == "image/jpeg":
+        ext = ext.replace("image/jpeg", '.jpg')
+
     np.array(frame, dtype='uint8')
     ret, img_arr = cv2.imencode(ext, frame)
         

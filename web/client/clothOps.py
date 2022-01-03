@@ -28,8 +28,8 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
     newCloth = dict(**clothClass)
     newCloth["name"]=clothName_str
     newCloth["category"]=category_str
-    newCloth["img_path"]='images/box/box'+boxnum_str+'/'+clothName_str+'.jpg'
-    newCloth["feature_path"]='feature/f_'+clothName_str+'.np'
+    newCloth["img_path"]='images/box/box'+boxnum_str+'/'+clothName_str+'.png'
+    newCloth["feature_path"]='feature/f_'+clothName_str+'.npy'
 
     file_data=read_json(filename)
     with open(filename, 'w', encoding='UTF8') as file:
@@ -204,7 +204,6 @@ clothes_info = {
 def get_category(label):
     return clothes_info[label]
 
-
 #####################2022-01-03 옷 저장 및 세팅 관련 함수 구현########################
 
 ###########    1. 카테고리 초기화값 ""로 세팅   ############
@@ -250,3 +249,18 @@ def biggest_capicity(boxnum_arr, filename="clothes.json"):
 
 result=biggest_capicity([1,2,3,4,5,6,7])
 print(result)
+
+def get_graph_key_value(shape):
+    if shape == "circle":
+        dict = count_by_category()
+    else:
+        dict = count_by_category_to_date()
+    count = []
+    labels = []
+
+    for key, val in dict.items():
+        if (val > 0):
+            labels.append(key)
+            count.append(val)
+
+    return ([labels, count])
