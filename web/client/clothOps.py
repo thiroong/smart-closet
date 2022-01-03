@@ -119,25 +119,6 @@ def search_pos_by_label(label):
 
     return (-1)
 
-# 각 카테고리 별 착용 빈도
-def count_by_category():
-    with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
-        closet_info = json.load(file)
-    
-    cnt_categories = {}
-    
-    closet = closet_info["closet"]
-    for closet_box in closet:
-        cnt_categories[closet_box['category_to_save']] = 0
-    
-    for closet_box in closet:
-        cloth_list = closet_box["clothes_list"]
-        for cloth in cloth_list:
-            if cloth['count'] > 0:
-                cnt_categories[cloth['category']] += 1
-            
-    return (cnt_categories)
-
 # 이번주 입은 카테고리 별 횟수
 def AddDays(sourceDate, count):
     targetDate = sourceDate + datetime.timedelta(days = count)
@@ -156,7 +137,12 @@ def count_by_category_to_date():
     
     closet = closet_info["closet"]
     for closet_box in closet:
-        cnt_categories[closet_box['category_to_save']] = 0
+        cloth_list = closet_box["clothes_list"]
+        for cloth in cloth_list:
+            if str(startDate.date()) <= cloth['last_wear_date'] \
+                and str(endDate.date()) >= cloth['last_wear_date'] \
+                and cloth['count'] > 0:
+                cnt_categories[cloth['category']] = 0
     
     for closet_box in closet:
         cloth_list = closet_box["clothes_list"]
@@ -164,7 +150,30 @@ def count_by_category_to_date():
             if str(startDate.date()) <= cloth['last_wear_date'] \
                 and str(endDate.date()) >= cloth['last_wear_date'] \
                 and cloth['count'] > 0:
-                cnt_categories[cloth['category']] += 1
+                cnt_categories[cloth['category']] += cloth['count']
+    
+    return (cnt_categories)
+
+# 이번주 입은 닉네임 별 회수
+def count_by_nickname_to_date():
+    with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
+        closet_info = json.load(file)
+    
+    now = datetime.datetime.now()
+    weekDayCount = now.weekday()
+    startDate = AddDays(now, -weekDayCount)
+    endDate = AddDays(startDate, 7)
+    
+    cnt_categories = {}
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_list = closet_box["clothes_list"]
+        for cloth in cloth_list:
+            if str(startDate.date()) <= cloth['last_wear_date'] \
+                and str(endDate.date()) >= cloth['last_wear_date'] \
+                and cloth['count'] > 0:
+                cnt_categories[cloth['name']] = cloth['count']
     
     return (cnt_categories)
 

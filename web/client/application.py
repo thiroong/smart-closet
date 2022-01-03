@@ -133,7 +133,10 @@ def add_clothes(isUpload):
     camera.my_imwrite('.png', img_segmentation, box_path)
     clothOps.append_cloth(str(position), str(category), nickname)
 
-    graph_val = [['coat', 'padding', 'shortsleeve', 'longsleeve', 'shirt', 'pants', 'dress'], pred]
+    value = pred.tolist()
+    graph_val = [['coat', 'padding', 'shortsleeve', 'longsleeve', 'shirt', 'pants', 'dress'], value]
+    value = list(map(int, value))
+    print(type(value), type(value[0]))
     return render_template('add_clothes.html', results={"nickname": nickname,
                                                         "label": label,
                                                         "category": category,
@@ -178,9 +181,9 @@ def cloth_detail(box_num, cloth_name):
 
 def get_graph_key_value(shape):
     if shape == "circle":
-        dict = clothOps.count_by_category()
-    else:
         dict = clothOps.count_by_category_to_date()
+    else:
+        dict = clothOps.count_by_nickname_to_date()
     count = []
     labels = []
     

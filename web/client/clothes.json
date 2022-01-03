@@ -3,9 +3,9 @@
     "closet": [
         {
             "position": 1,
-            "category_to_save": "none",
+            "category_to_save": "coat",
             "capacity": 10,
-            "used": 10,
+            "used": 2,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -21,125 +21,20 @@
                     "count": 2,
                     "img_path": "images/box/box1/striped_shirt.jpg",
                     "feature_path": "static/feature/f_striped_shirt.npy",
-                    "last_wear_date": "2021-12-31"
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         },
         {
             "position": 2,
-            "category_to_save": "none",
-            "capacity": 0,
-            "used": 13,
-            "clothes_list": [
-                {
-                    "name": "brown_padding",
-                    "category": "shirt",
-                    "count": 4,
-                    "img_path": "images/box/box2/brown_padding.jpg",
-                    "feature_path": "static/feature/f_brown_padding.npy",
-                    "last_wear_date": "2021-12-30"
-                },
-                {
-                    "name": "red_dress",
-                    "category": "shirt",
-                    "count": 2,
-                    "img_path": "images/box/box2/red_dress.jpg",
-                    "feature_path": "static/feature/f_red_dress.npy",
-                    "last_wear_date": "2021-12-31"
-                },
-                {
-                    "name": "민지님원피스",
-                    "category": "shirt",
-                    "count": 0,
-                    "img_path": "images/box/box2/민지님원피스.jpg",
-                    "feature_path": "static/feature/f_민지님원피스.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "test_data",
-                    "category": "shirt",
-                    "count": 0,
-                    "img_path": "images/box/box2/test_data.jpg",
-                    "feature_path": "static/feature/f_test_data.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "brown_knit",
-                    "category": "shirt",
-                    "count": 0,
-                    "img_path": "images/box/box2/brown_knit.jpg",
-                    "feature_path": "static/feature/f_brown_knit.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "brown_knit2",
-                    "category": "shirt",
-                    "count": 0,
-                    "img_path": "images/box/box2/brown_knit2.jpg",
-                    "feature_path": "static/feature/f_brown_knit2.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "ㄴㅇㅁㄴ",
-                    "category": "pants",
-                    "count": 0,
-                    "img_path": "images/box/box2/ㄴㅇㅁㄴ.jpg",
-                    "feature_path": "static/feature/f_ㄴㅇㅁㄴ.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "sadasd",
-                    "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box2/sadasd.jpg",
-                    "feature_path": "static/feature/f_sadasd.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "테스트",
-                    "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box2/테스트.jpg",
-                    "feature_path": "static/feature/f_테스트.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "테스트",
-                    "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box2/테스트.jpg",
-                    "feature_path": "static/feature/f_테스트.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "asdasd",
-                    "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box2/asdasd.jpg",
-                    "feature_path": "static/feature/f_asdasd.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "asdasd",
-                    "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box2/asdasd.jpg",
-                    "feature_path": "static/feature/f_asdasd.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "테스트",
-                    "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box2/테스트.jpg",
-                    "feature_path": "static/feature/f_테스트.npy",
-                    "last_wear_date": "0000-00-00"
-                }
-            ]
+            "category_to_save": "coat",
+            "capacity": 10,
+            "used": 0,
+            "clothes_list": []
         },
         {
             "position": 3,
-            "category_to_save": "none",
+            "category_to_save": "padding",
             "capacity": 0,
             "used": 1,
             "clothes_list": [
@@ -157,13 +52,13 @@
                     "count": 2,
                     "img_path": "images/box/box3/blue_short_sleeve.jpg",
                     "feature_path": "static/feature/f_blue_short_sleeve.npy",
-                    "last_wear_date": "2021-12-31"
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         },
         {
             "position": 4,
-            "category_to_save": "none",
+            "category_to_save": "shortsleeve",
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -173,7 +68,7 @@
                     "count": 1,
                     "img_path": "images/box/box4/twisted_knit.jpg",
                     "feature_path": "static/feature/f_twisted_knit.npy",
-                    "last_wear_date": "2021-12-30"
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
@@ -181,13 +76,13 @@
                     "count": 2,
                     "img_path": "images/box/box4/striped_shirt.jpg",
                     "feature_path": "static/feature/f_striped_shirt.npy",
-                    "last_wear_date": "2021-12-31"
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         },
         {
             "position": 5,
-            "category_to_save": "none",
+            "category_to_save": "shortsleeve",
             "capacity": 0,
             "used": 1,
             "clothes_list": [
@@ -197,7 +92,7 @@
                     "count": 1,
                     "img_path": "images/box/box5/twisted_knit.jpg",
                     "feature_path": "static/feature/f_twisted_knit.npy",
-                    "last_wear_date": "2021-12-30"
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
@@ -205,7 +100,7 @@
                     "count": 2,
                     "img_path": "images/box/box5/striped_shirt.jpg",
                     "feature_path": "static/feature/f_striped_shirt.npy",
-                    "last_wear_date": "2021-12-31"
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "twisted_knit",
@@ -213,7 +108,7 @@
                     "count": 0,
                     "img_path": "images/box/box5/twisted_knit.jpg",
                     "feature_path": "static/feature/f_twisted_knit.npy",
-                    "last_wear_date": "0000-00-00"
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         },
@@ -229,7 +124,7 @@
                     "count": 1,
                     "img_path": "images/box/box6/twisted_knit.jpg",
                     "feature_path": "static/feature/f_twisted_knit.npy",
-                    "last_wear_date": "2021-12-30"
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
@@ -237,13 +132,13 @@
                     "count": 2,
                     "img_path": "images/box/box6/striped_shirt.jpg",
                     "feature_path": "static/feature/f_striped_shirt.npy",
-                    "last_wear_date": "2021-12-31"
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         },
         {
             "position": 7,
-            "category_to_save": "none",
+            "category_to_save": "pants",
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -253,7 +148,7 @@
                     "count": 1,
                     "img_path": "images/box/box7/twisted_knit.jpg",
                     "feature_path": "static/feature/f_twisted_knit.npy",
-                    "last_wear_date": "2021-12-30"
+                    "last_wear_date": "2022-01-03"
                 },
                 {
                     "name": "striped_shirt",
@@ -261,7 +156,7 @@
                     "count": 2,
                     "img_path": "images/box/box7/striped_shirt.jpg",
                     "feature_path": "static/feature/f_striped_shirt.npy",
-                    "last_wear_date": "2021-12-31"
+                    "last_wear_date": "2022-01-03"
                 }
             ]
         }
