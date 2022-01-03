@@ -31,8 +31,41 @@
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "coat",
             "capacity": 10,
-            "used": 0,
-            "clothes_list": []
+            "used": 4,
+            "clothes_list": [
+                {
+                    "name": "asdasd",
+                    "category": "padding",
+                    "count": 0,
+                    "img_path": "images/box/box2/asdasd.jpg",
+                    "feature_path": "static/feature/f_asdasd.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sadsa",
+                    "category": "padding",
+                    "count": 0,
+                    "img_path": "images/box/box2/sadsa.jpg",
+                    "feature_path": "static/feature/f_sadsa.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "asdasdas",
+                    "category": "padding",
+                    "count": 0,
+                    "img_path": "images/box/box2/asdasdas.jpg",
+                    "feature_path": "static/feature/f_asdasdas.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "23534",
+                    "category": "coat",
+                    "count": 0,
+                    "img_path": "images/box/box2/23534.jpg",
+                    "feature_path": "static/feature/f_23534.npy",
+                    "last_wear_date": "0000-00-00"
+                }
+            ]
         },
         {
             "position": 3,

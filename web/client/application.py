@@ -8,6 +8,7 @@ import numpy as np
 import clothOps
 import camera
 import classification as cc
+import plots
 
 application = Flask(__name__, static_folder='static')
 
@@ -128,9 +129,10 @@ def add_clothes(isUpload):
     cv2.imwrite(path_segmen, img_segmentation)
 
     pred, label = cc.classifier(path_segmen)
-    prob = max(pred)
-    print(prob)
-    if prob < 0.6:
+    clothes_info = list(clothOps.clothes_info.values())
+    graph = plots.prob_graph(clothes_info, pred)
+    print(max(pred))
+    if max(pred) < 0.6:
         print("분류된 카테고리가 없습니다.")
         return redirect(url_for("add"))
     category = clothOps.get_category(label)
@@ -153,7 +155,8 @@ def add_clothes(isUpload):
                                                         "pred": pred,
                                                         "position": position,
                                                         "path_original": path_original,
-                                                        "path_segmen": path_segmen})
+                                                        "path_segmen": path_segmen,
+                                                        "graph": graph})
 
 
 # 옷 추가
