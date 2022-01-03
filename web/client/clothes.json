@@ -75,7 +75,7 @@
                 "dress"
             ],
             "capacity": 0,
-            "used": 4,
+            "used": 6,
             "clothes_list": [
                 {
                     "name": "brown_padding",
@@ -107,6 +107,22 @@
                     "count": 0,
                     "img_path": "images/box/box2/테스트.jpg",
                     "feature_path": "feature/f_테스트.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "test",
+                    "category": "dress",
+                    "count": 0,
+                    "img_path": "images/box/box2/test.jpg",
+                    "feature_path": "feature/f_test.np",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "test",
+                    "category": "dress",
+                    "count": 0,
+                    "img_path": "images/box/box2/test.jpg",
+                    "feature_path": "feature/f_test.np",
                     "last_wear_date": "0000-00-00"
                 }
             ]
