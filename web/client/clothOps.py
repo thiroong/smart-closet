@@ -243,14 +243,15 @@ def is_category_in_setting(category_result_str, filename='clothes.json'):
 ###########    4. 최대 용량 수납함 리턴 함수   ############
 # boxnum_arr 받아와 해당 번호의 수납함들 중 가장 용량이 큰 수납함 번호 리턴
 # 구현 해야 함.
-def biggest_capicity(boxnum_arr, filename="clothes.json"):
+def biggest_capacity(boxnum_arr, filename="clothes.json"):
     file_data=read_json(filename)
-    result=0 # 초기값 0번으로
+    result=boxnum_arr[0]
     result_capacity=file_data["closet"][boxnum_arr[0]-1]["capacity"]-file_data["closet"][boxnum_arr[0]-1]["used"]
-    for i in range(1,len(boxnum_arr)):
-        if file_data["closet"][boxnum_arr[i]-1]["capacity"]-file_data["closet"][boxnum_arr[i]-1]["used"]>result_capacity:
-            result=boxnum_arr[i] # 수납함 번호(1~7) 리턴
-            result_capacity=file_data["closet"][boxnum_arr[i]-1]["capacity"]-file_data["closet"][boxnum_arr[i]-1]["used"]
+    if len(boxnum_arr)>1:
+        for i in range(1,len(boxnum_arr)):
+            if file_data["closet"][boxnum_arr[i]-1]["capacity"]-file_data["closet"][boxnum_arr[i]-1]["used"]>result_capacity:
+                result=boxnum_arr[i] # 수납함 번호(1~7) 리턴
+                result_capacity=file_data["closet"][boxnum_arr[i]-1]["capacity"]-file_data["closet"][boxnum_arr[i]-1]["used"]
     return result
 #######################################################
 
