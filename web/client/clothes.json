@@ -3,10 +3,7 @@
     "closet": [
         {
             "position": 1,
-            "category_to_save": [
-                "shirt",
-                "pants"
-            ],
+            "category_to_save": "padding",
             "capacity": 10,
             "used": 10,
             "clothes_list": [
@@ -30,12 +27,9 @@
         },
         {
             "position": 2,
-            "category_to_save": [
-                "padding",
-                "dress"
-            ],
-            "capacity": 0,
-            "used": 7,
+            "category_to_save": "padding",
+            "capacity": 10,
+            "used": 9,
             "clothes_list": [
                 {
                     "name": "brown_padding",
@@ -65,12 +59,9 @@
         },
         {
             "position": 3,
-            "category_to_save": [
-                "coat",
-                "shortsleeve"
-            ],
-            "capacity": 0,
-            "used": 3,
+            "category_to_save": "padding",
+            "capacity": 10,
+            "used": 8,
             "clothes_list": [
                 {
                     "name": "green_coat",
@@ -87,16 +78,22 @@
                     "img_path": "images/box/box3/blue_short_sleeve.jpg",
                     "feature_path": "feature/f_blue_short_sleeve.np",
                     "last_wear_date": "2021-12-31"
+                },
+                {
+                    "name": "testdata",
+                    "category": "coat",
+                    "count": 0,
+                    "img_path": "images/box/box3/testdata.png",
+                    "feature_path": "feature/f_testdata.npy",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
         {
             "position": 4,
-            "category_to_save": [
-                "shirt"
-            ],
-            "capacity": 0,
-            "used": 0,
+            "category_to_save": "padding",
+            "capacity": 10,
+            "used": 3,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -113,16 +110,22 @@
                     "img_path": "images/box/box4/striped_shirt.jpg",
                     "feature_path": "feature/f_striped_shirt.np",
                     "last_wear_date": "2021-12-31"
+                },
+                {
+                    "name": "jaeyeonsa",
+                    "category": "dress",
+                    "count": 0,
+                    "img_path": "images/box/box4/jaeyeonsa.png",
+                    "feature_path": "feature/f_jaeyeonsa.npy",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
         {
             "position": 5,
-            "category_to_save": [
-                "shirt"
-            ],
-            "capacity": 0,
-            "used": 1,
+            "category_to_save": "padding",
+            "capacity": 10,
+            "used": 6,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -152,11 +155,9 @@
         },
         {
             "position": 6,
-            "category_to_save": [
-                "shirt"
-            ],
-            "capacity": 0,
-            "used": 3,
+            "category_to_save": "padding",
+            "capacity": 10,
+            "used": 5,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -178,11 +179,9 @@
         },
         {
             "position": 7,
-            "category_to_save": [
-                "shirt"
-            ],
-            "capacity": 0,
-            "used": 0,
+            "category_to_save": "padding",
+            "capacity": 10,
+            "used": 4,
             "clothes_list": [
                 {
                     "name": "twisted_knit",

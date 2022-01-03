@@ -106,7 +106,7 @@ def set_category_to_box(category_str_list, filename='clothes.json'):
         json.dump(file_data, file, indent=4, ensure_ascii=False)
 
 # 라벨(카테고리)로 해당 수납함 위치를 반환하는 함수
-def search_pos_by_label(label):
+"""def search_pos_by_label(label):
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
     
@@ -117,7 +117,7 @@ def search_pos_by_label(label):
             if category == label:
                 return (closet_box['position'])
 
-    return (-1)
+    return (-1)"""
 
 # 각 카테고리 별 착용 빈도
 def count_by_category():
@@ -227,7 +227,7 @@ def is_category_in_setting(category_result_str, filename='clothes.json'):
     exist_boxnum_arr=[]
     for i in range(7):
         if file_data["closet"][i]["category_to_save"]==category_result_str:
-            exist_boxnum_arr.append(i+1) #수납함 번호로 저장 (1~7)
+            exist_boxnum_arr.append(i+1) # 수납함 번호로 저장 (1~7)
     return exist_boxnum_arr
 ################################################################################
 
@@ -247,8 +247,6 @@ def biggest_capicity(boxnum_arr, filename="clothes.json"):
 
 #####################2022-01-03 옷 저장 및 세팅 관련 함수 구현########################
 
-result=biggest_capicity([1,2,3,4,5,6,7])
-print(result)
 
 def get_graph_key_value(shape):
     if shape == "circle":
