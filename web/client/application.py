@@ -73,7 +73,7 @@ def fashion(isUpload, isAdd):
         nickname = request.form.get('nickname')
         if (clothOps.is_same_nickname_exist(nickname)):
             flash("중복된 nickname입니다!")
-        return render_template("add.html")
+            return render_template("add.html")
         path_original = "static/images/c1/{name}.png".format(name=nickname)  # 원본 저장 경로
         path_segmen = "static/images/c2/{name}.png".format(name=nickname)  # 세그멘테이션 이미지 저장 경로
 
