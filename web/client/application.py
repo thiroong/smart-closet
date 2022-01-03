@@ -219,7 +219,6 @@ def ootd_whichone():
                                                           "img_path": img_path,
                                                           "img_path_segmen": img_path_segmen},
                             circle=circle, stick=stick)
-    # circle = circle, stick = stick)
 
 
 # append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json')
