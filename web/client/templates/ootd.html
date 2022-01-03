@@ -72,18 +72,105 @@
 		</div>
 
 	</div>
+	<!DOCTYPE html>
+
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Close To Closet &mdash; </title>
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+	<!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/icomoon.css') }}">
+	<!-- Bootstrap  -->
+	 <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	<!-- Flexslider  -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/flexslider.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+	<script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	</head>
+	<body>
+
+	<nav id="fh5co-main-nav" role="navigation">
+		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle active"><i></i></a>
+		<div class="js-fullheight fh5co-table">
+			<div class="fh5co-table-cell js-fullheight">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/closet">Closet</a></li>
+					<li><a href="/ootd">OOTD</a></li>
+					<li><a href="/setting">Setting</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="fh5co-page">
+		<header>
+			<div class="container">
+				<div class="fh5co-navbar-brand">
+					<h1 class="text-center"><a class="fh5co-logo" href="/">Close To Closet</a></h1>
+					<a href="/" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+				</div>
+			</div>
+		</header>
+		<!-- 제목파트        -->
+		<div id="fh5co-intro-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 animate-box text-center">
+						<h2 class="intro-heading">Outfit Of The Day</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="ootd-main">
+			<div class="ootd-photo-box">
+				<p>입고 나가는 옷을 촬영해 주세요</p>
+				<form method="post" action="{{ url_for('ootd_whichone') }}">
+					<input class="button1 mdc-button mdc-button--unelevated" type="submit" value="Capture" name="click"/>
+				</form>
+				<img src="{{ url_for('video_feed') }}">
+			</div>
+		</div>
+
+	</div>
 	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
+	    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+	    <!-- jQuery Easing -->
+	    <script src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
+
+	    <!-- Bootstrap -->
+	    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+	    <!-- Waypoints -->
+	    <script src="{{ url_for('static', filename='js/jquery.waypoints.min.js') }}"></script>
+
+	    <!-- Counters -->
+	    <script src="{{ url_for('static', filename='js/jquery.countTo.js') }}"></script>
+
+	    <!-- Flexslider -->
+	    <script src="{{ url_for('static', filename='js/jquery.flexslider-min.js') }}"></script>
+
+	    <!-- Main JS -->
+	    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+	</body>
+</html>
+
+
 
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
