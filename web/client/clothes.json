@@ -3,21 +3,24 @@
     "closet": [
         {
             "position": 1,
-            "category_to_save": "none",
+            "category_to_save": [
+                "shirt",
+                "pants"
+            ],
             "capacity": 10,
             "used": 10,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
-                    "category": "padding",
+                    "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box1/twisted_knit.jpg",
                     "feature_path": "feature/f_twisted_knit.np",
-                    "last_wear_date": "2022-01-03"
+                    "last_wear_date": "2021-12-30"
                 },
                 {
                     "name": "striped_shirt",
-                    "category": "padding",
+                    "category": "shirt",
                     "count": 2,
                     "img_path": "images/box/box1/striped_shirt.jpg",
                     "feature_path": "feature/f_striped_shirt.np",
@@ -27,13 +30,16 @@
         },
         {
             "position": 2,
-            "category_to_save": "none",
+            "category_to_save": [
+                "padding",
+                "dress"
+            ],
             "capacity": 0,
-            "used": 10,
+            "used": 7,
             "clothes_list": [
                 {
                     "name": "brown_padding",
-                    "category": "shirt",
+                    "category": "padding",
                     "count": 4,
                     "img_path": "images/box/box2/brown_padding.jpg",
                     "feature_path": "feature/f_brown_padding.np",
@@ -41,7 +47,7 @@
                 },
                 {
                     "name": "red_dress",
-                    "category": "shirt",
+                    "category": "dress",
                     "count": 2,
                     "img_path": "images/box/box2/red_dress.jpg",
                     "feature_path": "feature/f_red_dress.np",
@@ -49,55 +55,34 @@
                 },
                 {
                     "name": "민지님원피스",
-                    "category": "shirt",
+                    "category": "dress",
                     "count": 0,
                     "img_path": "images/box/box2/민지님원피스.jpg",
                     "feature_path": "feature/f_민지님원피스.np",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "test_data",
-                    "category": "shirt",
-                    "count": 0,
-                    "img_path": "images/box/box2/test_data.jpg",
-                    "feature_path": "feature/f_test_data.np",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "brown_knit",
-                    "category": "shirt",
-                    "count": 0,
-                    "img_path": "images/box/box2/brown_knit.jpg",
-                    "feature_path": "feature/f_brown_knit.np",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "brown_knit2",
-                    "category": "shirt",
-                    "count": 0,
-                    "img_path": "images/box/box2/brown_knit2.jpg",
-                    "feature_path": "feature/f_brown_knit2.np",
                     "last_wear_date": "0000-00-00"
                 }
             ]
         },
         {
             "position": 3,
-            "category_to_save": "none",
+            "category_to_save": [
+                "coat",
+                "shortsleeve"
+            ],
             "capacity": 0,
-            "used": 1,
+            "used": 3,
             "clothes_list": [
                 {
                     "name": "green_coat",
-                    "category": "padding",
+                    "category": "coat",
                     "count": 1,
                     "img_path": "images/box/box3/green_coat.jpg",
                     "feature_path": "feature/f_green_coat.np",
-                    "last_wear_date": "2022-01-03"
+                    "last_wear_date": "2021-12-30"
                 },
                 {
                     "name": "blue_short_sleeve",
-                    "category": "padding",
+                    "category": "shortsleeve",
                     "count": 2,
                     "img_path": "images/box/box3/blue_short_sleeve.jpg",
                     "feature_path": "feature/f_blue_short_sleeve.np",
@@ -107,7 +92,9 @@
         },
         {
             "position": 4,
-            "category_to_save": "none",
+            "category_to_save": [
+                "shirt"
+            ],
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -131,7 +118,9 @@
         },
         {
             "position": 5,
-            "category_to_save": "none",
+            "category_to_save": [
+                "shirt"
+            ],
             "capacity": 0,
             "used": 1,
             "clothes_list": [
@@ -163,7 +152,9 @@
         },
         {
             "position": 6,
-            "category_to_save": "dress",
+            "category_to_save": [
+                "shirt"
+            ],
             "capacity": 0,
             "used": 3,
             "clothes_list": [
@@ -187,7 +178,9 @@
         },
         {
             "position": 7,
-            "category_to_save": "none",
+            "category_to_save": [
+                "shirt"
+            ],
             "capacity": 0,
             "used": 0,
             "clothes_list": [
