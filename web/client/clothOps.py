@@ -106,7 +106,7 @@ def set_category_to_box(category_str_list, filename='clothes.json'):
         json.dump(file_data, file, indent=4, ensure_ascii=False)
 
 # 라벨(카테고리)로 해당 수납함 위치를 반환하는 함수
-def search_pos_by_label(label):
+"""def search_pos_by_label(label):
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
     
@@ -117,7 +117,7 @@ def search_pos_by_label(label):
             if category == label:
                 return (closet_box['position'])
 
-    return (-1)
+    return (-1)"""
 
 # 이번주 입은 카테고리 별 횟수
 def AddDays(sourceDate, count):
@@ -181,7 +181,7 @@ def count_by_nickname_to_date():
 # Dict Class 정의
 ############################################
 boxClass = {"position": 0,
-     "category_to_save": [], # 이거 없애는 거 고려해보기, setting.html과 연관
+     "category_to_save": "", # 이거 없애는 거 고려해보기, setting.html과 연관
      "capacity": 0,
      "used": 0,
      "clothes_list": []
@@ -212,6 +212,50 @@ clothes_info = {
 # ex) 0 -> coat
 def get_category(label):
     return clothes_info[label]
+
+#####################2022-01-03 옷 저장 및 세팅 관련 함수 구현########################
+
+###########    1. 카테고리 초기화값 ""로 세팅   ############
+# boxClass의 "category_to_save" 초기화값을 ""로 설정
+# 초기화 함수 만들던가 아니면 그냥 초기 데이터를 요렇게 만들자.
+########################################################
+
+###########    2. setting화면에서 none값 받아올 시, 다시 입력하라고 요청   ############
+# application.py / setting.html 수정 필요 예상
+# 구현 해야 함.
+################################################################################
+
+
+###########    3. 판별 결과 나온 카테고리값이 setting값에 존재하는 지 검사   ############
+# category_result_str 받아와 box객체들의 category_to_save 중에 존재하면 해당 수납함 번호를 exist_boxnum_arr(배열)에 저장
+# exist_boxnum_arr 리턴
+# (아마 exist_boxnum_arr을 최대 용량 수납함 리턴 함수 인자로 보내게 될 듯, exist_boxnum_arr가 비어있으면 [1,2,3,4,5,6,7] 혹은 [0,1,2,3,4,5,6] 보낼 듯)
+# 구현 해야 함.
+def is_category_in_setting(category_result_str, filename='clothes.json'):
+    file_data = read_json(filename)
+    exist_boxnum_arr=[]
+    for i in range(7):
+        if file_data["closet"][i]["category_to_save"]==category_result_str:
+            exist_boxnum_arr.append(i+1) # 수납함 번호로 저장 (1~7)
+    return exist_boxnum_arr
+################################################################################
+
+###########    4. 최대 용량 수납함 리턴 함수   ############
+# boxnum_arr 받아와 해당 번호의 수납함들 중 가장 용량이 큰 수납함 번호 리턴
+# 구현 해야 함.
+def biggest_capicity(boxnum_arr, filename="clothes.json"):
+    file_data=read_json(filename)
+    result=0 # 초기값 0번으로
+    result_capacity=file_data["closet"][boxnum_arr[0]-1]["capacity"]-file_data["closet"][boxnum_arr[0]-1]["used"]
+    for i in range(1,len(boxnum_arr)):
+        if file_data["closet"][boxnum_arr[i]-1]["capacity"]-file_data["closet"][boxnum_arr[i]-1]["used"]>result_capacity:
+            result=boxnum_arr[i] # 수납함 번호(1~7) 리턴
+            result_capacity=file_data["closet"][boxnum_arr[i]-1]["capacity"]-file_data["closet"][boxnum_arr[i]-1]["used"]
+    return result
+#######################################################
+
+#####################2022-01-03 옷 저장 및 세팅 관련 함수 구현########################
+
 
 def get_graph_key_value(shape):
     if shape == "circle":
