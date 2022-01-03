@@ -35,138 +35,43 @@
 					<li><a href="/">Home</a></li>
 					<li><a href="/closet">Closet</a></li>
 					<li><a href="/ootd">OOTD</a></li>
-                    <li><a href="/setting">Setting</a></li>
+					<li><a href="/setting">Setting</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	
+
 	<div id="fh5co-page">
 		<header>
 			<div class="container">
 				<div class="fh5co-navbar-brand">
 					<h1 class="text-center"><a class="fh5co-logo" href="/index">Close To Closet</a></h1>
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+					<a href="/" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 				</div>
 			</div>
 		</header>
+		<!-- 제목파트        -->
 		<div id="fh5co-intro-section">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box text-center">
 						<h2 class="intro-heading">Outfit Of The Day</h2>
-                    </div>
+					</div>
 				</div>
 			</div>
 		</div>
 
-	    <div class="ootd-main" style="display: flex;, flex-direction:row; flex-wrap: nowrap;">
-        	<div class="ootd-photo-box">
-            <p>입고 나가는 옷을 촬영해 주세요</p>
+		<div class="ootd-main">
+			<div class="ootd-photo-box">
+				<p>입고 나가는 옷을 촬영해 주세요</p>
 				<form method="post" action="{{ url_for('ootd_whichone') }}">
-				<input type="submit" value="Capture" name="click"/>
+					<input class="button1 mdc-button mdc-button--unelevated" type="submit" value="Capture" name="click"/>
 				</form>
 				<img src="{{ url_for('video_feed') }}">
 			</div>
+		</div>
 
-
-         <div class="graph-box" style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 50%;
-            margin-bottom: 100px;">
-            <div class="bar-box">
-                <h3>빈도수 그래프</h3>
-                {% for d in data %}
-                {{d.데이터이름}},
-                {% endfor %}
-
-                <canvas id="myChart" width="400px" height="400px"></canvas>
-                <script>
-    				const ctx = document.getElementById('myChart').getContext('2d');
-    				const myChart = new Chart(ctx, {
-        			type: 'bar',
-        			data: {
-            			labels: [{% for d in circle_key %} "{{d}}", {% endfor %}],
-           				datasets: [
-               	 					{
-                    					label: '# 카테고리 별 착용 빈도',
-                   						data: [{% for d in circle_val %} {{d}}, {% endfor %}],
-										backgroundColor: [
-											'rgba(255, 99, 132, 0.2)',
-											'rgba(54, 162, 235, 0.2)',
-											'rgba(255, 206, 86, 0.2)',
-											'rgba(75, 192, 192, 0.2)',
-											'rgba(153, 102, 255, 0.2)',
-											'rgba(255, 159, 64, 0.2)',
-											'rgba(120, 100, 190, 0.2)'
-										],
-										borderColor: [
-											'rgba(255, 99, 132, 1)',
-											'rgba(54, 162, 235, 1)',
-											'rgba(255, 206, 86, 1)',
-											'rgba(75, 192, 192, 1)',
-											'rgba(153, 102, 255, 1)',
-											'rgba(255, 159, 64, 1)',
-											'rgba(120, 100, 190, 1)'
-										],
-										borderWidth: 1,
-									},
-								],
-							},
-
-						options: {
-							scales: {
-								y: {
-									beginAtZero: true,
-								},
-							},
-						},
-					});
-
-
-                </script>
-            </div>
-            <div class="doughnut-box" style>
-
-                <canvas id="myChart2" width="50%" height="50%"
-                        style="display: block; box-sizing: border-box; height: 529.6px; width: 530.4px;"></canvas>
-                <script>
-					new Chart(document.getElementById("myChart2"),
-					{
-						"type":"doughnut",
-						"data":{"labels": [{% for d in stick_key %} "{{d}}", {% endfor %}],
-						"datasets": [{
-								"label":"Example","data":[{% for d in stick_val %} {{d}}, {% endfor %}],
-								"backgroundColor": [ 'rgba(255, 99, 132)',
-													'rgba(54, 162, 235)',
-													'rgba(255, 206, 86)',
-													'rgba(75, 192, 192)',
-													'rgba(153, 102, 255)',
-													'rgba(255, 159, 64)',
-													'rgba(120, 100, 190)' ]
-							}]
-						}
-					})
-                </script>
-            </div>
-        </div>
-
-
-        <div class="recommend-box">
-            <p>버릴 옷 추천</p>
-            <img src="">
-
-            <p>아름다운 가게: <a href="https://www.beautifulstore.org/">https://www.beautifulstore.org/</a></p>
-            <P>옷캔: <a href="https://otcan.org/">https://otcan.org/</a></P>
-        </div>
-    </div>
-</div>
-        
-        
-        
+	</div>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

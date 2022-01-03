@@ -1017,22 +1017,7 @@ input[type="text"] {
 
 /*# sourceMappingURL=style.css.map */
 
-#fh5co-page .ootd-main{
-    display: flex !important;
-}
-
-#fh5co-page .ootd-main .ootd-photo-box,
-#fh5co-page .ootd-main .ootd-graph-box,
-{
-    text-align: center;
-    width: 33%;
-}
-@media screen and (max-width: 768px) {
-  #fh5co-page .ootd-main{
-    display: block !important;
-}
-}
-
+/* setting 페이지*/
 #fh5co-page .main-box{
     display: flex !important;
     margin: 100px;
@@ -1040,6 +1025,7 @@ input[type="text"] {
     justify-content: center;
     height: 60vh;
     margin-bottom: 100px;
+    text-align: center;
    }
 
 #fh5co-page .main-box .closet-box{
@@ -1159,3 +1145,72 @@ input[type="text"] {
 #fh5co-page .main-box .select-box input{
   margin-top: 20px;
 }
+
+/*OOTD 페이지 */
+#fh5co-page .ootd-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+/*OOTD_whichone 페이지*/
+
+#fh5co-page .result-box{
+    display: flex !important;
+    flex-direction: row !important;
+    margin: 0 100px !important;
+}
+
+#fh5co-page .result-box .show-photo-box .screenshot,
+#fh5co-page .result-box .show-photo-box .ootd-result{
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    float: left;
+    height: auto;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+
+
+#fh5co-page .graph-box{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+ }
+
+ #fh5co-page .graph-box .doughnut-box{
+    display: block;
+    box-sizing: border-box;
+    height: 529.6px;
+    width: 530.4px;
+  }
+
+#fh5co-page .graph-box,
+#fh5co-page .recommend-box
+{
+    margin: 0 50px 0 50px;
+     float: left;
+     height: auto;
+    text-align: center;
+    width: 30%;
+}
+
+#fh5co-page .graph-box .doughnut-box{
+  width: 80%;
+}
+
+#fh5co-page .add-main{
+    display: flex;
+    margin: 0 100px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+#fh5co-page .add-main .add-photo{
+    margin-left: 30px;
+}
+
+

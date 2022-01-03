@@ -1,6 +1,5 @@
-from flask import Flask, render_template, redirect, url_for, request, Response
+from flask import Flask, render_template, redirect, url_for, request, Response, send_from_directory
 import numpy as np
-
 import os
 import json
 import cv2
@@ -220,13 +219,11 @@ def result():
 
 
 ##################검색 기능 테스트######################
-
-
-# 빈도수 알려주는 그래프 데이터 가져오셔야 합니다
-# @application.route("/ootd")
-# def graph():
-#     data = similarity_data.get_
-# return render_template('ootd.html', data = data)
+    
+@application.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(application.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0', debug=True)
