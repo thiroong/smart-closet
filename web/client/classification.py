@@ -79,6 +79,8 @@ def similarity_measures(path, isOotd=True):
     # Extract features from numpy files
     features = []
     feature_list = sorted(os.listdir('./static/features'))
+    if len(feature_list) == 0:
+        return None
     for file_name in feature_list:
         feature = np.load(os.path.join('./static/features', file_name))
         features.append(feature)
