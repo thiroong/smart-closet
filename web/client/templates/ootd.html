@@ -219,23 +219,27 @@
 			<div class="take-photo">
 				<p>입고 나가는 옷을 촬영해 주세요</p>
 				<form method="post" action="{{ url_for('fashion', isUpload=False, isAdd=False) }}">
-            		<input  type="submit" onClick="$('#loading-wrapper').css('display', 'block');" value="촬영" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
+					<input type="submit" onClick="$('#loading-wrapper').css('display', 'block');" value="촬영"
+						   style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
 				</form>
 				<img src="{{ url_for('video_feed') }}">
 			</div>
 
 			<div class="add-photo">
-			<p> 사진으로 올리기 </p>
+				<p> 사진으로 올리기 </p>
 
-            <form method="POST" enctype="multipart/form-data" action="{{ url_for('fashion', isUpload=True, isAdd=False) }}">
-            	<input type="submit" onClick="$('#loading-wrapper').css('display', 'block');" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click">
-				<input type="file" required name="file" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
-			</form>
-        </div>
+				<form method="POST" enctype="multipart/form-data"
+					  action="{{ url_for('fashion', isUpload=True, isAdd=False) }}">
+					<input type="submit" onClick="$('#loading-wrapper').css('display', 'block');"
+						   style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click">
+					<input type="file" required name="file"
+						   style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
+				</form>
+			</div>
+
 		</div>
 
-	</div>
-		<!-- jQuery -->
+	<!-- jQuery -->
 	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
 
 	<!-- jQuery Easing -->
