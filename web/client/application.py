@@ -111,12 +111,13 @@ def fashion(isUpload, isAdd):
     clothes_info = list(clothOps.clothes_info.values())
     graph = plots.prob_graph(clothes_info, pred)
 
-    print(max(pred))
-    if max(pred) < 0.6 and isAdd:
-        print("분류된 카테고리가 없습니다.")
-        return redirect(url_for("underProb"))
+    #print(max(pred))
 
     if isAdd == 'True':
+        if max(pred) < 0.6 and isAdd:
+            print("분류된 카테고리가 없습니다.")
+            return redirect(url_for("underProb"))
+
         # position = clothOps.search_pos_by_label(category)
         position_arr = clothOps.is_category_in_setting(category)
         if len(position_arr) == 0:
@@ -130,10 +131,6 @@ def fashion(isUpload, isAdd):
             position = "지정 카테고리가 없습니다!"
             position = 2"""
 
-        # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
-        if position == -1:
-            position = "지정 카테고리가 없습니다!"
-            position = 2
 
         # 서랍장 저장
         box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname)  # 서랍장 위치
@@ -145,6 +142,10 @@ def fashion(isUpload, isAdd):
                    "path_segmen": path_segmen, "graph": graph}
         return render_template('add_clothes.html', results=results)
     else:
+        if max(pred) < 0.6 and isAdd:
+            print("분류된 카테고리가 없습니다.")
+            return redirect(url_for("underProb_ootd"))
+
         circle = clothOps.get_graph_key_value("circle")
         stick = clothOps.get_graph_key_value("stick")
         results = {"label": label, "category": category,
@@ -157,6 +158,10 @@ def fashion(isUpload, isAdd):
 @application.route("/underProb")
 def underProb():
     return render_template("underProb.html")
+
+@application.route("/underProb_ootd")
+def underProb_ootd():
+    return render_template("underProb_ootd.html")
 
 # 옷 추가
 @application.route("/box/<int:box_num>", methods=['GET'])  # 각 closet_num에 해당하는 번호의 수납함으로 이동
