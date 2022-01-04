@@ -81,7 +81,7 @@
            <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
 			   {% for cloth in result.get("clothes_list") %}
 			   <div class="text-center animate-box">
-				   <a href="/{{result.get('box_num')}}/{{cloth.get('name')}}">
+				   <a href="/box/{{result.get('box_num')}}/{{cloth.get('name')}}">
 					   <img src="{{ url_for('static', filename=''+cloth.img_path ) }}" style="width:280px; height:280px; padding:5px;"/>
 				   </a>
 			   </div>
