@@ -9,6 +9,7 @@ import clothOps
 import camera
 import classification as cc
 import plots
+import copy
 
 application = Flask(__name__, static_folder='static')
 application.secret_key = 'secret_key'
@@ -134,7 +135,15 @@ def fashion(isUpload, isAdd):
         # 서랍장 저장
         box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname)  # 서랍장 위치
         camera.my_imwrite('.png', img_segmentation, box_path)
-        #clothOps.append_cloth(str(position), str(category), nickname)
+
+        # feature 저장하기
+        # image preprocessing
+        img = cc.image_preprocessing(path_segmen)
+
+        # feature extract
+        feature = cc.feature_extract(img=img)
+        feature_path = f'./static/features/f_{nickname}.npy'
+        np.save(feature_path, feature)
 
         results = {"nickname": nickname, "label": label, "category": category,
                    "position": position, "path_original": path_original,
@@ -144,8 +153,22 @@ def fashion(isUpload, isAdd):
     else:
         circle = clothOps.get_graph_key_value("circle")
         stick = clothOps.get_graph_key_value("stick")
+
+        # 유사도 측정 결과
+        name = cc.similarity_measures(path_segmen)
+        # print(f'가장 유사한 이름: {name}')
+        if not name:
+            return redirect(url_for("empty_closet"))
+
+        box_num = clothOps.find_cloth_by_keyword(name)[0][2]
+        # print(f'박스넘버: {box_num}')
+
+        similar_path = f'/static/images/box/box{box_num}/{name}.png'
+        # print(f'similar_path: {similar_path}')
+
         results = {"label": label, "category": category,
                    "path_original": path_original, "path_segmen": path_segmen,
+                   "name":name, "box_num":box_num, "similar_path":similar_path,
                    "graph": graph, "circle": circle, "stick": stick}
         return render_template('ootd_whichone.html', results=results)
 
@@ -159,6 +182,9 @@ def confirm(position, category, nickname, box_num):
 def underProb():
     return render_template("underProb.html")
 
+@application.route("/empty_closet")
+def empty_closet():
+    return render_template("empty_closet.html")
 
 # 옷 추가
 @application.route("/box/<int:box_num>", methods=['GET'])  # 각 closet_num에 해당하는 번호의 수납함으로 이동
@@ -170,20 +196,21 @@ def box(box_num):
     return render_template("box.html", result=box_data)
 
 
-@application.route("/<int:box_num>/<cloth_name>", methods=['GET'])
+@application.route("/box/<int:box_num>/<cloth_name>", methods=['GET'])
 def cloth_detail(box_num, cloth_name):
     # clothes.json의 closet에서 옷의 이름, 카테고리, 착용횟수, 이미지 경로, feature 경로, 최근 착용일 정보 받아옴
-    current_cloth = {}
     with open('clothes.json', encoding='UTF8') as cloth_json:
         json_data = json.load(cloth_json)
         box_data_clothes = json_data["closet"][box_num - 1]["clothes_list"]
+        box_num_closet = json_data["closet"][box_num - 1]
+        current_cloth = {}
         for cloth in box_data_clothes:
             if cloth["name"] == cloth_name:
-                current_cloth = cloth
+                current_cloth = copy.deepcopy(cloth)
                 break
         current_cloth['box_num'] = str(box_num)
         # cloth_detail.html보면 자바스크립트 동작 안해서 count를 str로 바꿔놓음
-        current_cloth['count'] = str(current_cloth["count"])
+        current_cloth['count'] = str(current_cloth['count'])
         current_category = current_cloth["category"]
 
     with open('opsInfo.json', encoding='UTF8') as opsCloth_json:
@@ -204,6 +231,7 @@ def search_cloth_result():
     keyword = request.form['nickname']
     found_cloth_arr = clothOps.find_cloth_by_keyword(keyword)
     return render_template("search_cloth_result.html", result=found_cloth_arr)
+
 
 
 ##################검색 기능######################
