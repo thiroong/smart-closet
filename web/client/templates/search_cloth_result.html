@@ -52,7 +52,7 @@
 		</div>
 	</nav>
 
-	<div id="fh5co-page" style="height: 1000px">
+	<div id="fh5co-page" style="height: fit-content;">
 		<header>
 			<div class="container">
 				<div class="fh5co-navbar-brand">
@@ -73,13 +73,18 @@
         </div>
 
 		<div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+			<div class="row" style="
+								display: flex;
+								flex-wrap: wrap;
+								flex-direction: row;
+								justify-content: center;">
 			{% for item in result %}
 			<div class="text-center animate-box">
 				<div class="product" style="background-image: url(static/{{item[1]}}); width: 400px; height: 500px; justify-content:flex-start;">
 					</div>
 					</div>
 				<div class="product" style="background-image: url(static/images/img-11.jpg); width: 400px; height: 500px; justify-content:flex-end;">
-					<div class="container" style="width: 480px; height: 500px;">
+					<div class="container" style="width: 480px; height: 500px; margin-top: 150px; margin-left: 60px">
 
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 별명 : {{item[0]}}</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 수납함 번호 : <a href="/box/{{item[2]}}">{{item[2]}}</a></li>
@@ -88,6 +93,7 @@
 					</div>
 			{%endfor%}
 			</div>
+		</div>
     </div>
 	<!-- jQuery -->
 	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
