@@ -1,5 +1,149 @@
 <!DOCTYPE html>
+<style>
+		body {
+		  background-color: #222;
+		}
 
+
+		#loading-wrapper {
+		  position: fixed;
+		  width: 100%;
+		  height: 100%;
+		  left: 0;
+		  top: 0;
+		}
+
+		#loading-text {
+		  display: block;
+		  position: absolute;
+		  top: 44%;
+		  left: 50%;
+		  color: white;
+		  width: 100px;
+		  height: 30px;
+		  margin: -7px 0 0 -45px;
+		  text-align: center;
+		  font-family: 'PT Sans Narrow', sans-serif;
+		  font-size: 20px;
+		}
+
+		#loading-content {
+		  display: block;
+		  position: relative;
+		  left: 50%;
+		  top: 50%;
+		  width: 170px;
+		  height: 170px;
+		  margin: -85px 0 0 -85px;
+		  border: 3px solid #F00;
+		}
+
+		#loading-content:after {
+		  content: "";
+		  position: absolute;
+		  border: 3px solid #0F0;
+		  left: 15px;
+		  right: 15px;
+		  top: 15px;
+		  bottom: 15px;
+		}
+
+		#loading-content:before {
+		  content: "";
+		  position: absolute;
+		  border: 3px solid #00F;
+		  left: 5px;
+		  right: 5px;
+		  top: 5px;
+		  bottom: 5px;
+		}
+
+		#loading-content {
+		  border: 3px solid transparent;
+		  border-top-color: lightgray;
+		  border-bottom-color: lightgray;
+		  border-radius: 50%;
+		  -webkit-animation: loader 2s linear infinite;
+		  -moz-animation: loader 2s linear infinite;
+		  -o-animation: loader 2s linear infinite;
+		  animation: loader 2s linear infinite;
+		}
+
+		#loading-content:before {
+		  border: 3px solid transparent;
+		  border-top-color: #D4CC6A;
+		  border-bottom-color: #D4CC6A;
+		  border-radius: 50%;
+		  -webkit-animation: loader 3s linear infinite;
+			-moz-animation: loader 2s linear infinite;
+		  -o-animation: loader 2s linear infinite;
+		  animation: loader 3s linear infinite;
+		}
+
+		#loading-content:after {
+		  border: 3px solid transparent;
+		  border-top-color: #84417C;
+		  border-bottom-color: #84417C;
+		  border-radius: 50%;
+		  -webkit-animation: loader 1.5s linear infinite;
+		  animation: loader 1.5s linear infinite;
+			-moz-animation: loader 2s linear infinite;
+		  -o-animation: loader 2s linear infinite;
+		}
+
+		@-webkit-keyframes loaders {
+		  0% {
+			-webkit-transform: rotate(0deg);
+			-ms-transform: rotate(0deg);
+			transform: rotate(0deg);
+		  }
+		  100% {
+			-webkit-transform: rotate(360deg);
+			-ms-transform: rotate(360deg);
+			transform: rotate(360deg);
+		  }
+		}
+
+		@keyframes loader {
+		  0% {
+			-webkit-transform: rotate(0deg);
+			-ms-transform: rotate(0deg);
+			transform: rotate(0deg);
+		  }
+		  100% {
+			-webkit-transform: rotate(360deg);
+			-ms-transform: rotate(360deg);
+			transform: rotate(360deg);
+		  }
+		}
+
+		#content-wrapper {
+		  color: #FFF;
+		  position: fixed;
+		  left: 0;
+		  top: 20px;
+		  width: 100%;
+		  height: 100%;
+		}
+
+		#header
+		{
+		  width: 800px;
+		  margin: 0 auto;
+		  text-align: center;
+		  height: 100px;
+		  background-color: #666;
+		}
+
+		#content
+		{
+		  width: 800px;
+		  height: 1000px;
+		  margin: 0 auto;
+		  text-align: center;
+		  background-color: #888;
+		}
+    </style>
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
@@ -26,6 +170,16 @@
 
 	</head>
 	<body>
+	<div id="loading-wrapper"style="
+								background-color: BLACK;
+								z-index: 10;
+								OPACITY: 0.8;
+								display:none;
+								">
+		<div id="loading-text" style="font-family: 'IBM Plex Sans KR', sans-serif;">열심히<br> 분류 중 <br>(˚ ˃̣̣̥⌓˂̣̣̥ )‧º
+		</div>
+		<div id="loading-content"></div>
+	</div>
 
 	<nav id="fh5co-main-nav" role="navigation">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle active"><i></i></a>
@@ -65,7 +219,7 @@
 			<div class="take-photo">
 				<p>입고 나가는 옷을 촬영해 주세요</p>
 				<form method="post" action="{{ url_for('fashion', isUpload=False, isAdd=False) }}">
-            		<input  type="submit" value="촬영" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
+            		<input  type="submit" onClick="$('#loading-wrapper').css('display', 'block');" value="촬영" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
 				</form>
 				<img src="{{ url_for('video_feed') }}">
 			</div>
@@ -74,14 +228,14 @@
 			<p> 사진으로 올리기 </p>
 
             <form method="POST" enctype="multipart/form-data" action="{{ url_for('fashion', isUpload=True, isAdd=False) }}">
-            	<input type="submit" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click">
+            	<input type="submit" onClick="$('#loading-wrapper').css('display', 'block');" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click">
 				<input type="file" required name="file" style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
 			</form>
         </div>
 		</div>
 
 	</div>
-	<!-- jQuery -->
+		<!-- jQuery -->
 	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
 
 	<!-- jQuery Easing -->
@@ -104,3 +258,4 @@
 
 	</body>
 </html>
+
