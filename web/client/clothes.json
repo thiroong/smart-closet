@@ -2,87 +2,57 @@
     "user_ID": "hyoukim",
     "closet": [
         {
-            "position": 1,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "padding",
+            "position": 1,
+            "category_to_save": "shortsleeve",
             "capacity": 10,
-            "used": 1,
+            "used": 0,
             "clothes_list": [
-                {
-                    "name": "test",
-                    "category": "padding",
-                    "count": 3,
-                    "img_path": "images/box/box1/test.png",
-                    "feature_path": "static/feature/f_test.npy",
-                    "last_wear_date": "2022-01-04"
-                }
             ]
         },
         {
-            "position": 2,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "dress",
+            "position": 2,
+            "category_to_save": "padding",
             "capacity": 10,
             "used": 0,
-            "clothes_list": []
+            "clothes_list": [
+            ]
         },
         {
             "position": 3,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "coat",
+            "category_to_save": "longsleeve",
             "capacity": 10,
             "used": 0,
-            "clothes_list": []
+            "clothes_list": [
+            ]
         },
         {
             "position": 4,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "shortsleeve",
-            "capacity": 10,
-            "used": 1,
+            "category_to_save": "pants",
+            "capacity":10,
+            "used": 0,
             "clothes_list": [
-                {
-                    "name": "test4",
-                    "category": "shortsleeve",
-                    "count": 0,
-                    "img_path": "images/box/box4/test4.png",
-                    "feature_path": "static/feature/f_test4.npy",
-                    "last_wear_date": "0000-00-00"
-                }
             ]
         },
         {
             "position": 5,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "longsleeve",
+            "category_to_save": "coat",
             "capacity": 10,
-            "used": 1,
+            "used": 0,
             "clothes_list": [
-                {
-                    "name": "테스트2",
-                    "category": "longsleeve",
-                    "count": 2,
-                    "img_path": "images/box/box5/테스트2.png",
-                    "feature_path": "static/feature/f_테스트2.npy",
-                    "last_wear_date": "2022-01-04"
-                }
             ]
         },
         {
             "position": 6,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "pants",
+            "category_to_save": "dress",
             "capacity": 10,
-            "used": 1,
+            "used": 0,
             "clothes_list": [
-                {
-                    "name": "테스트1",
-                    "category": "pants",
-                    "count": 0,
-                    "img_path": "images/box/box6/테스트1.png",
-                    "feature_path": "static/feature/f_테스트1.npy",
-                    "last_wear_date": "0000-00-00"
-                }
             ]
         },
         {
@@ -90,16 +60,8 @@
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "shirt",
             "capacity": 10,
-            "used": 1,
+            "used": 0,
             "clothes_list": [
-                {
-                    "name": "테스트",
-                    "category": "shirt",
-                    "count": 1,
-                    "img_path": "images/box/box7/테스트.png",
-                    "feature_path": "static/feature/f_테스트.npy",
-                    "last_wear_date": "2022-01-04"
-                }
             ]
         }
     ]

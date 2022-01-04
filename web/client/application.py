@@ -145,7 +145,7 @@ def fashion(isUpload, isAdd):
 
         # feature extract
         feature = cc.feature_extract(img=img)
-        feature_path = f'./static/features/f_{name}.npy'.format(name=nickname)
+        feature_path = f'./static/features/f_{nickname}.npy'
         np.save(feature_path, feature)
 
         results = {"nickname": nickname, "label": label, "category": category,
@@ -159,7 +159,7 @@ def fashion(isUpload, isAdd):
         # print(f'가장 유사한 이름: {name}')
         if not name:
             return redirect(url_for("empty_closet"))
-
+        
         temp = clothOps.find_cloth_by_keyword(name)
         for t in temp:
             if t[0]==name:
@@ -196,7 +196,12 @@ def ootd_confirm():
     least_img = clothOps.find_count_cloth()
     results={"circle":circle, "stick":stick, "oldest_img":oldest_img, "least_img":least_img}
     return render_template('graph_after_ootd.html', results=results)
-    
+
+@application.route("/add_cancle/<nickname>", methods=['POST'])
+def add_cancle(nickname):
+    os.remove('./static/features/f_{}.npy'.format(nickname))
+    return render_template('add.html')
+
 @application.route("/underProb")
 def underProb():
     return render_template("underProb.html")

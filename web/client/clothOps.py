@@ -88,10 +88,11 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
 # 키워드 검색 시, 해당 키워드가 포함된 이미지들의 경로를 list형태로 return 해주는 함수 (옷 위치 검색 기능)
 # 별명 검색 시, 해당 옷이 있는 수납함 페이지로 redirect하기로 변경하여 find_image_by_keyword()는 사용 안 할 듯. 혹시 몰라 주석처리로 남겨둠.
 def find_cloth_by_keyword(keyword_str, filename='clothes.json'):
+    keyword_str=keyword_str.strip()
     found_cloth_arr = []
     with open(filename, 'r', encoding='UTF8') as file:
         file_data = json.load(file)
-        for i in range(len(file_data["closet"])):
+        for i in range(7):
             for cloth in file_data["closet"][i]["clothes_list"]:
                 if keyword_str in cloth["name"]:
                     found_cloth_arr.append((cloth["name"], cloth["img_path"], i + 1))
