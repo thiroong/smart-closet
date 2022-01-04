@@ -112,8 +112,8 @@ def fashion(isUpload, isAdd):
     #print(max(pred))
 
     if isAdd == 'True':
-        if max(pred) < 0.6:
-            print("분류된 카테고리가 없습니다.")
+
+        if max(pred) < 0.3 and isAdd:
             return redirect(url_for("underProb"))
 
         # position = clothOps.search_pos_by_label(category)
@@ -132,20 +132,44 @@ def fashion(isUpload, isAdd):
         # 서랍장 저장
         box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname)  # 서랍장 위치
         camera.my_imwrite('.png', img_segmentation, box_path)
-        clothOps.append_cloth(str(position), str(category), nickname)
+
+        # feature 저장하기
+        # image preprocessing
+        img = cc.image_preprocessing(path_segmen)
+
+        # feature extract
+        feature = cc.feature_extract(img=img)
+        feature_path = f'./static/features/f_{nickname}.npy'
+        np.save(feature_path, feature)
 
         results = {"nickname": nickname, "label": label, "category": category,
                    "position": position, "path_original": path_original,
                    "path_segmen": path_segmen, "graph": graph}
         return render_template('add_clothes.html', results=results)
+
     else:
         circle = clothOps.get_graph_key_value("circle")
         stick = clothOps.get_graph_key_value("stick")
+
+        # 유사도 측정 결과
+        name = cc.similarity_measures(path_segmen)
+        # print(f'가장 유사한 이름: {name}')
+        box_num = clothOps.find_cloth_by_keyword(name)[0][2]
+        # print(f'박스넘버: {box_num}')
+
+        similar_path = f'/static/images/box/box{box_num}/{name}.png'
+        # print(f'similar_path: {similar_path}')
+
         results = {"label": label, "category": category,
                    "path_original": path_original, "path_segmen": path_segmen,
+                   "name":name, "box_num":box_num, "similar_path":similar_path,
                    "graph": graph, "circle": circle, "stick": stick}
         return render_template('ootd_whichone.html', results=results)
 
+@application.route("/<int:position>/<category>/<nickname>/<int:box_num>", methods=['POST'])
+def confirm(position, category, nickname, box_num):
+    clothOps.append_cloth(str(position), str(category), nickname)
+    return redirect(url_for('box', box_num=box_num))
 
 
 @application.route("/underProb")
