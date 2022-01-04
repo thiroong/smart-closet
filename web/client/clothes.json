@@ -4,15 +4,23 @@
         {
             "position": 1,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "coat",
             "capacity": 10,
-            "used": 3,
+            "used": 7,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
                     "category": "shirt",
                     "count": 1,
                     "img_path": "images/box/box1/twisted_knit.jpg",
+                    "feature_path": "static/feature/f_twisted_knit.npy",
+                    "last_wear_date": "2022-01-03"
+                },
+                {
+                    "name": "민지님원피스",
+                    "category": "shirt",
+                    "count": 1,
+                    "img_path": "images/box/box1/grey_coat.png",
                     "feature_path": "static/feature/f_twisted_knit.npy",
                     "last_wear_date": "2022-01-03"
                 },
@@ -31,13 +39,21 @@
                     "img_path": "images/box/box1/dasgd.jpg",
                     "feature_path": "static/feature/f_dasgd.npy",
                     "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "asdasd",
+                    "category": "coat",
+                    "count": 0,
+                    "img_path": "images/box/box1/asdasd.jpg",
+                    "feature_path": "static/feature/f_asdasd.npy",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
         {
             "position": 2,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "coat",
             "capacity": 10,
             "used": 6,
             "clothes_list": [
@@ -94,7 +110,7 @@
         {
             "position": 3,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "padding",
             "capacity": 0,
             "used": 3,
             "clothes_list": [
@@ -119,7 +135,7 @@
         {
             "position": 4,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "shortsleeve",
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -144,7 +160,7 @@
         {
             "position": 5,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "shortsleeve",
             "capacity": 0,
             "used": 1,
             "clothes_list": [
@@ -177,7 +193,9 @@
         {
             "position": 6,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": [
+                "shirt"
+            ],
             "capacity": 0,
             "used": 3,
             "clothes_list": [
@@ -202,9 +220,9 @@
         {
             "position": 7,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "shortsleeve",
+            "category_to_save": "pants",
             "capacity": 0,
-            "used": 0,
+            "used": 6,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -221,6 +239,38 @@
                     "img_path": "images/box/box7/striped_shirt.jpg",
                     "feature_path": "static/feature/f_striped_shirt.npy",
                     "last_wear_date": "2022-01-03"
+                },
+                {
+                    "name": "striped_shirt",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/striped_shirt.jpg",
+                    "feature_path": "static/feature/f_striped_shirt.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "test1234",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/test1234.jpg",
+                    "feature_path": "static/feature/f_test1234.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "왜안돼1",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/왜안돼1.jpg",
+                    "feature_path": "static/feature/f_왜안돼1.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "민지님 원피스",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/민지님 원피스.png",
+                    "feature_path": "static/feature/f_민지님 원피스.npy",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         }
