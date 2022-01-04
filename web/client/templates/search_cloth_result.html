@@ -52,6 +52,7 @@
       </div>
    </nav>
 
+<<<<<<< HEAD
    <div id="fh5co-page" style="height: fit-content;">
       <header>
          <div class="container">
@@ -61,6 +62,17 @@
             </div>
          </div>
       </header>
+=======
+	<div id="fh5co-page" style="height: fit-content;">
+		<header>
+			<div class="container">
+				<div class="fh5co-navbar-brand">
+					<h1 class="text-center"><a class="fh5co-logo" href="/">Close To Closet</a></h1>
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+				</div>
+			</div>
+		</header>
+>>>>>>> d13f1e14b638e894891cd78300fafb599cf7b648
 
       <div id="fh5co-intro-section">
             <div class="container">
@@ -72,28 +84,28 @@
             </div>
         </div>
 
-      <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-         <div class="row" style="
-                        display: flex;
-                        flex-wrap: wrap;
-                        flex-direction: row;
-                        justify-content: center;">
-         {% for item in result %}
-         <div class="text-center animate-box">
-            <div class="product" style="background-image: url(static/{{item[1]}}); width: 400px; height: 500px; justify-content:flex-start;">
-               </div>
-               </div>
-            <div class="product" style="background-image: url(static/images/img-11.jpg); width: 400px; height: 500px; justify-content:flex-end;">
-               <div class="container" style="width: 480px; height: 500px; margin-top: 150px; margin-left: 50px">
+		<div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+			<div class="row" style="
+								display: flex;
+								flex-wrap: wrap;
+								flex-direction: row;
+								justify-content: center;">
+			{% for item in result %}
+			<div class="text-center animate-box">
+				<div class="product" style="background-image: url(static/{{item[1]}}); width: 400px; height: 500px; justify-content:flex-start;">
+					</div>
+					</div>
+				<div class="product" style="background-image: url(static/images/img-11.jpg); width: 400px; height: 500px; justify-content:flex-end;">
+					<div class="container" style="width: 480px; height: 500px; margin-top: 150px; margin-left: 60px">
 
                   <li style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 별명 : {{item[0]}}</li>
                   <li style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 수납함 번호 : <a href="/box/{{item[2]}}">{{item[2]}}</a></li>
 
-               </div>
-               </div>
-         {%endfor%}
-         </div>
-      </div>
+					</div>
+					</div>
+			{%endfor%}
+			</div>
+		</div>
     </div>
    <!-- jQuery -->
    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
