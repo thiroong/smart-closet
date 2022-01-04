@@ -111,7 +111,7 @@ def fashion(isUpload, isAdd):
     #print(max(pred))
 
     if isAdd == 'True':
-        if max(pred) < 0.6 and isAdd:
+        if max(pred) < 0.6:
             print("분류된 카테고리가 없습니다.")
             return redirect(url_for("underProb"))
 
@@ -128,7 +128,6 @@ def fashion(isUpload, isAdd):
             position = "지정 카테고리가 없습니다!"
             position = 2"""
 
-
         # 서랍장 저장
         box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname)  # 서랍장 위치
         camera.my_imwrite('.png', img_segmentation, box_path)
@@ -139,10 +138,6 @@ def fashion(isUpload, isAdd):
                    "path_segmen": path_segmen, "graph": graph}
         return render_template('add_clothes.html', results=results)
     else:
-        if max(pred) < 0.6 and isAdd:
-            print("분류된 카테고리가 없습니다.")
-            return redirect(url_for("underProb_ootd"))
-
         circle = clothOps.get_graph_key_value("circle")
         stick = clothOps.get_graph_key_value("stick")
         results = {"label": label, "category": category,
