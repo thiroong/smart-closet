@@ -1,0 +1,519 @@
+.services-box{
+    display: flex;
+    height: 70vh;
+}
+
+.service-types-box{
+    width: 50%;
+    margin-left: 100px;
+}
+.closet-list-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 50px;
+}
+
+ul.dNav {
+  display: inline;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+ul.dNav li {
+  float: left;
+  width: 30%;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all .3s ease;
+  vertical-align: middle;
+  position: relative;
+  opacity: 0.5;
+}
+
+ul.dNav li::after {
+  content: '';
+  width: 60%;
+  height: 10px;
+  margin: auto;
+  display: block;
+  transition: all .3s ease;
+}
+
+ul.dNav li:hover::after {
+  background: linear-gradient(to right, #e0e0e0 0%, #444444 100%);
+}
+
+.type1:checked~.closet-list-box .dNav li.closet1::after, .type2:checked~.closet-list-box .dNav li.closet2::after, .type3:checked~.closet-list-box .dNav li.closet3::after {
+  border: 2px solid #fff;
+  background: linear-gradient(to right, #e0e0e0 0%, #444444 100%);
+  transition: all .3 ease;
+}
+
+ul.dNav li .closet-type-box {
+  width: 100%;
+  bottom: 0;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+ul.dNav li.open, ul.dNav li:hover {
+  color: black;
+  opacity: 1;
+  font-weight: bold;
+}
+
+.closet-contents {
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  margin-top: auto;
+  height: 360px;
+}
+
+.type1-section, .type2-section, .type3-section {
+    margin-left: 170px;
+}
+
+.type1-section, .type2-section, .type3-section {
+  transform: scale(0);
+  transform-origin: center bottom;
+  position: absolute;
+  top: 0;
+}
+
+.type1:checked~.closet-contents .type1-section, .type2:checked~.closet-contents .type2-section, .type3:checked~.closet-contents .type3-section {
+  display: block;
+  transform: scale(1);
+  transform-origin: bottom;
+}
+
+
+section ul {
+  padding-left: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  display: block;
+}
+
+input[type="radio"] {
+  display: none;
+  position: absolute
+}
+
+/*select box*/
+.select-box-container{
+  margin: 100px 0 0 200px;
+}
+
+/*옷장*/
+
+        .td_s {
+            border: transparent;
+            border-radius: 7px;
+            background-color: lightgrey;
+        }
+
+        .th_s {
+            margin: 10% 8% 8% 8%;
+            text-align: center;
+            font-family: 'IBM Plex Sans KR', sans-serif;
+        }
+
+        .button {
+            background-color: #d3d3d3;
+        }
+
+        .closet_main {
+            display: contents;
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .wardrobe {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: #B7A18F;
+            border: 10px solid #E7E0DA;
+            box-shadow: inset -5px 5px 25px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            transform: perspective(2500px);
+            cursor: pointer;
+        }
+
+        .wardrobe:before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            background-color: #8a5924;
+            top: 390px;
+            left: 40px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 180px 0 #8a5924;
+        }
+
+        .wardrobe:after {
+            content: "";
+            position: absolute;
+            height: 0;
+            width: 310px;
+            border-bottom: 15px solid transparent;
+            border-top: 15px solid #D6CCC5;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            top: -24px;
+            left: -15px;
+        }
+
+        .insite {
+            positon: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .rail4 {
+            left: 0%;
+            position: absolute;
+            width: 90px;
+            height: 8px;
+            background-color: lightgrey;
+            top: 35px;
+            box-shadow: inset 0 -3px rgb(0 0 0 / 30%);
+        }
+
+        .rail3 {
+            left: 67.8%;
+            position: absolute;
+            width: 90px;
+            height: 8px;
+            box-shadow: 0 200px #d6ccc2;
+        }
+
+        .rail2 {
+            left: 33%;
+            position: absolute;
+            width: 90px;
+            height: 8px;
+            background-color: lightgrey;
+            top: 100px;
+            box-shadow: inset 0 -3px rgb(0 0 0 / 30%);
+        }
+
+        .rail {
+            position: absolute;
+            width: 90px;
+            height: 8px;
+            top: 65px;
+            box-shadow: inset 0 100px #d6ccc2, 0 170px #d6ccc2, 0 240px #d6ccc2;
+        }
+
+        .bar {
+            left: 30%;
+            position: absolute;
+            width: 8px;
+            height: 380px;
+            box-shadow: inset 50px 50px #d6ccc2;
+        }
+
+        .bar2 {
+            left: 65%;
+            position: absolute;
+            width: 8px;
+            height: 380px;
+            box-shadow: inset 50px 50px #d6ccc2;
+        }
+
+        .front {
+            position: relative;
+            z-index: 1;
+        }
+
+        .door,
+        .second-door {
+            position: absolute;
+            width: 140px;
+            height: 380px;
+            background-color: #FAF5F0;
+            top: 0;
+            transition: .5s;
+            z-index: 5;
+        }
+
+        .door {
+            transform-origin: left;
+            box-shadow: inset 1px 0 10px rgba(0, 0, 0, 0.3);
+            left: 0;
+        }
+
+
+
+        .door:before {
+            left: 125px;
+        }
+
+        .second-door {
+            left: 140px;
+            transform-origin: right;
+            box-shadow: inset 1px 0 rgba(0, 0, 0, 0.3), inset -1px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .second-door:before {
+            left: 10px;
+        }
+
+        .shadow {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 290px;
+            height: 30px;
+            border-radius: 50%;
+            top: 390px;
+            left: -5px;
+            z-index: -1;
+        }
+
+/*옷장2*/
+
+        .wardrobe-wardrobe2 {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: #cebfc8;
+            border: 10px solid #be99b5;
+            box-shadow: inset -5px 5px 25px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            transform: perspective(2500px);
+            cursor: pointer;
+        }
+
+        .wardrobe-wardrobe2:before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            background-color: #977b90;
+            top: 390px;
+            left: 40px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 180px 0 #977b90;
+        }
+
+        .wardrobe-wardrobe2:after {
+            content: "";
+            position: absolute;
+            height: 0;
+            width: 310px;
+            border-bottom: 15px solid transparent;
+            border-top: 15px solid #977b90;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            top: -24px;
+            left: -15px;
+        }
+
+        .inside-wardrobe2 {
+            positon: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .rail4-wardrobe2 {
+            left: 211%;
+            position: absolute;
+            width: 90px;
+            height: 8px;
+            background-color: lightgrey;
+            top: 35px;
+            box-shadow: inset 0 -3px rgb(0 0 0 / 30%);
+        }
+
+        .rail3-wardrobe2 {
+            left: 33%;
+            position: absolute;
+            width: 90px;
+            height: 8px;
+            box-shadow: inset 0 0 #be99b5, 0 270px #be99b5;
+        }
+
+        .rail2-wardrobe2 {
+            left: 33%;
+            position: absolute;
+            width: 90px;
+            height: 8px;
+            background-color: lightgrey;
+            top: 50px;
+            box-shadow: inset 0 -3px rgb(0 0 0 / 30%);
+        }
+
+        .rail-wardrobe2 {
+            position: absolute;
+            width: 90px;
+            height: 8px;
+            top: 15px;
+            box-shadow: inset 0 0px #be99b5, 0 90px #be99b5, 0 180px #be99b5, 0 270px #be99b5;
+        }
+
+        .bar-wardrobe2 {
+            left: 30%;
+            position: absolute;
+            width: 8px;
+            height: 380px;
+            box-shadow: inset 50px 50px #be99b5;
+        }
+
+        .bar2-wardrobe2 {
+            left: 65%;
+            position: absolute;
+            width: 8px;
+            height: 380px;
+            box-shadow: inset 50px 50px #be99b5;
+        }
+
+        .front-wardrobe2 {
+            position: relative;
+            z-index: 1;
+        }
+
+        .door-wardrobe2,
+        .second-door-wardrobe2 {
+            position: absolute;
+            width: 140px;
+            height: 380px;
+            background-color: #f3edf3;
+            top: 0;
+            transition: .5s;
+            z-index: 5;
+        }
+
+        .door-wardrobe2 {
+            transform-origin: left;
+            box-shadow: inset 1px 0 10px rgba(0, 0, 0, 0.3);
+            left: 0;
+        }
+
+
+
+        .door-wardrobe2:before {
+            left: 125px;
+        }
+
+        .second-door-wardrobe2 {
+            left: 140px;
+            transform-origin: right;
+            box-shadow: inset 1px 0 rgba(0, 0, 0, 0.3), inset -1px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .second-door-wardrobe2:before {
+            left: 10px;
+        }
+
+        .shadow-wardrobe2 {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 290px;
+            height: 30px;
+            border-radius: 50%;
+            top: 390px;
+            left: -5px;
+            z-index: -1;
+        }
+
+/*옷장3*/
+
+        .wardrobe-wardrobe3 {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            background-color: #8b7d6c;
+            border: 10px solid #574422;
+            box-shadow: inset -5px 5px 25px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            transform: perspective(2500px);
+            cursor: pointer;
+        }
+
+        .wardrobe-wardrobe3:after {
+            content: "";
+            position: absolute;
+            height: 0;
+            width: 510px;
+            border-bottom: 15px solid transparent;
+            border-top: 15px solid #967948;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            top: -24px;
+            left: -15px;
+        }
+
+        .inside-wardrobe3 {
+            positon: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /*철봉*/
+        .rail4-wardrobe3 {
+            left: 200%;
+            position: absolute;
+            width: 162px;
+            height: 8px;
+            background-color: lightgrey;
+            top: 35px;
+            box-shadow: inset 0 -3px rgb(0 0 0 / 30%);
+        }
+
+        .rail3-wardrobe3 {
+            left: 65%;
+            position: absolute;
+            width: 170px;
+            height: 8px;
+            box-shadow: inset 0 0 #574422, 0 270px #574422;
+        }
+
+        .rail2-wardrobe3 {
+            left: 0%;
+            position: absolute;
+            width: 159px;
+            height: 8px;
+            background-color: lightgrey;
+            top: 130px;
+            box-shadow: inset 0 -3px rgb(0 0 0 / 30%);
+        }
+
+         .rail-wardrobe3 {
+            position: absolute;
+            width: 160px;
+            left: -1px;
+            height: 8px;
+            top: 15px;
+            box-shadow: inset 0 0px #574422, 0 70px #574422, 160px 180px #574422, 0 270px #574422;
+        }
+
+        .bar-wardrobe3 {
+            left: 33%;
+            position: absolute;
+            width: 8px;
+            height: 380px;
+            box-shadow: inset 50px 50px #574422;
+        }
+
+        .bar2-wardrobe3 {
+            left: 65%;
+            position: absolute;
+            width: 8px;
+            height: 380px;
+            box-shadow: inset 50px 50px #574422;
+        }
