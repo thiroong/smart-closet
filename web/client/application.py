@@ -152,10 +152,6 @@ def fashion(isUpload, isAdd):
     else:
         circle = clothOps.get_graph_key_value("circle")
         stick = clothOps.get_graph_key_value("stick")
-        results = {"label": label, "category": category,
-                   "path_original": path_original, "path_segmen": path_segmen,
-                   "graph": graph, "circle": circle, "stick": stick, 
-                   "oldest_img": oldest_img, "least_img": least_img }
 
         # 유사도 측정 결과
         name = cc.similarity_measures(path_segmen)
