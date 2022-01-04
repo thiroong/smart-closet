@@ -63,10 +63,18 @@
 			</div>
 		</div>
 
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<script>
+					alert("{{messages[-1]}}")
+				</script>
+			{% endif %}
+		{% endwith %}
+
         <div class="add-main">
 			<div class="take-photo">
 				<p>캡쳐해서 올리기</p>
-				<form method="post" action="{{ url_for('add_clothes', isUpload=False) }}">
+				<form method="post" action="{{ url_for('fashion', isUpload=False, isAdd=True) }}">
 					<input placeholder="별명을 입력하세요" required name ="nickname">
 					<input type="submit" value="Capture" name="click"/>
 				</form>
@@ -80,7 +88,7 @@
         <div class="add-photo">
 			<p> 사진으로 올리기 </p>
 
-            <form method="POST" enctype="multipart/form-data" action="{{ url_for('add_clothes', isUpload=True)}}">
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('fashion', isUpload=True, isAdd=True)}}">
             	<input placeholder="별명을 입력하세요" required name ="nickname">
 				<input type="submit">
 				<input type="file" required name="file"/>
