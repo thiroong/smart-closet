@@ -74,6 +74,9 @@ def fashion(isUpload, isAdd):
         if (clothOps.is_same_nickname_exist(nickname)):
             flash("중복된 nickname입니다!")
             return render_template("add.html")
+        if (clothOps.is_space_nickname_exist(nickname)):
+            flash("별명에 공백은 빼주세요!")
+            return render_template("add.html")
         path_original = "static/images/c1/{name}.png".format(name=nickname)  # 원본 저장 경로
         path_segmen = "static/images/c2/{name}.png".format(name=nickname)  # 세그멘테이션 이미지 저장 경로
 

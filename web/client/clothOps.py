@@ -28,6 +28,10 @@ def is_same_nickname_exist(nickname):
                 return (True)
     return (False)
 
+def is_space_nickname_exist(nickname):
+    if nickname.find(" ")!=-1:
+        return True
+    return False
 
 # append_cloth: 옷 추가 함수
 # 해당 수납함의 clothes_list에 cloth객체 추가
