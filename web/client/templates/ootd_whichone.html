@@ -88,7 +88,7 @@
 				<div class="add-box">
 					<form method="post" action="{{ url_for('ootd_confirm') }}">
                         <input type="hidden" name="confirm" value="{{results.similar_path}}" class="button1 mdc-button mdc-button--unelevated" style="font-family: 'IBM Plex Sans KR', sans-serif; color: black;width: 215px;height: 50px;font-size: inherit;background-color: lightgrey;"/>
-						<button onclick="alert('확인되었습니다')">확인</button>
+						<button onclick="alert('확인되었습니다')" style="border: transparent; border-radius: 7px; background-color:lightgrey;">확인</button>
                 	</form>
 
 					<form method="click" action="{{ url_for('ootd') }}">
