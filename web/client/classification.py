@@ -93,7 +93,6 @@ def similarity_measures(path, isOotd=True):
     idx = closest_cloth.find('.')
     closest_cloth = closest_cloth[2:idx]
 
-
     return closest_cloth
 
 
