@@ -71,6 +71,9 @@ def video_feed():
 def fashion(isUpload, isAdd):
     if isAdd == 'True':
         nickname = request.form.get('nickname')
+        if (clothOps.is_same_nickname_exist(nickname)):
+            flash("중복된 nickname입니다!")
+            return render_template("add.html")
         path_original = "static/images/c1/{name}.png".format(name=nickname)  # 원본 저장 경로
         path_segmen = "static/images/c2/{name}.png".format(name=nickname)  # 세그멘테이션 이미지 저장 경로
 
@@ -92,8 +95,8 @@ def fashion(isUpload, isAdd):
     else:
         # 카메라로 찍었을 경우
         ret, frame = camera.getCam().read()
-        camera.closeCam()
         camera.my_imwrite('.png', frame, path_original)
+    camera.closeCam()
 
     # fashion segmentation
     img_segmentation = camera.get_segmentation_image(path_original)
@@ -108,6 +111,7 @@ def fashion(isUpload, isAdd):
     #print(max(pred))
 
     if isAdd == 'True':
+
         if max(pred) < 0.6 and isAdd:
             return redirect(url_for("underProb"))
 
@@ -124,7 +128,6 @@ def fashion(isUpload, isAdd):
             position = "지정 카테고리가 없습니다!"
             position = 2"""
 
-
         # 서랍장 저장
         box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname)  # 서랍장 위치
         camera.my_imwrite('.png', img_segmentation, box_path)
@@ -136,9 +139,6 @@ def fashion(isUpload, isAdd):
         return render_template('add_clothes.html', results=results)
 
     else:
-        if max(pred) < 0.6 and isAdd:
-            return redirect(url_for("underProb_ootd"))
-
         circle = clothOps.get_graph_key_value("circle")
         stick = clothOps.get_graph_key_value("stick")
         results = {"label": label, "category": category,
