@@ -6,7 +6,7 @@
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "coat",
             "capacity": 10,
-            "used": 7,
+            "used": 6,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -47,6 +47,14 @@
                     "img_path": "images/box/box1/asdasd.jpg",
                     "feature_path": "static/feature/f_asdasd.npy",
                     "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "sdfasdf",
+                    "category": "longsleeve",
+                    "count": 0,
+                    "img_path": "images/box/box1/sdfasdf.png",
+                    "feature_path": "static/feature/f_sdfasdf.npy",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
@@ -55,7 +63,7 @@
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "coat",
             "capacity": 10,
-            "used": 6,
+            "used": 7,
             "clothes_list": [
                 {
                     "name": "asdasd",
@@ -104,6 +112,14 @@
                     "img_path": "images/box/box2/asdasdasd.jpg",
                     "feature_path": "static/feature/f_asdasdasd.npy",
                     "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "제발",
+                    "category": "shirt",
+                    "count": 10,
+                    "img_path": "images/box/box2/제발.png",
+                    "feature_path": "static/feature/f_제발.npy",
+                    "last_wear_date": "2011-11-18"
                 }
             ]
         },
