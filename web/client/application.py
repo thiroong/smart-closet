@@ -113,7 +113,7 @@ def fashion(isUpload, isAdd):
 
     if isAdd == 'True':
 
-        if max(pred) < 0.3 and isAdd:
+        if max(pred) < 0.6 and isAdd:
             return redirect(url_for("underProb"))
 
         # position = clothOps.search_pos_by_label(category)
@@ -154,6 +154,9 @@ def fashion(isUpload, isAdd):
         # 유사도 측정 결과
         name = cc.similarity_measures(path_segmen)
         # print(f'가장 유사한 이름: {name}')
+        if not name:
+            return redirect(url_for("empty_closet"))
+
         box_num = clothOps.find_cloth_by_keyword(name)[0][2]
         # print(f'박스넘버: {box_num}')
 
@@ -176,9 +179,9 @@ def confirm(position, category, nickname, box_num):
 def underProb():
     return render_template("underProb.html")
 
-@application.route("/underProb_ootd")
-def underProb_ootd():
-    return render_template("underProb_ootd.html")
+@application.route("/empty_closet")
+def empty_closet():
+    return render_template("empty_closet.html")
 
 # 옷 추가
 @application.route("/box/<int:box_num>", methods=['GET'])  # 각 closet_num에 해당하는 번호의 수납함으로 이동
@@ -222,6 +225,7 @@ def search_cloth_result():
     keyword = request.form['nickname']
     found_cloth_arr = clothOps.find_cloth_by_keyword(keyword)
     return render_template("search_cloth_result.html", result=found_cloth_arr)
+
 
 
 ##################검색 기능######################
