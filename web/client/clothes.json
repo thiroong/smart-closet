@@ -6,7 +6,7 @@
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "coat",
             "capacity": 10,
-            "used": 2,
+            "used": 4,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -23,6 +23,22 @@
                     "img_path": "images/box/box1/striped_shirt.jpg",
                     "feature_path": "static/feature/f_striped_shirt.npy",
                     "last_wear_date": "2022-01-03"
+                },
+                {
+                    "name": "noaddplease111",
+                    "category": "longsleeve",
+                    "count": 0,
+                    "img_path": "images/box/box1/noaddplease111.jpg",
+                    "feature_path": "static/feature/f_noaddplease111.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "coat333122",
+                    "category": "dress",
+                    "count": 0,
+                    "img_path": "images/box/box1/coat333122.jpg",
+                    "feature_path": "static/feature/f_coat333122.npy",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
@@ -97,7 +113,6 @@
                     "img_path": "images/box/box3/testdata.png",
                     "feature_path": "feature/f_testdata.npy",
                     "last_wear_date": "0000-00-00"
-
                 }
             ]
         },
@@ -106,7 +121,7 @@
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "shortsleeve",
             "capacity": 10,
-            "used": 3,
+            "used": 4,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -130,6 +145,14 @@
                     "count": 0,
                     "img_path": "images/box/box4/jaeyeonsa.png",
                     "feature_path": "feature/f_jaeyeonsa.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "coat33000110",
+                    "category": "shortsleeve",
+                    "count": 0,
+                    "img_path": "images/box/box4/coat33000110.jpg",
+                    "feature_path": "static/feature/f_coat33000110.npy",
                     "last_wear_date": "0000-00-00"
                 }
             ]
@@ -172,8 +195,7 @@
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "padding",
             "capacity": 10,
-            "used": 2,
-
+            "used": 3,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -190,6 +212,14 @@
                     "img_path": "images/box/box6/striped_shirt.jpg",
                     "feature_path": "static/feature/f_striped_shirt.npy",
                     "last_wear_date": "2022-01-03"
+                },
+                {
+                    "name": "coat3",
+                    "category": "dress",
+                    "count": 0,
+                    "img_path": "images/box/box6/coat3.jpg",
+                    "feature_path": "static/feature/f_coat3.npy",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
@@ -198,7 +228,7 @@
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "category_to_save": "pants",
             "capacity": 10,
-            "used": 2,
+            "used": 14,
             "clothes_list": [
                 {
                     "name": "twisted_knit",
@@ -215,6 +245,102 @@
                     "img_path": "images/box/box7/striped_shirt.jpg",
                     "feature_path": "static/feature/f_striped_shirt.npy",
                     "last_wear_date": "2022-01-03"
+                },
+                {
+                    "name": "handhand",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/handhand.jpg",
+                    "feature_path": "static/feature/f_handhand.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "noaddpleeeeease",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/noaddpleeeeease.jpg",
+                    "feature_path": "static/feature/f_noaddpleeeeease.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "iiiii",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/iiiii.jpg",
+                    "feature_path": "static/feature/f_iiiii.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "dkanrjskf",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/dkanrjskf.jpg",
+                    "feature_path": "static/feature/f_dkanrjskf.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "nknlk",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/nknlk.jpg",
+                    "feature_path": "static/feature/f_nknlk.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "englishver",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/englishver.jpg",
+                    "feature_path": "static/feature/f_englishver.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "heyheyhey",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/heyheyhey.jpg",
+                    "feature_path": "static/feature/f_heyheyhey.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "peanut",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/peanut.jpg",
+                    "feature_path": "static/feature/f_peanut.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "phone",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/phone.jpg",
+                    "feature_path": "static/feature/f_phone.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "heattech",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/heattech.jpg",
+                    "feature_path": "static/feature/f_heattech.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "coat3",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/coat3.jpg",
+                    "feature_path": "static/feature/f_coat3.npy",
+                    "last_wear_date": "0000-00-00"
+                },
+                {
+                    "name": "coat330001102",
+                    "category": "pants",
+                    "count": 0,
+                    "img_path": "images/box/box7/coat330001102.jpg",
+                    "feature_path": "static/feature/f_coat330001102.npy",
+                    "last_wear_date": "0000-00-00"
                 }
             ]
         }

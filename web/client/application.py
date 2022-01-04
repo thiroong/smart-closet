@@ -148,9 +148,9 @@ def add_clothes(isUpload):
     #position = clothOps.search_pos_by_label(category)
     position_arr = clothOps.is_category_in_setting(category)
     if len(position_arr)==0:
-        position=clothOps.biggest_capicity([1,2,3,4,5,6,7])
+        position=clothOps.biggest_capacity([1,2,3,4,5,6,7])
     else:
-        position=clothOps.biggest_capicity(position_arr)
+        position=clothOps.biggest_capacity(position_arr)
 
     # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
     """if position == -1:
