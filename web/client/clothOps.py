@@ -123,13 +123,14 @@ def wear_info(clothName_str, filename='clothes.json'):
                     break
 
 def update_weared_cloth(cloth_path, filename='clothes.json'):
-    with open(filename, 'r+', encoding='UTF8') as file:
-        file_data = json.load(file)
+    file_data = read_json(filename)
+    with open(filename, 'w', encoding='UTF8') as file:
         for i in range(len(file_data["closet"])):
             for cloth in file_data["closet"][i]["clothes_list"]:
                 if cloth["img_path"] == cloth_path:
                     cloth["count"] += 1
-                    cloth["last_wear_date"] = datetime.today().strftime('%Y-%m-%d')
+                    now = datetime.datetime.now()
+                    cloth["last_wear_date"] = str(now.date())
                     file.seek(0)
                     json.dump(file_data, file, indent=4, ensure_ascii=False)
                     break

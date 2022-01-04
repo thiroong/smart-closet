@@ -28,7 +28,7 @@
                 {
                     "name": "grey_coat",
                     "category": "padding",
-                    "count": -100,
+                    "count": -98,
                     "img_path": "images/box/box2/grey_coat.png",
                     "feature_path": "static/feature/f_asdasd.npy",
                     "last_wear_date": "2022-01-04"

@@ -159,7 +159,6 @@ def fashion(isUpload, isAdd):
         # print(f'가장 유사한 이름: {name}')
         box_num = clothOps.find_cloth_by_keyword(name)[0][2]
         # print(f'박스넘버: {box_num}')
-
         similar_path = f'/static/images/box/box{box_num}/{name}.png'
         # print(f'similar_path: {similar_path}')
         
@@ -178,7 +177,13 @@ def confirm(position, category, nickname, box_num):
     clothOps.append_cloth(str(position), str(category), nickname)
     return redirect(url_for('box', box_num=box_num))
 
-
+@application.route("/ootd_confirm", methods=['GET', 'POST'])
+def ootd_confirm():
+    similar_path = request.form.get('confirm')
+    similar_path=similar_path[8:]
+    clothOps.update_weared_cloth(similar_path)
+    return render_template("index.html")
+    
 @application.route("/underProb")
 def underProb():
     return render_template("underProb.html")
