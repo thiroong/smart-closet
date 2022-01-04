@@ -111,8 +111,8 @@ def fashion(isUpload, isAdd):
     #print(max(pred))
 
     if isAdd == 'True':
-        if max(pred) < 0.6:
-            print("분류된 카테고리가 없습니다.")
+
+        if max(pred) < 0.6 and isAdd:
             return redirect(url_for("underProb"))
 
         # position = clothOps.search_pos_by_label(category)
@@ -131,12 +131,13 @@ def fashion(isUpload, isAdd):
         # 서랍장 저장
         box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname)  # 서랍장 위치
         camera.my_imwrite('.png', img_segmentation, box_path)
-        clothOps.append_cloth(str(position), str(category), nickname)
+        #clothOps.append_cloth(str(position), str(category), nickname)
 
         results = {"nickname": nickname, "label": label, "category": category,
                    "position": position, "path_original": path_original,
                    "path_segmen": path_segmen, "graph": graph}
         return render_template('add_clothes.html', results=results)
+
     else:
         circle = clothOps.get_graph_key_value("circle")
         stick = clothOps.get_graph_key_value("stick")
@@ -145,6 +146,10 @@ def fashion(isUpload, isAdd):
                    "graph": graph, "circle": circle, "stick": stick}
         return render_template('ootd_whichone.html', results=results)
 
+@application.route("/<int:position>/<category>/<nickname>/<int:box_num>", methods=['POST'])
+def confirm(position, category, nickname, box_num):
+    clothOps.append_cloth(str(position), str(category), nickname)
+    return redirect(url_for('box', box_num=box_num))
 
 
 @application.route("/underProb")
