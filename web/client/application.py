@@ -100,7 +100,7 @@ def fashion(isUpload, isAdd):
 
     # fashion segmentation
     img_segmentation = camera.get_segmentation_image(path_original)
-    cv2.imwrite(path_segmen, img_segmentation)
+    camera.my_imwrite('.png', img_segmentation, path_segmen)
 
     pred, label = cc.classifier(path_segmen)
     category = clothOps.get_category(label)
