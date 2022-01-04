@@ -41,7 +41,7 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
     newCloth = dict(**clothClass)
     newCloth["name"] = clothName_str
     newCloth["category"] = category_str
-    newCloth["img_path"] = 'images/box/box' + boxnum_str + '/' + clothName_str + '.jpg'
+    newCloth["img_path"] = 'images/box/box' + boxnum_str + '/' + clothName_str + '.png'
     newCloth["feature_path"] = 'static/feature/f_' + clothName_str + '.npy'
 
     file_data = read_json(filename)

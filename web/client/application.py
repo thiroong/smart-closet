@@ -95,8 +95,8 @@ def fashion(isUpload, isAdd):
     else:
         # 카메라로 찍었을 경우
         ret, frame = camera.getCam().read()
-        camera.closeCam()
         camera.my_imwrite('.png', frame, path_original)
+    camera.closeCam()
 
     # fashion segmentation
     img_segmentation = camera.get_segmentation_image(path_original)
