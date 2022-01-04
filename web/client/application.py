@@ -144,9 +144,12 @@ def fashion(isUpload, isAdd):
     else:
         circle = clothOps.get_graph_key_value("circle")
         stick = clothOps.get_graph_key_value("stick")
+        oldest_img = clothOps.find_oldest_cloth()
+        least_img = clothOps.find_count_cloth()
         results = {"label": label, "category": category,
                    "path_original": path_original, "path_segmen": path_segmen,
-                   "graph": graph, "circle": circle, "stick": stick}
+                   "graph": graph, "circle": circle, "stick": stick, 
+                   "oldest_img": oldest_img, "least_img": least_img }
         return render_template('ootd_whichone.html', results=results)
 
 @application.route("/<int:position>/<category>/<nickname>/<int:box_num>", methods=['POST'])

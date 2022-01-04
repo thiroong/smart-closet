@@ -176,9 +176,15 @@
 
 			<div class="recommend-box">
 			<h3>버릴 옷 추천</h3>
-			<!--빈도수 가장 낮은 옷보여질 수 있도록 연결 부탁드립니다 !-->
-			<!--				현재 임시 이미지-->
-			<img src="/static/images/c2/brown_padding.jpg">
+			<figure>
+				<figcaption>가장 오랫동안 입지 않은 옷이에옷!</figcaption>
+				<img src="/static/{{results.oldest_img}}">
+			</figure>
+
+			<figure>
+				<figcaption>가장 적게 입은 옷이에옷!</figcaption>
+				<img src="/static/{{results.least_img}}">
+			</figure>
 
 			<p>아름다운 가게: <a href="https://www.beautifulstore.org/">https://www.beautifulstore.org/</a></p>
 			<P>옷캔: <a href="https://otcan.org/">https://otcan.org/</a></P>

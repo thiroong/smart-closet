@@ -15,38 +15,6 @@
                     "img_path": "images/box/box1/sadasd.png",
                     "feature_path": "static/feature/f_sadasd.npy",
                     "last_wear_date": "2022-01-04"
-                },
-                {
-                    "name": "testing",
-                    "category": "pants",
-                    "count": 0,
-                    "img_path": "images/box/box1/testing.png",
-                    "feature_path": "static/feature/f_testing.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "잘돼라",
-                    "category": "pants",
-                    "count": 0,
-                    "img_path": "images/box/box1/잘돼라.png",
-                    "feature_path": "static/feature/f_잘돼라.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "testing1",
-                    "category": "coat",
-                    "count": 0,
-                    "img_path": "images/box/box1/testing1.png",
-                    "feature_path": "static/feature/f_testing1.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "잘돼라2",
-                    "category": "shirt",
-                    "count": 0,
-                    "img_path": "images/box/box1/잘돼라2.png",
-                    "feature_path": "static/feature/f_잘돼라2.npy",
-                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
@@ -58,60 +26,20 @@
             "used": 7,
             "clothes_list": [
                 {
-                    "name": "asdasd",
+                    "name": "grey_coat",
                     "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box2/asdasd.jpg",
+                    "count": -100,
+                    "img_path": "images/box/box2/grey_coat.png",
                     "feature_path": "static/feature/f_asdasd.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "sadsa",
-                    "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box2/sadsa.jpg",
-                    "feature_path": "static/feature/f_sadsa.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "asdasdas",
-                    "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box2/asdasdas.jpg",
-                    "feature_path": "static/feature/f_asdasdas.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "23534",
-                    "category": "coat",
-                    "count": 0,
-                    "img_path": "images/box/box2/23534.jpg",
-                    "feature_path": "static/feature/f_23534.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "asdasdasd",
-                    "category": "dress",
-                    "count": 0,
-                    "img_path": "images/box/box2/asdasdasd.jpg",
-                    "feature_path": "static/feature/f_asdasdasd.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "asdasdasd",
-                    "category": "dress",
-                    "count": 0,
-                    "img_path": "images/box/box2/asdasdasd.jpg",
-                    "feature_path": "static/feature/f_asdasdasd.npy",
-                    "last_wear_date": "0000-00-00"
+                    "last_wear_date": "2022-01-04"
                 },
                 {
                     "name": "민지님원피스줘요",
                     "category": "shirt",
-                    "count": 0,
+                    "count": 100,
                     "img_path": "images/box/box2/민지님원피스줘요.png",
                     "feature_path": "static/feature/f_민지님원피스줘요.npy",
-                    "last_wear_date": "0000-00-00"
+                    "last_wear_date": "1970-12-04"
                 }
             ]
         },
@@ -137,14 +65,6 @@
                     "img_path": "images/box/box3/blue_short_sleeve.jpg",
                     "feature_path": "static/feature/f_blue_short_sleeve.npy",
                     "last_wear_date": "2022-01-03"
-                },
-                {
-                    "name": "test",
-                    "category": "padding",
-                    "count": 0,
-                    "img_path": "images/box/box3/test.png",
-                    "feature_path": "static/feature/f_test.npy",
-                    "last_wear_date": "0000-00-00"
                 }
             ]
         },
@@ -259,42 +179,10 @@
                 {
                     "name": "striped_shirt",
                     "category": "pants",
-                    "count": 0,
-                    "img_path": "images/box/box7/striped_shirt.jpg",
+                    "count": 100,
+                    "img_path": "images/box/box7/striped_shirt.png",
                     "feature_path": "static/feature/f_striped_shirt.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "test1234",
-                    "category": "pants",
-                    "count": 0,
-                    "img_path": "images/box/box7/test1234.jpg",
-                    "feature_path": "static/feature/f_test1234.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "왜안돼1",
-                    "category": "pants",
-                    "count": 0,
-                    "img_path": "images/box/box7/왜안돼1.jpg",
-                    "feature_path": "static/feature/f_왜안돼1.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "민지님 원피스",
-                    "category": "pants",
-                    "count": 0,
-                    "img_path": "images/box/box7/민지님 원피스.png",
-                    "feature_path": "static/feature/f_민지님 원피스.npy",
-                    "last_wear_date": "0000-00-00"
-                },
-                {
-                    "name": "현영씨테스트",
-                    "category": "pants",
-                    "count": 0,
-                    "img_path": "images/box/box7/현영씨테스트.png",
-                    "feature_path": "static/feature/f_현영씨테스트.npy",
-                    "last_wear_date": "0000-00-00"
+                    "last_wear_date": "2022-01-02"
                 }
             ]
         }

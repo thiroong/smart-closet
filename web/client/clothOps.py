@@ -6,7 +6,6 @@ import datetime
 ############################################
 DATABASE_PATH = 'clothes.json'
 
-
 ############################################
 # 함수들 정의
 ############################################
@@ -32,6 +31,36 @@ def is_space_nickname_exist(nickname):
     if nickname.find(" ")!=-1:
         return True
     return False
+
+def find_oldest_cloth():
+    closet_info = read_json(DATABASE_PATH)
+    min = "9999-12-31"
+    min_cloth_path = ""
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_list = closet_box["clothes_list"]
+        for cloth in cloth_list:
+            if min > cloth['last_wear_date']:
+                min = cloth['last_wear_date']
+                min_cloth_path = cloth['img_path']
+    
+    return (min_cloth_path)
+
+def find_count_cloth():
+    closet_info = read_json(DATABASE_PATH)
+    min = 99999
+    min_cloth_path = ""
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_list = closet_box["clothes_list"]
+        for cloth in cloth_list:
+            if min > cloth['count']:
+                min = cloth['count']
+                min_cloth_path = cloth['img_path']
+                
+    return (min_cloth_path)
 
 # append_cloth: 옷 추가 함수
 # 해당 수납함의 clothes_list에 cloth객체 추가
@@ -93,6 +122,17 @@ def wear_info(clothName_str, filename='clothes.json'):
                     json.dump(file_data, file, indent=4, ensure_ascii=False)
                     break
 
+def update_weared_cloth(cloth_path, filename='clothes.json'):
+    with open(filename, 'r+', encoding='UTF8') as file:
+        file_data = json.load(file)
+        for i in range(len(file_data["closet"])):
+            for cloth in file_data["closet"][i]["clothes_list"]:
+                if cloth["img_path"] == cloth_path:
+                    cloth["count"] += 1
+                    cloth["last_wear_date"] = datetime.today().strftime('%Y-%m-%d')
+                    file.seek(0)
+                    json.dump(file_data, file, indent=4, ensure_ascii=False)
+                    break
 
 # 옷 카테고리별로 보여주는 기능
 # 옷 검색하는 페이지에 카테고리 filter (버튼) 추가 구현 부탁 (프론트팀에게)
