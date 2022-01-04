@@ -4,7 +4,11 @@
         {
             "position": 1,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
+<<<<<<< HEAD
             "category_to_save": "padding",
+=======
+            "category_to_save": "coat",
+>>>>>>> 56648e60e453a769a427a5c9fed8ec5d1bef1550
             "capacity": 10,
             "used": 6,
             "clothes_list": [
@@ -53,7 +57,7 @@
         {
             "position": 2,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "coat",
             "capacity": 10,
             "used": 7,
             "clothes_list": [
@@ -118,7 +122,7 @@
         {
             "position": 3,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "padding",
             "capacity": 0,
             "used": 3,
             "clothes_list": [
@@ -151,7 +155,7 @@
         {
             "position": 4,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "shortsleeve",
             "capacity": 0,
             "used": 0,
             "clothes_list": [
@@ -176,7 +180,7 @@
         {
             "position": 5,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "shortsleeve",
             "capacity": 0,
             "used": 1,
             "clothes_list": [
@@ -209,7 +213,9 @@
         {
             "position": 6,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": [
+                "shirt"
+            ],
             "capacity": 0,
             "used": 3,
             "clothes_list": [
@@ -234,7 +240,7 @@
         {
             "position": 7,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "none",
+            "category_to_save": "pants",
             "capacity": 0,
             "used": 6,
             "clothes_list": [
@@ -279,11 +285,11 @@
                     "last_wear_date": "0000-00-00"
                 },
                 {
-                    "name": "테스트",
+                    "name": "민지님 원피스",
                     "category": "pants",
                     "count": 0,
-                    "img_path": "images/box/box7/테스트.png",
-                    "feature_path": "static/feature/f_테스트.npy",
+                    "img_path": "images/box/box7/민지님 원피스.png",
+                    "feature_path": "static/feature/f_민지님 원피스.npy",
                     "last_wear_date": "0000-00-00"
                 }
             ]
