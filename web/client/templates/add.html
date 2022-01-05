@@ -233,10 +233,11 @@
         <div class="add-main">
 			<div class="take-photo">
 				<p>캡쳐해서 올리기</p>
-				<form method="post" action="{{ url_for('fashion', isUpload=False, isAdd=True) }};">
-					<input placeholder="별명을 입력하세요" required name ="nickname">
-					<input type="submit" onClick="$('#loading-wrapper').css('display', 'block');" value="Capture" name="click"/>
-
+				<form method="post" action="{{ url_for('fashion', isUpload=False, isAdd=True) }}">
+					<fieldset>
+						<input type="text" placeholder="별명을 입력하세요" id="Nickname1" required name ="nickname">
+						<input type="submit" id="submit1">
+					</fieldset>
 				</form>
 				<img src="{{ url_for('video_feed') }}">
 			</div>
@@ -249,12 +250,15 @@
 			<p> 사진으로 올리기 </p>
 
             <form method="POST" enctype="multipart/form-data" action="{{ url_for('fashion', isUpload=True, isAdd=True)}}">
-            	<input placeholder="별명을 입력하세요" required name ="nickname">
-				<input type="submit" onClick="$('#loading-wrapper').css('display', 'block');">
-				<input type="file" required name="file"/>
+				<fieldset>
+            	<input type="text" placeholder="별명을 입력하세요" id="Nickname2" required name ="nickname">
+				<input type="submit" id="submit2">
+				<input type="file" required name="file" id="FILE"/>
+				</fieldset>
 			</form>
         </div>
         
+		<!-- onClick="$('#loading-wrapper').css('display', 'block');"-->
 
         <script>
             function page_link(str) {
@@ -287,6 +291,42 @@
 
 	<!-- Main JS -->
 	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+	<!--빈칸 입력 방지-->
+	<script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$("#submit1").click(function(){
+				if($("#Nickname1").val().length==0) {
+					alert("별명을 입력해주세요")
+					return false;
+				}
+				else{
+					$('#loading-wrapper').css('display', 'block');
+					return true;
+				}
+				
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			$("#submit2").click(function(){
+				if($("#Nickname2").val().length==0 || !$("#FILE").val()) {
+					alert("별명과 파일을 모두 입력해주세요")
+					return false;
+				}
+				else{
+					$('#loading-wrapper').css('display', 'block');
+					return true;
+				}
+				
+			});
+		});
+	</script>
 
 	</body>
 </html>

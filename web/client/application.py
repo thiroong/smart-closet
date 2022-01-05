@@ -78,6 +78,9 @@ def fashion(isUpload, isAdd):
         if (clothOps.is_same_nickname_exist(nickname)):
             flash("중복된 nickname입니다!")
             return render_template("add.html")
+        if (clothOps.is_space_nickname_exist(nickname)):
+            flash("별명에 공백은 빼주세요!")
+            return render_template("add.html")
         path_original = "static/images/c1/{name}.png".format(name=nickname)  # 원본 저장 경로
         path_segmen = "static/images/c2/{name}.png".format(name=nickname)  # 세그멘테이션 이미지 저장 경로
 
@@ -151,32 +154,53 @@ def fashion(isUpload, isAdd):
         return render_template('add_clothes.html', results=results)
 
     else:
-        circle = clothOps.get_graph_key_value("circle")
-        stick = clothOps.get_graph_key_value("stick")
-
         # 유사도 측정 결과
         name = cc.similarity_measures(path_segmen)
         # print(f'가장 유사한 이름: {name}')
         if not name:
             return redirect(url_for("empty_closet"))
-
-        box_num = clothOps.find_cloth_by_keyword(name)[0][2]
+        
+        temp = clothOps.find_cloth_by_keyword(name)
+        for t in temp:
+            if t[0]==name:
+                box_num=t[2]
         # print(f'박스넘버: {box_num}')
-
-        similar_path = f'/static/images/box/box{box_num}/{name}.png'
+        similar_path = "/static/images/box/box{box_num}/{name}.png".format(box_num=box_num, name=name) 
         # print(f'similar_path: {similar_path}')
 
         results = {"label": label, "category": category,
                    "path_original": path_original, "path_segmen": path_segmen,
                    "name":name, "box_num":box_num, "similar_path":similar_path,
-                   "graph": graph, "circle": circle, "stick": stick}
+                   "graph": graph} 
         return render_template('ootd_whichone.html', results=results)
+    
+"""@application.route("/graph_after_ootd")
+def graph_after_ootd(results):
+    return render_template('graph_after_ootd.html', results=results)"""
+
 
 @application.route("/<int:position>/<category>/<nickname>/<int:box_num>", methods=['POST'])
 def confirm(position, category, nickname, box_num):
     clothOps.append_cloth(str(position), str(category), nickname)
     return redirect(url_for('box', box_num=box_num))
 
+@application.route("/ootd_confirm", methods=['GET', 'POST'])
+def ootd_confirm():    
+    similar_path = request.form.get('confirm')
+    similar_path=similar_path[8:]
+    clothOps.update_weared_cloth(similar_path)
+    
+    circle = clothOps.get_graph_key_value("circle")
+    stick = clothOps.get_graph_key_value("stick")
+    oldest_img = clothOps.find_oldest_cloth()
+    least_img = clothOps.find_count_cloth()
+    results={"circle":circle, "stick":stick, "oldest_img":oldest_img, "least_img":least_img}
+    return render_template('graph_after_ootd.html', results=results)
+
+@application.route("/add_cancle/<nickname>", methods=['POST'])
+def add_cancle(nickname):
+    os.remove('./static/features/f_{}.npy'.format(nickname))
+    return render_template('add.html')
 
 @application.route("/underProb")
 def underProb():

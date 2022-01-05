@@ -134,15 +134,17 @@
                <div class="row" style="display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: center;">
                   <div class="col-md-4">
                       <form method="post" action="{{ url_for('confirm', position=results.position, category=results.category, nickname=results.nickname, box_num=results.position) }}">
-                   <button type="submit" class="button1 mdc-button mdc-button--unelevated" style="font-family: 'IBM Plex Sans KR', sans-serif; color: black;width: 215px;height: 50px;font-size: inherit;background-color: lightgrey;">
-                        등록 확정하기
-                    </button>
+                        <button type="submit" class="button1 mdc-button mdc-button--unelevated" style="font-family: 'IBM Plex Sans KR', sans-serif; color: black;width: 215px;height: 50px;font-size: inherit;background-color: lightgrey;">
+                                등록 확정하기
+                        </button>
                       </form>
                         </div>
                   <div class="col-md-4">
-                        <button class="button1 mdc-button mdc-button--unelevated" onclick="location.href='/add'" style="font-family: 'IBM Plex Sans KR', sans-serif; color: black;width: 215px;height: 50px;font-size: inherit;background-color: lightgrey;">
-                        다시찍기
-                    </button>
+                    <form method="post" action="{{ url_for('add_cancle', nickname=results.nickname) }}">
+                        <button type="submit" class="button1 mdc-button mdc-button--unelevated" style="font-family: 'IBM Plex Sans KR', sans-serif; color: black;width: 215px;height: 50px;font-size: inherit;background-color: lightgrey;">
+                                다시 찍기
+                        </button>
+                      </form>
                         </div>
                   </div>
                </div>

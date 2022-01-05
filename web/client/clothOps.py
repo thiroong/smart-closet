@@ -6,7 +6,6 @@ import datetime
 ############################################
 DATABASE_PATH = 'clothes.json'
 
-
 ############################################
 # 함수들 정의
 ############################################
@@ -28,6 +27,40 @@ def is_same_nickname_exist(nickname):
                 return (True)
     return (False)
 
+def is_space_nickname_exist(nickname):
+    if nickname.find(" ")!=-1:
+        return True
+    return False
+
+def find_oldest_cloth():
+    closet_info = read_json(DATABASE_PATH)
+    min = "9999-12-31"
+    min_cloth_path = ""
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_list = closet_box["clothes_list"]
+        for cloth in cloth_list:
+            if min > cloth['last_wear_date']:
+                min = cloth['last_wear_date']
+                min_cloth_path = cloth['img_path']
+    
+    return (min_cloth_path)
+
+def find_count_cloth():
+    closet_info = read_json(DATABASE_PATH)
+    min = 99999
+    min_cloth_path = ""
+    
+    closet = closet_info["closet"]
+    for closet_box in closet:
+        cloth_list = closet_box["clothes_list"]
+        for cloth in cloth_list:
+            if min > cloth['count']:
+                min = cloth['count']
+                min_cloth_path = cloth['img_path']
+                
+    return (min_cloth_path)
 
 # append_cloth: 옷 추가 함수
 # 해당 수납함의 clothes_list에 cloth객체 추가
@@ -55,10 +88,11 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
 # 키워드 검색 시, 해당 키워드가 포함된 이미지들의 경로를 list형태로 return 해주는 함수 (옷 위치 검색 기능)
 # 별명 검색 시, 해당 옷이 있는 수납함 페이지로 redirect하기로 변경하여 find_image_by_keyword()는 사용 안 할 듯. 혹시 몰라 주석처리로 남겨둠.
 def find_cloth_by_keyword(keyword_str, filename='clothes.json'):
+    keyword_str=keyword_str.strip()
     found_cloth_arr = []
     with open(filename, 'r', encoding='UTF8') as file:
         file_data = json.load(file)
-        for i in range(len(file_data["closet"])):
+        for i in range(7):
             for cloth in file_data["closet"][i]["clothes_list"]:
                 if keyword_str in cloth["name"]:
                     found_cloth_arr.append((cloth["name"], cloth["img_path"], i + 1))
@@ -89,6 +123,18 @@ def wear_info(clothName_str, filename='clothes.json'):
                     json.dump(file_data, file, indent=4, ensure_ascii=False)
                     break
 
+def update_weared_cloth(cloth_path, filename='clothes.json'):
+    file_data = read_json(filename)
+    with open(filename, 'w', encoding='UTF8') as file:
+        for i in range(len(file_data["closet"])):
+            for cloth in file_data["closet"][i]["clothes_list"]:
+                if cloth["img_path"] == cloth_path:
+                    cloth["count"] += 1
+                    now = datetime.datetime.now()
+                    cloth["last_wear_date"] = str(now.date())
+                    file.seek(0)
+                    json.dump(file_data, file, indent=4, ensure_ascii=False)
+                    break
 
 # 옷 카테고리별로 보여주는 기능
 # 옷 검색하는 페이지에 카테고리 filter (버튼) 추가 구현 부탁 (프론트팀에게)
