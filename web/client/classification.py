@@ -6,8 +6,6 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.models import Model
 import os
 
-import clothOps
-
 def rgba2rgb(rgba, background=(255, 255, 255)):
     rgba = img_to_array(rgba)
     row, col, ch = rgba.shape

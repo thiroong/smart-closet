@@ -3,7 +3,6 @@ import numpy as np
 import os
 import json
 import cv2
-import datetime
 import numpy as np
 import clothOps
 import camera
@@ -37,7 +36,7 @@ def setting():
     tool_tip_list=[]
     category_list=[]
     with open('clothes.json', encoding='UTF8') as cloth_json:
-        json_data = json.load(cloth_json)  # cloth_json 불러옴
+        json_data = json.load(cloth_json)
         for i in range(7):
             tool_tip_list.append(json_data["closet"][i]["tool_tip"])
             category_list.append(json_data["closet"][i]["category_to_save"])
@@ -54,9 +53,7 @@ def show_setting():
     clothOps.set_category_to_box(category_list)
     return render_template("show_setting.html", result=category_list)
 
-
 ###################################################
-
 
 @application.route("/add")
 def add():
@@ -85,11 +82,8 @@ def fashion(isUpload, isAdd):
         path_segmen = "static/images/c2/{name}.png".format(name=nickname)  # 세그멘테이션 이미지 저장 경로
 
     else:
-        # now = datetime.datetime.now()
         path_original = "static/images/c1/test.png"
-        # path_original = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
         path_segmen = "static/images/c2/test.png"
-        # path_segmen = "static/images/c2/{}.jpg".format(str(now).replace(":", ''))
 
     # 이미지 가져오기
     if isUpload == 'True':
@@ -115,25 +109,16 @@ def fashion(isUpload, isAdd):
     clothes_info = list(clothOps.clothes_info.values())
     graph = plots.prob_graph(clothes_info, pred)
 
-    #print(max(pred))
-
     if isAdd == 'True':
 
         if max(pred) < 0.6 and isAdd:
             return redirect(url_for("underProb"))
 
-        # position = clothOps.search_pos_by_label(category)
         position_arr = clothOps.is_category_in_setting(category)
         if len(position_arr) == 0:
             position = clothOps.biggest_capacity([1, 2, 3, 4, 5, 6, 7])
         else:
             position = clothOps.biggest_capacity(position_arr)
-
-
-        # 수정 필요 : 수납장에 해당 카테고리가 없으면 사용자 설정 가능하게 해야될까요?
-        """if position == -1:
-            position = "지정 카테고리가 없습니다!"
-            position = 2"""
 
         # 서랍장 저장
         box_path = "static/images/box/box{pos}/{name}.png".format(pos=position, name=nickname)  # 서랍장 위치
@@ -156,7 +141,6 @@ def fashion(isUpload, isAdd):
     else:
         # 유사도 측정 결과
         name = cc.similarity_measures(path_segmen)
-        # print(f'가장 유사한 이름: {name}')
         if not name:
             return redirect(url_for("empty_closet"))
         
@@ -164,20 +148,13 @@ def fashion(isUpload, isAdd):
         for t in temp:
             if t[0]==name:
                 box_num=t[2]
-        # print(f'박스넘버: {box_num}')
         similar_path = "/static/images/box/box{box_num}/{name}.png".format(box_num=box_num, name=name) 
-        # print(f'similar_path: {similar_path}')
 
         results = {"label": label, "category": category,
                    "path_original": path_original, "path_segmen": path_segmen,
                    "name":name, "box_num":box_num, "similar_path":similar_path,
                    "graph": graph} 
         return render_template('ootd_whichone.html', results=results)
-    
-"""@application.route("/graph_after_ootd")
-def graph_after_ootd(results):
-    return render_template('graph_after_ootd.html', results=results)"""
-
 
 @application.route("/<int:position>/<category>/<nickname>/<int:box_num>", methods=['POST'])
 def confirm(position, category, nickname, box_num):
@@ -242,7 +219,6 @@ def cloth_detail(box_num, cloth_name):
                 current_cloth = copy.deepcopy(cloth)
                 break
         current_cloth['box_num'] = str(box_num)
-        # cloth_detail.html보면 자바스크립트 동작 안해서 count를 str로 바꿔놓음
         current_cloth['count'] = str(current_cloth['count'])
         current_category = current_cloth["category"]
 
@@ -254,10 +230,6 @@ def cloth_detail(box_num, cloth_name):
         current_cloth['management_info'] = ops_json_data["clothes_management"][0][current_category]
     return render_template("cloth_detail.html", result=current_cloth)
 
-""""@application.route('/setting.html')
-def setting(nickname, p_path):"""
-
-
 ##################검색 기능######################
 @application.route('/search_cloth_result', methods=['POST'])
 def search_cloth_result():
@@ -267,10 +239,7 @@ def search_cloth_result():
         return render_template("not_found.html")
     return render_template("search_cloth_result.html", result=found_cloth_arr)
 
-
-
 ##################검색 기능######################
-
 @application.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(application.root_path, 'static'),
