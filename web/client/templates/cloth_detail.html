@@ -65,7 +65,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box text-center">
-						<h2 class="intro-heading">{{result.name}}</h2>
+						<h2 class="intro-heading" style="font-family: 'IBM Plex Sans KR', sans-serif;">{{result.name}}</h2>
                         <!-- 옷 이름 받아와주세요 -->
 						<p style="font-family: 'IBM Plex Sans KR', sans-serif;"><span> {{result.box_num}}번 수납합 </span></p>
                         <!-- 수납함 -->
@@ -86,13 +86,6 @@
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 정보 : {{result.category}}</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">세탁 정보 : <br> &nbsp {{result.laundry_info}}</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">보관 정보 : <br> &nbsp {{result.management_info}}</li>
-						<!--<li>
-							<script type="text/javascript">
-								document.write("입은 횟수 : "+ result.count)
-							</script>
-						</li>-->
-						<!--위 자바스크립트 코드 동작 안해서 application.py에서 count를 str로 바꿔버림..
-						자바스크립트 동작하면 아래 코드 수정하기-->
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">입은 횟수 : &nbsp {{result.count}} &nbsp 회</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">최근 착용일 : {{result.last_wear_date}}</li>
 					</div>
