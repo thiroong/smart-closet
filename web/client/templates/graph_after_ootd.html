@@ -24,6 +24,10 @@
 	<script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+
 	</head>
 	<body>
 
@@ -41,7 +45,7 @@
 		</div>
 	</nav>
 
-	<div id="fh5co-page">
+	<div id="fh5co-page" style="min-height: 1300px">
 		<header>
 			<div class="container">
 				<div class="fh5co-navbar-brand">
@@ -61,10 +65,12 @@
 		</div>
 
 
-		<div class="graph-box">
-			<div class="bar-box">
-				<h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">빈도수 그래프</h3>
-				<canvas id="myChart" width="400px" height="400px"></canvas>
+		<div class="graph-box" style="display: inline-flex;
+									  margin-left: 136px;">
+			<div class="bar-box" style="
+    									margin-left: 41px;">
+				<h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">빈도 수 그래프</h3>
+				<canvas id="myChart" width="400px" height="400px" style="font-family: 'IBM Plex Sans KR', sans-serif;"></canvas>
 				<script>
     				const ctx = document.getElementById('myChart').getContext('2d');
     				const myChart = new Chart(ctx, {
@@ -111,10 +117,11 @@
 
 				</script>
 			</div>
-			<div class="doughnut-box" style>
+			<div class="doughnut-box" style="
+    										margin-left: 28px;">
 
 				<canvas id="myChart2" width="50%" height="50%"
-						style="display: block; box-sizing: border-box; height: 529.6px; width: 530.4px;"></canvas>
+						style="display: block; box-sizing: border-box; height: 529.6px; width: 530.4px; font-family: 'IBM Plex Sans KR', sans-serif;"></canvas>
 				<script>
 					new Chart(document.getElementById("myChart2"),
 					{
@@ -137,23 +144,32 @@
 			</div>
 
 
-			<div class="recommend-box">
-			<h3>버릴 옷 추천</h3>
-			<figure>
-				<figcaption>가장 오랫동안 입지 않은 옷이에옷!</figcaption>
-				<img src="/static/{{results.oldest_img}}">
-			</figure>
+			<div class="recommend-box" style="
+    									width: 250px;">
 
-			<figure>
-				<figcaption>가장 적게 입은 옷이에옷!</figcaption>
-				<img src="/static/{{results.least_img}}">
-			</figure>
 
-			<p>아름다운 가게: <a href="https://www.beautifulstore.org/">https://www.beautifulstore.org/</a></p>
-			<P>옷캔: <a href="https://otcan.org/">https://otcan.org/</a></P>
+				<div class="row">
+					<figure>
+						<figcaption>가장 오랫동안 입지 않은 옷이예옷!</figcaption>
+						<img src="/static/images/box/box4/ㅇㅈ.png">
+					</figure>
+
+					<figure>
+						<figcaption>가장 적게 입은 옷이예옷!</figcaption>
+						<img src="/static/images/box/box4/ㅇㅈ.png">
+					</figure>
+				</div>
+				<h3 style="width: 364px;font-family: 'IBM Plex Sans KR', sans-serif;margin-top: 50px;">
+					이 참에 기부에 동참해보시는 건..? 🤔
+				</h3>
+				<p style="text-align: initial;font-family: 'IBM Plex Sans KR', sans-serif;">아름다운 가게: <a
+						href="https://www.beautifulstore.org/">https://www.beautifulstore.org/</a></p>
+				<p style="text-align: initial;font-family: 'IBM Plex Sans KR', sans-serif;">옷캔:<br> <a
+						href="https://otcan.org/">https://otcan.org/</a></p>
+			</div>
+
+
 		</div>
-
-	</div>
 
 	<!-- jQuery -->
 	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
