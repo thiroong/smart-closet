@@ -86,9 +86,9 @@ def fashion(isUpload, isAdd):
 
     else:
         # now = datetime.datetime.now()
-        path_original = "static/images/c1/test.png"  # 테스트용 코드
+        path_original = "static/images/c1/test.png"
         # path_original = "static/images/c1/{}.jpg".format(str(now).replace(":", ''))
-        path_segmen = "static/images/c2/test.png"  # 테스트용 코드
+        path_segmen = "static/images/c2/test.png"
         # path_segmen = "static/images/c2/{}.jpg".format(str(now).replace(":", ''))
 
     # 이미지 가져오기
@@ -190,6 +190,15 @@ def ootd_confirm():
     similar_path=similar_path[8:]
     clothOps.update_weared_cloth(similar_path)
     
+    circle = clothOps.get_graph_key_value("circle")
+    stick = clothOps.get_graph_key_value("stick")
+    oldest_img = clothOps.find_oldest_cloth()
+    least_img = clothOps.find_count_cloth()
+    results={"circle":circle, "stick":stick, "oldest_img":oldest_img, "least_img":least_img}
+    return render_template('graph_after_ootd.html', results=results)
+
+@application.route("/graph_after_ootd")
+def ootd_graph():    
     circle = clothOps.get_graph_key_value("circle")
     stick = clothOps.get_graph_key_value("stick")
     oldest_img = clothOps.find_oldest_cloth()
