@@ -5,11 +5,6 @@
 <!--<![endif]-->
 
 <head>
-    <style>
-
-    </style>
-
-
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,17 +48,371 @@
 
 <body>
 
-<nav id="fh5co-main-nav" role="navigation">
-    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle active"><i></i></a>
-    <div class="js-fullheight fh5co-table">
-        <div class="fh5co-table-cell js-fullheight">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/closet">Closet</a></li>
-                <li><a href="/ootd">OOTD</a></li>
-                <li><a href="/setting">Setting</a></li>
-            </ul>
+    <div id="closet1-tooltip">
+        <div id="tooltip-id1" class="mdc-tooltip" role="tooltip" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[0]}}
+            </div>
         </div>
+        <a aria-describedby="tooltip-id1" href="/box/1" style="position: absolute;
+                    left: 335px;
+                    z-index: 10;
+                    top: 471px;
+                    color: black;
+                    text-align: center"> 1 <br>{{tool_tip_list_result[7][0]}}</a>
+        <div id="tooltip-id2" class="mdc-tooltip" role="tooltip" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[1]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id2" href="/box/2" style="
+                                                                                                        text-align: center;
+                                                                                                        position: absolute;
+                                                                                                        left: 335px;
+                                                                                                        z-index: 10;
+                                                                                                        top: 600px;
+                                                                                                        color: black;
+                                                                                                        ">
+            2 <br>{{tool_tip_list_result[7][1]}}</a>
+
+        <div id="tooltip-id3" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[2]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id3" href="/box/3" style="
+                                                                                                        position: absolute;
+                                                                                                        left: 335px;
+                                                                                                        z-index: 10;
+                                                                                                        top: 708px;
+                                                                                                        color: black;
+                                                                                                        text-align: center;
+                                                                                                        ">
+            3 <br>{{tool_tip_list_result[7][2]}}</a>
+
+        <div id="tooltip-id4" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[3]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id4" href="/box/4" style="
+                                                                                                        position: absolute;
+                                                                                                        left: 335px;
+                                                                                                        z-index: 10;
+                                                                                                        top: 779px;
+                                                                                                        color: black;
+                                                                                                        text-align: center;
+                                                                                                        ">
+            4 <br>{{tool_tip_list_result[7][3]}}</a>
+
+        <div id="tooltip-id5" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[4]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id5" href="/box/5" style="
+                                                                                                        position: absolute;
+    left: 429px;
+    z-index: 10;
+    top: 633px;
+    color: black;
+    text-align: center;">
+            5 <br>{{tool_tip_list_result[7][4]}}</a>
+
+        <div id="tooltip-id6" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[5]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id6" href="/box/6" style="
+                                                                                                            position: absolute;
+    left: 527px;
+    z-index: 10;
+    top: 533px;
+    color: black;
+    text-align: center;">
+            6 <br>{{tool_tip_list_result[7][5]}}</a>
+
+        <div id="tooltip-id7" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[6]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id7" href="/box/7" style="
+                                                                                                        position: absolute;
+    left: 527px;
+    z-index: 10;
+    top: 718px;
+    color: black;
+    text-align: center;">
+            7 <br>{{tool_tip_list_result[7][6]}}</a>
+
+
+    </div>
+
+    <div id="closet2-tooltip" style="display: none">
+        <div id="tooltip-id1-wardrobe2" class="mdc-tooltip" role="tooltip"
+            style="position: absolute;left: 60px;z-index: 10;top: 26px;color: black;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[0]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id1-wardrobe2" href="/box/1"
+            style="text-align: center;
+    position: absolute;
+    left: 334px;
+    z-index: 10;
+    top: 484px;
+    color: black;"> 1<br>
+            {{tool_tip_list_result[7][0]}}</a>
+
+        <div id="tooltip-id2-wardrobe2" class="mdc-tooltip" role="tooltip" style="
+                                                                                        position: absolute;
+                                                                                        left: 75px;
+                                                                                        z-index: 10;
+                                                                                        top: 150px;
+                                                                                        color: black;"
+            aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[1]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id2-wardrobe2" href="/box/2" style="
+                                                                                            position: absolute;
+    left: 334px;
+    z-index: 10;
+    top: 586px;
+    color: black;
+    text-align: center;"> 2<br>
+            {{tool_tip_list_result[7][1]}}</a>
+
+        <div id="tooltip-id3-wardrobe2" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[2]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id3-wardrobe2" href="/box/3" style="
+                                                                                       text-align: center;
+    position: absolute;
+    left: 334px;
+    z-index: 10;
+    top: 678px;
+    color: black;"> 3
+            <br>{{tool_tip_list_result[7][2]}}</a>
+
+        <div id="tooltip-id4-wardrobe2" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[3]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id4-wardrobe2" href="/box/4" style="
+                                                                                       text-align: center;
+    position: absolute;
+    left: 334px;
+    z-index: 10;
+    top: 768px;
+    color: black;"> 4<br>
+            {{tool_tip_list_result[7][3]}}</a>
+
+        <div id="tooltip-id5-wardrobe2" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[4]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id5-wardrobe2" href="/box/5" style="
+                                                                                           position: absolute;
+    left: 428px;
+    z-index: 10;
+    top: 600px;
+    color: black;
+    text-align: center;"> 5
+            <br>{{tool_tip_list_result[7][4]}}</a>
+
+        <div id="tooltip-id6-wardrobe2" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[5]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id6-wardrobe2" href="/box/6" style="
+                                                                                            text-align: center;
+    position: absolute;
+    left: 428px;
+    z-index: 10;
+    top: 759px;
+    color: black;"> 6
+            <br>{{tool_tip_list_result[7][5]}}</a>
+
+        <div id="tooltip-id7-wardrobe2" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[6]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id7-wardrobe2" href="/box/7" style="
+                                                                                            text-align: center;
+    position: absolute;
+    left: 523px;
+    z-index: 10;
+    top: 625px;
+    color: black;"> 7<br>
+            {{tool_tip_list_result[7][6]}}</a>
+        <!--****************************************************-->
+
+    </div>
+    <div id="closet3-tooltip" style="display: none">
+        <div id="tooltip-id1-wardrobe3" class="mdc-tooltip" role="tooltip"
+            style="position: absolute;left: 110px;z-index: 10;top: 30px;color: black;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[0]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id1-wardrobe3" href="/box/1"
+            style="text-align: center;
+    position: absolute;
+    left: 247px;
+    z-index: 10;
+    top: 474px;
+    color: black;"> 1
+            <br>{{tool_tip_list_result[7][0]}}</a>
+
+        <div id="tooltip-id2-wardrobe3" class="mdc-tooltip" role="tooltip" style="
+                                                                                        position: absolute;
+                                                                                        left: 97px;
+                                                                                        z-index: 10;
+                                                                                        top: 18px;
+                                                                                        color: black;"
+            aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[1]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id2-wardrobe3" href="/box/2" style="
+                                                                                        position: absolute;
+    left: 247px;
+    z-index: 10;
+    top: 632px;
+    color: black;
+    text-align: center;"> 2<br>
+            {{tool_tip_list_result[7][1]}}</a>
+
+        <div id="tooltip-id3-wardrobe3" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[2]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id3-wardrobe3" href="/box/3" style="
+                                                                                        position: absolute;
+    left: 247px;
+    z-index: 10;
+    top: 768px;
+    color: black;
+    text-align: center;"> 3
+            <br>{{tool_tip_list_result[7][2]}}</a>
+
+        <div id="tooltip-id4-wardrobe3" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[3]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id4-wardrobe3" href="/box/4" style="
+                                                                                        position: absolute;
+    left: 409px;
+    z-index: 10;
+    top: 527px;
+    color: black;
+    text-align: center;"> 4
+            <br>{{tool_tip_list_result[7][3]}}</a>
+
+        <div id="tooltip-id5-wardrobe3" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[4]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id5-wardrobe3" href="/box/5" style="
+                                                                                       position: absolute;
+    left: 409px;
+    z-index: 10;
+    top: 723px;
+    color: black;
+    text-align: center;"> 5<br>
+            {{tool_tip_list_result[7][4]}}</a>
+
+        <div id="tooltip-id6-wardrobe3" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[5]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id6-wardrobe3" href="/box/6" style="
+                                                                                            position: absolute;
+    left: 572px;
+    z-index: 10;
+    top: 570px;
+    color: black;
+    text-align: center;"> 6
+            <br>{{tool_tip_list_result[7][5]}}</a>
+
+        <div id="tooltip-id7-wardrobe3" class="mdc-tooltip" role="tooltip"
+            style="top: 337px; left: 391.337px; position: absolute;" aria-hidden="true">
+            <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
+                style="transform-origin: center top; font-size: 13px;">
+                {{tool_tip_list_result[6]}}
+            </div>
+        </div>
+        <a aria-describedby="tooltip-id7-wardrobe3" href="/box/7" style="
+                                                                                       position: absolute;
+    left: 570px;
+    z-index: 10;
+    top: 761px;
+    color: black;
+    text-align: center;"> 7
+            <br>{{tool_tip_list_result[7][6]}}</a>
+    </div>
+
+
+    <nav id="fh5co-main-nav" role="navigation">
+        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle active"><i></i></a>
+        <div class="js-fullheight fh5co-table">
+            <div class="fh5co-table-cell js-fullheight">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/closet">Closet</a></li>
+                    <li><a href="/ootd">OOTD</a></li>
+                    <li><a href="/setting">Setting</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     <div id="fh5co-page" style="height: 1350px;">
@@ -100,131 +449,25 @@
                         <input type="radio" class="type3" id="" name="development-detail">
                         <div class="closet-list-box">
                             <ul class="dNav">
-                                <li class="closet-type-box closet1 open">
+                                <li class="closet-type-box closet1 open"
+                                    onclick="$('#closet1-tooltip').css('display','block');$('#closet2-tooltip').css('display','none');$('#closet3-tooltip').css('display','none');">
                                     <h2 class="closet-type-box">type1</h2>
                                 </li>
-                                <li class="closet-type-box closet2">
+                                <li class="closet-type-box closet2"
+                                    onclick="$('#closet2-tooltip').css('display','block');$('#closet1-tooltip').css('display','none'); $('#closet3-tooltip').css('display','none');">
                                     <h2 class="closet-type-box">type2</h2>
                                 </li>
-                                <li class="closet-type-box closet3">
+                                <li class="closet-type-box closet3"
+                                    onclick="$('#closet3-tooltip').css('display','block');$('#closet1-tooltip').css('display','none');$('#closet2-tooltip').css('display','none');">
                                     <h2 class="closet-type-box">type3</h2>
                                 </li>
-
                             </ul>
                         </div>
 
                         <div class="closet-contents">
                             <section class="type1-section">
-
-                                <div id="tooltip-id1" class="mdc-tooltip" role="tooltip"
-                                     style="position: absolute !important;left: 75px !important;z-index: 10;top: 26px !important;color: black;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[0]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id1" href="/box/1"
-                                   style="position: absolute;left: 60px;z-index: 10;top: 26px;color: black;"> 1 {{tool_tip_list_result[7][0]}}</a>
-
-                                <div id="tooltip-id2" class="mdc-tooltip" role="tooltip"
-                                     style="
-                                                                                        position: absolute;
-                                                                                        left: 75px;
-                                                                                        z-index: 10;
-                                                                                        top: 150px;
-                                                                                        color: black;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[1]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id2" href="/box/2" style="
-                                                                                        position: absolute;
-                                                                                        left: 60px;
-                                                                                        z-index: 10;
-                                                                                        top: 150px;
-                                                                                        color: black;"> 2 {{tool_tip_list_result[7][1]}}</a>
-
-                                <div id="tooltip-id3" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[2]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id3" href="/box/3" style="
-                                                                                        position: absolute;
-                                                                                        left: 60px;
-                                                                                        z-index: 10;
-                                                                                        top: 265px;
-                                                                                        color: black;"> 3 {{tool_tip_list_result[7][2]}}</a>
-
-                                <div id="tooltip-id4" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[3]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id4" href="/box/4" style="
-                                                                                        position: absolute;
-                                                                                        left: 60px;
-                                                                                        z-index: 10;
-                                                                                        top: 335px;
-                                                                                        color: black;"> 4 {{tool_tip_list_result[7][3]}}</a>
-
-                                <div id="tooltip-id5" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[4]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id5" href="/box/5" style="
-                                                                                        position: absolute;
-                                                                                        left: 150px;
-                                                                                        z-index: 10;
-                                                                                        top: 180px;
-                                                                                        color: black;"> 5 {{tool_tip_list_result[7][4]}}</a>
-
-                                <div id="tooltip-id6" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[5]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id6" href="/box/6" style="
-                                                                                        position: absolute;
-                                                                                        left: 250px;
-                                                                                        z-index: 10;
-                                                                                        top: 100px;
-                                                                                        color: black;"> 6 {{tool_tip_list_result[7][5]}}</a>
-
-                                <div id="tooltip-id7" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[6]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id7" href="/box/7" style="
-                                                                                        position: absolute;
-                                                                                        left: 250px;
-                                                                                        z-index: 10;
-                                                                                        top: 280px;
-                                                                                        color: black;"> 7 {{tool_tip_list_result[7][6]}}</a>
-
                                 <div class="container" style="display: flex; width: fit-content;">
-                                    <div class="container"
-                                         style="height: 50vh;align-items: center;justify-content: center; width: 500px">
+                                    <div class="container" style=" width: 600px; height:10px;">
                                         <div class="wardrobe">
                                             <div class="front" style="z-index: 4;">
                                                 <div class="door" style="transform: rotateY(160deg)"></div>
@@ -254,119 +497,15 @@
                             </section>
 
                             <section class="type2-section">
-                                <div id="tooltip-id1-wardrobe2" class="mdc-tooltip" role="tooltip"
-                                     style="position: absolute;left: 60px;z-index: 10;top: 26px;color: black;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[0]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id1-wardrobe2" href="/box/1"
-                                   style="position: absolute;left: 60px;z-index: 10;top: 45px;color: black;"> 1 {{tool_tip_list_result[7][0]}}</a>
 
-                                <div id="tooltip-id2-wardrobe2" class="mdc-tooltip" role="tooltip"
-                                     style="
-                                                                                        position: absolute;
-                                                                                        left: 75px;
-                                                                                        z-index: 10;
-                                                                                        top: 150px;
-                                                                                        color: black;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[1]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id2-wardrobe2" href="/box/2" style="
-                                                                                        position: absolute;
-                                                                                        left: 60px;
-                                                                                        z-index: 10;
-                                                                                        top: 150px;
-                                                                                        color: black;"> 2 {{tool_tip_list_result[7][1]}}</a>
-
-                                <div id="tooltip-id3-wardrobe2" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[2]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id3-wardrobe2" href="/box/3" style="
-                                                                                        position: absolute;
-                                                                                        left: 60px;
-                                                                                        z-index: 10;
-                                                                                        top: 235px;
-                                                                                        color: black;"> 3 {{tool_tip_list_result[7][2]}}</a>
-
-                                <div id="tooltip-id4-wardrobe2" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[3]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id4-wardrobe2" href="/box/4" style="
-                                                                                        position: absolute;
-                                                                                        left: 60px;
-                                                                                        z-index: 10;
-                                                                                        top: 335px;
-                                                                                        color: black;"> 4 {{tool_tip_list_result[7][3]}}</a>
-
-                                <div id="tooltip-id5-wardrobe2" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[4]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id5-wardrobe2" href="/box/5" style="
-                                                                                        position: absolute;
-                                                                                        left: 150px;
-                                                                                        z-index: 10;
-                                                                                        top: 180px;
-                                                                                        color: black;"> 5 {{tool_tip_list_result[7][4]}}</a>
-
-                                <div id="tooltip-id6-wardrobe2" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[5]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id6-wardrobe2" href="/box/6" style="
-                                                                                        position: absolute;
-                                                                                        left: 250px;
-                                                                                        z-index: 10;
-                                                                                        top: 320px;
-                                                                                        color: black;"> 6 {{tool_tip_list_result[7][5]}}</a>
-
-                                <div id="tooltip-id7-wardrobe2" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[6]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id7-wardrobe2" href="/box/7" style="
-                                                                                        position: absolute;
-                                                                                        left: 250px;
-                                                                                        z-index: 10;
-                                                                                        top: 180px;
-                                                                                        color: black;"> 7 {{tool_tip_list_result[7][6]}}</a>
-                                <!--****************************************************-->
                                 <div class="container" style="display: flex; width: fit-content;">
                                     <div class="container"
-                                         style="height: 50vh;align-items: center;justify-content: center; width: 500px">
+                                        style="align-items: center;justify-content: center; width: 1000px; height:1000px;">
                                         <div class="wardrobe-wardrobe2">
                                             <div class="front-wardrobe2" style="z-index: 4;">
                                                 <div class="door-wardrobe2" style="transform: rotateY(160deg)"></div>
-                                                <div class="second-door-wardrobe2" style="transform: rotateY(160deg)"></div>
+                                                <div class="second-door-wardrobe2" style="transform: rotateY(160deg)">
+                                                </div>
                                             </div>
                                             <div class="inside-wardrobe2">
                                                 <div class="rail-wardrobe2">
@@ -392,118 +531,15 @@
                             </section>
 
                             <section class="type3-section">
-                                <div id="tooltip-id1-wardrobe3" class="mdc-tooltip" role="tooltip"
-                                     style="position: absolute;left: 110px;z-index: 10;top: 30px;color: black;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[0]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id1-wardrobe3" href="/box/1"
-                                   style="position: absolute;left: 80px;z-index: 10;top: 30px;color: black;"> 1 {{tool_tip_list_result[7][0]}}</a>
 
-                                <div id="tooltip-id2-wardrobe3" class="mdc-tooltip" role="tooltip"
-                                     style="
-                                                                                        position: absolute;
-                                                                                        left: 75px;
-                                                                                        z-index: 10;
-                                                                                        top: 150px;
-                                                                                        color: black;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[1]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id2-wardrobe3" href="/box/2" style="
-                                                                                        position: absolute;
-                                                                                        left: 80px;
-                                                                                        z-index: 10;
-                                                                                        top: 180px;
-                                                                                        color: black;"> 2 {{tool_tip_list_result[7][1]}}</a>
-
-                                <div id="tooltip-id3-wardrobe3" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[2]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id3-wardrobe3" href="/box/3" style="
-                                                                                        position: absolute;
-                                                                                        left: 80px;
-                                                                                        z-index: 10;
-                                                                                        top: 330px;
-                                                                                        color: black;"> 3 {{tool_tip_list_result[7][2]}}</a>
-
-                                <div id="tooltip-id4-wardrobe3" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[3]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id4-wardrobe3" href="/box/4" style="
-                                                                                        position: absolute;
-                                                                                        left: 255px;
-                                                                                        z-index: 10;
-                                                                                        top: 95px;
-                                                                                        color: black;"> 4 {{tool_tip_list_result[7][3]}}</a>
-
-                                <div id="tooltip-id5-wardrobe3" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[4]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id5-wardrobe3" href="/box/5" style="
-                                                                                        position: absolute;
-                                                                                        left: 255px;
-                                                                                        z-index: 10;
-                                                                                        top: 280px;
-                                                                                        color: black;"> 5 {{tool_tip_list_result[7][4]}}</a>
-
-                                <div id="tooltip-id6-wardrobe3" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[5]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id6-wardrobe3" href="/box/6" style="
-                                                                                        position: absolute;
-                                                                                        left: 415px;
-                                                                                        z-index: 10;
-                                                                                        top: 120px;
-                                                                                        color: black;"> 6 {{tool_tip_list_result[7][5]}}</a>
-
-                                <div id="tooltip-id7-wardrobe3" class="mdc-tooltip" role="tooltip"
-                                     style="top: 337px; left: 391.337px; position: absolute;"
-                                     aria-hidden="true">
-                                    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
-                                         style="transform-origin: center top; font-size: 13px;">
-                                        {{tool_tip_list_result[6]}}
-                                    </div>
-                                </div>
-                                <a aria-describedby="tooltip-id7-wardrobe3" href="/box/7" style="
-                                                                                        position: absolute;
-                                                                                        left: 415px;
-                                                                                        z-index: 10;
-                                                                                        top: 320px;
-                                                                                        color: black"> 7 {{tool_tip_list_result[7][6]}}</a>
                                 <div class="container" style="display: flex; width: fit-content;">
                                     <div class="container"
-                                         style="height: 50vh;align-items: center;justify-content: center; width: 500px">
+                                        style="align-items: center;justify-content: center; width: 700px; height:300px;">
                                         <div class="wardrobe-wardrobe3">
                                             <div class="front-wardrobe3" style="z-index: 4;">
                                                 <div class="door-wardrobe3" style="transform: rotateY(160deg)"></div>
-                                                <div class="second-door-wardrobe3" style="transform: rotateY(160deg)"></div>
+                                                <div class="second-door-wardrobe3" style="transform: rotateY(160deg)">
+                                                </div>
                                             </div>
                                             <div class="inside-wardrobe3">
                                                 <div class="rail-wardrobe3">
@@ -539,129 +575,129 @@
                 <div style="display: grid;flex-wrap: wrap;justify-items: start; margin-top: -25px">
                     <div>
                         <form method="post" action='show_setting'>
-                        <div class="select-box" style="
+                            <div class="select-box" style="
                                             width: 270px;
                                             border-radius: 7px;
                                             height: 37px;">
-                            <table class="th_s">
-                                <div style="top:10px">
-                                    <th class="th_s">수납장 번호</th>
-                                    <th class="th_s">옷 종류</th>
+                                <table class="th_s">
+                                    <div style="top:10px">
+                                        <th class="th_s">수납장 번호</th>
+                                        <th class="th_s">옷 종류</th>
+                                    </div>
+                                    <div>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <select name="select1" class="td_s">
+                                                    <option value="none"> 옷 선택</option>
+                                                    <option value="coat">coat</option>
+                                                    <option value="padding">padding</option>
+                                                    <option value="shortsleeve">shortsleeve</option>
+                                                    <option value="longsleeve">longsleeve</option>
+                                                    <option value="shirt">shirt</option>
+                                                    <option value="pants">pants</option>
+                                                    <option value="dress">dress</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <select name="select2" class="td_s">
+                                                    <option value="none"> 옷 선택</option>
+                                                    <option value="coat">coat</option>
+                                                    <option value="padding">padding</option>
+                                                    <option value="shortsleeve">shortsleeve</option>
+                                                    <option value="longsleeve">longsleeve</option>
+                                                    <option value="shirt">shirt</option>
+                                                    <option value="pants">pants</option>
+                                                    <option value="dress">dress</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                <select name="select3" class="td_s">
+                                                    <option value="none"> 옷 선택</option>
+                                                    <option value="coat">coat</option>
+                                                    <option value="padding">padding</option>
+                                                    <option value="shortsleeve">shortsleeve</option>
+                                                    <option value="longsleeve">longsleeve</option>
+                                                    <option value="shirt">shirt</option>
+                                                    <option value="pants">pants</option>
+                                                    <option value="dress">dress</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>
+                                                <select name="select4" class="td_s">
+                                                    <option value="none"> 옷 선택</option>
+                                                    <option value="coat">coat</option>
+                                                    <option value="padding">padding</option>
+                                                    <option value="shortsleeve">shortsleeve</option>
+                                                    <option value="longsleeve">longsleeve</option>
+                                                    <option value="shirt">shirt</option>
+                                                    <option value="pants">pants</option>
+                                                    <option value="dress">dress</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>
+                                                <select name="select5" class="td_s">
+                                                    <option value="none"> 옷 선택</option>
+                                                    <option value="coat">coat</option>
+                                                    <option value="padding">padding</option>
+                                                    <option value="shortsleeve">shortsleeve</option>
+                                                    <option value="longsleeve">longsleeve</option>
+                                                    <option value="shirt">shirt</option>
+                                                    <option value="pants">pants</option>
+                                                    <option value="dress">dress</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>
+                                                <select name="select6" class="td_s">
+                                                    <option value="none"> 옷 선택</option>
+                                                    <option value="coat">coat</option>
+                                                    <option value="padding">padding</option>
+                                                    <option value="shortsleeve">shortsleeve</option>
+                                                    <option value="longsleeve">longsleeve</option>
+                                                    <option value="shirt">shirt</option>
+                                                    <option value="pants">pants</option>
+                                                    <option value="dress">dress</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>
+                                                <select name="select7" class="td_s">
+                                                    <option value="none"> 옷 선택</option>
+                                                    <option value="coat">coat</option>
+                                                    <option value="padding">padding</option>
+                                                    <option value="shortsleeve">shortsleeve</option>
+                                                    <option value="longsleeve">longsleeve</option>
+                                                    <option value="shirt">shirt</option>
+                                                    <option value="pants">pants</option>
+                                                    <option value="dress">dress</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </div>
+                                </table>
+                                <div class="th_s" style="margin-top: -5%; margin-left: 69%;">
+                                    <input type="submit" value="저장"
+                                        style="border: transparent; border-radius: 7px; background-color:lightgrey;" />
                                 </div>
-                                <div>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <select name="select1" class="td_s">
-                                                <option value="none"> 옷 선택</option>
-                                                <option value="coat">coat</option>
-                                                <option value="padding">padding</option>
-                                                <option value="shortsleeve">shortsleeve</option>
-                                                <option value="longsleeve">longsleeve</option>
-                                                <option value="shirt">shirt</option>
-                                                <option value="pants">pants</option>
-                                                <option value="dress">dress</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>
-                                            <select name="select2" class="td_s">
-                                                <option value="none"> 옷 선택</option>
-                                                <option value="coat">coat</option>
-                                                <option value="padding">padding</option>
-                                                <option value="shortsleeve">shortsleeve</option>
-                                                <option value="longsleeve">longsleeve</option>
-                                                <option value="shirt">shirt</option>
-                                                <option value="pants">pants</option>
-                                                <option value="dress">dress</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>
-                                            <select name="select3" class="td_s">
-                                                <option value="none"> 옷 선택</option>
-                                                <option value="coat">coat</option>
-                                                <option value="padding">padding</option>
-                                                <option value="shortsleeve">shortsleeve</option>
-                                                <option value="longsleeve">longsleeve</option>
-                                                <option value="shirt">shirt</option>
-                                                <option value="pants">pants</option>
-                                                <option value="dress">dress</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>
-                                            <select name="select4" class="td_s">
-                                                <option value="none"> 옷 선택</option>
-                                                <option value="coat">coat</option>
-                                                <option value="padding">padding</option>
-                                                <option value="shortsleeve">shortsleeve</option>
-                                                <option value="longsleeve">longsleeve</option>
-                                                <option value="shirt">shirt</option>
-                                                <option value="pants">pants</option>
-                                                <option value="dress">dress</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>
-                                            <select name="select5" class="td_s">
-                                                <option value="none"> 옷 선택</option>
-                                                <option value="coat">coat</option>
-                                                <option value="padding">padding</option>
-                                                <option value="shortsleeve">shortsleeve</option>
-                                                <option value="longsleeve">longsleeve</option>
-                                                <option value="shirt">shirt</option>
-                                                <option value="pants">pants</option>
-                                                <option value="dress">dress</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>
-                                            <select name="select6" class="td_s">
-                                                <option value="none"> 옷 선택</option>
-                                                <option value="coat">coat</option>
-                                                <option value="padding">padding</option>
-                                                <option value="shortsleeve">shortsleeve</option>
-                                                <option value="longsleeve">longsleeve</option>
-                                                <option value="shirt">shirt</option>
-                                                <option value="pants">pants</option>
-                                                <option value="dress">dress</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>
-                                            <select name="select7" class="td_s">
-                                                <option value="none"> 옷 선택</option>
-                                                <option value="coat">coat</option>
-                                                <option value="padding">padding</option>
-                                                <option value="shortsleeve">shortsleeve</option>
-                                                <option value="longsleeve">longsleeve</option>
-                                                <option value="shirt">shirt</option>
-                                                <option value="pants">pants</option>
-                                                <option value="dress">dress</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                </div>
-                            </table>
-                            <div class="th_s" style="margin-top: -5%; margin-left: 69%;">
-                                <input type="submit" value="저장"
-                                       style="border: transparent; border-radius: 7px; background-color:lightgrey;"/>
                             </div>
-                        </div>
-                    </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -669,55 +705,68 @@
 
 
         <footer>
-			<div id="footer" style="border-top:transparent; margin-top:0px;">
-				<div class="container">
-					<div class="row" style="margin-top: 60px;">
-                        <h2 class="heading-title"> Closet Setting Guide </h2>
-						<div class="col-md-4" >
+            <div id="footer" style="border-top:transparent; margin-top:-60px;">
+                <div class="container" style="width:1350px;">
+                    <div class="row" style="margin-top: 60px;">
+                        <h2 class="heading-title" style="margin-bottom: 60px;"> Closet Setting Guide </h2>
+                        <div class="col-md-4">
 
-							<h3 class="section-title" style="font-family: 'IBM Plex Sans KR', sans-serif; margin-bottom: 10px; font-size: 20px;">눈 보다 높은 수납장</h3>
+                            <h3 class="section-title"
+                                style="font-family: 'IBM Plex Sans KR', sans-serif; margin-bottom: 10px; font-size: 20px;">
+                                눈 보다 높은 수납장</h3>
                             <p style="font-size: 17px;">소재가 얇고, 무게가 가벼운 상의를 개어서 보관하세요.
-                            <br>소재가 얇고, 무게가 가벼운 상의를 개어서 보관하세요.
+                                <br>모자를 겹쳐서 보관하는 것도 좋은 방법입니다.
                             </p>
-                            <h3 class="section-title" style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px;">눈 높이의 수납장</h3>
+                            <h3 class="section-title"
+                                style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px;">
+                                눈 높이의 수납장</h3>
                             <p style="font-size: 17px;">개어서 정리해도 좋은 옷들을 보관하세요.
                                 <br>넥타이, 목도리, 악세사리를 보관하셔도 좋습니다.
                             </p>
-						</div>
-
-						<div class="col-md-4">
-							<h3 class="section-title" style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px;">허리 높이의 수납장</h3>
-							<p style="font-size: 17px;">소재가 얇고, 무게가 가벼운 하의를 개어서 보관하세요.
-                            <br>두꺼운 상의 중 개어서 보관해도 되는 옷들을 보관하세요.
-                            <br>서랍장을 활용하여 속옷과 양말을 보관하는 방법도 있습니다.</p>
-						</div>
-
-						<div class="col-md-4">
-							<h3 class="section-title" style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px;">무릎 아래의 수납장</h3>
-							<p style="font-size: 17px;">두꺼운 하의 중 개어서 보관해도 되는 옷들을 보관하세요.
-                            <br>두꺼운 하의 중 개어서 보관해도 되는 옷들을 보관하세요.
-                            </p>
-						</div>
+                        </div>
 
                         <div class="col-md-4">
-							<h3 class="section-title" style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px;">위쪽 행거</h3>
-							<p style="font-size: 17px;">옷걸이에 걸어서 보관해야 하는 상의를 보관하세요.
-                            <br>옷걸이에 걸어서 보관해야 하는 상의를 보관하세요.
+                            <h3 class="section-title"
+                                style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px;">
+                                허리 높이의 수납장</h3>
+                            <p style="font-size: 17px;">소재가 얇고, 무게가 가벼운 하의를 개어서 보관하세요.
+                                <br>두꺼운 상의 중 개어서 보관해도 되는 옷들을 보관하세요.
+                                <br>서랍장을 활용하여 속옷과 양말을 보관하는 방법도 있습니다.
                             </p>
-						</div>
+                        </div>
 
-                        <div class="col-md-4" >
-							<h3 class="section-title" style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px; margin-top: -40px;">아래쪽 행거</h3>
-							<p style="font-size: 17px;">옷걸이에 걸어서 보관해야 하는 하의를 보관하세요.
-                            <br>옷걸이에 걸어서 보관해야 하는 상의를 보관하세요.
+                        <div class="col-md-4" style="margin-top: 38px;">
+                            <h3 class="section-title"
+                                style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px; margin-top: -40px;">
+                                아래쪽 행거</h3>
+                            <p style="font-size: 17px;">옷걸이에 걸어서 보관해야 하는 하의를 보관하세요.
+                                <br>정장 바지, 주름 지기 쉬운 하의를 보관하시면 됩니다.
                             </p>
-						</div>
+                        </div>
 
-					</div>
+                        <div class="col-md-4">
+                            <h3 class="section-title"
+                                style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px;">
+                                무릎 아래의 수납장</h3>
+                            <p style="font-size: 17px;">두꺼운 하의 중 개어서 보관해도 되는 옷들을 보관하세요.
+                                <br> 이불, 담요를 보관하셔도 좋습니다.
+                            </p>
+                        </div>
 
-				</div>
-			</div>
-		</footer>
+                        <div class="col-md-4" style="margin-top: -30px;">
+                            <h3 class="section-title"
+                                style="font-family: 'IBM Plex Sans KR', sans-serif;margin-bottom: 10px; font-size: 20px;">
+                                위쪽 행거</h3>
+                            <p style="font-size: 17px;">옷걸이에 걸어서 보관해야 하는 상의를 보관하세요.
+                                <br> 주로 코트, 패딩, 자켓 등을 보관합니다.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- jQuery -->
