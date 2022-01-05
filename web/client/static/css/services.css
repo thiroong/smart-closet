@@ -73,8 +73,12 @@ ul.dNav li.open, ul.dNav li:hover {
   height: 360px;
 }
 
-.type1-section, .type2-section, .type3-section {
+.type1-section, .type2-section {
     margin-left: 170px;
+}
+
+.type3-section {
+  margin-left: 50px;
 }
 
 .type1-section, .type2-section, .type3-section {
@@ -517,3 +521,7 @@ input[type="radio"] {
             height: 380px;
             box-shadow: inset 50px 50px #574422;
         }
+
+body{
+  background: #fff !important;
+}
