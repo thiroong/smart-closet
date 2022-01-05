@@ -1,5 +1,6 @@
 import json
 import datetime
+import os
 
 ############################################
 # 상수 정의
@@ -317,3 +318,25 @@ def get_graph_key_value(shape):
             count.append(val)
 
     return ([labels, count])
+
+##################### 옷 버리기 ########################
+
+def delete_cloth(nickname):
+    closet_info = read_json(DATABASE_PATH)
+    
+    for i in range(7):
+        cloth_list = closet_info["closet"][i]["clothes_list"]
+        for j in range(len(cloth_list)):
+            if closet_info["closet"][i]['clothes_list'][j]['name'] == nickname:
+                closet_info["closet"][i]['clothes_list'].pop(j)
+                closet_info["closet"][i]['used'] -= 1
+                # feature delete
+                os.remove('./static/features/f_{}.npy'.format(nickname))
+                pos = i + 1
+                img_path = "./static/images/box/box" + str(pos) + "/" + nickname + ".png"
+                os.remove(img_path)
+                break
+    
+    open(DATABASE_PATH, "w").write(
+        json.dumps(closet_info, indent = 4, separators=(',', ': '))
+    )

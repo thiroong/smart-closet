@@ -205,6 +205,10 @@ def box(box_num):
         box_data['box_num'] = str(box_num)
     return render_template("box.html", result=box_data)
 
+@application.route("/<nickname>/<int:box_num>", methods=['POST'])
+def delete_cloth(nickname, box_num):
+    clothOps.delete_cloth(nickname)
+    return redirect(url_for('box', box_num=box_num))
 
 @application.route("/box/<int:box_num>/<cloth_name>", methods=['GET'])
 def cloth_detail(box_num, cloth_name):
