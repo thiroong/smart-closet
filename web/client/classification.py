@@ -1,10 +1,13 @@
-import matplotlib.pyplot as plt
 import numpy as np
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 from tensorflow.keras.models import Model
 import os
+
+
+c2c_model = load_model('models/c2c_model.h5')
+c2c_extraction_model = load_model('models/c2c_extraction_model.h5')
 
 def rgba2rgb(rgba, background=(255, 255, 255)):
     rgba = img_to_array(rgba)
@@ -57,11 +60,8 @@ def feature_extract(img):
         [return]
             feature : [numpy] extracted feature from image
     '''
-    c2c_model = load_model('models/c2c_model.h5')
-    base_inputs = c2c_model.layers[0].input
-    base_outputs = c2c_model.layers[-2].output
-    extract_model = Model(inputs=base_inputs, outputs=base_outputs)
-    feature = extract_model.predict(img)[0]
+
+    feature = c2c_extraction_model.predict(img)[0]
     return feature / np.linalg.norm(feature)
 
 def similarity_measures(path, isOotd=True):
@@ -95,7 +95,6 @@ def similarity_measures(path, isOotd=True):
 
 
 def get_prediction(test_image):
-    c2c_model = load_model('models/c2c_model.h5')
     prediction = c2c_model.predict(test_image)
     pred = prediction[0]
     label = np.argmax(prediction)

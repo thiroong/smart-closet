@@ -41,7 +41,8 @@ def get_data(input_size=(299, 299)):
     return train_generator, validation_generator, test_generator
 
 
-# 한 epoch 당 45~60s
+# cpu 사용 시 한 epoch 당 45~60s
+# colab gpu 사용 시 한 epoch 당 23s~26s
 def basic_cnn_model():
     basic_cnn_model = Sequential()
     basic_cnn_model.add(Conv2D(32, (3,3), activation='relu', input_shape=(299, 299, 3)))
@@ -54,6 +55,7 @@ def basic_cnn_model():
     return basic_cnn_model
 
 
+# cpu 사용 시 한 epoch 당 240~260s
 def inceptionV3_classifier():
     inceptionV3 = InceptionV3(include_top=True)
     base_inputs = inceptionV3.layers[0].input
@@ -63,6 +65,7 @@ def inceptionV3_classifier():
     return inceptionV3_model
 
 
+# cpu 사용 시 한 epoch 당 240~260s
 def inceptionV3_fine_tunning():
     inception_V3 = InceptionV3(weights='imagenet', input_shape=(299, 299, 3), include_top=True)
     for layer in inception_V3.layers[:]:
@@ -73,6 +76,14 @@ def inceptionV3_fine_tunning():
     inceptionV3_ft_model = tf.keras.Model(inputs=base_inputs, outputs=classifier)
 
     return inceptionV3_ft_model
+
+
+def c2c_model_features(c2c_model):
+    base_inputs = c2c_model.layers[0].input
+    base_outputs = c2c_model.layers[-2].output
+    extract_model = Model(inputs=base_inputs, outputs=base_outputs)
+    extract_model.save(os.path.join("models", "c2c_extraction_model.h5"))
+    return extract_model
 
 
 def train_model(model, name, train_generator, validation_generator):
@@ -106,5 +117,5 @@ if __name__ == '__main__':
     train_model(cnn_model, "cnn", train, valid)
     train_model(inceptionV3_clas, "ic", train, valid)
     train_model(inceptionV3_fine, "ift", train, valid)
-
+    extract_model = c2c_model_features(inceptionV3_clas)
 
