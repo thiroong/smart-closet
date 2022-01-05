@@ -263,6 +263,8 @@ def setting(nickname, p_path):"""
 def search_cloth_result():
     keyword = request.form['nickname']
     found_cloth_arr = clothOps.find_cloth_by_keyword(keyword)
+    if len(found_cloth_arr) == 0:
+        return render_template("not_found.html")
     return render_template("search_cloth_result.html", result=found_cloth_arr)
 
 
