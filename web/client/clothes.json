@@ -2,68 +2,60 @@
     "user_ID": "hyoukim",
     "closet": [
         {
-            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
+            "tool_tip": "\ub192\uc740 \uc218\ub0a9\uc7a5\uc5d0\ub294\n\ud604\uc7ac\uc640 \ub2e4\ub978 \uacc4\uc808\uc758 \uc637\ub4e4\uc744 \uc815\ub9ac\ud558\ub294 \uac83\uc744 \ucd94\ucc9c\ub4dc\ub9bd\ub2c8\ub2e4.\n\ucd94\ucc9c \uc885\ub958: \ubc18\ud314",
             "position": 1,
             "category_to_save": "shortsleeve",
             "capacity": 10,
             "used": 0,
-            "clothes_list": [
-            ]
+            "clothes_list": []
         },
         {
-            "tool_tip": "위쪽 행거는\n 걸어서 보관해야 하는 옷들을 추천드립니다.\n추천 종류: 긴팔티, 짧은 드레스",
+            "tool_tip": "\uc704\ucabd \ud589\uac70\ub294\n \uac78\uc5b4\uc11c \ubcf4\uad00\ud574\uc57c \ud558\ub294 \uc637\ub4e4\uc744 \ucd94\ucc9c\ub4dc\ub9bd\ub2c8\ub2e4.\n\ucd94\ucc9c \uc885\ub958: \uae34\ud314\ud2f0, \uc9e7\uc740 \ub4dc\ub808\uc2a4",
             "position": 2,
             "category_to_save": "padding",
             "capacity": 10,
             "used": 0,
-            "clothes_list": [
-            ]
+            "clothes_list": []
         },
         {
             "position": 3,
-            "tool_tip": "허리 아래 높이의 수납장에는\n 접어서 보관할 수 있는 하의를 추천드립니다.\n추천 종류: 바지, 청바지",
+            "tool_tip": "\ud5c8\ub9ac \uc544\ub798 \ub192\uc774\uc758 \uc218\ub0a9\uc7a5\uc5d0\ub294\n \uc811\uc5b4\uc11c \ubcf4\uad00\ud560 \uc218 \uc788\ub294 \ud558\uc758\ub97c \ucd94\ucc9c\ub4dc\ub9bd\ub2c8\ub2e4.\n\ucd94\ucc9c \uc885\ub958: \ubc14\uc9c0, \uccad\ubc14\uc9c0",
             "category_to_save": "none",
             "capacity": 10,
             "used": 0,
-            "clothes_list": [
-            ]
+            "clothes_list": []
         },
         {
             "position": 4,
-            "tool_tip": "허리 아래 높이의 수납장에는\n 접어서 보관할 수 있는 하의를 추천드립니다.\n추천 종류: 바지, 청바지",
+            "tool_tip": "\ud5c8\ub9ac \uc544\ub798 \ub192\uc774\uc758 \uc218\ub0a9\uc7a5\uc5d0\ub294\n \uc811\uc5b4\uc11c \ubcf4\uad00\ud560 \uc218 \uc788\ub294 \ud558\uc758\ub97c \ucd94\ucc9c\ub4dc\ub9bd\ub2c8\ub2e4.\n\ucd94\ucc9c \uc885\ub958: \ubc14\uc9c0, \uccad\ubc14\uc9c0",
             "category_to_save": "none",
             "capacity": 10,
             "used": 0,
-            "clothes_list": [
-            ]
+            "clothes_list": []
         },
         {
             "position": 5,
-
-            "tool_tip": "위쪽 행거는\n 걸어서 보관해야 하는 옷들을 추천드립니다.\n추천 종류: 코트, 패딩, 셔츠, 면바지",
+            "tool_tip": "\uc704\ucabd \ud589\uac70\ub294\n \uac78\uc5b4\uc11c \ubcf4\uad00\ud574\uc57c \ud558\ub294 \uc637\ub4e4\uc744 \ucd94\ucc9c\ub4dc\ub9bd\ub2c8\ub2e4.\n\ucd94\ucc9c \uc885\ub958: \ucf54\ud2b8, \ud328\ub529, \uc154\uce20, \uba74\ubc14\uc9c0",
             "category_to_save": "none",
             "capacity": 10,
             "used": 0,
-            "clothes_list": [
-            ]
+            "clothes_list": []
         },
         {
             "position": 6,
-            "tool_tip": "눈 높이의 수납장에는\n 접어서 보관할 수 있는 상의를 추천드립니다.\n추천 종류: 반팔티, 긴팔티, 니트",
+            "tool_tip": "\ub208 \ub192\uc774\uc758 \uc218\ub0a9\uc7a5\uc5d0\ub294\n \uc811\uc5b4\uc11c \ubcf4\uad00\ud560 \uc218 \uc788\ub294 \uc0c1\uc758\ub97c \ucd94\ucc9c\ub4dc\ub9bd\ub2c8\ub2e4.\n\ucd94\ucc9c \uc885\ub958: \ubc18\ud314\ud2f0, \uae34\ud314\ud2f0, \ub2c8\ud2b8",
             "category_to_save": "none",
             "capacity": 10,
             "used": 0,
-            "clothes_list": [
-            ]
+            "clothes_list": []
         },
         {
             "position": 7,
-            "tool_tip": "허리 아래 높이의 수납장에는\n 접어서 보관할 수 있는 하의를 추천드립니다.\n추천 종류: 바지, 청바지",
+            "tool_tip": "\ud5c8\ub9ac \uc544\ub798 \ub192\uc774\uc758 \uc218\ub0a9\uc7a5\uc5d0\ub294\n \uc811\uc5b4\uc11c \ubcf4\uad00\ud560 \uc218 \uc788\ub294 \ud558\uc758\ub97c \ucd94\ucc9c\ub4dc\ub9bd\ub2c8\ub2e4.\n\ucd94\ucc9c \uc885\ub958: \ubc14\uc9c0, \uccad\ubc14\uc9c0",
             "category_to_save": "none",
             "capacity": 10,
             "used": 0,
-            "clothes_list": [
-            ]
+            "clothes_list": []
         }
     ]
 }

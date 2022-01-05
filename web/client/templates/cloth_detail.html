@@ -88,17 +88,20 @@
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">보관 정보 : <br> &nbsp {{result.management_info}}</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">입은 횟수 : &nbsp {{result.count}} &nbsp 회</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">최근 착용일 : {{result.last_wear_date}}</li>
-						 <button class="button1 mdc-button mdc-button--unelevated" onclick="location.href=''" style="border-radius: 10px;
-																													font-family: 'IBM Plex Sans KR', sans-serif;
-																													color: black;
-																													width: 215px;
-																													height: 50px;
-																													font-size: inherit;
-																													background-color: lightgrey;
-																													margin-top: 70px;
-																													margin-left: 90px;">
-                        옷장에서 빼기
-                    </button>
+						<form method="post" action="{{url_for('delete_cloth', nickname=result.name, box_num=result.box_num)}}">
+							<button onclick="alert('{{result.name}}가 옷장에서 빠졌습니다!')" class="button1 mdc-button mdc-button--unelevated" style="border-radius: 10px;
+																										font-family: 'IBM Plex Sans KR', sans-serif;
+																										color: black;
+																										width: 215px;
+																										height: 50px;
+																										font-size: inherit;
+																										background-color: lightgrey;
+																										margin-top: 70px;
+																										margin-left: 90px;">
+																									
+                        		옷장에서 빼기
+                   			</button>
+						</form>
 					</div>
 					</div>
 			</div>
