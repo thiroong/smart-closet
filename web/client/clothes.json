@@ -4,7 +4,7 @@
         {
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "position": 1,
-            "category_to_save": "shortsleeve",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": []
@@ -12,7 +12,7 @@
         {
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
             "position": 2,
-            "category_to_save": "padding",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": []
@@ -20,7 +20,7 @@
         {
             "position": 3,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "longsleeve",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": []
@@ -28,7 +28,7 @@
         {
             "position": 4,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "pants",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": []
@@ -36,7 +36,7 @@
         {
             "position": 5,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "coat",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": []
@@ -44,7 +44,7 @@
         {
             "position": 6,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "dress",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": []
@@ -52,9 +52,9 @@
         {
             "position": 7,
             "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "shirt",
+            "category_to_save": "none",
             "capacity": 10,
-            "used": 2,
+            "used": 0,
             "clothes_list": []
         }
     ]
