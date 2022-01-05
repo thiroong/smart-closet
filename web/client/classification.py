@@ -5,9 +5,9 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.models import Model
 import os
 
+
 c2c_model = load_model('models/c2c_model.h5')
 c2c_extraction_model = load_model('models/c2c_extraction_model.h5')
-
 
 def rgba2rgb(rgba, background=(255, 255, 255)):
     rgba = img_to_array(rgba)

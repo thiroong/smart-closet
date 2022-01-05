@@ -98,15 +98,6 @@ def find_cloth_by_keyword(keyword_str, filename='clothes.json'):
                     found_cloth_arr.append((cloth["name"], cloth["img_path"], i + 1))
     return found_cloth_arr
 
-
-# 옷 삭제 기능
-# 각 box.html 페이지에 삭제 버튼 추가
-# 삭제 버튼 클릭시 /delete로 route
-# 삭제하고 싶은 이미지들 클릭 후 완료 버튼 클릭하면
-# json에서 해당 데이터들 삭제
-# (구현 안 해도 티 안 날 것 같긴 한데,, 각 이미지 폴더에서 이미지들 삭제)
-# ********************구현 예정************************
-
 # ootd - 착용 횟수 & 최근 착용일 기록 기능
 # AI로 어떤 옷 입은 건지 판단 -> name으로 결과값 받아오면
 # 해당 옷의 count 값 + 1
@@ -136,11 +127,6 @@ def update_weared_cloth(cloth_path, filename='clothes.json'):
                     json.dump(file_data, file, indent=4, ensure_ascii=False)
                     break
 
-# 옷 카테고리별로 보여주는 기능
-# 옷 검색하는 페이지에 카테고리 filter (버튼) 추가 구현 부탁 (프론트팀에게)
-# 각 filter 클릭 시 해당하는 카테고리에 있는 옷들의 이미지 보여줌
-# ********************구현 예정************************
-
 
 # 용량 다 찼는지 판단하는 함수
 # "용량 다 찼으면 해당 수납함에 더 넣으려고 할 때 안된다고 alert 띄우기" 기능에 사용
@@ -167,7 +153,7 @@ def set_category_to_box(category_str_list, filename='clothes.json'):
 
 
 # 라벨(카테고리)로 해당 수납함 위치를 반환하는 함수
-"""def search_pos_by_label(label):
+def search_pos_by_label(label):
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
 
@@ -178,7 +164,7 @@ def set_category_to_box(category_str_list, filename='clothes.json'):
             if category == label:
                 return (closet_box['position'])
 
-    return (-1)"""
+    return (-1)
 
 
 # 이번주 입은 카테고리 별 횟수
@@ -246,13 +232,13 @@ def count_by_nickname_to_date():
 # Dict Class 정의
 ############################################
 boxClass = {"position": 0,
-            "category_to_save": "",  # 이거 없애는 거 고려해보기, setting.html과 연관
+            "category_to_save": "",
             "capacity": 0,
             "used": 0,
             "clothes_list": []
             }
 
-clothClass = {  # 수납함 번호 추가하는 거 고려해보기, add.html에서 수납함 입력 버튼 추가해서..
+clothClass = {
     "name": "",
     "category": "",
     "count": 0,
@@ -266,12 +252,10 @@ clothClass = {  # 수납함 번호 추가하는 거 고려해보기, add.html에
 ############################################
 # append_cloth(5,"knit","twisted_knit")
 
-
 clothes_info = {
     0: 'coat', 1: 'padding', 2: 'shortsleeve',
     3: 'longsleeve', 4: 'shirt', 5: 'pants', 6: 'dress'
 }
-
 
 # 옷의 카테고리 분류를 알려주는 함수
 # ex) 0 -> coat
@@ -281,18 +265,7 @@ def get_category(label):
 
 #####################2022-01-03 옷 저장 및 세팅 관련 함수 구현########################
 
-###########    1. 카테고리 초기화값 ""로 세팅   ############
-# boxClass의 "category_to_save" 초기화값을 ""로 설정
-# 초기화 함수 만들던가 아니면 그냥 초기 데이터를 요렇게 만들자.
-########################################################
-
-###########    2. setting화면에서 none값 받아올 시, 다시 입력하라고 요청   ############
-# application.py / setting.html 수정 필요 예상
-# 구현 해야 함.
-################################################################################
-
-
-###########    3. 판별 결과 나온 카테고리값이 setting값에 존재하는 지 검사   ############
+###########    판별 결과 나온 카테고리값이 setting값에 존재하는 지 검사   ############
 # category_result_str 받아와 box객체들의 category_to_save 중에 존재하면 해당 수납함 번호를 exist_boxnum_arr(배열)에 저장
 # exist_boxnum_arr 리턴
 # (아마 exist_boxnum_arr을 최대 용량 수납함 리턴 함수 인자로 보내게 될 듯, exist_boxnum_arr가 비어있으면 [1,2,3,4,5,6,7] 혹은 [0,1,2,3,4,5,6] 보낼 듯)
@@ -308,7 +281,7 @@ def is_category_in_setting(category_result_str, filename='clothes.json'):
 
 ################################################################################
 
-###########    4. 최대 용량 수납함 리턴 함수   ############
+###########    최대 용량 수납함 리턴 함수   ############
 # boxnum_arr 받아와 해당 번호의 수납함들 중 가장 용량이 큰 수납함 번호 리턴
 # 구현 해야 함.
 def biggest_capacity(boxnum_arr, filename="clothes.json"):
@@ -329,7 +302,6 @@ def biggest_capacity(boxnum_arr, filename="clothes.json"):
 #######################################################
 
 #####################2022-01-03 옷 저장 및 세팅 관련 함수 구현########################
-
 
 def get_graph_key_value(shape):
     if shape == "circle":

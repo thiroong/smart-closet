@@ -11,7 +11,7 @@
             ]
         },
         {
-            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
+            "tool_tip": "위쪽 행거는\n 걸어서 보관해야 하는 옷들을 추천드립니다.\n추천 종류: 긴팔티, 짧은 드레스",
             "position": 2,
             "category_to_save": "padding",
             "capacity": 10,
@@ -21,8 +21,8 @@
         },
         {
             "position": 3,
-            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "longsleeve",
+            "tool_tip": "허리 아래 높이의 수납장에는\n 접어서 보관할 수 있는 하의를 추천드립니다.\n추천 종류: 바지, 청바지",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": [
@@ -30,17 +30,18 @@
         },
         {
             "position": 4,
-            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "pants",
-            "capacity":10,
+            "tool_tip": "허리 아래 높이의 수납장에는\n 접어서 보관할 수 있는 하의를 추천드립니다.\n추천 종류: 바지, 청바지",
+            "category_to_save": "none",
+            "capacity": 10,
             "used": 0,
             "clothes_list": [
             ]
         },
         {
             "position": 5,
-            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "coat",
+
+            "tool_tip": "위쪽 행거는\n 걸어서 보관해야 하는 옷들을 추천드립니다.\n추천 종류: 코트, 패딩, 셔츠, 면바지",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": [
@@ -48,8 +49,8 @@
         },
         {
             "position": 6,
-            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "dress",
+            "tool_tip": "눈 높이의 수납장에는\n 접어서 보관할 수 있는 상의를 추천드립니다.\n추천 종류: 반팔티, 긴팔티, 니트",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": [
@@ -57,8 +58,8 @@
         },
         {
             "position": 7,
-            "tool_tip": "높은 수납장에는\n현재와 다른 계절의 옷들을 정리하는 것을 추천드립니다.\n추천 종류: 반팔",
-            "category_to_save": "shirt",
+            "tool_tip": "허리 아래 높이의 수납장에는\n 접어서 보관할 수 있는 하의를 추천드립니다.\n추천 종류: 바지, 청바지",
+            "category_to_save": "none",
             "capacity": 10,
             "used": 0,
             "clothes_list": [
