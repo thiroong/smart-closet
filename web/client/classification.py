@@ -60,6 +60,7 @@ def feature_extract(img):
         [return]
             feature : [numpy] extracted feature from image
     '''
+
     feature = c2c_extraction_model.predict(img)[0]
     return feature / np.linalg.norm(feature)
 
