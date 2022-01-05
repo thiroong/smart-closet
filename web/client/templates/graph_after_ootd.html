@@ -60,45 +60,99 @@
 			</div>
 		</div>
 
-	    <div class="result-box" style="justify-content: center;">
-			<div class="show-photo-box">
-				<h3> 유사도 측정</h3>
-				<img class = "screenshot" src="{{ results.path_original }}">
-				<img class = "clip" src="{{ results.path_segmen }}">
 
+		<div class="graph-box">
+			<div class="bar-box">
+				<h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">빈도수 그래프</h3>
+				<canvas id="myChart" width="400px" height="400px"></canvas>
+				<script>
+    				const ctx = document.getElementById('myChart').getContext('2d');
+    				const myChart = new Chart(ctx, {
+        			type: 'bar',
+        			data: {
+            			labels: [{% for d in results.circle[0] %} "{{d}}", {% endfor %}],
+           				datasets: [
+               	 					{
+                    					label: '# 카테고리 별 착용 빈도',
+                   						data: [{% for d in results.circle[1] %} {{d}}, {% endfor %}],
+										backgroundColor: [
+											'rgba(255, 99, 132, 0.2)',
+											'rgba(54, 162, 235, 0.2)',
+											'rgba(255, 206, 86, 0.2)',
+											'rgba(75, 192, 192, 0.2)',
+											'rgba(153, 102, 255, 0.2)',
+											'rgba(255, 159, 64, 0.2)',
+											'rgba(120, 100, 190, 0.2)'
+										],
+										borderColor: [
+											'rgba(255, 99, 132, 1)',
+											'rgba(54, 162, 235, 1)',
+											'rgba(255, 206, 86, 1)',
+											'rgba(75, 192, 192, 1)',
+											'rgba(153, 102, 255, 1)',
+											'rgba(255, 159, 64, 1)',
+											'rgba(120, 100, 190, 1)'
+										],
+										borderWidth: 1,
+									},
+								],
+							},
+
+						options: {
+							scales: {
+								y: {
+									beginAtZero: false,
+								},
+							},
+						},
+					});
+
+
+
+				</script>
 			</div>
-			
+			<div class="doughnut-box" style>
 
-			<div class = "info-box">
-				<h3>Information</h3>
-				<img class = "ootd-result" src="{{results.similar_path}}">
-				<p>{{results.name}}과 가장 유사합니다.</p>
+				<canvas id="myChart2" width="50%" height="50%"
+						style="display: block; box-sizing: border-box; height: 529.6px; width: 530.4px;"></canvas>
+				<script>
+					new Chart(document.getElementById("myChart2"),
+					{
+						"type":"doughnut",
+						"data":{"labels": [{% for d in results.stick[0] %} "{{d}}", {% endfor %}],
+						"datasets": [{
+								"label":"Example","data":[{% for d in results.stick[1] %} {{d}}, {% endfor %}],
+								"backgroundColor": [ 'rgba(255, 99, 132)',
+													'rgba(54, 162, 235)',
+													'rgba(255, 206, 86)',
+													'rgba(75, 192, 192)',
+													'rgba(153, 102, 255)',
+													'rgba(255, 159, 64)',
+													'rgba(120, 100, 190)' ]
+							}]
+						}
+					})
 
-				<p>옷의 분류: {{results.label}}</p>
-				<div class="row">
-                    <p>확률 그래프</p>
-                        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-                        <div class="chart-area",  id="prob_graph", style="height: max-content;">
-                            <script type="text/javascript">
-                                var graphs = {{ results.graph | safe }}
-                                Plotly.plot('prob_graph', graphs, {});
-                            </script>
-                        </div>
-                    </div>
-                </div>
-				<div class="add-box">
-					<form method="post" action="{{ url_for('ootd_confirm') }}">
-                        <input type="hidden" name="confirm" value="{{results.similar_path}}" class="button1 mdc-button mdc-button--unelevated" style="font-family: 'IBM Plex Sans KR', sans-serif; color: black;width: 215px;height: 50px;font-size: inherit;background-color: lightgrey;"/>
-						<button onclick="alert('확인되었습니다')" style="border: transparent; border-radius: 7px; background-color:lightgrey;">확인</button>
-                	</form>
-
-					<form method="click" action="{{ url_for('ootd') }}">
-						<input type="submit" value="다시찍기" name="click"
-							   style="border: transparent; border-radius: 7px; background-color:lightgrey;"/>
-					</form>
-				</div>
+				</script>
 			</div>
+
+
+			<div class="recommend-box">
+			<h3>버릴 옷 추천</h3>
+			<figure>
+				<figcaption>가장 오랫동안 입지 않은 옷이에옷!</figcaption>
+				<img src="/static/{{results.oldest_img}}">
+			</figure>
+
+			<figure>
+				<figcaption>가장 적게 입은 옷이에옷!</figcaption>
+				<img src="/static/{{results.least_img}}">
+			</figure>
+
+			<p>아름다운 가게: <a href="https://www.beautifulstore.org/">https://www.beautifulstore.org/</a></p>
+			<P>옷캔: <a href="https://otcan.org/">https://otcan.org/</a></P>
 		</div>
+
 	</div>
 
 	<!-- jQuery -->
