@@ -12,22 +12,22 @@ DATABASE_PATH = 'clothes.json'
 ############################################
 
 # json 데이터 읽어오는 함수
-"""def read_json
-[arg]: 읽어올 파일 (해당 프로젝트에서는 json)
-[action] 읽어올 파일을 열어 파이썬 객체로 받아옴
-[return] 받아온 파이썬 객체로 리턴
-"""
 def read_json(filename='clothes.json'):
+    """
+    [arg]: 읽어올 파일 (해당 프로젝트에서는 json)
+    [action] 읽어올 파일을 열어 파이썬 객체로 받아옴
+    [return] 받아온 파이썬 객체로 리턴
+    """
     with open(filename, 'r', encoding='UTF8') as file:
         file_data = json.load(file)
         return file_data
 
-"""is_same_nickname_exist
-[arg]: 옷 별명
-[action]: 인자로 받은 별명이 JSON내에 존재하는지 확인, 별명 중복 방지
-[return]: 있으면 True, 없으면 False
-"""
 def is_same_nickname_exist(nickname):
+    """
+    [arg]: 옷 별명
+    [action]: 인자로 받은 별명이 JSON내에 존재하는지 확인, 별명 중복 방지
+    [return]: 있으면 True, 없으면 False
+    """
     closet_info = read_json(DATABASE_PATH)
     
     closet = closet_info["closet"]
@@ -38,22 +38,22 @@ def is_same_nickname_exist(nickname):
                 return (True)
     return (False)
 
-"""is_space_nickname_exist
-[arg]: 옷 별명
-[action]: 별명 내에 공백이 있는지 판단
-[return]: 공백이 있으면 True, 없으면 False
-"""
 def is_space_nickname_exist(nickname):
+    """
+    [arg]: 옷 별명
+    [action]: 별명 내에 공백이 있는지 판단
+    [return]: 공백이 있으면 True, 없으면 False
+    """
     if nickname.find(" ")!=-1:
         return True
     return False
 
-"""find_oldest_cloth
-[arg]: x
-[action]: 입은지 가장 오래된 옷을 찾음
-[return]: 찾은 데이터의 이미지 경로 반환 
-"""
 def find_oldest_cloth():
+    """
+    [arg]: x
+    [action]: 입은지 가장 오래된 옷을 찾음
+    [return]: 찾은 데이터의 이미지 경로 반환 
+    """
     closet_info = read_json(DATABASE_PATH)
     min = "9999-12-31"
     min_cloth_path = ""
@@ -68,12 +68,12 @@ def find_oldest_cloth():
     
     return (min_cloth_path)
 
-"""find_count_cloth
-[arg]: x
-[action]: 입은 횟수가 가장 작은 옷을 찾음 
-[return]: 찾은 데이터의 이미지 경로 반환 
-"""
 def find_count_cloth():
+    """
+    [arg]: x
+    [action]: 입은 횟수가 가장 작은 옷을 찾음 
+    [return]: 찾은 데이터의 이미지 경로 반환 
+    """
     closet_info = read_json(DATABASE_PATH)
     min = 99999
     min_cloth_path = ""
@@ -88,19 +88,19 @@ def find_count_cloth():
                 
     return (min_cloth_path)
 
-"""append_cloth
-[arg]
-# 해당 수납함의 clothes_list에 cloth객체 추가
-# name: 입력받은 별명
-# 카테고리: 판별된 카테고리
-# 사용횟수: 0으로 초기화
-# 이미지 path: "images/c'boxnum_int'/'별명'.png"
-# feature path: ""
-# last_wear_date: "0000-00-00"
-[action] json 파일에 arg 정보를 담은 옷 객체를 추가
-[return] 안 함
-"""
 def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json'):
+    """
+    [arg]
+    # 해당 수납함의 clothes_list에 cloth객체 추가
+    # name: 입력받은 별명
+    # 카테고리: 판별된 카테고리
+    # 사용횟수: 0으로 초기화
+    # 이미지 path: "images/c'boxnum_int'/'별명'.png"
+    # feature path: ""
+    # last_wear_date: "0000-00-00"
+    [action] json 파일에 arg 정보를 담은 옷 객체를 추가
+    [return] 안 함
+    """
     newCloth = dict(**clothClass)
     newCloth["name"] = clothName_str
     newCloth["category"] = category_str
@@ -115,13 +115,13 @@ def append_cloth(boxnum_str, category_str, clothName_str, filename='clothes.json
         json.dump(file_data, file, indent=4, ensure_ascii=False)
 
 
-"""find_cloth_by_keyword
-[arg] 사용자가 검색하기 위해 입력한 키워드(문자열), 옷 정보가 담긴 json 데이터
-[action] 저장된 옷의 이름들 중 키워드를 포함한 옷들을 검색하여 해당되는 옷들의 정보(옷의 이름, 옷의 이미지 저장 경로, 옷이 저장된 수납함 번호)를 배열로 저장출력
-[return] 옷들의 정보가 담긴 배열
-"""
 # 키워드 검색 시, 해당 키워드가 포함된 이미지들의 경로를 list형태로 return 해주는 함수 (옷 위치 검색 기능)
 def find_cloth_by_keyword(keyword_str, filename='clothes.json'):
+    """
+    [arg] 사용자가 검색하기 위해 입력한 키워드(문자열), 옷 정보가 담긴 json 데이터
+    [action] 저장된 옷의 이름들 중 키워드를 포함한 옷들을 검색하여 해당되는 옷들의 정보(옷의 이름, 옷의 이미지 저장 경로, 옷이 저장된 수납함 번호)를 배열로 저장출력
+    [return] 옷들의 정보가 담긴 배열
+    """
     keyword_str=keyword_str.strip()
     found_cloth_arr = []
     with open(filename, 'r', encoding='UTF8') as file:
@@ -132,17 +132,16 @@ def find_cloth_by_keyword(keyword_str, filename='clothes.json'):
                     found_cloth_arr.append((cloth["name"], cloth["img_path"], i + 1))
     return found_cloth_arr
 
-"""
-wear_info
-[arg] 착용한 옷 이름, 옷 정보 데이터
-[action] 착용한 옷 객체의 입은 횟수: +1 , 최근 착용일을 오늘 날짜로 갱신
-[return] 안 함
-"""
 # ootd - 착용 횟수 & 최근 착용일 기록 기능
 # AI로 어떤 옷 입은 건지 판단 -> name으로 결과값 받아오면
 # 해당 옷의 count 값 + 1
 # 해당 옷의 last_wear_date를 오늘 날짜로 갱신
 def wear_info(clothName_str, filename='clothes.json'):
+    """
+    [arg] 착용한 옷 이름, 옷 정보 데이터
+    [action] 착용한 옷 객체의 입은 횟수: +1 , 최근 착용일을 오늘 날짜로 갱신
+    [return] 안 함
+    """
     with open(filename, 'r+', encoding='UTF8') as file:
         file_data = json.load(file)
         for i in range(len(file_data["closet"])):
@@ -154,12 +153,12 @@ def wear_info(clothName_str, filename='clothes.json'):
                     json.dump(file_data, file, indent=4, ensure_ascii=False)
                     break
 
-"""update_weared_cloth
-[arg] 착용한 옷 이름, 옷 정보 데이터
-[action] 착용한 옷 객체의 입은 횟수: +1 , 최근 착용일을 오늘 날짜로 갱신
-[return] 안 함
-"""
 def update_weared_cloth(cloth_path, filename='clothes.json'):
+    """
+    [arg] 착용한 옷 이름, 옷 정보 데이터
+    [action] 착용한 옷 객체의 입은 횟수: +1 , 최근 착용일을 오늘 날짜로 갱신
+    [return] 안 함
+    """
     file_data = read_json(filename)
     with open(filename, 'w', encoding='UTF8') as file:
         for i in range(len(file_data["closet"])):
@@ -172,16 +171,16 @@ def update_weared_cloth(cloth_path, filename='clothes.json'):
                     json.dump(file_data, file, indent=4, ensure_ascii=False)
                     break
 
-"""is_box_full
-[arg] 수납함 번호, 옷 정보 데이터(clothes.json)
-[action] 수납함이 꽉 찼는지 검토
-[return] 입력한 번호의 수납함이 꽉 찼으면 True, 그렇지 않으면 False
-"""
 # 용량 다 찼는지 판단하는 함수
 # "용량 다 찼으면 해당 수납함에 더 넣으려고 할 때 안된다고 alert 띄우기" 기능에 사용
 # 수납함 번호 인자로 넣고, 용량이 다 찼으면 True, 아니면 False 리턴
 # html 페이지에서 boxnum 입력 칸으로부터 request.form()으로 boxnum값(int형 안 되면 str로 바꾸기) 받아와 인자값으로 넘겨줌.
 def is_box_full(boxnum_int, filename='clothes.json'):
+    """
+    [arg] 수납함 번호, 옷 정보 데이터(clothes.json)
+    [action] 수납함이 꽉 찼는지 검토
+    [return] 입력한 번호의 수납함이 꽉 찼으면 True, 그렇지 않으면 False
+    """
     with open(filename, 'r', encoding='UTF8') as file:
         file_data = json.load(file)
         box_data = file_data["closet"][boxnum_int - 1]
@@ -190,13 +189,13 @@ def is_box_full(boxnum_int, filename='clothes.json'):
         else:
             return False
 
-""" set_category_to_box
-[arg] 1~7번 수납함에 넣을 옷 카테고리 정보가 담긴 배열, 옷 정보 데이터(clothes.json)
-[action] 옷 정보 데이터에 각 수납함에 넣을 옷 카테고리 정보를 저장함
-[return] 안 함
-"""
 # 수납함 별 category 지정하는 함수
 def set_category_to_box(category_str_list, filename='clothes.json'):
+    """
+    [arg] 1~7번 수납함에 넣을 옷 카테고리 정보가 담긴 배열, 옷 정보 데이터(clothes.json)
+    [action] 옷 정보 데이터에 각 수납함에 넣을 옷 카테고리 정보를 저장함
+    [return] 안 함
+    """
     file_data = read_json(filename)
     with open(filename, 'w', encoding='UTF8') as file:
         for i in range(7):
@@ -204,13 +203,13 @@ def set_category_to_box(category_str_list, filename='clothes.json'):
         file.seek(0)
         json.dump(file_data, file, indent=4, ensure_ascii=False)
 
-"""search_pos_by_label
-[arg]: 옷 카테고리
-[action]: 라벨(카테고리)로 해당하는 수납함 찾음
-[return]: 수납합 위치를 반환
-"""
 # 라벨(카테고리)로 해당 수납함 위치를 반환하는 함수
 def search_pos_by_label(label):
+    """
+    [arg]: 옷 카테고리
+    [action]: 라벨(카테고리)로 해당하는 수납함 찾음
+    [return]: 수납합 위치를 반환
+    """
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
 
@@ -223,23 +222,23 @@ def search_pos_by_label(label):
 
     return (-1)
 
-"""AddDays
-[arg]
-1. sourceDate: 날짜 데이터
-2. count: sourceDate에서 더하거나 뺄 날 수
-[action]: 날짜를 지정한 날 수 만큼 빼거나 더해주는 함수
-[return]: 연산한 날짜 데이터를 반환 
-"""
 def AddDays(sourceDate, count):
+    """
+    [arg]
+    1. sourceDate: 날짜 데이터
+    2. count: sourceDate에서 더하거나 뺄 날 수
+    [action]: 날짜를 지정한 날 수 만큼 빼거나 더해주는 함수
+    [return]: 연산한 날짜 데이터를 반환 
+    """
     targetDate = sourceDate + datetime.timedelta(days=count)
     return (targetDate)
 
-"""count_by_category_to_date
-[arg]: x
-[action]: 이번주 내에서 입은 옷의 카테고리 별 횟수를 구해줌
-[return]: 카테고리(key)와 횟수(value)를 담은 dictionary 반환
-"""
 def count_by_category_to_date():
+    """
+    [arg]: x
+    [action]: 이번주 내에서 입은 옷의 카테고리 별 횟수를 구해줌
+    [return]: 카테고리(key)와 횟수(value)를 담은 dictionary 반환
+    """
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
 
@@ -270,12 +269,12 @@ def count_by_category_to_date():
     return (cnt_categories)
 
 
-"""count_by_nickname_to_date
-[arg]: x
-[action]: 이번주에 입은 옷 중 별명별 입은 횟수 반환
-[return]: 별명(key)와 횟수(value)를 담은 dictionary 반환
-"""
 def count_by_nickname_to_date():
+    """
+    [arg]: x
+    [action]: 이번주에 입은 옷 중 별명별 입은 횟수 반환
+    [return]: 별명(key)와 횟수(value)를 담은 dictionary 반환
+    """
     with open(DATABASE_PATH, 'r+', encoding='UTF8') as file:
         closet_info = json.load(file)
 
@@ -327,30 +326,30 @@ clothes_info = {
     3: 'longsleeve', 4: 'shirt', 5: 'pants', 6: 'dress'
 }
 
-"""get_category
-[arg] 카테고리 정보를 대응되는 숫자 형태로 받아옴
-[action] 숫자 정보를 대응되는 카테고리(문자열) 정보로 변환
-[return] 숫자 정보에 대응되는 카테고리(문자열)값
-"""
 # 옷의 카테고리 분류를 알려주는 함수
 # ex) 0 -> coat
 def get_category(label):
+    """
+    [arg] 카테고리 정보를 대응되는 숫자 형태로 받아옴
+    [action] 숫자 정보를 대응되는 카테고리(문자열) 정보로 변환
+    [return] 숫자 정보에 대응되는 카테고리(문자열)값
+    """
     return clothes_info[label]
 
 
 #####################2022-01-03 옷 저장 및 세팅 관련 함수 구현########################
 
 ###########    판별 결과 나온 카테고리값이 setting값에 존재하는 지 검사   ############
-"""is_category_in_setting
-[arg] 카테고리값, 옷 정보 데이터(clothes.json)
-[action] 입력받은 카테고리값을 가지고 있는 수납함들의 번호를 체크
-[return] "입력받은 카테고리값을 가지고 있는 수납함들의 번호"의 배열
-"""
 # category_result_str 받아와 box객체들의 category_to_save 중에 존재하면 해당 수납함 번호를 exist_boxnum_arr(배열)에 저장
 # exist_boxnum_arr 리턴
 # (아마 exist_boxnum_arr을 최대 용량 수납함 리턴 함수 인자로 보내게 될 듯, exist_boxnum_arr가 비어있으면 [1,2,3,4,5,6,7] 혹은 [0,1,2,3,4,5,6] 보낼 듯)
 # 구현 해야 함.
 def is_category_in_setting(category_result_str, filename='clothes.json'):
+    """
+    [arg] 카테고리값, 옷 정보 데이터(clothes.json)
+    [action] 입력받은 카테고리값을 가지고 있는 수납함들의 번호를 체크
+    [return] "입력받은 카테고리값을 가지고 있는 수납함들의 번호"의 배열
+    """
     file_data = read_json(filename)
     exist_boxnum_arr = []
     for i in range(7):
@@ -362,14 +361,14 @@ def is_category_in_setting(category_result_str, filename='clothes.json'):
 ################################################################################
 
 ###########    최대 용량 수납함 리턴 함수   ############
-"""biggest_capacity
-[arg]
-1. boxnum_arr: 수납함 인덱스 배열
-2. filename: 데이터 베이스 json파일명
-[action]: 해당 수납한 인덱스 중 가장 용량이 큰 수납합을 찾음
-[return]: 가장 용량이 큰 수납함 번호
-"""
 def biggest_capacity(boxnum_arr, filename="clothes.json"):
+    """
+    [arg]
+    1. boxnum_arr: 수납함 인덱스 배열
+    2. filename: 데이터 베이스 json파일명
+    [action]: 해당 수납한 인덱스 중 가장 용량이 큰 수납합을 찾음
+    [return]: 가장 용량이 큰 수납함 번호
+    """
     file_data = read_json(filename)
     result = boxnum_arr[0]
     result_capacity = file_data["closet"][boxnum_arr[0] - 1]["capacity"] - file_data["closet"][boxnum_arr[0] - 1][
@@ -385,12 +384,12 @@ def biggest_capacity(boxnum_arr, filename="clothes.json"):
 #######################################################
 
 #####################2022-01-03 옷 저장 및 세팅 관련 함수 구현########################
-"""get_graph_key_value
-[arg]: 그래프 모양
-[action]: 그래프 모양 별 필요한 데이터의 key와 value를 각각 리스트로 나눠서 저장
-[return]: key리스트, value 리스트를 담은 리스트를 반환 
-"""
 def get_graph_key_value(shape):
+    """
+    [arg]: 그래프 모양
+    [action]: 그래프 모양 별 필요한 데이터의 key와 value를 각각 리스트로 나눠서 저장
+    [return]: key리스트, value 리스트를 담은 리스트를 반환 
+    """
     if shape == "circle":
         dict = count_by_category_to_date()
     else:
@@ -406,16 +405,16 @@ def get_graph_key_value(shape):
     return ([labels, count])
 
 ##################### 옷 버리기 ########################
-"""delete_cloth
-[arg]: 옷 별명
-[action]
-1. 해당 별명을 가진 옷 데이터를 지움
-2. 저장된 옷 개수 -1
-3. 분류 모델 feature 제거
-4. 해당 옷 이미지 제거
-[return]: x
-"""
 def delete_cloth(nickname):
+    """
+    [arg]: 옷 별명
+    [action]
+    1. 해당 별명을 가진 옷 데이터를 지움
+    2. 저장된 옷 개수 -1
+    3. 분류 모델 feature 제거
+    4. 해당 옷 이미지 제거
+    [return]: x
+    """
     closet_info = read_json(DATABASE_PATH)
     
     for i in range(7):
