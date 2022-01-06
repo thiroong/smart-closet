@@ -137,6 +137,37 @@ def c2c_model_features(c2c_model):
     return extract_model
 
 
+def plot_acc_loss(history):
+    '''
+        [argument]
+            history         : [tf.keras Model history] 학습된 Model history
+        [action]
+                            : 학습된 모델의 epoch별 정확도와 손실을 ploting
+        [return]
+    '''
+    acc = history.history['accuracy']
+    val_acc = history.history['val_accuracy']
+    loss = history.history['loss']
+    val_loss = history.history['val_loss']
+
+    epochs = range(len(acc))
+
+    plt.plot(epochs, acc, 'bo', label='Training accuracy')
+    plt.plot(epochs, val_acc, 'b', label='Validation accuracy')
+    plt.title('Training and validation accuracy')
+    plt.legend()
+
+    plt.figure()
+
+    plt.plot(epochs, loss, 'go', label='Training Loss')
+    plt.plot(epochs, val_loss, 'g', label='Validation Loss')
+    plt.title('Training and validation loss')
+    plt.legend()
+
+    plt.show()
+    return
+
+
 def train_model(model, name, train_generator, validation_generator):
     '''
         [argument]
