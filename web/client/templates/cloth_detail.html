@@ -61,19 +61,21 @@
 				</div>
 			</div>
 		</header>
+		
+		<!--옷 별명 및 저장된 위치 알려주는 코드-->
 		<div id="fh5co-intro-section">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box text-center">
 						<h2 class="intro-heading" style="font-family: 'IBM Plex Sans KR', sans-serif;">{{result.name}}</h2>
-                        <!-- 옷 이름 받아와주세요 -->
+                       
 						<p style="font-family: 'IBM Plex Sans KR', sans-serif;"><span> {{result.box_num}}번 수납합 </span></p>
-                        <!-- 수납함 -->
+         
 					</div>
 				</div>
 			</div>
 		</div>
-
+			
 		<div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
 			<div class="text-center animate-box">
 				<div class="product" style="background-image: url({{url_for('static', filename=''+result.img_path)}}); width: 400px; height: 500px; justify-content:flex-start;">
@@ -81,13 +83,27 @@
 					</div>
 				<div class="product" style="background-image: url(static/images/img-11.jpg); width: 400px; height: 500px; justify-content:flex-end;">
 					<div class="container" style="width: 480px; height: 500px;">
-                        <!-- 옷 디테일 -->
+                        <!-- 옷 세부정보 알려주는 페이지 -->
 <!--						<h1 style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 별명 : </h1><h1>{{result.get("name")}}</h1>-->
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 정보 : {{result.category}}</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">세탁 정보 : <br> &nbsp {{result.laundry_info}}</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">보관 정보 : <br> &nbsp {{result.management_info}}</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">입은 횟수 : &nbsp {{result.count}} &nbsp 회</li>
 						<li style="font-family: 'IBM Plex Sans KR', sans-serif;">최근 착용일 : {{result.last_wear_date}}</li>
+						<form method="post" action="{{url_for('delete_cloth', nickname=result.name, box_num=result.box_num)}}">
+							<button onclick="alert('{{result.name}}가 옷장에서 빠졌습니다!')" class="button1 mdc-button mdc-button--unelevated" style="border-radius: 10px;
+																										font-family: 'IBM Plex Sans KR', sans-serif;
+																										color: black;
+																										width: 215px;
+																										height: 50px;
+																										font-size: inherit;
+																										background-color: lightgrey;
+																										margin-top: 70px;
+																										margin-left: 90px;">
+																									
+                        		옷장에서 빼기
+                   			</button>
+						</form>
 					</div>
 					</div>
 			</div>

@@ -1,3 +1,4 @@
+<!--옷장 페이지 -->
 <html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" style=""><!--<![endif]--><head><style>
     .button {
         background-color: lightgrey;
@@ -329,7 +330,7 @@
                 </div>
             </div>
         </div>
-
+<!--옷장 구현하는 코드 -->
         <div class="container" style="display: flex;width: fit-content;align-items: center;">
             <div class="container" style="/* height: 50vh; */align-items: center;justify-content: center;width: 500px;">
                 <div class="wardrobe">
@@ -368,6 +369,8 @@
                 <div style="
     display: flex;
 ">
+			
+			<!--옷 추가하는 -->
                     <button class="button1 mdc-button mdc-button--unelevated" onclick="location.href='/add'" style="font-family: 'IBM Plex Sans KR', sans-serif; color: black;width: 215px;height: 50px;font-size: inherit;background-color: lightgrey;">
                         옷 추가하기
                     </button>
@@ -400,7 +403,7 @@
                                 <div class="mdc-notched-outline mdc-notched-outline--upgraded" style="height: 50px;">
                                     <div class="mdc-notched-outline__leading"></div>
                                     <div class="mdc-notched-outline__notch" style="">
-
+					<!-- 별명으로 옷 찾는 기능 -->
                                         <label for="demo-mdc-text-field" class="mdc-floating-label mdc-floating-label--required" style="top: 30%; font-size: 11px; font-family: &quot;IBM Plex Sans KR&quot;, sans-serif;">옷
                                             별명을 입력하세요</label>
 

@@ -52,7 +52,7 @@
       </div>
    </nav>
 
-	<div id="fh5co-page" style="height: fit-content;">
+	<div id="fh5co-page" style="height: 1000px;">
 		<header>
 			<div class="container">
 				<div class="fh5co-navbar-brand">
@@ -71,7 +71,7 @@
                 </div>
             </div>
       </div>
-
+		<!--옷 검색 후 상세정보 보여주는 결과창-->
 		<div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
 			<div class="row" style="
 								display: flex;
@@ -86,10 +86,23 @@
 				<div class="product" style="background-image: url(static/images/img-11.jpg); width: 400px; height: 500px; justify-content:flex-end;">
 					<div class="container" style="width: 480px; height: 500px; margin-top: 150px; margin-left: 60px">
 
+
                   <li style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 별명 : {{item[0]}}</li>
                   <li style="font-family: 'IBM Plex Sans KR', sans-serif;">옷 수납함 번호 : <a href="/box/{{item[2]}}">{{item[2]}}</a></li>
+                     <button class="button1 mdc-button mdc-button--unelevated" onclick="location.href='/box/{{item[2]}}/{{item[0]}}'" style="border-radius: 10px;
+                                                                font-family: 'IBM Plex Sans KR', sans-serif;
+                                                                color: black;
+                                                                width: 215px;
+                                                                height: 50px;
+                                                                font-size: inherit;
+                                                                background-color: lightgrey;
+                                                                margin-top: 30px;
+                                                                margin-left: 15px;">
+                        옷 상세정보
+                    </button>
 
 					</div>
+
          </div>
 			{%endfor%}
 			</div>

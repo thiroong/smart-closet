@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--ootd 사진 촬영 후 그래프 보여주는 페이지 -->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
@@ -64,12 +64,12 @@
 			</div>
 		</div>
 
-
+		<!-- 기간별 옷 착용 횟수 그래프-->
 		<div class="graph-box" style="display: inline-flex;
 									  margin-left: 136px;">
 			<div class="bar-box" style="
     									margin-left: 41px;">
-				<h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">빈도 수 그래프</h3>
+				<h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">주간 OOTD 리포트</h3>
 				<canvas id="myChart" width="400px" height="400px" style="font-family: 'IBM Plex Sans KR', sans-serif;"></canvas>
 				<script>
     				const ctx = document.getElementById('myChart').getContext('2d');
@@ -147,16 +147,16 @@
 			<div class="recommend-box" style="
     									width: 250px;">
 
-
+				<!-- 오랜 기간 입지 않은 옷, 빈도수 가장 낮은 옷 보여줌-->
 				<div class="row">
 					<figure>
 						<figcaption>가장 오랫동안 입지 않은 옷이예옷!</figcaption>
-						<img src="/static/images/box/box4/ㅇㅈ.png">
+						<img src="/static/{{results.oldest_img}}">
 					</figure>
 
 					<figure>
 						<figcaption>가장 적게 입은 옷이예옷!</figcaption>
-						<img src="/static/images/box/box4/ㅇㅈ.png">
+						<img src="/static/{{results.least_img}}">
 					</figure>
 				</div>
 				<h3 style="width: 364px;font-family: 'IBM Plex Sans KR', sans-serif;margin-top: 50px;">

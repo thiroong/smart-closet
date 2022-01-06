@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--추가된 옷의 상세 정보를 보여주는 페이지 -->
  <html class="no-js">
    <head>
     <meta charset="utf-8">
@@ -73,7 +73,7 @@
                 </div>
             </div>
         </div>
-
+<!--업로드 된 사진, 옷의 상세 정보를 보여주는  -->
         <div id="fh5co-work-section" style="height:1300px">
          <div class="container">
             <div class="row" style="
@@ -91,6 +91,7 @@
                </div>
                <div class="col-md-6">
 
+                <!--추가된 옷의 분석 결과를 나타내는 코드-->
                         <h2 class="section-title text-center" style="font-family: 'IBM Plex Sans KR', sans-serif;">분석 결과</h2>
                   <div class="work" style="margin-left: 100px;top: 145px;">
                         <ul>
@@ -111,8 +112,10 @@
                   </div>
                </div>
                <div class="col-md-6 text-center">
+                
+                <!-- 어떤 카테고리와 가장 유사한지 보여주는 그래프-->
                <div class="row">
-                    <h3>확률 그래프</h3>
+                    <h3 style="font-family: 'IBM Plex Sans KR', sans-serif;">확률 그래프</h3>
                         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
                         <div class="chart-area",  id="prob_graph", style="height: max-content;">
                             <script type="text/javascript">
@@ -127,6 +130,8 @@
             </div>
          </div>
       </div>
+ 
+ <!-- 옷 추가 등록 확정할지 다시 찍을지 결정하는 코드 -->
         <div id="footer" style="
                         margin-top: -201px;
                         border-top: transparent;">
