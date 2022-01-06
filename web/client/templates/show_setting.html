@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--세팅 저장 후 보여주는 페이지 -->
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
@@ -313,7 +313,7 @@
 
 <body>
 
-
+<!-- 각 수납장 번호마다 어떤 카테고리가 저장되었는지 보여주는 -->
 <a aria-describedby="tooltip-id1" href="/box/1" style="
                                                                                         position: absolute;
                                                                                         left: 480px;
@@ -413,7 +413,7 @@
             </div>
         </div>
     </div>
-
+<!--옷장 보여주는 -->
     <div class="container" style="display: flex; width: fit-content;">
         <div class="container" style="height: 50vh;align-items: center;justify-content: center; width: 500px">
             <div class="wardrobe">
@@ -444,6 +444,8 @@
                 <div class="shadow"></div>
             </div>
         </div>
+        
+        <!--재설정 가능한 페이지-->
         <div style="display: grid;flex-wrap: wrap;justify-items: start; margin-top: -25px">
             <div>
                 <button type="button" onclick="window.location.href='{{ url_for( 'setting' ) }}';"
