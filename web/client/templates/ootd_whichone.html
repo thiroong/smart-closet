@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--어느 옷과 가장 유사한지 보여주는 -->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
@@ -60,6 +60,7 @@
 			</div>
 		</div>
 
+		<!-- 유사도 측정 후 유사한 옷과 옷의 정보, 확률 그래프 보여주는  -->
 	    <div class="result-box" style="justify-content: center;">
 			<div class="show-photo-box">
 				<h3> 유사도 측정</h3>
@@ -86,6 +87,7 @@
                         </div>
                     </div>
                 </div>
+		    <!-- 옷을 옷장에 추가할지 말지 확정하는 코드-->
 				<div class="add-box">
 					<form method="post" action="{{ url_for('ootd_confirm') }}">
                         <input type="hidden" name="confirm" value="{{results.similar_path}}" class="button1 mdc-button mdc-button--unelevated" style="font-family: 'IBM Plex Sans KR', sans-serif; color: black;width: 215px;height: 50px;font-size: inherit;background-color: lightgrey;"/>
