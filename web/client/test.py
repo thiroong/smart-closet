@@ -4,6 +4,15 @@ from tensorflow.keras.models import load_model
 
 
 def get_test_data(input_size=(299, 299)):
+    '''
+        [argument]
+            input_size              : [tuple] [default=(299, 299)]
+                                    모델에 사용할 입력 사이즈 (사진 shape)
+        [action]
+                                    : ImageDataGenerator를 사용하여 test set을 만드는 작업 수행
+        [return]
+            test_generator          : [tf.keras ImageDataGenerator] test set
+    '''
     test_dir = 'static/datasets/test'
     test_datagen = ImageDataGenerator(rescale=1./255.)
 
@@ -15,12 +24,28 @@ def get_test_data(input_size=(299, 299)):
 
 
 def get_model(model_name):
+    '''
+        [argument]
+            model_name              : [string] 저장된 모델의 이름
+        [action]
+                                    : 모델을 로드하여 반환
+        [return]
+            model                   : [tf.keras Model] 저장된 모델
+    '''
     model_path = 'models'
     model = load_model(os.path.join(model_path, model_name))
     return model
 
 
 def model_evaluate(model, test_data):
+    '''
+        [argument]
+            model                   : [tf.keras Model] 평가에 사용할 모델
+            test_data               : [tf.keras ImageDataGenerator] test set
+        [action]
+                                    : 불러온 모델을 평가하여 테스트 정확도를 출력
+        [return]
+    '''
     loss, acc = model.evaluate(test_data, verbose=2)
     print("모델의 테스트 정확도: {:5.2f}%".format(100 * acc))
 
