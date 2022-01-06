@@ -48,6 +48,9 @@
 
 <body>
     <!--옷장 번호 위에 마우스 hover하면 옷장 세팅 팁 보여주는 기능 -->
+    <!--Google Material Design Tooltip API 사용-->
+     <!--type 마다 다르게  -->
+    
     <div id="closet1-tooltip">
         <div id="tooltip-id1" class="mdc-tooltip" role="tooltip" aria-hidden="true">
             <div class="mdc-tooltip__surface mdc-tooltip__surface-animation"
@@ -452,6 +455,7 @@
                         <input type="radio" class="type3" id="" name="development-detail">
                         <div class="closet-list-box">
                             <ul class="dNav">
+                                 <!--타입마다 호버가 다르게 뜰 수 있게 onClick  -->
                                 <li class="closet-type-box closet1 open"
                                     onclick="$('#closet1-tooltip').css('display','block');$('#closet2-tooltip').css('display','none');$('#closet3-tooltip').css('display','none');">
                                     <h2 class="closet-type-box">type1</h2>
