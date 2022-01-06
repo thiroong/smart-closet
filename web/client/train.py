@@ -119,3 +119,7 @@ if __name__ == '__main__':
     train_model(inceptionV3_fine, "ift", train, valid)
     extract_model = c2c_model_features(inceptionV3_clas)
 
+    # from tensorflow.keras.models import load_model
+    # c2c_model = load_model('models/c2c_model.h5')
+    # extract_model = c2c_model_features(c2c_model)
+
