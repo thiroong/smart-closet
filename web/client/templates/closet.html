@@ -1,6 +1,6 @@
 <!--옷장 페이지 -->
 <html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" style=""><!--<![endif]--><head><style>
-    .button {
+   .button {
         background-color: lightgrey;
     }
 
@@ -331,8 +331,9 @@
             </div>
         </div>
 <!--옷장 구현하는 코드 -->
+	     <!--옷장에 링크 -->
         <div class="container" style="display: flex;width: fit-content;align-items: center;">
-            <div class="container" style="/* height: 50vh; */align-items: center;justify-content: center;width: 500px;">
+            <div class="container" style="align-items: center;justify-content: center;width: 500px;">
                 <div class="wardrobe">
                     <div class="front" style="z-index: 4;">
                         <div class="door"></div>
@@ -382,6 +383,7 @@
     margin-top: 20%;
     flex-direction: row;
 ">
+			 <!--POST로 보내기 -->
  <form method="post" class="form-inline" action="/search_cloth_result" style="
     flex-direction: row;
     width: 100%;
@@ -404,6 +406,7 @@
                                     <div class="mdc-notched-outline__leading"></div>
                                     <div class="mdc-notched-outline__notch" style="">
 					<!-- 별명으로 옷 찾는 기능 -->
+					     <!--Google Material Design 입력폼 api사용-->
                                         <label for="demo-mdc-text-field" class="mdc-floating-label mdc-floating-label--required" style="top: 30%; font-size: 11px; font-family: &quot;IBM Plex Sans KR&quot;, sans-serif;">옷
                                             별명을 입력하세요</label>
 
