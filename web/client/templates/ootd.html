@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <!--ootd 페이지. 나갈때 착용한 옷 사진 찍거나, 주간 리포트로 이동 가능한 페이지 -->
+
 <style>
+	
+	<!--로딩페이지 -->
 		body {
 		  background-color: #222;
 		}
@@ -171,6 +174,7 @@
 
 	</head>
 	<body>
+		<!--로딩페이지-->
 	<div id="loading-wrapper"style="
 								background-color: BLACK;
 								z-index: 10;
@@ -222,6 +226,7 @@
 				<form method="post" action="{{ url_for('fashion', isUpload=False, isAdd=False) }}" style="display: flex;
     																										flex-direction: column;">
 					<img src="{{ url_for('video_feed') }}">
+					<!--onClick하면 로딩페이지로 화면 전환-->
 						<input type="submit" onClick="$('#loading-wrapper').css('display', 'block');" value="촬영"
 						   style="border: transparent; border-radius: 7px; background-color:lightgrey;" name="click"/>
 
@@ -281,6 +286,8 @@
 	<script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 	<script>
+		
+		<!--사진 업로드 구현-->
 		$(document).ready(function(){
 			$("#submit").click(function(){
 				if(!$("#FILE").val()) {
