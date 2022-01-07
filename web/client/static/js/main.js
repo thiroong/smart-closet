@@ -1,21 +1,10 @@
+// 메인 JS 
 
 ;(function () {
 
 	'use strict';
 
-	// iPad and iPod detection
-	var isiPad = function(){
-		return (navigator.platform.indexOf("iPad") != -1);
-	};
-
-	var isiPhone = function(){
-	    return (
-			(navigator.platform.indexOf("iPhone") != -1) ||
-			(navigator.platform.indexOf("iPod") != -1)
-	    );
-	};
-
-
+// 페이지 높이 
 	var fullHeight = function() {
 
 		$('.js-fullheight').css('height', $(window).height());
@@ -25,7 +14,7 @@
 
 	};
 
-
+// 메뉴바
 	var burgerMenu = function() {
 
 		$('.js-fh5co-nav-toggle').on('click', function(event) {
@@ -44,8 +33,7 @@
 	};
 
 
-	// Animations
-
+// 페이지 올라오는 효과
 	var contentWayPoint = function() {
 		var i = 0;
 		$('.animate-box').waypoint( function( direction ) {
@@ -115,7 +103,7 @@
 	};
 
 
-	// Document on load.
+//	메인 function 에 Google Material Design 추가(closet.html 검색창효과, setting.html 옷장 호버 효과) 
 	$(function(){
 		fullHeight();
 		burgerMenu();
